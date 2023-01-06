@@ -11,15 +11,18 @@ export default function CippDatatable({ path, params, ...rest }) {
     isFetching,
     error,
   } = useListDatatableQuery({ path, params: { refreshGuid, ...params } })
-  return (
-    <CippTable
-      {...rest}
-      data={data}
-      isFetching={isFetching}
-      error={error}
-      refreshFunction={setRefreshGuid}
-    />
-  )
+  if (data) { 
+    return (
+      <CippTable
+        {...rest}
+        data={data}
+        isFetching={isFetching}
+        error={error}
+        refreshFunction={setRefreshGuid}
+      />
+    )
+  } 
+  return <text>No data found for this customer.</text>
 }
 
 CippDatatable.propTypes = {
