@@ -32,6 +32,37 @@ const AlertWizard = React.lazy(() => import('src/views/tenant/administration/Ale
 const AlertsQueue = React.lazy(() => import('src/views/tenant/administration/ListAlertsQueue'))
 const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/GraphExplorer'))
 
+//ratel stuff
+const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
+const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
+const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
+const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
+const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
+const EditDialplan = React.lazy(() => import('src/views/ratel/administration/EditDialplan'))
+const RatelAddDid = React.lazy(() => import('src/views/ratel/administration/RatelAddDid'))
+const RatelVariables = React.lazy(() => import('src/views/ratel/administration/variables'))
+const EditVariable = React.lazy(() => import('src/views/ratel/administration/EditVariable'))
+const RatelAddVariable = React.lazy(() => import('src/views/ratel/administration/RatelAddVariable'))
+const RatelTroubleshooting = React.lazy(() =>
+  import('src/views/ratel/administration/troubleshooting'),
+)
+const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
+const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
+const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
+const RatelPhonebookEditor = React.lazy(() =>
+  import('src/views/ratel/administration/PhonebookEditor'),
+)
+
+//passworder
+const GeneratePasswords = React.lazy(() => import('src/views/passworder/GeneratePasswords'))
+const ContactPasswords = React.lazy(() => import('src/views/passworder/ContactPassword'))
+const ChangePassword = React.lazy(() => import('src/views/passworder/ChangePassword'))
+
+//lt scripts
+const LtScripts = React.lazy(() => import('src/views/scripts/scripts'))
+const ScheduleScript = React.lazy(() => import('src/views/scripts/ScheduleScript'))
+const NewScript = React.lazy(() => import('src/views/scripts/NewScript'))
+
 const Domains = React.lazy(() => import('src/views/tenant/administration/Domains'))
 const EditTenant = React.lazy(() => import('src/views/tenant/administration/EditTenant'))
 const ConditionalAccess = React.lazy(() => import('src/views/tenant/conditional/ConditionalAccess'))
@@ -278,6 +309,65 @@ const routes = [
     name: 'AAD Connect Report',
     component: AzureADConnectReport,
   },
+  //ratel stuff
+  { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
+  { path: '/ratel/administration/devices/edit', name: 'Edit Device', component: EditDevice },
+  {
+    path: '/ratel/administration/devices/add',
+    name: 'Add RATEL Device',
+    component: RatelAddDevice,
+  },
+  {
+    path: 'ratel/administration/devices/changeLabel',
+    name: 'Change Device Label',
+    component: ChangeDeviceLabel,
+  },
+  { path: '/ratel/administration/dids', name: 'RATEL DIDs', component: RatelDIDs },
+  { path: '/ratel/administration/dids/editDialplan', name: 'Edit DID', component: EditDialplan },
+  { path: '/rate/administration/dids/add', name: 'Add RATEL DID', component: RatelAddDid },
+  { path: '/ratel/administration/variables', name: 'RATEL Variables', component: RatelVariables },
+  { path: '/ratel/administration/variables/edit', name: 'Edit Variable', component: EditVariable },
+  {
+    path: '/ratel/administration/variables/add',
+    name: 'Add RATEL Variable',
+    component: RatelAddVariable,
+  },
+  {
+    path: '/ratel/administration/troubleshooting',
+    name: 'Troubleshoot RATEL Issues',
+    component: RatelTroubleshooting,
+  },
+  {
+    path: '/ratel/administration/mailboxes',
+    name: 'RATEL Voicemail boxes',
+    component: RatelMailboxes,
+  },
+  {
+    path: '/ratel/administration/pagingGroups',
+    name: 'RATEL Paging Groups',
+    component: RatelPagingGroups,
+  },
+  {
+    path: '/ratel/administration/callBlocking',
+    name: 'RATEL Paging Groups',
+    component: RatelCallBlocking,
+  },
+  {
+    path: '/ratel/administration/phonebookEditor',
+    name: 'RATEL Paging Groups',
+    component: RatelPhonebookEditor,
+  },
+
+  //passworder
+  { path: 'passworder/generate', name: 'Generate Passwords', component: GeneratePasswords },
+  { path: 'passworder/contact-passwords', name: 'Contact Passwords', component: ContactPasswords },
+  { path: 'passworder/change-password', name: 'Change Password', component: ChangePassword },
+
+  //lt scripts
+  { path: 'scripts/list', name: 'Enhanced Labtech Scripts', component: LtScripts },
+  { path: 'scripts/schedule', name: 'Schedule Enhanced Labtech Script', component: ScheduleScript },
+  { path: 'scripts/new', name: 'Add Enhanced Labtech Script', component: NewScript },
+
   { path: '/tenant', name: 'Tenant' },
   { path: '/tenant/administration', name: 'Administration' },
   { path: '/tenant/administration/tenants', name: 'Tenants', component: Tenants },

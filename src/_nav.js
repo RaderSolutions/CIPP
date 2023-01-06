@@ -16,6 +16,9 @@ import {
   faKey,
   faBus,
   faExclamationTriangle,
+  faPhone,
+  faLock,
+  faScroll,
   faUserShield,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons'
@@ -27,6 +30,97 @@ const _nav = [
     section: 'Dashboard',
     to: '/home',
     icon: <FontAwesomeIcon icon={faHome} className="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'PORTAL 2 Applications',
+  },
+  {
+    component: CNavGroup,
+    name: 'RATEL',
+    section: 'RATEL',
+    to: '/ratel/administration',
+    icon: <FontAwesomeIcon icon={faPhone} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Devices',
+        to: '/ratel/administration/devices',
+      },
+      {
+        component: CNavItem,
+        name: 'DIDs',
+        to: '/ratel/administration/DIDs',
+      },
+      {
+        component: CNavItem,
+        name: 'Voicemail Boxes',
+        to: '/ratel/administration/mailboxes',
+      },
+      {
+        component: CNavItem,
+        name: 'Phonebook Editor',
+        to: '/ratel/administration/phonebookEditor',
+      },
+      {
+        component: CNavItem,
+        name: 'Variables',
+        to: '/ratel/administration/variables',
+      },
+      {
+        component: CNavItem,
+        name: 'Troubleshooting',
+        to: '/ratel/administration/troubleshooting',
+      },
+      {
+        component: CNavItem,
+        name: 'Paging Groups',
+        to: '/ratel/administration/pagingGroups',
+      },
+      {
+        component: CNavItem,
+        name: 'Call Blocking',
+        to: '/ratel/administration/callBlocking',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Passworder',
+    to: '/passworder',
+    section: 'Passworder',
+    icon: <FontAwesomeIcon icon={faLock} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Generate Passwords',
+        to: '/passworder/generate',
+      },
+      {
+        component: CNavItem,
+        name: 'Contact Passwords',
+        to: '/passworder/contact-passwords',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Enhanced Labtech Scripts',
+    to: '/scripts',
+    section: 'LtScripts',
+    icon: <FontAwesomeIcon icon={faScroll} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'View Scripts',
+        to: '/scripts/list',
+      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Contact Passwords',
+      //   to: '/passworder/contact-passwords',
+      // },
+    ],
   },
   {
     component: CNavTitle,

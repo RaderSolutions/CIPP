@@ -11,7 +11,7 @@ export default function CippDatatable({ path, params, ...rest }) {
     isFetching,
     error,
   } = useListDatatableQuery({ path, params: { refreshGuid, ...params } })
-  if (data) { 
+  if (data) {
     return (
       <CippTable
         {...rest}
@@ -21,7 +21,7 @@ export default function CippDatatable({ path, params, ...rest }) {
         refreshFunction={setRefreshGuid}
       />
     )
-  } 
+  }
   return <text>No data found for this customer.</text>
 }
 
