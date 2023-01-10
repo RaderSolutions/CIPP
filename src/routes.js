@@ -48,6 +48,7 @@ const RatelTroubleshooting = React.lazy(() =>
 )
 const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
 const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
+const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
 const RatelPhonebookEditor = React.lazy(() =>
   import('src/views/ratel/administration/PhonebookEditor'),
@@ -346,6 +347,11 @@ const routes = [
     path: '/ratel/administration/pagingGroups',
     name: 'RATEL Paging Groups',
     component: RatelPagingGroups,
+  },
+  {
+    path: '/ratel/administration/pickupGroups',
+    name: 'RATEL Pickup Groups',
+    component: RatelPickupGroups,
   },
   {
     path: '/ratel/administration/callBlocking',
