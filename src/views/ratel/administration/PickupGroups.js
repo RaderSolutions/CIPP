@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -42,7 +42,14 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             link: editLink,
             color: 'info',
           },
-        {
+          {
+            label: 'Remove Member from Pickup group',
+            color: 'info',
+            modal: true,
+            modalUrl: `TODO`,
+            modalMessage: 'Are you sure you want to remove this member from the pickup group?',
+          },
+          {
             label: 'Hide from Phonebook',
             color: 'info',
             modal: true,
@@ -112,12 +119,14 @@ const columns = [
   {
     name: 'Actions',
     cell: Offcanvas,
-  }
+  },
 ]
 
 const PickupGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addPickupGroupButton = <TitleButton href="ratel/administration/pickupgroups/add" title="Add Pickup Group" />
+  const addPickupGroupButton = (
+    <TitleButton href="ratel/administration/pickupgroups/add" title="Add Pickup Group" />
+  )
   return (
     <CippPageList
       title="Pickup Groups"
