@@ -25,43 +25,20 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         <FontAwesomeIcon icon={faEllipsisV} />
       </CButton>
       <CippActionsOffcanvas
-        title="Group Information"
+        title="Pickup Groups"
         extendedInfo={[
           { label: 'Extension', value: `${row.Extension}` },
-          { label: 'Pickup Group', value: `${row.PickupGroupName}` },
-          { label: 'Device Id', value: `${row.DeviceId}` },
-          { label: 'Device Ext', value: `${row.DeviceExt}` },
-          { label: 'User', value: `${row.User}` },
-          { label: 'Location', value: `${row.Location}` },
-          { label: 'Hide from PB', value: `${row.HideFromPB}` },
+          { label: 'Groups', value: `${row.Groups}` },
+          { label: 'Type', value: `${row.Type}` },
+         
         ]}
         actions={[
-          {
-            icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
-            label: 'Add Member to Pickup group',
-            link: editLink,
-            color: 'info',
-          },
           {
             label: 'Remove Member from Pickup group',
             color: 'info',
             modal: true,
             modalUrl: `TODO`,
             modalMessage: 'Are you sure you want to remove this member from the pickup group?',
-          },
-          {
-            label: 'Hide from Phonebook',
-            color: 'info',
-            modal: true,
-            modalUrl: `TODO`,
-            modalMessage: 'Are you sure you want to hide/unhide this pickup group?',
-          },
-          {
-            label: 'Delete Pickup Group',
-            color: 'info',
-            modal: true,
-            modalUrl: `TODO`,
-            modalMessage: 'Are you sure you want to delete this pickup group?',
           },
         ]}
         placement="end"
@@ -81,41 +58,18 @@ const columns = [
     exportSelector: 'Extension',
   },
   {
-    name: 'Pickup Group',
-    selector: (row) => row['PickupGroupName'],
+    name: 'Groups',
+    selector: (row) => row['Groups'],
     sortable: true,
-    exportSelector: 'Pickup Group',
+    exportSelector: 'Groups',
   },
   {
-    name: 'Device Id',
-    selector: (row) => row['DeviceId'],
+    name: 'Type',
+    selector: (row) => row['Type'],
     sortable: true,
     exportSelector: 'DeviceId',
   },
-  {
-    name: 'Device Ext',
-    selector: (row) => row['DeviceExt'],
-    sortable: true,
-    exportSelector: 'DeviceExt',
-  },
-  {
-    name: 'User',
-    selector: (row) => row['User'],
-    sortable: true,
-    exportSelector: 'User',
-  },
-  {
-    name: 'Location',
-    selector: (row) => row['Location'],
-    sortable: true,
-    exportSelector: 'Location',
-  },
-  {
-    name: 'Hide from PB',
-    selector: (row) => row['HideFromPB'],
-    sortable: true,
-    exportSelector: 'HideFromPB',
-  },
+
   {
     name: 'Actions',
     cell: Offcanvas,
