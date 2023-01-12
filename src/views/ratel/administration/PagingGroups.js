@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -42,7 +42,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             link: editLink,
             color: 'info',
           },
-        {
+          {
             label: 'Hide from Phonebook',
             color: 'info',
             modal: true,
@@ -112,12 +112,14 @@ const columns = [
   {
     name: 'Actions',
     cell: Offcanvas,
-  }
+  },
 ]
 
 const PagingGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addPagingGroupButton = <TitleButton href="ratel/administration/paginggroups/add" title="Add Paging Group" />
+  const addPagingGroupButton = (
+    <TitleButton href="ratel/administration/paginggroups/add" title="Add Paging Group" />
+  )
   return (
     <CippPageList
       title="Paging Groups"
