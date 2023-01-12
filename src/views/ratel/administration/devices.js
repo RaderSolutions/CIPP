@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,12 +9,10 @@ import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
 
-
-
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const deviceType = row.ContactID ? "User" : "Generic"
+  const deviceType = row.ContactID ? 'User' : 'Generic'
   const editLink = `/ratel/administration/devices/edit?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`
   const changeLabelLink = `/ratel/administration/devices/changeLabel?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`
   //console.log(row)
@@ -178,43 +176,41 @@ const columns = [
   {
     name: 'Actions',
     cell: Offcanvas,
-  }
+  },
 ]
 
 const DevicesList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addUserDeviceButton = <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
+  const addUserDeviceButton = (
+    <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
+  )
 
   return (
     <>
-    <Link to={`api/LtScheduleScript?RatelScript=true&TenantFilter=${tenant.customerId}&ScriptId=7364`}>
-    <CButton size="sm" variant="ghost" color="warning" >
-          Run Rebuild BLF Script
-        </CButton>
-        </Link>
-        <Link to={`api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
+      <Link to={`api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
         <CButton size="sm" variant="ghost" color="warning">
           Reconfigure All Phones
         </CButton>
-        </Link>
-        {/* <Link>
+      </Link>
+      {/* <Link>
         <CButton size="sm" variant="ghost" color="warning">
           Run Script to Process Pending Device Updates
         </CButton>
         </Link> */}
-        <br/><br/>
+      <br />
+      <br />
 
-    <CippPageList
-      title="Devices"
-      titleButton={addUserDeviceButton}
-      datatable={{
-        keyField: 'id',
-        columns,
-        reportName: `${tenant.customerId}-RATEL-Devices-List`,
-        path: '/api/LtListRatelDevices',
-        params: { TenantFilter: tenant?.customerId },
-      }}
-    />
+      <CippPageList
+        title="Devices"
+        titleButton={addUserDeviceButton}
+        datatable={{
+          keyField: 'id',
+          columns,
+          reportName: `${tenant.customerId}-RATEL-Devices-List`,
+          path: '/api/LtListRatelDevices',
+          params: { TenantFilter: tenant?.customerId },
+        }}
+      />
     </>
   )
 }
