@@ -79,6 +79,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Pickup Groups',
+        to: '/ratel/administration/pickupGroups',
+      },
+      {
+        component: CNavItem,
         name: 'Call Blocking',
         to: '/ratel/administration/callBlocking',
       },
