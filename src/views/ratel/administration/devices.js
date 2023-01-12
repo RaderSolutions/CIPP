@@ -186,6 +186,7 @@ const DevicesList = () => {
   )
 
   return (
+    
     <>
       <Link to={`api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
         <CButton size="sm" variant="ghost" color="warning">
