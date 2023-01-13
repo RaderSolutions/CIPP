@@ -84,7 +84,7 @@ const PickupGroupsList = () => {
   return (
     <CippPageList
       title="Pickup Groups"
-      TitleButton={addPickupGroupButton}
+      titleButton={addPickupGroupButton}
       datatable={{
         keyField: 'Extension',
         columns,
