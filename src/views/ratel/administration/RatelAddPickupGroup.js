@@ -81,6 +81,15 @@ const AddPickupGroup = () => {
                 //disabled={formDIsabled}
               />
             </CCol>
+            {/* TODO: discuss w SW */}
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="Groups"
+                label="Groups"
+                //disabled={formDIsabled}
+              />
+            </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 name="Type"
