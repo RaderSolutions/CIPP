@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
-import { CCallout, CCol, CFormSelect, CRow, CSpinner } from '@coreui/react'
+import React from 'react'
+import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
@@ -9,13 +9,6 @@ import PropTypes from 'prop-types'
 import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
-import {
-  useListDeviceLocationsQuery,
-  useListDeviceContactsQuery,
-  useListDeviceModelsQuery,
-} from 'src/store/api/ratelDevices'
-import { useListDidsQuery } from 'src/store/api/ratelDids'
-
 import { useSelector } from 'react-redux'
 
 // const Error = ({ name }) => (
@@ -39,18 +32,7 @@ import { useSelector } from 'react-redux'
 
 const AddPickupGroup = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const [formFields, setFormFields] = useState(<></>)
-  const [deviceType, setDeviceType] = useState('Generic')
-  const [dialplanType, setDialplanType] = useState('Default')
-  const [callerIdType, setCallerIdType] = useState('Default')
-  const [callerIdField, setCallerIdField] = useState(<></>)
-  const [dialplanField] = useState(
-    <>
-      <CRow>
-        <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
-      </CRow>
-    </>,
-  )
+
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const handleSubmit = async (values) => {

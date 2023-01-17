@@ -79,7 +79,7 @@ const columns = [
 const PickupGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addPickupGroupButton = (
-    <TitleButton href="ratel/administration/PickupGroups/add" title="Add Pickup Group" />
+    <TitleButton href="/ratel/administration/PickupGroups/add" title="Add Pickup Group" />
   )
   return (
     <CippPageList
