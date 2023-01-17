@@ -319,6 +319,11 @@ const routes = [
     component: RatelAddDevice,
   },
   {
+    path: '/ratel/administration/PickupGroups/add',
+    name: 'Add Pickup Group',
+    component: RatelAddPickupGroup,
+  },
+  {
     path: 'ratel/administration/devices/changeLabel',
     name: 'Change Device Label',
     component: ChangeDeviceLabel,
