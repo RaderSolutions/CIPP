@@ -34,9 +34,12 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 
 //ratel stuff
 const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
+const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
-const RatelAddPickupGroup = React.lazy(() => import('src/views/ratel/administration/RatelAddPickupGroups'))
+const RatelAddPickupGroup = React.lazy(() =>
+  import('src/views/ratel/administration/RatelAddPickupGroup'),
+)
 const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
 const EditDialplan = React.lazy(() => import('src/views/ratel/administration/EditDialplan'))
@@ -49,7 +52,7 @@ const RatelTroubleshooting = React.lazy(() =>
 )
 const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
 const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
-const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
+
 const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
 const RatelPhonebookEditor = React.lazy(() =>
   import('src/views/ratel/administration/PhonebookEditor'),
