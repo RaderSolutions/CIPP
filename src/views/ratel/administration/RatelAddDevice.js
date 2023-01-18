@@ -418,47 +418,49 @@ const AddRatelDevice = () => {
         <hr className="my-4" />
         <div className="mb-2"></div>
         <br></br>
-        <CRow>
-          <CCol lg={6} xs={12}>
-            <RFFCFormSelect
-              type="text"
-              name="SelectDeviceType"
-              label="Select Device Type:"
-              placeholder="Select an option"
-              values={[
-                { value: 'Generic', label: 'Generic' },
-                { value: 'User', label: 'User' },
-              ]}
-              //disabled={formDIsabled}
-            />
-          </CCol>
-          <CCol lg={6} xs={12}>
-            <RFFCFormSelect
-              type="text"
-              name="SelectDialplanType"
-              label="Select Dialplan Type:"
-              placeholder="Select an option"
-              values={[
-                { value: 'Default', label: 'Default' },
-                { value: 'Custom', label: 'Custom' },
-              ]}
-              //disabled={formDIsabled}
-            />
-          </CCol>
-          <CCol lg={6} xs={12}>
-            <RFFCFormSelect
-              type="text"
-              name="SelectCallerIDType"
-              label="Select CallerID Type:"
-              placeholder="Select an option"
-              values={[
-                { value: 'Default', label: 'Default' },
-                { value: 'Custom', label: 'Custom' },
-              ]}
-              //disabled={formDIsabled}
-            />
-          </CCol>
-        </CRow>
+        <center>
+          <CRow>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                type="text"
+                name="SelectDeviceType"
+                label="Select Device Type:"
+                placeholder="Select an option"
+                values={[
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                type="text"
+                name="SelectDialplanType"
+                label="Select Dialplan Type:"
+                placeholder="Select an option"
+                values={[
+                  { value: 'Default', label: 'Default' },
+                  { value: 'Custom', label: 'Custom' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                type="text"
+                name="SelectCallerIDType"
+                label="Select CallerID Type:"
+                placeholder="Select an option"
+                values={[
+                  { value: 'Default', label: 'Default' },
+                  { value: 'Custom', label: 'Custom' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+          </CRow>
+        </center>
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="Device Information" description="Enter the device information">
