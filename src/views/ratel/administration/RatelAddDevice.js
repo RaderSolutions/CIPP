@@ -432,8 +432,6 @@ const AddRatelDevice = () => {
               //disabled={formDIsabled}
             />
           </CCol>
-        </CRow>
-        <CRow>
           <CCol lg={6} xs={12}>
             <RFFCFormSelect
               type="text"
@@ -447,8 +445,6 @@ const AddRatelDevice = () => {
               //disabled={formDIsabled}
             />
           </CCol>
-        </CRow>
-        <CRow>
           <CCol lg={6} xs={12}>
             <RFFCFormSelect
               type="text"
@@ -463,7 +459,6 @@ const AddRatelDevice = () => {
             />
           </CCol>
         </CRow>
-
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="Device Information" description="Enter the device information">
