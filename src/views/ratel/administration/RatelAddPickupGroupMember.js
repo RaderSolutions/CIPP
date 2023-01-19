@@ -63,8 +63,8 @@ const AddPickupGroupMember = () => {
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page
-        title="Pickup Group Information"
-        description="Enter the pickup group information"
+        title="Pickup Group Member Information"
+        description="Enter the pickup group member information"
       >
         <center>
           <h3 className="text-primary">Step 2</h3>
