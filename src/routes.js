@@ -325,7 +325,7 @@ const routes = [
     component: RatelAddDevice,
   },
   {
-    path: '/ratel/administration/pickupgroups/add',
+    path: '/ratel/administration/pickupgroups/addMember',
     name: 'Add Pickup Group',
     component: RatelAddPickupGroupMember,
   },
