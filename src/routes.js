@@ -318,7 +318,7 @@ const routes = [
   //ratel stuff
   { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
   { path: '/ratel/administration/devices/edit', name: 'Edit Device', component: EditDevice },
-  { path: 'ratel/administration/members/edit', name: 'Edit Member', component: EditMember},
+  { path: 'ratel/administration/members/edit', name: 'Edit Member', component: EditMember },
   {
     path: '/ratel/administration/devices/add',
     name: 'Add RATEL Device',

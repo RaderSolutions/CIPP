@@ -70,3 +70,5 @@ const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
     </CippPage>
   )
 }
+
+export default EditMember
