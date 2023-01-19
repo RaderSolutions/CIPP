@@ -38,8 +38,8 @@ const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administratio
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditMember = React.lazy(() => import('src/views/ratel/administration/EditMember'))
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
-const RatelAddPickupGroup = React.lazy(() =>
-  import('src/views/ratel/administration/RatelAddPickupGroup'),
+const RatelAddPickupGroupMember = React.lazy(() =>
+  import('src/views/ratel/administration/RatelAddPickupGroupMember'),
 )
 const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
@@ -327,7 +327,7 @@ const routes = [
   {
     path: '/ratel/administration/pickupgroups/add',
     name: 'Add Pickup Group',
-    component: RatelAddPickupGroup,
+    component: RatelAddPickupGroupMember,
   },
   {
     path: 'ratel/administration/pickupgroups/editMember',

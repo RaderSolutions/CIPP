@@ -30,7 +30,7 @@ import { useSelector } from 'react-redux'
 //   name: PropTypes.string.isRequired,
 // }
 
-const AddPickupGroup = () => {
+const AddPickupGroupMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -125,4 +125,4 @@ const AddPickupGroup = () => {
   )
 }
 
-export default AddPickupGroup
+export default AddPickupGroupMember
