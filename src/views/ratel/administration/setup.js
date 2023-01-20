@@ -78,7 +78,7 @@ const DialplanList = () => {
         keyField: 'Extension',
         columns,
         reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-        path: '/api/LtListRatelDialplans',
+        path: '/api/LtListRatelInternalDialplans',
         params: { TenantFilter: tenant?.customerId },
       }}
     />
