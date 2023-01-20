@@ -74,7 +74,7 @@ const DialplanList = () => {
     return (
       <CippPageList
         title="Pickup Groups"
-        titleButton={addNewDialplan}
+        // titleButton={addNewDialplan}
         datatable={{
           keyField: 'Extension',
           columns,
