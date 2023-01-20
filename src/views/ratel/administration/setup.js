@@ -10,39 +10,42 @@ import { CippActionsOffcanvas } from 'src/components/utilities'
 // import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row) => {
-  const [ocVisible, setOCVisible] = useState(false);
-  <>
-    <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
+  const [ocVisible, setOCVisible] = useState(false)
+  return (
+    <>
+      <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
         <FontAwesomeIcon icon={faEllipsisV} />
       </CButton>
-  <CippActionsOffcanvas
-    title="Pickup Groups"
-    extendedInfo={[
-      { label: 'Name', value: `${row.Name}` },
-      { label: 'Description', value: `${row.Description}` },
-      { label: 'Dialplan', value: `${row.Dialplan}` },
-    ]}
-    actions={[
-      {
-        label: 'Edit Dialplan',
-        color: 'info',
-        modal: true,
-        modalUrl: `TODO`,
-        // modalMessage: '',
-      },
-      {
-        label: 'Delete Dialplan',
-        modal: true,
-        modalUrl: `TODO`,
-        modalMessage: 'Are you sure you want to delete this dialplan?',
-      },
-    ]}
-    placement="end"
-    visible={ocVisible}
-    id={row.Number}
-    hideFunction={() => setOCVisible(false)}
-  />
-  </>
+      <CippActionsOffcanvas
+        title="Pickup Groups"
+        extendedInfo={[
+          { label: 'Name', value: `${row.Name}` },
+          { label: 'Description', value: `${row.Description}` },
+          { label: 'Dialplan', value: `${row.Dialplan}` },
+        ]}
+        actions={[
+          {
+            label: 'Edit Dialplan',
+            color: 'info',
+            modal: true,
+            modalUrl: `TODO`,
+            // modalMessage: '',
+          },
+          {
+            label: 'Delete Dialplan',
+            color: 'info',
+            modal: true,
+            modalUrl: `TODO`,
+            modalMessage: 'Are you sure you want to delete this dialplan?',
+          },
+        ]}
+        placement="end"
+        visible={ocVisible}
+        id={row.Number}
+        hideFunction={() => setOCVisible(false)}
+      />
+    </>
+  )
 }
 
 const columns = [
@@ -77,17 +80,17 @@ const DialplanList = () => {
   // )
   return (
     <>
-    <CippPageList
-      title="Current Internal Dialplans"
-      // titleButton={addNewDialplan}
-      datatable={{
-        keyField: 'Extension',
-        columns,
-        reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-        path: '/api/LtListRatelInternalDialplans',
-        params: { TenantFilter: tenant?.customerId },
-      }}
-    />
+      <CippPageList
+        title="Current Internal Dialplans"
+        // titleButton={addNewDialplan}
+        datatable={{
+          keyField: 'Extension',
+          columns,
+          reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+          path: '/api/LtListRatelInternalDialplans',
+          params: { TenantFilter: tenant?.customerId },
+        }}
+      />
     </>
   )
 }
