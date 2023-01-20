@@ -69,6 +69,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Ratel Setup',
+        to: '/ratel/administration/setup',
+      },
+      {
+        component: CNavItem,
         name: 'Troubleshooting',
         to: '/ratel/administration/troubleshooting',
       },
