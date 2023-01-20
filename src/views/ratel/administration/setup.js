@@ -1,15 +1,20 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-// import { CButton } from '@coreui/react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { CButton } from '@coreui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row) => {
+  const [ocVisible, setOCVisible] = useState(false);
+  <>
+    <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
+        <FontAwesomeIcon icon={faEllipsisV} />
+      </CButton>
   <CippActionsOffcanvas
     title="Pickup Groups"
     extendedInfo={[
@@ -37,6 +42,7 @@ const Offcanvas = (row) => {
     id={row.Number}
     hideFunction={() => setOCVisible(false)}
   />
+  </>
 }
 
 const columns = [
