@@ -13,7 +13,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/pickupgroups/editMember?tenantDomain=${tenant.customerId}`
-  
+
   return (
     <>
       <Link to={editLink}>
@@ -30,7 +30,6 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
           { label: 'Extension', value: `${row.Extension}` },
           { label: 'Groups', value: `${row.Groups}` },
           { label: 'Type', value: `${row.Type}` },
-         
         ]}
         actions={[
           {
@@ -69,7 +68,6 @@ const columns = [
     sortable: true,
     exportSelector: 'DeviceId',
   },
-
   {
     name: 'Actions',
     cell: Offcanvas,
@@ -79,7 +77,10 @@ const columns = [
 const PickupGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addPickupGroupMemberButton = (
-    <TitleButton href="/ratel/administration/pickupgroups/addMember" title="Add Pickup Group Member" />
+    <TitleButton
+      href="/ratel/administration/pickupgroups/addMember"
+      title="Add Pickup Group Member"
+    />
   )
   return (
     <CippPageList
