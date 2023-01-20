@@ -10,7 +10,7 @@ import { CippActionsOffcanvas } from 'src/components/utilities'
 // import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row) => {
-  ;<CippActionsOffcanvas
+  <CippActionsOffcanvas
     title="Pickup Groups"
     extendedInfo={[
       { label: 'Name', value: `${row.Name}` },
