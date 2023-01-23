@@ -80,6 +80,12 @@ const DialplanList = () => {
   // )
   return (
     <>
+     <Link >
+    <CButton size="sm" variant="ghost" color="warning" >
+          Reboot Server When No Calls Are Active
+        </CButton>
+        </Link>
+        <br></br>
       <CippPageList
         title="Current Internal Dialplans"
         // titleButton={addNewDialplan}
