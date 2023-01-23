@@ -38,7 +38,7 @@ const Offcanvas = (row) => {
         extendedInfo={[
           { label: 'Name', value: `${row.Name}` },
           { label: 'Description', value: `${row.Description}` },
-          { label: 'Dialplan', value: `${row.dialplan_data}` },
+          { label: 'Dialplan', value: `${row.Dialplan}` },
         ]}
         actions={[
           {
@@ -90,8 +90,6 @@ const columns = [
   },
 ]
 
-const children = []
-
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   // const addNewDialplan = (
@@ -101,11 +99,11 @@ const DialplanList = () => {
     <>
       <CRow>
         <CCol>
-          <Link to={'/#'}>
+          {/* <Link to={'/#'}> */}
             <CButton size="sm" variant="ghost" color="warning">
               Reboot Server When No Calls Are Active
             </CButton>
-          </Link>
+          {/* </Link> */}
           <Link>
             <CButton size="sm" variant="ghost" color="warning">
               Force Resync Of All Phones
