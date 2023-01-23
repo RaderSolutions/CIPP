@@ -142,9 +142,10 @@ const DialplanList = () => {
       </CRow>
       <CRow>
         <CCol>
-          <div style={{'max-width': '50%'}}>
+          <div>
           <CippPageList
             title="Current Internal Dialplans"
+            style={{'max-width': '50%'}}
             // titleButton={addNewDialplan}
             datatable={{
               // keyField: 'Extension',
