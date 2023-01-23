@@ -46,7 +46,7 @@ export default function RatelInputActionContentCard({
   )
 }
 
-ActionContentCard.propTypes = {
+RatelInputActionContentCard.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.object,
   content: PropTypes.arrayOf(
