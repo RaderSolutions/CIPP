@@ -112,16 +112,21 @@ const DialplanList = () => {
         </CCol>
         <CCol>
           <h4>License Keys</h4>
-          <label for="test">test label</label>
-          <input type="text" name="test" />
-
-          <CButton size="sm" variant="ghost" color="warning">
-            Apply FOP License
-          </CButton>
-          {/* <CInput type="text" name="Did" label="DPMA:" /> */}
-          <CButton size="sm" variant="ghost" color="warning">
-            Save DPMA License Key
-          </CButton>
+          <CRow>
+            {' '}
+            <label for="test">FOP:</label>
+            <input type="text" name="test" />
+            <CButton size="sm" variant="ghost" color="warning">
+              Apply FOP License
+            </CButton>
+          </CRow>
+          <CRow>
+            <label for="test">DPMA:</label>
+            <input type="text" name="test" />
+            <CButton size="sm" variant="ghost" color="warning">
+              Save DPMA License Key
+            </CButton>
+          </CRow>
         </CCol>
       </CRow>
 
