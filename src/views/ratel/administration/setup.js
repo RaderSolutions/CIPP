@@ -89,6 +89,30 @@ const columns = [
   },
 ]
 
+const children = [
+  <CRow>
+  <CCol>
+  <Link>
+    <CButton size="sm" variant="ghost" color="warning">
+      Reboot Server When No Calls Are Active
+    </CButton>
+  </Link>
+  <Link>
+    <CButton size="sm" variant="ghost" color="warning">
+      Force Resync Of All Phones
+    </CButton>
+  </Link>
+  </CCol>
+  <CCol>
+    <ActionContentCard 
+    title="Installation"
+    content={installationContent}
+
+    />
+  </CCol>
+</CRow>
+]
+
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   // const addNewDialplan = (
@@ -96,31 +120,12 @@ const DialplanList = () => {
   // )
   return (
     <>
-      <CRow>
-        <CCol>
-        <Link>
-          <CButton size="sm" variant="ghost" color="warning">
-            Reboot Server When No Calls Are Active
-          </CButton>
-        </Link>
-        <Link>
-          <CButton size="sm" variant="ghost" color="warning">
-            Force Resync Of All Phones
-          </CButton>
-        </Link>
-        </CCol>
-        <CCol>
-          <ActionContentCard 
-          title="Installation"
-          content={installationContent}
-
-          />
-        </CCol>
-      </CRow>
+  
       <br></br>
       <CRow>
         <CippPageList
           title="Current Internal Dialplans"
+          children={children}
           // titleButton={addNewDialplan}
           datatable={{
             keyField: 'Extension',
