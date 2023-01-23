@@ -7,21 +7,22 @@ import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
 const installationContent = [
   {
-    link: "#",
-    label: "Set as Primary Ratel Host"
+    link: '#',
+    label: 'Set as Primary Ratel Host',
   },
   {
-    link: "#",
-    label: "Set as Alternate Ratel Host"
+    link: '#',
+    label: 'Set as Alternate Ratel Host',
   },
   {
-    link: "#",
-    label: "Install Asterisk"
+    link: '#',
+    label: 'Install Asterisk',
   },
 ]
 
@@ -89,29 +90,7 @@ const columns = [
   },
 ]
 
-const children = [
-  <CRow>
-  <CCol>
-  <Link>
-    <CButton size="sm" variant="ghost" color="warning">
-      Reboot Server When No Calls Are Active
-    </CButton>
-  </Link>
-  <Link>
-    <CButton size="sm" variant="ghost" color="warning">
-      Force Resync Of All Phones
-    </CButton>
-  </Link>
-  </CCol>
-  <CCol>
-    <ActionContentCard 
-    title="Installation"
-    content={installationContent}
-
-    />
-  </CCol>
-</CRow>
-]
+const children = []
 
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -120,12 +99,27 @@ const DialplanList = () => {
   // )
   return (
     <>
-  
+      <CRow>
+        <CCol>
+          <Link>
+            <CButton size="sm" variant="ghost" color="warning">
+              Reboot Server When No Calls Are Active
+            </CButton>
+          </Link>
+          <Link>
+            <CButton size="sm" variant="ghost" color="warning">
+              Force Resync Of All Phones
+            </CButton>
+          </Link>
+        </CCol>
+        <CCol>
+          <ActionContentCard title="Installation" content={installationContent} />
+        </CCol>
+      </CRow>
       <br></br>
       <CRow>
         <CippPageList
           title="Current Internal Dialplans"
-          children={children}
           // titleButton={addNewDialplan}
           datatable={{
             keyField: 'Extension',
