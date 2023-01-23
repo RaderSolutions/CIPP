@@ -1,13 +1,29 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { CButton } from '@coreui/react'
+import { CButton, CCol, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { CippPageList } from 'src/components/layout'
+import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
+import { ActionContentCard } from 'src/components/contentcards'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
+
+const installationContent = [
+  {
+    link: "#",
+    label: "Set as Primary Ratel Host"
+  },
+  {
+    link: "#",
+    label: "Set as Alternate Ratel Host"
+  },
+  {
+    link: "#",
+    label: "Install Asterisk"
+  },
+]
 
 const Offcanvas = (row) => {
   const [ocVisible, setOCVisible] = useState(false)
@@ -17,11 +33,11 @@ const Offcanvas = (row) => {
         <FontAwesomeIcon icon={faEllipsisV} />
       </CButton>
       <CippActionsOffcanvas
-        title="Pickup Groups"
+        title="Dialplans"
         extendedInfo={[
           { label: 'Name', value: `${row.Name}` },
           { label: 'Description', value: `${row.Description}` },
-          { label: 'Dialplan', value: `${row.Dialplan}` },
+          { label: 'Dialplan', value: `${row.dialplan_data}` },
         ]}
         actions={[
           {
@@ -80,23 +96,41 @@ const DialplanList = () => {
   // )
   return (
     <>
-     <Link >
-    <CButton size="sm" variant="ghost" color="warning" >
-          Reboot Server When No Calls Are Active
-        </CButton>
+      <CRow>
+        <CCol>
+        <Link>
+          <CButton size="sm" variant="ghost" color="warning">
+            Reboot Server When No Calls Are Active
+          </CButton>
         </Link>
-        <br></br>
-      <CippPageList
-        title="Current Internal Dialplans"
-        // titleButton={addNewDialplan}
-        datatable={{
-          keyField: 'Extension',
-          columns,
-          reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-          path: '/api/LtListRatelInternalDialplans',
-          params: { TenantFilter: tenant?.customerId },
-        }}
-      />
+        <Link>
+          <CButton size="sm" variant="ghost" color="warning">
+            Force Resync Of All Phones
+          </CButton>
+        </Link>
+        </CCol>
+        <CCol>
+          <ActionContentCard 
+          title="Installation"
+          content={installationContent}
+
+          />
+        </CCol>
+      </CRow>
+      <br></br>
+      <CRow>
+        <CippPageList
+          title="Current Internal Dialplans"
+          // titleButton={addNewDialplan}
+          datatable={{
+            keyField: 'Extension',
+            columns,
+            reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+            path: '/api/LtListRatelInternalDialplans',
+            params: { TenantFilter: tenant?.customerId },
+          }}
+        />
+      </CRow>
     </>
   )
 }
