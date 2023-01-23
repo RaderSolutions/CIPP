@@ -141,7 +141,8 @@ const DialplanList = () => {
         </CCol>
       </CRow>
       <CRow>
-        <CCol className='max-w-md'>
+        <CCol>
+          <div style={{'max-width': '50%'}}>
           <CippPageList
             title="Current Internal Dialplans"
             // titleButton={addNewDialplan}
@@ -153,6 +154,7 @@ const DialplanList = () => {
               params: { TenantFilter: tenant?.customerId },
             }}
           />
+          </div>
         </CCol>
       </CRow>
     </>
