@@ -29,16 +29,14 @@ const installationContent = [
 
 const licenseKeysContent = [
   <>
-    <form>
-      <RFFCFormInput type="text" name="fop" label="FOP" />
-      <CButton size="sm" variant="ghost" color="warning">
-        Apply FOP License (Script)
-      </CButton>
-      <RFFCFormInput type="text" name="dpma" label="DPMA" />
-      <CButton size="sm" variant="ghost" color="warning">
-        Save DPMA License Key
-      </CButton>
-    </form>
+    <RFFCFormInput type="text" name="fop" label="FOP" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Apply FOP License (Script)
+    </CButton>
+    <RFFCFormInput type="text" name="dpma" label="DPMA" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Save DPMA License Key
+    </CButton>
   </>,
 ]
 
@@ -128,7 +126,9 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
         <CCol>
-          <CippContentCard title="License Keys" children={licenseKeysContent} />
+          <form>
+            <CippContentCard title="License Keys" children={licenseKeysContent} />
+          </form>
         </CCol>
       </CRow>
 
