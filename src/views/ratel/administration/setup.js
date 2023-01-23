@@ -121,6 +121,24 @@ const DialplanList = () => {
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
+      </CRow>
+      <CRow>
+        <CCol>
+          <div>
+            <CippPageList
+              title="Current Internal Dialplans"
+              style={{ 'max-width': '50%' }}
+              // titleButton={addNewDialplan}
+              datatable={{
+                // keyField: 'Extension',
+                columns,
+                reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+                path: '/api/LtListRatelInternalDialplans',
+                params: { TenantFilter: tenant?.customerId },
+              }}
+            />
+          </div>
+        </CCol>
         <CCol>
           <h5>License Keys</h5>
           <CRow>
@@ -138,24 +156,6 @@ const DialplanList = () => {
               Save DPMA License Key
             </CButton>
           </CRow>
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol>
-          <div>
-          <CippPageList
-            title="Current Internal Dialplans"
-            style={{'max-width': '50%'}}
-            // titleButton={addNewDialplan}
-            datatable={{
-              // keyField: 'Extension',
-              columns,
-              reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-              path: '/api/LtListRatelInternalDialplans',
-              params: { TenantFilter: tenant?.customerId },
-            }}
-          />
-          </div>
         </CCol>
       </CRow>
     </>
