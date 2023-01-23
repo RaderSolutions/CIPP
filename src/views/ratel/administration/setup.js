@@ -114,7 +114,7 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
       </CRow>
-      <br></br>
+      {/* <br></br> */}
       <CRow>
         <CippPageList
           title="Current Internal Dialplans"
