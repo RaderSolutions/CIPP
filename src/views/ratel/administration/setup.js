@@ -8,6 +8,7 @@ import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
+import { RFFCFormInput } from 'src/components/forms'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
@@ -24,6 +25,19 @@ const installationContent = [
     link: '#',
     label: 'Install Asterisk',
   },
+]
+
+const licenseKeysContent = [
+  <>
+    <RFFCFormInput type="text" name="fop" label="FOP" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Apply FOP License (Script)
+    </CButton>
+    <RFFCFormInput type="text" name="dpma" label="DPMA" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Save DPMA License Key
+    </CButton>
+  </>,
 ]
 
 const Offcanvas = (row) => {
@@ -106,9 +120,16 @@ const DialplanList = () => {
           Force Resync Of All Phones
         </CButton>
       </CCol>
-      <CCol>
+      <CRow>
+        <h4>Special Features</h4>
+        <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
+        <CCol>
+          <CippContentCard title="License Keys" children={licenseKeysContent} />
+        </CCol>
+      </CRow>
+
       <CippPageList
         title="Current Internal Dialplans"
         // titleButton={addNewDialplan}
