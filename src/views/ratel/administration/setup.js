@@ -101,7 +101,7 @@ const DialplanList = () => {
     <>
       <CRow>
         <CCol>
-          <Link>
+          <Link to={'/#'}>
             <CButton size="sm" variant="ghost" color="warning">
               Reboot Server When No Calls Are Active
             </CButton>
