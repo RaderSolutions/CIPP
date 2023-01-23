@@ -112,7 +112,9 @@ const DialplanList = () => {
         </CCol>
         <CCol>
           <h4>License Keys</h4>
-          {/* <CInput type="text" name="Did" label="FOP:" /> */}
+          <label for="test">test label</label>
+          <input type="text" name="test" />
+
           <CButton size="sm" variant="ghost" color="warning">
             Apply FOP License
           </CButton>
