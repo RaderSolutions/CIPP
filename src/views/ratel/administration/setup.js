@@ -79,7 +79,7 @@ const Offcanvas = (row) => {
 const columns = [
   {
     name: 'Name',
-    selector: (row) => row['Extension'],
+    selector: (row) => row['Name'],
     sortable: true,
     exportSelector: 'Name',
   },
@@ -91,7 +91,7 @@ const columns = [
   },
   {
     name: 'Dialplan',
-    selector: (row) => row['Type'],
+    selector: (row) => row['Dialplan'],
     sortable: true,
     exportSelector: 'Dialplan',
   },
