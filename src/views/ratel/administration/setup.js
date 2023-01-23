@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { CButton, CCol, CFormInput, CRow } from '@coreui/react'
+import { CButton, CCol, CInput, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -27,14 +27,14 @@ const installationContent = [
 
 const licenseKeysContent = [
   <>
-    <Form>
+   
       <form>
-        <CFormInput type="text" name="Did" label="FOP:" />
+        <CInput type="text" name="Did" label="FOP:" />
         <CButton size="sm" variant="ghost" color="warning">Apply FOP License</CButton>
-        <CFormInput type="text" name="Did" label="DPMA:" />
+        <CInput type="text" name="Did" label="DPMA:" />
         <CButton size="sm" variant="ghost" color="warning">Save DPMA License Key</CButton>
       </form>
-    </Form>
+  
   </>,
 ]
 const Offcanvas = (row) => {
