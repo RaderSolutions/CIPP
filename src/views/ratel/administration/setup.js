@@ -141,7 +141,7 @@ const DialplanList = () => {
         </CCol>
       </CRow>
       <CRow>
-        <CCol>
+        <CCol className='max-w-md'>
           <CippPageList
             title="Current Internal Dialplans"
             // titleButton={addNewDialplan}
