@@ -106,9 +106,9 @@ const DialplanList = () => {
           Force Resync Of All Phones
         </CButton>
       </CCol>
-      {/* <CCol>
+      <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
-        </CCol> */}
+        </CCol>
       <CippPageList
         title="Current Internal Dialplans"
         // titleButton={addNewDialplan}
