@@ -25,18 +25,6 @@ const installationContent = [
   },
 ]
 
-const licenseKeysContent = [
-  <>
-    <CInput type="text" name="Did" label="FOP:" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Apply FOP License
-    </CButton>
-    <CInput type="text" name="Did" label="DPMA:" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Save DPMA License Key
-    </CButton>
-  </>,
-]
 const Offcanvas = (row) => {
   const [ocVisible, setOCVisible] = useState(false)
   return (
@@ -122,9 +110,7 @@ const DialplanList = () => {
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
-        <CCol>
-          <div>{licenseKeysContent}</div>
-        </CCol>
+     
       </CRow>
 
       <CippPageList
