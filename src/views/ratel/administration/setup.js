@@ -112,7 +112,6 @@ const DialplanList = () => {
         <CButton size="sm" variant="ghost" color="warning">
           Reboot Server When No Calls Are Active
         </CButton>
-
         <CButton size="sm" variant="ghost" color="warning">
           Force Resync Of All Phones
         </CButton>
@@ -147,7 +146,7 @@ const DialplanList = () => {
             title="Current Internal Dialplans"
             // titleButton={addNewDialplan}
             datatable={{
-              keyField: 'Extension',
+              // keyField: 'Extension',
               columns,
               reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
               path: '/api/LtListRatelInternalDialplans',
