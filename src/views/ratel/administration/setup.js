@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
-import { ActionContentCard } from 'src/components/contentcards'
+import { ActionContentCard, RatelInputActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
 import { RFFCFormInput } from 'src/components/forms'
 // import { Link } from 'react-router-dom'
@@ -28,16 +28,16 @@ const installationContent = [
 ]
 
 const licenseKeysContent = [
-  <>
-    <RFFCFormInput type="text" name="fop" label="FOP" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Apply FOP License (Script)
-    </CButton>
-    <RFFCFormInput type="text" name="dpma" label="DPMA" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Save DPMA License Key
-    </CButton>
-  </>,
+  {
+    link: '#',
+    inputLabel: 'FOP',
+    buttonLabel: 'Apply FOP License (Script)',
+  },
+  {
+    link: '#',
+    inputLabel: 'DPMA',
+    buttonLabel: 'Save DPMA License Key',
+  },
 ]
 
 const Offcanvas = (row) => {
@@ -127,7 +127,7 @@ const DialplanList = () => {
         </CCol>
         <CCol>
           <form>
-            <CippContentCard title="License Keys" children={licenseKeysContent} />
+            <RatelInputActionContentCard title="License Keys" children={licenseKeysContent} />
           </form>
         </CCol>
       </CRow>
