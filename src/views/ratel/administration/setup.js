@@ -141,18 +141,21 @@ const DialplanList = () => {
           </CRow>
         </CCol>
       </CRow>
-
-      <CippPageList
-        title="Current Internal Dialplans"
-        // titleButton={addNewDialplan}
-        datatable={{
-          keyField: 'Extension',
-          columns,
-          reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-          path: '/api/LtListRatelInternalDialplans',
-          params: { TenantFilter: tenant?.customerId },
-        }}
-      />
+      <CRow>
+        <CCol>
+          <CippPageList
+            title="Current Internal Dialplans"
+            // titleButton={addNewDialplan}
+            datatable={{
+              keyField: 'Extension',
+              columns,
+              reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+              path: '/api/LtListRatelInternalDialplans',
+              params: { TenantFilter: tenant?.customerId },
+            }}
+          />
+        </CCol>
+      </CRow>
     </>
   )
 }
