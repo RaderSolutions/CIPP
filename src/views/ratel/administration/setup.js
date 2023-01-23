@@ -97,17 +97,13 @@ const DialplanList = () => {
   // )
   return (
     <>
-      <CRow>
-       
-      </CRow>
-      {/* <br></br> */}
-      <CRow>
-      <CCol>
-          {/* <Link to={'/#'}> */}
+{/*    
+        <CCol>
+          <Link >
             <CButton size="sm" variant="ghost" color="warning">
               Reboot Server When No Calls Are Active
             </CButton>
-          {/* </Link> */}
+          </Link>
           <Link>
             <CButton size="sm" variant="ghost" color="warning">
               Force Resync Of All Phones
@@ -116,7 +112,7 @@ const DialplanList = () => {
         </CCol>
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
-        </CCol>
+        </CCol> */}
         <CippPageList
           title="Current Internal Dialplans"
           // titleButton={addNewDialplan}
@@ -128,7 +124,7 @@ const DialplanList = () => {
             params: { TenantFilter: tenant?.customerId },
           }}
         />
-      </CRow>
+     
     </>
   )
 }
