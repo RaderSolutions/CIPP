@@ -110,7 +110,17 @@ const DialplanList = () => {
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
-     
+        <CCol>
+          <h4>License Keys</h4>
+          <CInput type="text" name="Did" label="FOP:" />
+          <CButton size="sm" variant="ghost" color="warning">
+            Apply FOP License
+          </CButton>
+          <CInput type="text" name="Did" label="DPMA:" />
+          <CButton size="sm" variant="ghost" color="warning">
+            Save DPMA License Key
+          </CButton>
+        </CCol>
       </CRow>
 
       <CippPageList
