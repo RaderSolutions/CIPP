@@ -23,6 +23,18 @@ const installationContent = [
     link: '#',
     label: 'Install Asterisk',
   },
+  {
+    link: '#',
+    label: 'Update Asterisk',
+  },
+  {
+    link: '#',
+    label: 'Start Config Sync between Master and Alternate',
+  },
+  {
+    link: '#',
+    label: 'Install Fail2Ban',
+  },
 ]
 
 const Offcanvas = (row) => {
@@ -111,7 +123,7 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
         <CCol>
-          <h4>License Keys</h4>
+          <h5>License Keys</h5>
           <CRow>
             {' '}
             <label for="test">FOP:</label>
