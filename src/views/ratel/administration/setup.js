@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
-import { ActionContentCard} from 'src/components/contentcards'
+import { ActionContentCard } from 'src/components/contentcards'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
@@ -27,14 +27,14 @@ const installationContent = [
 
 const licenseKeysContent = [
   <>
-   
-      <form>
-        <CInput type="text" name="Did" label="FOP:" />
-        <CButton size="sm" variant="ghost" color="warning">Apply FOP License</CButton>
-        <CInput type="text" name="Did" label="DPMA:" />
-        <CButton size="sm" variant="ghost" color="warning">Save DPMA License Key</CButton>
-      </form>
-  
+    <CInput type="text" name="Did" label="FOP:" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Apply FOP License
+    </CButton>
+    <CInput type="text" name="Did" label="DPMA:" />
+    <CButton size="sm" variant="ghost" color="warning">
+      Save DPMA License Key
+    </CButton>
   </>,
 ]
 const Offcanvas = (row) => {
@@ -123,9 +123,7 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
         <CCol>
-          <div>
-            {licenseKeysContent}
-          </div>
+          <div>{licenseKeysContent}</div>
         </CCol>
       </CRow>
 
