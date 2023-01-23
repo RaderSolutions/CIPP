@@ -97,7 +97,7 @@ const DialplanList = () => {
   // )
   return (
     <>
-{/*    
+   
         <CCol>
           <Link >
             <CButton size="sm" variant="ghost" color="warning">
@@ -110,7 +110,7 @@ const DialplanList = () => {
             </CButton>
           </Link>
         </CCol>
-        <CCol>
+        {/* <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol> */}
         <CippPageList
