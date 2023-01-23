@@ -98,7 +98,11 @@ const DialplanList = () => {
   return (
     <>
       <CRow>
-        <CCol>
+       
+      </CRow>
+      {/* <br></br> */}
+      <CRow>
+      <CCol>
           {/* <Link to={'/#'}> */}
             <CButton size="sm" variant="ghost" color="warning">
               Reboot Server When No Calls Are Active
@@ -113,9 +117,6 @@ const DialplanList = () => {
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
-      </CRow>
-      {/* <br></br> */}
-      <CRow>
         <CippPageList
           title="Current Internal Dialplans"
           // titleButton={addNewDialplan}
