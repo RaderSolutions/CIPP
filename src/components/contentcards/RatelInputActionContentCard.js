@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,13 +19,9 @@ export default function RatelInputActionContentCard({
       icon={icon}
       className={`action-content-card ${className ?? ''} `}
     >
-        <CInputGroupText>
-            <CFormInput 
-            type="text"
-            name="textInput"
-            label={inputLabel}
-            />
-        </CInputGroupText>
+      <CInputGroupText>
+        <CFormInput type="text" name="textInput" label={inputLabel} />
+      </CInputGroupText>
       {isFetching && <CSpinner />}
       {!isFetching && error && <>{errorMessage}</>}
       {!isFetching && !error && (
