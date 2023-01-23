@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 import { CButton, CCol, CFormInput, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { CippContentCard, CippPageList } from 'src/components/layout'
+import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
-import { ActionContentCard, RatelInputActionContentCard } from 'src/components/contentcards'
+import { ActionContentCard} from 'src/components/contentcards'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
@@ -123,9 +123,9 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
         <CCol>
-          <form>
-            <RatelInputActionContentCard title="License Keys" children={licenseKeysContent} />
-          </form>
+          <div>
+            {licenseKeysContent}
+          </div>
         </CCol>
       </CRow>
 
