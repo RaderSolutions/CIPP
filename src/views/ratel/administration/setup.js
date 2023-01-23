@@ -29,14 +29,16 @@ const installationContent = [
 
 const licenseKeysContent = [
   <>
-    <RFFCFormInput type="text" name="fop" label="FOP" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Apply FOP License (Script)
-    </CButton>
-    <RFFCFormInput type="text" name="dpma" label="DPMA" />
-    <CButton size="sm" variant="ghost" color="warning">
-      Save DPMA License Key
-    </CButton>
+    <form>
+      <RFFCFormInput type="text" name="fop" label="FOP" />
+      <CButton size="sm" variant="ghost" color="warning">
+        Apply FOP License (Script)
+      </CButton>
+      <RFFCFormInput type="text" name="dpma" label="DPMA" />
+      <CButton size="sm" variant="ghost" color="warning">
+        Save DPMA License Key
+      </CButton>
+    </form>
   </>,
 ]
 
