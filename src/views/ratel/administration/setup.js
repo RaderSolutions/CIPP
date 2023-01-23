@@ -97,34 +97,29 @@ const DialplanList = () => {
   // )
   return (
     <>
-   
-        <CCol>
-          <Link >
-            <CButton size="sm" variant="ghost" color="warning">
-              Reboot Server When No Calls Are Active
-            </CButton>
-          </Link>
-          <Link>
-            <CButton size="sm" variant="ghost" color="warning">
-              Force Resync Of All Phones
-            </CButton>
-          </Link>
-        </CCol>
-        {/* <CCol>
+      <CCol>
+        <CButton size="sm" variant="ghost" color="warning">
+          Reboot Server When No Calls Are Active
+        </CButton>
+
+        <CButton size="sm" variant="ghost" color="warning">
+          Force Resync Of All Phones
+        </CButton>
+      </CCol>
+      {/* <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol> */}
-        <CippPageList
-          title="Current Internal Dialplans"
-          // titleButton={addNewDialplan}
-          datatable={{
-            keyField: 'Extension',
-            columns,
-            reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-            path: '/api/LtListRatelInternalDialplans',
-            params: { TenantFilter: tenant?.customerId },
-          }}
-        />
-     
+      <CippPageList
+        title="Current Internal Dialplans"
+        // titleButton={addNewDialplan}
+        datatable={{
+          keyField: 'Extension',
+          columns,
+          reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+          path: '/api/LtListRatelInternalDialplans',
+          params: { TenantFilter: tenant?.customerId },
+        }}
+      />
     </>
   )
 }
