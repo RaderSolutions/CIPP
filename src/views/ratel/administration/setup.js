@@ -37,6 +37,20 @@ const installationContent = [
   },
 ]
 
+const redeployContent = [
+  {
+    link: '#',
+    label: 'Force Resync Of All Phones',
+  },
+]
+
+const rebootContent = [
+  {
+    link: '#',
+    label: 'Reboot Server When No Calls Are Active'
+  }
+]
+
 const Offcanvas = (row) => {
   const [ocVisible, setOCVisible] = useState(false)
   return (
@@ -109,12 +123,14 @@ const DialplanList = () => {
   return (
     <>
       <CCol>
-        <CButton size="sm" variant="ghost" color="warning">
+        {/* <CButton size="sm" variant="ghost" color="warning">
           Reboot Server When No Calls Are Active
         </CButton>
         <CButton size="sm" variant="ghost" color="warning">
           Force Resync Of All Phones
-        </CButton>
+        </CButton> */}
+        <ActionContentCard title="redeploy" content={redeployContent} />
+        <ActionContentCard title="reboot" content={rebootContent} />
       </CCol>
       <CRow>
         <h4>Special Features</h4>
@@ -143,18 +159,18 @@ const DialplanList = () => {
       <CRow>
         <CCol>
           <div>
-          <CippPageList
-            title="Current Internal Dialplans"
-            style={{'max-width': '50%'}}
-            // titleButton={addNewDialplan}
-            datatable={{
-              // keyField: 'Extension',
-              columns,
-              reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-              path: '/api/LtListRatelInternalDialplans',
-              params: { TenantFilter: tenant?.customerId },
-            }}
-          />
+            <CippPageList
+              title="Current Internal Dialplans"
+              style={{ 'max-width': '50%' }}
+              // titleButton={addNewDialplan}
+              datatable={{
+                // keyField: 'Extension',
+                columns,
+                reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+                path: '/api/LtListRatelInternalDialplans',
+                params: { TenantFilter: tenant?.customerId },
+              }}
+            />
           </div>
         </CCol>
       </CRow>
