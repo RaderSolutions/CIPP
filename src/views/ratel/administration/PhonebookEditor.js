@@ -158,7 +158,7 @@ const PhonebookEntryList = () => {
   return (
     <CippPageList
       title="Phonebook Editor"
-      TitleButton={addPhonebookEntryButton}
+      titleButton={addPhonebookEntryButton}
       datatable={{
         keyField: 'ID',
         columns,
