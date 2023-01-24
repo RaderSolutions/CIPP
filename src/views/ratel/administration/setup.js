@@ -117,9 +117,7 @@ const columns = [
     cell: Offcanvas,
     maxWidth: '600px',
   },
-];
-
-const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
+]
 
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -144,24 +142,24 @@ const DialplanList = () => {
       </CRow>
 
       <CRow>
-        <h4 style={{ 'paddingBottom':'1.5em', 'paddingTop':'1.5em'}}>Special Features</h4>
+        <h4 style={{ paddingBottom: '1.5em', paddingTop: '1.5em' }}>Special Features</h4>
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
         <CCol>
           <h5>License Keys</h5>
-          <CRow style={{ 'paddingLeft':'2em', 'paddingRight':'2em'}}>
+          <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
             {' '}
             <label for="test">FOP:</label>
-            <input style={{ 'maxWidth':'500px'}} type="text" name="fop" />
-            <CButton style={{ 'maxWidth':'500px'}} size="sm" variant="ghost" color="warning">
+            <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+            <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
               Apply FOP License
             </CButton>
           </CRow>
           <CRow>
             <label for="test">DPMA:</label>
-            <input style={{ 'maxWidth':'500px'}} type="text" name="dpma" />
-            <CButton style={{ 'maxWidth':'500px'}} size="sm" variant="ghost" color="warning">
+            <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
+            <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
               Save DPMA License Key
             </CButton>
           </CRow>
@@ -177,7 +175,7 @@ const DialplanList = () => {
               datatable={{
                 // keyField: 'Extension',
                 expandableRows,
-                expandableRowsComponent: {ExpandedComponent},
+
                 columns,
                 reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
                 path: '/api/LtListRatelInternalDialplans',
