@@ -30,7 +30,7 @@ import { useSelector } from 'react-redux'
 //   name: PropTypes.string.isRequired,
 // }
 
-const AddPhonebookEntry = () => {
+const RatelAddPhonebookEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -206,4 +206,4 @@ const AddPhonebookEntry = () => {
   )
 }
 
-export default AddPhonebookEntry
+export default RatelAddPhonebookEntry
