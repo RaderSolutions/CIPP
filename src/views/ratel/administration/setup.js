@@ -117,7 +117,9 @@ const columns = [
     cell: Offcanvas,
     maxWidth: '600px',
   },
-]
+];
+
+const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
 
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -174,6 +176,8 @@ const DialplanList = () => {
               // titleButton={addNewDialplan}
               datatable={{
                 // keyField: 'Extension',
+                expandableRows,
+                expandableRowsComponent: {ExpandedComponent},
                 columns,
                 reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
                 path: '/api/LtListRatelInternalDialplans',
