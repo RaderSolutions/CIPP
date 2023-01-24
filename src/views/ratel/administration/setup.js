@@ -122,15 +122,18 @@ const DialplanList = () => {
   // )
   return (
     <>
-      <CCol>
+      
         {/* <CButton size="sm" variant="ghost" color="warning">
           Reboot Server When No Calls Are Active
         </CButton>
         <CButton size="sm" variant="ghost" color="warning">
           Force Resync Of All Phones
         </CButton> */}
-        <ActionContentCard title="redeploy" content={redeployContent} />
-        <ActionContentCard title="reboot" content={rebootContent} />
+        <CCol>
+        <ActionContentCard title="Redeploy Data" content={redeployContent} />
+        </CCol>
+        <CCol>
+        <ActionContentCard title="Reboot Server" content={rebootContent} />
       </CCol>
       <CRow>
         <h4>Special Features</h4>
