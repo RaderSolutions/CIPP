@@ -96,26 +96,26 @@ const columns = [
     selector: (row) => row['Name'],
     sortable: true,
     exportSelector: 'Name',
-    maxWidth: 'fit-content',
+    maxWidth: '25%',
   },
   {
     name: 'Description',
     selector: (row) => row['Description'],
     sortable: true,
     exportSelector: 'Description',
-    maxWidth: 'fit-content',
+    maxWidth: '25%',
   },
   {
     name: 'Dialplan',
     selector: (row) => row['Dialplan'],
     sortable: true,
     exportSelector: 'Dialplan',
-    maxWidth: '500px',
+    maxWidth: '25%',
   },
   {
     name: 'Actions',
     cell: Offcanvas,
-    maxWidth: '500px',
+    maxWidth: '25%',
   },
 ]
 
