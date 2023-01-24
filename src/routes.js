@@ -330,7 +330,7 @@ const routes = [
     component: RatelAddDevice,
   },
   {
-    path: '/ratel/administration/phonebookEditor/add',
+    path: '/ratel/administration/phonebookEditor/addEntry',
     name: 'Add RATEL Phonebook Entry',
     component: RatelAddPhonebookEntry,
   },

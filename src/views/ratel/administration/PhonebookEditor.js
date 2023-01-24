@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -47,7 +47,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             link: editLink,
             color: 'info',
           },
-        {
+          {
             label: 'Hide from Phonebook',
             color: 'info',
             modal: true,
@@ -147,12 +147,14 @@ const columns = [
   {
     name: 'Actions',
     cell: Offcanvas,
-  }
+  },
 ]
 
 const PhonebookEntryList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addPhonebookEntryButton = <TitleButton href="ratel/administration/phonebookEditor/add" title="Add Phonebook Entry" />
+  const addPhonebookEntryButton = (
+    <TitleButton href="ratel/administration/phonebookEditor/addEntry" title="Add Phonebook Entry" />
+  )
   return (
     <CippPageList
       title="Phonebook Editor"
