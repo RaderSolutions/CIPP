@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,7 +35,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
           { label: 'Dialplan', value: `${row.Dialplan}` },
           { label: 'Description', value: `${row.Description}` },
           { label: 'Caller Id?', value: `${row.IsDeviceCallerId}` },
-          { label: 'Needs Sync?', value: `${row.NeedsSync}`}
+          { label: 'Needs Sync?', value: `${row.NeedsSync}` },
         ]}
         actions={[
           {
@@ -127,17 +127,26 @@ const DIDsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   // const addDidButton = <TitleButton href="ratel/administration/dids/add" title="Add DID Number to Device" />
   return (
-    <CippPageList
-      title="DIDs"
-      // TitleButton={addDidButton}
-      datatable={{
-        keyField: 'Number',
-        columns,
-        reportName: `${tenant.customerId}-RATEL-DIDs-List`,
-        path: '/api/LtListRatelDIDs',
-        params: { TenantFilter: tenant?.customerId },
-      }}
-    />
+    <>
+    {/* TODO: discuss api endpoint w/ SW */}
+      <Link to={`api/LtRatelRebuildPhonebookXML?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
+        <CButton size="sm" variant="ghost" color="warning">
+          Rebuild Phonebook XML Script
+        </CButton>
+      </Link>
+      <br />
+      <CippPageList
+        title="DIDs"
+        // TitleButton={addDidButton}
+        datatable={{
+          keyField: 'Number',
+          columns,
+          reportName: `${tenant.customerId}-RATEL-DIDs-List`,
+          path: '/api/LtListRatelDIDs',
+          params: { TenantFilter: tenant?.customerId },
+        }}
+      />
+    </>
   )
 }
 
