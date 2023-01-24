@@ -96,14 +96,14 @@ const columns = [
     selector: (row) => row['Name'],
     sortable: true,
     exportSelector: 'Name',
-    maxWidth: '500px',
+    maxWidth: 'fit-content',
   },
   {
     name: 'Description',
     selector: (row) => row['Description'],
     sortable: true,
     exportSelector: 'Description',
-    maxWidth: '500px',
+    maxWidth: 'fit-content',
   },
   {
     name: 'Dialplan',
@@ -132,12 +132,15 @@ const DialplanList = () => {
         <CButton size="sm" variant="ghost" color="warning">
           Force Resync Of All Phones
         </CButton> */}
-      <CCol>
-        <ActionContentCard title="Redeploy Data" content={redeployContent} />
-      </CCol>
-      <CCol>
-        <ActionContentCard title="Reboot Server" content={rebootContent} />
-      </CCol>
+      <CRow>
+        <CCol>
+          <ActionContentCard title="Redeploy Data" content={redeployContent} />
+        </CCol>
+        <CCol>
+          <ActionContentCard title="Reboot Server" content={rebootContent} />
+        </CCol>
+      </CRow>
+
       <CRow>
         <h4>Special Features</h4>
         <CCol>
