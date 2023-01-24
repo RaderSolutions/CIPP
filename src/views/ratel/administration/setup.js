@@ -142,7 +142,7 @@ const DialplanList = () => {
       </CRow>
 
       <CRow>
-        <h4>Special Features</h4>
+        <h4 style={{ 'paddingBottom':'1.5em', 'paddingTop':'1.5em'}}>Special Features</h4>
         <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
