@@ -174,8 +174,6 @@ const DialplanList = () => {
               // titleButton={addNewDialplan}
               datatable={{
                 // keyField: 'Extension',
-                expandableRows,
-
                 columns,
                 reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
                 path: '/api/LtListRatelInternalDialplans',
