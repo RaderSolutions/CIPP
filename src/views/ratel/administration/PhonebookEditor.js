@@ -152,7 +152,7 @@ const columns = [
 
 const PhonebookEntryList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addPhonebookEntryButton = <TitleButton href="ratel/administration/phonebookentries/add" title="Add Phonebook Entry" />
+  const addPhonebookEntryButton = <TitleButton href="ratel/administration/phonebookEditor/add" title="Add Phonebook Entry" />
   return (
     <CippPageList
       title="Phonebook Editor"

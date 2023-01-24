@@ -30,7 +30,7 @@ import { useSelector } from 'react-redux'
 //   name: PropTypes.string.isRequired,
 // }
 
-const AddPickupGroupMember = () => {
+const AddPhonebookEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -38,17 +38,25 @@ const AddPickupGroupMember = () => {
   const handleSubmit = async (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      Extension: values.Extension,
-      Groups: values.Groups,
-      Type: values.Type,
+      Dial: values.dial,
+      Saluation: values.saluation,
+      FirstName: values.firstName,
+      MiddleName: values.middleName,
+      LastName: values.lastName,
+      Suffix: values.suffix,
+      Email: values.email,
+      Organization: values.organization,
+      JobTitle: values.jobTitle,
+      Location: values.location,
+      Notes: values.notes,
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPickupGroup', values: shippedValues })
+    genericPostRequest({ path: '/api/LtAddRatelPhonebookEntry', values: shippedValues })
   }
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Phonebook Entry">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a pickup group to"
@@ -63,12 +71,12 @@ const AddPickupGroupMember = () => {
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page
-        title="Pickup Group Member Information"
-        description="Enter the pickup group member information"
+        title="Phonebook Entry Information"
+        description="Enter the phonebook entry information"
       >
         <center>
           <h3 className="text-primary">Step 2</h3>
-          <h5>Enter Pickup Group Information</h5>
+          <h5>Enter Phonebook Entry Information</h5>
         </center>
         <hr className="my-4" />
         <div className="mb-2">
@@ -76,29 +84,102 @@ const AddPickupGroupMember = () => {
             <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
-                name="Extension"
-                label="Extension"
+                name="Dial"
+                label="Dial"
                 //disabled={formDIsabled}
               />
             </CCol>
             {/* TODO: discuss w SW */}
             <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                name="select"
+                label="Suffix"
+                placeholder={'Select Suffix'}
+                values={[
+                  { value: 'Mr.', label: 'Mr.' },
+                  { value: 'Ms.', label: 'Ms.' },
+                  { value: 'Mrs.', label: 'Mrs.' },
+                  { value: 'Dr.', label: 'Dr.' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
-                name="Groups"
-                label="Groups"
+                name="firstName"
+                label="First Name"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="middleName"
+                label="Middle Name"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="lastName"
+                label="Last Name"
                 //disabled={formDIsabled}
               />
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="Type"
-                label="Type"
-                placeholder={'Select Type'}
+                name="select"
+                label="Suffix"
+                placeholder={'Select Suffix'}
                 values={[
-                  { value: 'Pickup', label: 'Pickup' },
-                  { value: 'Call', label: 'Call' },
+                  { value: 'II', label: 'II' },
+                  { value: 'III', label: 'III' },
+                  { value: 'IV', label: 'IV' },
+                  { value: 'JR', label: 'JR' },
+                  { value: 'SR', label: 'SR' },
                 ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="email"
+                label="Email"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="organization"
+                label="Organization"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="jobTitle"
+                label="Job Title"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="location"
+                label="Location"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="notes"
+                label="Notes"
                 //disabled={formDIsabled}
               />
             </CCol>
@@ -125,4 +206,4 @@ const AddPickupGroupMember = () => {
   )
 }
 
-export default AddPickupGroupMember
+export default AddPhonebookEntry
