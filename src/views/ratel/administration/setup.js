@@ -151,14 +151,14 @@ const DialplanList = () => {
           <CRow>
             {' '}
             <label for="test">FOP:</label>
-            <input type="text" name="test" />
+            <input style={{ 'maxWidth':'500px'}} type="text" name="fop" />
             <CButton size="sm" variant="ghost" color="warning">
               Apply FOP License
             </CButton>
           </CRow>
           <CRow>
             <label for="test">DPMA:</label>
-            <input type="text" name="test" />
+            <input style={{ 'maxWidth':'500px'}} type="text" name="dpma" />
             <CButton size="sm" variant="ghost" color="warning">
               Save DPMA License Key
             </CButton>
