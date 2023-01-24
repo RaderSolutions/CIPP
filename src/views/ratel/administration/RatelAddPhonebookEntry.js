@@ -39,7 +39,7 @@ const AddPhonebookEntry = () => {
     const shippedValues = {
       TenantFilter: tenantDomain,
       Dial: values.dial,
-      Saluation: values.saluation,
+      Salutation: values.salutation,
       FirstName: values.firstName,
       MiddleName: values.middleName,
       LastName: values.lastName,
@@ -93,9 +93,10 @@ const AddPhonebookEntry = () => {
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 name="select"
-                label="Suffix"
-                placeholder={'Select Suffix'}
+                label="Salutation"
+                placeholder={'Select Salutation'}
                 values={[
+                  { value: null, label: 'None'},
                   { value: 'Mr.', label: 'Mr.' },
                   { value: 'Ms.', label: 'Ms.' },
                   { value: 'Mrs.', label: 'Mrs.' },
@@ -134,6 +135,7 @@ const AddPhonebookEntry = () => {
                 label="Suffix"
                 placeholder={'Select Suffix'}
                 values={[
+                  { value: null, label: 'None'},
                   { value: 'II', label: 'II' },
                   { value: 'III', label: 'III' },
                   { value: 'IV', label: 'IV' },
