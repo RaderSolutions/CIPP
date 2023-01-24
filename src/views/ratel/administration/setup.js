@@ -47,8 +47,8 @@ const redeployContent = [
 const rebootContent = [
   {
     link: '#',
-    label: 'Reboot Server When No Calls Are Active'
-  }
+    label: 'Reboot Server When No Calls Are Active',
+  },
 ]
 
 const Offcanvas = (row) => {
@@ -96,22 +96,26 @@ const columns = [
     selector: (row) => row['Name'],
     sortable: true,
     exportSelector: 'Name',
+    maxWidth: '500px',
   },
   {
     name: 'Description',
     selector: (row) => row['Description'],
     sortable: true,
     exportSelector: 'Description',
+    maxWidth: '500px',
   },
   {
     name: 'Dialplan',
     selector: (row) => row['Dialplan'],
     sortable: true,
     exportSelector: 'Dialplan',
+    maxWidth: '500px',
   },
   {
     name: 'Actions',
     cell: Offcanvas,
+    maxWidth: '500px',
   },
 ]
 
@@ -122,17 +126,16 @@ const DialplanList = () => {
   // )
   return (
     <>
-      
-        {/* <CButton size="sm" variant="ghost" color="warning">
+      {/* <CButton size="sm" variant="ghost" color="warning">
           Reboot Server When No Calls Are Active
         </CButton>
         <CButton size="sm" variant="ghost" color="warning">
           Force Resync Of All Phones
         </CButton> */}
-        <CCol>
+      <CCol>
         <ActionContentCard title="Redeploy Data" content={redeployContent} />
-        </CCol>
-        <CCol>
+      </CCol>
+      <CCol>
         <ActionContentCard title="Reboot Server" content={rebootContent} />
       </CCol>
       <CRow>
