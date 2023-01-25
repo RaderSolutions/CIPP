@@ -143,10 +143,10 @@ const DialplanList = () => {
 
       <CRow>
         <h4 style={{ paddingBottom: '1.5em', paddingTop: '1.5em' }}>Special Features</h4>
-        <CCol>
+        <CCol style={{marginRight: '1em'}}>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
-        <CCol>
+        <CCol style={{marginLeft: '1em'}}>
           <h5>License Keys</h5>
           <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
             {' '}
@@ -167,6 +167,8 @@ const DialplanList = () => {
       </CRow>
       <CRow>
         <CCol>
+          <br />
+          <br />
           <div>
             <CippPageList
               title="Current Internal Dialplans"
