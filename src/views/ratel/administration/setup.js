@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { CButton, CCol, CInput, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { CippPageList } from 'src/components/layout'
+import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 // import { Link } from 'react-router-dom'
@@ -143,26 +143,28 @@ const DialplanList = () => {
 
       <CRow>
         <h4 style={{ paddingBottom: '1.5em', paddingTop: '1.5em' }}>Special Features</h4>
-        <CCol style={{marginRight: '1em'}}>
+        <CCol style={{ marginRight: '1em' }}>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol>
-        <CCol style={{marginLeft: '1em'}}>
-          <h5>License Keys</h5>
-          <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
-            {' '}
-            <label for="test">FOP:</label>
-            <input style={{ maxWidth: '500px' }} type="text" name="fop" />
-            <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-              Apply FOP License
-            </CButton>
-          </CRow>
-          <CRow>
-            <label for="test">DPMA:</label>
-            <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
-            <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-              Save DPMA License Key
-            </CButton>
-          </CRow>
+        <CCol style={{ marginLeft: '1em' }}>
+          <CippContentCard title="License Keys">
+            {/* <h5>License Keys</h5> */}
+            <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
+              {' '}
+              <label for="test">FOP:</label>
+              <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                Apply FOP License
+              </CButton>
+            </CRow>
+            <CRow>
+              <label for="test">DPMA:</label>
+              <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
+              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                Save DPMA License Key
+              </CButton>
+            </CRow>
+          </CippContentCard>
         </CCol>
       </CRow>
       <CRow>
@@ -172,7 +174,7 @@ const DialplanList = () => {
           <div>
             <CippPageList
               title="Current Internal Dialplans"
-              style={{ 'max-width': '50%' }}
+              style={{ maxWidth: '50%', marginTop: '2em' }}
               // titleButton={addNewDialplan}
               datatable={{
                 // keyField: 'Extension',
