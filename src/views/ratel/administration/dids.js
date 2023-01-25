@@ -135,6 +135,7 @@ const DIDsList = () => {
         </CButton>
       </Link>
       <br />
+      <br />
       <CippPageList
         title="DIDs"
         // TitleButton={addDidButton}
