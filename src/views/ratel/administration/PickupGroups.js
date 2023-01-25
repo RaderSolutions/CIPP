@@ -33,6 +33,12 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         ]}
         actions={[
           {
+            label: 'Edit Member',
+            color: 'info',
+            modal: true,
+            modalUrl: `TODO`,
+          },
+          {
             label: 'Remove Member from Pickup group',
             color: 'info',
             modal: true,

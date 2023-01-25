@@ -111,7 +111,6 @@ const AddPickupGroupMember = () => {
           <h3 className="text-primary">Step 3</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
-
           {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
