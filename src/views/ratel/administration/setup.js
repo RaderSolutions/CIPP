@@ -10,32 +10,32 @@ import { ActionContentCard } from 'src/components/contentcards'
 // import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
-const installationContent = [
-  {
-    link: '#',
-    label: 'Set as Primary Ratel Host',
-  },
-  {
-    link: '#',
-    label: 'Set as Alternate Ratel Host',
-  },
-  {
-    link: '#',
-    label: 'Install Asterisk',
-  },
-  {
-    link: '#',
-    label: 'Update Asterisk',
-  },
-  {
-    link: '#',
-    label: 'Start Config Sync between Master and Alternate',
-  },
-  {
-    link: '#',
-    label: 'Install Fail2Ban',
-  },
-]
+// const installationContent = [
+//   {
+//     link: '#',
+//     label: 'Set as Primary Ratel Host',
+//   },
+//   {
+//     link: '#',
+//     label: 'Set as Alternate Ratel Host',
+//   },
+//   {
+//     link: '#',
+//     label: 'Install Asterisk',
+//   },
+//   {
+//     link: '#',
+//     label: 'Update Asterisk',
+//   },
+//   {
+//     link: '#',
+//     label: 'Start Config Sync between Master and Alternate',
+//   },
+//   {
+//     link: '#',
+//     label: 'Install Fail2Ban',
+//   },
+// ]
 
 const redeployContent = [
   {
@@ -143,9 +143,9 @@ const DialplanList = () => {
 
       <CRow>
         <h5 style={{ paddingBottom: '1em', paddingTop: '1em', paddingLeft: '2.5em' }}>Special Features</h5>
-        <CCol>
+        {/* <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
-        </CCol>
+        </CCol> */}
         <CCol>
           <CippContentCard title="License Keys">
             {/* <h5>License Keys</h5> */}
@@ -165,6 +165,16 @@ const DialplanList = () => {
               </CButton>
             </CRow>
           </CippContentCard>
+        </CCol>
+        <CCol>
+        <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+          Setup Voice Recording Ext.
+        </CButton>
+        </CCol>
+        <CCol>
+        <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+          Create A Greeting Using Text-To-Speech
+        </CButton>
         </CCol>
       </CRow>
       <CRow>
