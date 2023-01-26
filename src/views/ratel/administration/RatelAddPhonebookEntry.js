@@ -59,7 +59,7 @@ const AddPhonebookEntry = () => {
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Phonebook Entry">
       <CippWizard.Page
         title="Tenant Choice"
-        description="Choose the tenant to add a pickup group to"
+        description="Choose the tenant to add a phonebook entry to"
       >
         <center>
           <h3 className="text-primary">Step 1</h3>
