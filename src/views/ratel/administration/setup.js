@@ -142,12 +142,12 @@ const DialplanList = () => {
       </CRow>
 
       <CRow>
-        <h5 style={{ paddingBottom: '1em', paddingTop: '1em', paddingLeft: '2.5em' }}>Special Features</h5>
+        {/* <h5 style={{ paddingBottom: '1em', paddingTop: '1em', paddingLeft: '2.5em' }}>Special Features</h5> */}
         {/* <CCol>
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol> */}
         <CCol>
-          <CippContentCard title="License Keys">
+          <CippContentCard title="Special Features">
             {/* <h5>License Keys</h5> */}
             <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
               {' '}
@@ -156,6 +156,11 @@ const DialplanList = () => {
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Apply FOP License
               </CButton>
+              <CCol>
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Setup Voice Recording Ext.
+                </CButton>
+              </CCol>
             </CRow>
             <CRow>
               <label for="test">DPMA:</label>
@@ -163,18 +168,13 @@ const DialplanList = () => {
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Save DPMA License Key
               </CButton>
+              <CCol>
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Create A Greeting Using Text-To-Speech
+                </CButton>
+              </CCol>
             </CRow>
           </CippContentCard>
-        </CCol>
-        <CCol>
-        <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-          Setup Voice Recording Ext.
-        </CButton>
-        </CCol>
-        <CCol>
-        <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-          Create A Greeting Using Text-To-Speech
-        </CButton>
         </CCol>
       </CRow>
       <CRow>
