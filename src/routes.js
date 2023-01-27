@@ -46,7 +46,10 @@ const RatelAddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/RatelAddPickupGroupMember'),
 )
 const SetupVoiceRecording = React.lazy(() =>
-  import('src/views/ratel/administration/SetupVoiceRecording'),
+  import('src/views/ratel/administration/setupVoiceRecording'),
+)
+const CreateGreetingWithText = React.lazy(() =>
+  import('src/views/ratel/administration/createGreetingWithText'),
 )
 const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
@@ -341,6 +344,11 @@ const routes = [
     path: '/ratel/administration/setup/addVoiceRecording',
     name: 'Add Voice Recording',
     component: SetupVoiceRecording,
+  },
+  {
+    path: '/ratel/administration/setup/addGreetingWithText',
+    name: 'Add Greeting With Text',
+    component: CreateGreetingWithText,
   },
   {
     path: '/ratel/administration/pickupgroups/addMember',
