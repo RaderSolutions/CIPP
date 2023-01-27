@@ -46,10 +46,10 @@ const RatelAddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/RatelAddPickupGroupMember'),
 )
 const SetupVoiceRecording = React.lazy(() =>
-  import('src/views/ratel/administration/setupVoiceRecording'),
+  import('src/views/ratel/administration/SetupVoiceRecording'),
 )
 const CreateGreetingWithText = React.lazy(() =>
-  import('src/views/ratel/administration/createGreetingWithText'),
+  import('src/views/ratel/administration/CreateGreetingWithText'),
 )
 const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
