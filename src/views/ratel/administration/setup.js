@@ -147,10 +147,10 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol> */}
         <CCol>
-          <CippContentCard title="Special Features">
+          <CippContentCard title="Special Features" style={{ maxWidth: "50%"}}>
             {/* <h5>License Keys</h5> */}
             <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
-              <CCol>
+              <CCol style={{ display:"flex", flexDirection:"column" }}>
                 <label for="test">FOP:</label>
                 <input style={{ maxWidth: '500px' }} type="text" name="fop" />
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
