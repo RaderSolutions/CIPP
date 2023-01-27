@@ -139,13 +139,6 @@ const DialplanList = () => {
         <CCol style={{ marginBottom: '2em' }}>
           <ActionContentCard title="Reboot Server" content={rebootContent} />
         </CCol>
-      </CRow>
-
-      <CRow>
-        {/* <h5 style={{ paddingBottom: '1em', paddingTop: '1em', paddingLeft: '2.5em' }}>Special Features</h5> */}
-        {/* <CCol>
-          <ActionContentCard title="Installation" content={installationContent} />
-        </CCol> */}
         <CCol>
           <CippContentCard title="Special Features" style={{ maxWidth: '50vw' }}>
             {/* <h5>License Keys</h5> */}
