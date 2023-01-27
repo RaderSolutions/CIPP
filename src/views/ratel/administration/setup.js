@@ -133,10 +133,10 @@ const DialplanList = () => {
           Force Resync Of All Phones
         </CButton> */}
       <CRow>
-        <CCol>
+        <CCol style={{ marginBottom: '2em' }}>
           <ActionContentCard title="Redeploy Data" content={redeployContent} />
         </CCol>
-        <CCol>
+        <CCol style={{ marginBottom: '2em' }}>
           <ActionContentCard title="Reboot Server" content={rebootContent} />
         </CCol>
       </CRow>
@@ -150,25 +150,21 @@ const DialplanList = () => {
           <CippContentCard title="Special Features">
             {/* <h5>License Keys</h5> */}
             <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
-              {' '}
-              <label for="test">FOP:</label>
-              <input style={{ maxWidth: '500px' }} type="text" name="fop" />
-              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                Apply FOP License
-              </CButton>
               <CCol>
+                <label for="test">FOP:</label>
+                <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Apply FOP License
+                </CButton>
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Setup Voice Recording Ext.
                 </CButton>
-              </CCol>
-            </CRow>
-            <CRow>
-              <label for="test">DPMA:</label>
-              <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
-              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                Save DPMA License Key
-              </CButton>
-              <CCol>
+                <label for="test">DPMA:</label>
+                <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Save DPMA License Key
+                </CButton>
+
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Create A Greeting Using Text-To-Speech
                 </CButton>
