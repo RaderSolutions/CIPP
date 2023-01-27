@@ -346,7 +346,7 @@ const routes = [
     component: SetupVoiceRecording,
   },
   {
-    path: '/ratel/administration/setup/addGreetingWithText',
+    path: '/ratel/administration/setup/createGreetingWithText',
     name: 'Add Greeting With Text',
     component: CreateGreetingWithText,
   },
