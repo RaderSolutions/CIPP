@@ -7,7 +7,7 @@ import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
 // const installationContent = [
