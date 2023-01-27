@@ -147,24 +147,24 @@ const DialplanList = () => {
           <ActionContentCard title="Installation" content={installationContent} />
         </CCol> */}
         <CCol>
-          <CippContentCard title="Special Features" style={{ maxWidth: "50%"}}>
+          <CippContentCard title="Special Features" style={{ maxWidth: '50vw' }}>
             {/* <h5>License Keys</h5> */}
             <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
-              <CCol style={{ display:"flex", flexDirection:"column" }}>
+              <CCol style={{ display: 'flex', flexDirection: 'column' }}>
                 <label for="test">FOP:</label>
                 <input style={{ maxWidth: '500px' }} type="text" name="fop" />
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Apply FOP License
                 </CButton>
-                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                  Setup Voice Recording Ext.
-                </CButton>
+
                 <label for="test">DPMA:</label>
                 <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Save DPMA License Key
                 </CButton>
-
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Setup Voice Recording Ext.
+                </CButton>
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Create A Greeting Using Text-To-Speech
                 </CButton>
