@@ -160,10 +160,11 @@ const DialplanList = () => {
                   Setup Voice Recording Ext.
                 </CButton>
                 </Link>
-                <Link to="/ratel/administration/setup/createGreetingWithText"></Link>
+                <Link to="/ratel/administration/setup/createGreetingWithText">
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Create A Greeting Using Text-To-Speech
                 </CButton>
+                </Link>
               </CCol>
             </CRow>
           </CippContentCard>
