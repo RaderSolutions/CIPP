@@ -341,7 +341,7 @@ const routes = [
     component: RatelAddPhonebookEntry,
   },
   {
-    path: '/ratel/administration/setup/addVoiceRecording',
+    path: '/ratel/administration/setup/setupVoiceRecording',
     name: 'Add Voice Recording',
     component: SetupVoiceRecording,
   },
