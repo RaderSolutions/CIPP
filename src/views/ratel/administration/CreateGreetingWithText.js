@@ -30,7 +30,7 @@ import { useSelector } from 'react-redux'
 //   name: PropTypes.string.isRequired,
 // }
 
-const AddVoiceRecording = () => {
+const AddGreeting = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -47,7 +47,7 @@ const AddVoiceRecording = () => {
   }
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Voice Recording">
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Create Greeting Using Text">
       <CippWizard.Page title="Tenant Choice" description="Choose the tenant to add a greeting to">
         <center>
           <h3 className="text-primary">Step 1</h3>
@@ -105,4 +105,4 @@ const AddVoiceRecording = () => {
   )
 }
 
-export default AddVoiceRecording
+export default AddGreeting
