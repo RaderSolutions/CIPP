@@ -31,7 +31,6 @@ const Offcanvas = (row) => {
             color: 'info',
             modal: true,
             modalInput: true,
-            modalInput: true,
             modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes},RatelScript=true,ScriptId=7387`,
             // modalMessage: '',
           },
@@ -39,10 +38,9 @@ const Offcanvas = (row) => {
             label: 'Delete Dialplan',
             color: 'info',
             modal: true,
-            modalUrl: `TODO`,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan},RatelScript=true,ScriptId=7387`,
             modalInput: true,
-            modalInput: true,
-            modalMessage: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan},RatelScript=true,ScriptId=7387`,
+            modalMessage: '',
           },
         ]}
         placement="end"
