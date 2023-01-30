@@ -10,34 +10,8 @@ import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
 
-// const installationContent = [
-//   {
-//     link: '#',
-//     label: 'Set as Primary Ratel Host',
-//   },
-//   {
-//     link: '#',
-//     label: 'Set as Alternate Ratel Host',
-//   },
-//   {
-//     link: '#',
-//     label: 'Install Asterisk',
-//   },
-//   {
-//     link: '#',
-//     label: 'Update Asterisk',
-//   },
-//   {
-//     link: '#',
-//     label: 'Start Config Sync between Master and Alternate',
-//   },
-//   {
-//     link: '#',
-//     label: 'Install Fail2Ban',
-//   },
-// ]
-
 const Offcanvas = (row) => {
+  const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   return (
     <>
@@ -56,7 +30,9 @@ const Offcanvas = (row) => {
             label: 'Edit Dialplan',
             color: 'info',
             modal: true,
-            modalUrl: `TODO`,
+            modalInput: true,
+            modalInput: true,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes},RatelScript=true,ScriptId=7387`,
             // modalMessage: '',
           },
           {
@@ -64,7 +40,9 @@ const Offcanvas = (row) => {
             color: 'info',
             modal: true,
             modalUrl: `TODO`,
-            modalMessage: 'Are you sure you want to delete this dialplan?',
+            modalInput: true,
+            modalInput: true,
+            modalMessage: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan},RatelScript=true,ScriptId=7387`,
           },
         ]}
         placement="end"
