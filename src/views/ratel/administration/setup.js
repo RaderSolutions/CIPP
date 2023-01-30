@@ -5,7 +5,7 @@ import { CButton, CCol, CInput, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPageList } from 'src/components/layout'
-import { RatelSetupOffCanvas } from 'src/components/utilities'
+import { CippActionsOffcanvas, RatelSetupOffCanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
 // import { TitleButton } from 'src/components/buttons'
@@ -18,7 +18,7 @@ const Offcanvas = (row) => {
       <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
         <FontAwesomeIcon icon={faEllipsisV} />
       </CButton>
-      <RatelSetupOffCanvas
+      <CippActionsOffcanvas
         title="Dialplans"
         extendedInfo={[
           { label: 'Name', value: `${row.Name}` },
@@ -31,14 +31,14 @@ const Offcanvas = (row) => {
             color: 'info',
             modal: true,
             // modalInput: true,
-            // modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes},RatelScript=true,ScriptId=7387`,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes}&RatelScript=true&ScriptId=7387`,
             // modalMessage: '',
           },
           {
             label: 'Delete Dialplan',
             color: 'info',
             modal: true,
-            // modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan},RatelScript=true,ScriptId=7387`,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan}&RatelScript=true&ScriptId=7387`,
             // modalInput: true,
             modalMessage: '',
           },
