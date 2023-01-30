@@ -129,12 +129,6 @@ const DialplanList = () => {
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Apply FOP License
                 </CButton>
-
-                <label for="test">DPMA:</label>
-                <input style={{ maxWidth: '500px' }} type="text" name="dpma" />
-                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                  Save DPMA License Key
-                </CButton>
                 <Link to="/ratel/administration/setup/setupVoiceRecording">
                   <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                     Setup Voice Recording Ext.
