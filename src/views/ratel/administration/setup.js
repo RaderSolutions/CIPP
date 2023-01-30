@@ -37,20 +37,6 @@ import { Link } from 'react-router-dom'
 //   },
 // ]
 
-const redeployContent = [
-  {
-    link: '#',
-    label: 'Force Resync Of All Phones',
-  },
-]
-
-const rebootContent = [
-  {
-    link: '#',
-    label: 'Reboot Server When No Calls Are Active',
-  },
-]
-
 const Offcanvas = (row) => {
   const [ocVisible, setOCVisible] = useState(false)
   return (
@@ -133,12 +119,6 @@ const DialplanList = () => {
           Force Resync Of All Phones
         </CButton> */}
       <CRow>
-        <CCol style={{ marginBottom: '2em' }}>
-          <ActionContentCard title="Redeploy Data" content={redeployContent} />
-        </CCol>
-        <CCol style={{ marginBottom: '2em' }}>
-          <ActionContentCard title="Reboot Server" content={rebootContent} />
-        </CCol>
         <CCol>
           <CippContentCard title="Special Features" style={{ maxWidth: '50vw' }}>
             {/* <h5>License Keys</h5> */}
@@ -156,14 +136,14 @@ const DialplanList = () => {
                   Save DPMA License Key
                 </CButton>
                 <Link to="/ratel/administration/setup/setupVoiceRecording">
-                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                  Setup Voice Recording Ext.
-                </CButton>
+                  <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                    Setup Voice Recording Ext.
+                  </CButton>
                 </Link>
                 <Link to="/ratel/administration/setup/createGreetingWithText">
-                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                  Create A Greeting Using Text-To-Speech
-                </CButton>
+                  <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                    Create A Greeting Using Text-To-Speech
+                  </CButton>
                 </Link>
               </CCol>
             </CRow>

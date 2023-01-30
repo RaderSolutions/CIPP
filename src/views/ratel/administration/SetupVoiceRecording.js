@@ -36,15 +36,10 @@ const AddVoiceRecording = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const handleSubmit = async (values) => {
-    const shippedValues = {
-      TenantFilter: tenantDomain,
-      DialString: values.DialString,
-      RecordingPassword: values.recordingPassword,
-      FileToRecord: values.fileToRecord,
-    }
-
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelVoiceRecording', values: shippedValues })
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain},Parameters=Key=rec_ext|Value=${values.dialString},Key=rec_pw|Value=${values.recordingPassword},Key=rec_filename|Value=${values.fileToRecord}&RatelScript=true&ScriptId=7388`,
+    })
   }
 
   return (

@@ -36,14 +36,10 @@ const AddGreeting = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const handleSubmit = async (values) => {
-    const shippedValues = {
-      TenantFilter: tenantDomain,
-      Filename: values.filename,
-      Text: values.text,
-    }
-
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelGreetingWithText', values: shippedValues })
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain},Parameters=Key=input_tts_filename|Value=${values.filename},Key=text|Value=${values.text},&RatelScript=true&ScriptId=7389`,
+    })
   }
 
   return (

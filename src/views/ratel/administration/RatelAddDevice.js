@@ -492,3 +492,4 @@ const AddRatelDevice = () => {
 }
 
 export default AddRatelDevice
+
