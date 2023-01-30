@@ -122,41 +122,41 @@ const DialplanList = () => {
         <CCol>
           <CippContentCard title="Special Features" style={{ maxWidth: '50vw' }}>
             {/* <h5>License Keys</h5> */}
-            <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}>
-              <CCol style={{ display: 'flex', flexDirection: 'column' }}>
-                <label for="test">FOP:</label>
-                <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+            {/* <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}> */}
+            <CCol style={{ display: 'flex', flexDirection: 'column' }}>
+              <label for="test">FOP:</label>
+              <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                Apply FOP License
+              </CButton>
+              <Link to="/ratel/administration/setup/setupVoiceRecording">
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                  Apply FOP License
+                  Setup Voice Recording Ext.
                 </CButton>
-                <Link to="/ratel/administration/setup/setupVoiceRecording">
-                  <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                    Setup Voice Recording Ext.
-                  </CButton>
-                </Link>
-                <Link to="/ratel/administration/setup/createGreetingWithText">
-                  <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
-                    Create A Greeting Using Text-To-Speech
-                  </CButton>
-                </Link>
-              </CCol>
-              <CCol>
-                <CippPageList
-                  title="Current Internal Dialplans"
-                  style={{ maxWidth: '50%', marginTop: '2em' }}
-                  // titleButton={addNewDialplan}
-                  datatable={{
-                    // keyField: 'Extension',
-                    columns,
-                    reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
-                    path: '/api/LtListRatelInternalDialplans',
-                    params: { TenantFilter: tenant?.customerId },
-                  }}
-                />
-              </CCol>
-            </CRow>
+              </Link>
+              <Link to="/ratel/administration/setup/createGreetingWithText">
+                <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+                  Create A Greeting Using Text-To-Speech
+                </CButton>
+              </Link>
+            </CCol>
           </CippContentCard>
         </CCol>
+        <CCol>
+          <CippPageList
+            title="Current Internal Dialplans"
+            style={{ maxWidth: '50%', marginTop: '2em' }}
+            // titleButton={addNewDialplan}
+            datatable={{
+              // keyField: 'Extension',
+              columns,
+              reportName: `${tenant.customerId}-RATEL-Dialplan-List`,
+              path: '/api/LtListRatelInternalDialplans',
+              params: { TenantFilter: tenant?.customerId },
+            }}
+          />
+        </CCol>
+        {/* </CRow> */}
       </CRow>
     </>
   )
