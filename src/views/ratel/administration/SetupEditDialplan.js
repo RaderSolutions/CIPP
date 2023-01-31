@@ -43,18 +43,18 @@ const EditDialplan = () => {
   return (
     <CippPage title="Edit Dialplan" tenantSelector={false}>
       <>
-        {postResults.isSuccess && <CCallout color="success">{postResults.data?.Results}</CCallout>}
+        {/* {postResults.isSuccess && <CCallout color="success">{postResults.data?.Results}</CCallout>}
         {queryError && (
           <CRow>
             <CCol xs={12}>
               <CCallout color="danger">
                 {/* @todo add more descriptive help message here */}
-                Failed to load did
+{/*           
               </CCallout>
             </CCol>
-          </CRow>
-        )}
-        <CRow>
+          </CRow> */}
+      
+        <CRow> 
           <CCol lg={6} xs={12}>
             <CippContentCard title="Placeholder" icon={faEdit}>
               <Form
@@ -84,24 +84,24 @@ const EditDialplan = () => {
                       <CRow className="mb-3">
                         <CCol md={6}>
                           <CButton type="submit" disabled={submitting || formDisabled}>
-                            {postResults.isFetching && (
+                            {/* {postResults.isFetching && (
                               <FontAwesomeIcon
                                 icon={faCircleNotch}
                                 spin
                                 className="ms-2"
                                 size="1x"
                               />
-                            )}
+                            )} */}
                           </CButton>
                         </CCol>
                       </CRow>
-                      {postResults.isSuccess && (
+                      {/* {postResults.isSuccess && (
                         <CCallout color="success">
                           {postResults.data.Results.map((message, idx) => {
                             return <li key={idx}>{message}</li>
                           })}
                         </CCallout>
-                      )}
+                      )} */}
                     </CForm>
                   )
                 }}
@@ -109,9 +109,9 @@ const EditDialplan = () => {
             </CippContentCard>
           </CCol>
           <CCol lg={6} xs={12}>
-            <CippContentCard title="Raw Dialplan Data" icon={faEye}>
+            {/* <CippContentCard title="Raw Dialplan Data" icon={faEye}>
                 <CippCodeBlock code={values.Dialplan} />
-            </CippContentCard>
+            </CippContentCard> */}
           </CCol>
         </CRow>
       </>
