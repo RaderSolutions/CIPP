@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom'
 const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
+  const editLink = `/ratel/administration/devices/edit?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`
+
   return (
     <>
       <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
@@ -30,15 +32,16 @@ const Offcanvas = (row) => {
             label: 'Edit Dialplan',
             color: 'info',
             modal: true,
+            link: editLink,
             // modalInput: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes}&RatelScript=true&ScriptId=7387`,
-            // modalMessage: '',
+            // modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Name|Value=${row.Dialplan},Key=Dialplan|Value=${input.Dialplan},Key=Notes|Value=${input.Notes}&RatelScript=true&ScriptId=7387`,
+            // // modalMessage: '',
           },
           {
             label: 'Delete Dialplan',
             color: 'info',
             modal: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan}&RatelScript=true&ScriptId=7387`,
+            // modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId},Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Dialplan}&RatelScript=true&ScriptId=7387`,
             // modalInput: true,
             modalMessage: '',
           },

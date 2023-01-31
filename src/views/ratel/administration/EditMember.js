@@ -5,12 +5,6 @@ import useQuery from 'src/hooks/useQuery'
 import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
-import {
-  useListDeviceQuery,
-  useListDeviceLocationsQuery,
-  useListDeviceContactsQuery,
-  useListDeviceModelsQuery,
-} from 'src/store/api/ratelDevices'
 import { CippCodeBlock, ModalService } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,7 +18,16 @@ const onSubmit = () => {
 }
 
 export const EditMember = () => {
-const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery();
+const onSubmit = (values) => {
+  const shippedValues = {
+    Extension: values.Extension,
+    Groups: values.Groups,
+    Type: values.Type
+  }
+
+  genericPostRequest({ path: '/api/LtAddPickupGroupMember', values: shippedValues})
+}
 
   return (
     <CippPage>
@@ -36,12 +39,14 @@ const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
-                <CRow>
+                <CRow><CCol>
+                        <RFFCFormInput type="text" name="Extension" label="Extension"  />
+                    </CCol>
                     <CCol>
                         <RFFCFormInput type="text" name="Groups" label="Groups"  />
                     </CCol>
                     <CCol>
-                        <RFFCFormInput type="text" name="Types" label="Types" />
+                        <RFFCFormInput type="text" name="Type" label="Type" />
                     </CCol>
                 </CRow>
                   <CRow className="mb-3">
