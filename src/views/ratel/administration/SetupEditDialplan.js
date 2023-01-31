@@ -21,41 +21,18 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 const EditDialplan = () => {
   const dispatch = useDispatch()
   let query = useQuery()
-  const didNumber = query.get('DidNumber')
+  const dialplan = query.get('dialplan')
+  const name = query.get('name')
+  const description = query.get('description')
   const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
-  const {
-    data: did,
-    isFetching: didIsFetching,
-    error: didError,
-  } = useListDidQuery({ tenantDomain, didNumber })
-  const {
-    data: sampleDialplans = {},
-    isFetching: sampleDialplansAreFetching,
-    error: sampleDialplansError,
-  } = useListSampleDialplansQuery({ tenantDomain})
 
 
-
-
-  useEffect(() => {
-    if (!didNumber|| !tenantDomain) {
-      ModalService.open({
-        body: 'Error invalid request, could not load requested did.',
-        title: 'Invalid Request',
-      })
-      setQueryError(true)
-    } else {
-      setQueryError(false)
-    }
-  }, [didNumber, tenantDomain, dispatch])
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
     //@todo: need to fix copyfrom in api so this is no longer required
-    if (!values.CopyFrom) {
-      values.CopyFrom = ''
-    }
+
     //@todo: need to fix this in api so this hacky shit is no longer needed.
 
     const shippedValues = {
@@ -68,9 +45,7 @@ const EditDialplan = () => {
     genericPostRequest({ path: '/api/LtRatelDIDs', values: shippedValues })
   }
 
-  const initialState = {
-    ...did,
-  }
+
 
   // this is dumb
   const formDisabled =
