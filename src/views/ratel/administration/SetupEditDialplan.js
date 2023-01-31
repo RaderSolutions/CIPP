@@ -33,16 +33,16 @@ const EditDialplan = () => {
       Description: values.Description,
       Dialplan: values.Dialplan,
     }
-    //window.alert(JSON.stringify(shippedValues))
-    // console.log(values)
-    // genericPostRequest({ path: '/api/LtRatelDIDs', values: shippedValues })
+    window.alert(JSON.stringify(shippedValues))
+    console.log(values)
+    genericPostRequest({ path: '/api/LtRatelEditDialplan', values: shippedValues })
   }
 
 
 
   return (
     <CippPage>
-      <CCol lg={6} xs={12}>
+      <CCol>
         <CippContentCard title="Edit Dialplan" icon={faEdit}>
           <Form
             // initialValues={{ ...initialState }}
@@ -74,6 +74,9 @@ const EditDialplan = () => {
             }}
           />
         </CippContentCard>
+        {dialplan && <CippContentCard>
+            <CippCodeBlock code={dialplan} />
+        </CippContentCard>}
       </CCol>
     </CippPage>
   )

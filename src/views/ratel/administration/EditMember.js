@@ -11,11 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 
-const onSubmit = () => {
-  console.log('submit')
-//   todo
-  genericPostRequest({ path: "api/LtEditRatelMember", values: values})
-}
 
 export const EditMember = () => {
 const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery();
