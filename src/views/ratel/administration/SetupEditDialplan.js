@@ -31,7 +31,7 @@ const EditDialplan = () => {
   }
 
   return (
-    <CippPage>
+    <>
       <CRow>
         <CCol>
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
@@ -66,12 +66,12 @@ const EditDialplan = () => {
         <CCol>
           {dialplan && (
             <CippContentCard>
-              <CippCodeBlock code={dialplan} />
+              <CippCodeBlock code={dialplan} language="json" />
             </CippContentCard>
           )}
         </CCol>
       </CRow>
-    </CippPage>
+    </>
   )
 }
 
