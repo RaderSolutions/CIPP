@@ -33,7 +33,7 @@ const EditDialplan = () => {
   return (
     <>
       <CRow>
-        <CCol>
+        <CCol style={{ maxWidth: '50vw' }}>
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
               // initialValues={{ ...initialState }}
@@ -63,7 +63,7 @@ const EditDialplan = () => {
             />
           </CippContentCard>
         </CCol>
-        <CCol>
+        <CCol style={{ maxWidth: '50vw' }}>
           {dialplan && (
             <CippContentCard>
               <CippCodeBlock code={dialplan} language="json" />
