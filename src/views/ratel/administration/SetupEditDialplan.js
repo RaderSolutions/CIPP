@@ -70,14 +70,13 @@ const EditDialplan = () => {
             />
           </CippContentCard>
         </CCol>
-
-        {dialplan && (
-          <CCol>
+        <CCol>
+          {dialplan && (
             <CippContentCard>
               <CippCodeBlock code={dialplan} />
             </CippContentCard>
-          </CCol>
-        )}
+          )}
+        </CCol>
       </CRow>
     </CippPage>
   )
