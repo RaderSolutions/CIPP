@@ -14,13 +14,13 @@ import { CippCodeBlock } from 'src/components/utilities'
 import { values } from 'core-js/core/array'
 
 const EditDialplan = () => {
-  const dispatch = useDispatch()
-  let query = useQuery()
-  const dialplan = query.get('dialplan')
-  const name = query.get('name')
-  const description = query.get('description')
-  const tenantDomain = query.get('tenantDomain')
-  const [queryError, setQueryError] = useState(false)
+//   const dispatch = useDispatch()
+//   let query = useQuery()
+//   const dialplan = query.get('dialplan')
+//   const name = query.get('name')
+//   const description = query.get('description')
+//   const tenantDomain = query.get('tenantDomain')
+//   const [queryError, setQueryError] = useState(false)
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
@@ -41,80 +41,48 @@ const EditDialplan = () => {
 
 
   return (
-    <CippPage title="Edit Dialplan" tenantSelector={false}>
-      <>
-        {/* {postResults.isSuccess && <CCallout color="success">{postResults.data?.Results}</CCallout>}
-        {queryError && (
-          <CRow>
-            <CCol xs={12}>
-              <CCallout color="danger">
-                {/* @todo add more descriptive help message here */}
-{/*           
-              </CCallout>
-            </CCol>
-          </CRow> */}
-      
-        <CRow> 
-          <CCol lg={6} xs={12}>
-            <CippContentCard title="Placeholder" icon={faEdit}>
-              <Form
-        
-                onSubmit={onSubmit}
-                render={({ handleSubmit, submitting, values }) => {
-                  return (
-                    <CForm onSubmit={handleSubmit}>
-                      <CRow>
-                        <CCol lg={6} xs={12}>
-                          <RFFCFormInput type="text" name="Name" label="Name" />
-                        </CCol>
-                        <CCol lg={6} xs={12}>
-                          <RFFCFormInput
-                            type="text"
-                            name="Description"
-                            label="Edit Description"
-                            //disabled={formDIsabled}
-                          />
-                        </CCol>
-                      </CRow>
-                      <CRow>
-                        <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
-                      </CRow>
-
-                      <CCol lg={6} xs={12}></CCol>
-                      <CRow className="mb-3">
-                        <CCol md={6}>
-                          <CButton type="submit">
-                            {/* {postResults.isFetching && (
-                              <FontAwesomeIcon
-                                icon={faCircleNotch}
-                                spin
-                                className="ms-2"
-                                size="1x"
-                              />
-                            )} */}
-                          </CButton>
-                        </CCol>
-                      </CRow>
-                      {/* {postResults.isSuccess && (
-                        <CCallout color="success">
-                          {postResults.data.Results.map((message, idx) => {
-                            return <li key={idx}>{message}</li>
-                          })}
-                        </CCallout>
-                      )} */}
-                    </CForm>
-                  )
-                }}
-              />
-            </CippContentCard>
-          </CCol>
-          <CCol lg={6} xs={12}>
-            {/* <CippContentCard title="Raw Dialplan Data" icon={faEye}>
-                <CippCodeBlock code={values.Dialplan} />
-            </CippContentCard> */}
-          </CCol>
-        </CRow>
-      </>
+    <CippPage>
+      <CCol lg={6} xs={12}>
+        <CippContentCard title="Edit Dialplan" icon={faEdit}>
+          <Form
+            // initialValues={{ ...initialState }}
+            onSubmit={onSubmit}
+            render={({ handleSubmit, submitting, values }) => {
+              return (
+                <CForm onSubmit={handleSubmit}>
+                <CRow><CCol>
+                        <RFFCFormInput type="text" name="Name" label="Name"  />
+                    </CCol>
+                    <CCol>
+                        <RFFCFormInput type="text" name="Description" label="Description"  />
+                    </CCol>
+                    <CCol>
+                        <RFFCFormInput type="text" name="Dialplan" label="Dialplan" />
+                    </CCol>
+                </CRow>
+                  <CRow className="mb-3">
+                    <CCol md={6}>
+                      <CButton type="submit" >
+                        Edit Member
+                        {postResults.isFetching && (
+                          <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
+                        )}
+                      </CButton>
+                    </CCol>
+                  </CRow>
+                  {postResults.isSuccess && (
+                    <CCallout color="success">
+                      {postResults.data.Results.map((message, idx) => {
+                        return <li key={idx}>{message}</li>
+                      })}
+                    </CCallout>
+                  )}
+                </CForm>
+              )
+            }}
+          />
+        </CippContentCard>
+      </CCol>
     </CippPage>
   )
 }
