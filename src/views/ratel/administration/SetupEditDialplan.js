@@ -39,6 +39,7 @@ const EditDialplan = () => {
 
   return (
     <CippPage>
+        <CRow>
       <CCol>
         <CippContentCard title="Edit Dialplan" icon={faEdit}>
           <Form
@@ -76,6 +77,7 @@ const EditDialplan = () => {
           </CippContentCard>
         </CCol>
       )}
+      </CRow>
     </CippPage>
   )
 }
