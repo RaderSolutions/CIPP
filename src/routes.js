@@ -35,6 +35,9 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 //ratel stuff
 const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
 const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
+const SetupEditDialplan = React.lazy(() =>
+  import('src/views/ratel/administration/SetupEditDialplan'),
+)
 const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditMember = React.lazy(() => import('src/views/ratel/administration/EditMember'))
@@ -328,6 +331,11 @@ const routes = [
   //ratel stuff
   { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
   { path: '/ratel/administration/setup', name: 'RATEL Setup', component: RatelSetup },
+  {
+    path: '/ratel/administration/setupEditDialplan',
+    name: 'RATEL Setup',
+    component: SetupEditDialplan,
+  },
   { path: '/ratel/administration/devices/edit', name: 'Edit Device', component: EditDevice },
 
   {
