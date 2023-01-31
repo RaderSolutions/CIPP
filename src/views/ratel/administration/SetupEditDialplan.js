@@ -64,19 +64,11 @@ const EditDialplan = () => {
                     <CCol md={6}>
                       <CButton type="submit" >
                         Edit Member
-                        {postResults.isFetching && (
-                          <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
-                        )}
+                 
                       </CButton>
                     </CCol>
                   </CRow>
-                  {postResults.isSuccess && (
-                    <CCallout color="success">
-                      {postResults.data.Results.map((message, idx) => {
-                        return <li key={idx}>{message}</li>
-                      })}
-                    </CCallout>
-                  )}
+           
                 </CForm>
               )
             }}
