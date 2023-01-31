@@ -198,4 +198,4 @@ const EditDialplan = () => {
   )
 }
 
-export default EditDid
+export default EditDialplan
