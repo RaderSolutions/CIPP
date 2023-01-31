@@ -12,7 +12,6 @@ import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
-
 const EditDialplan = () => {
   const dispatch = useDispatch()
   let query = useQuery()
@@ -35,10 +34,8 @@ const EditDialplan = () => {
     }
     window.alert(JSON.stringify(shippedValues))
     console.log(values)
-    genericPostRequest({ path: '/api/LtRatelEditDialplan', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelSetupEditDialplan', values: shippedValues })
   }
-
-
 
   return (
     <CippPage>
@@ -50,37 +47,38 @@ const EditDialplan = () => {
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
-                <CRow><CCol>
-                        <RFFCFormInput type="text" name="Name" label="Name"  />
+                  <CRow>
+                    <CCol>
+                      <RFFCFormInput type="text" name="Name" label="Name" />
                     </CCol>
                     <CCol>
-                        <RFFCFormInput type="text" name="Description" label="Description"  />
+                      <RFFCFormInput type="text" name="Description" label="Description" />
                     </CCol>
                     <CCol>
-                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
-                    </CCol>
-                </CRow>
-                  <CRow className="mb-3">
-                    <CCol md={6}>
-                      <CButton type="submit" >
-                        Edit Member
-                 
-                      </CButton>
+                      <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
                     </CCol>
                   </CRow>
-           
+                  <CRow className="mb-3">
+                    <CCol md={6}>
+                      <CButton type="submit">Edit Member</CButton>
+                    </CCol>
+                  </CRow>
                 </CForm>
               )
             }}
           />
         </CippContentCard>
-        {dialplan && <CippContentCard>
-            <CippCodeBlock code={dialplan} />
-        </CippContentCard>}
       </CCol>
+      {
+        <CCol>
+          dialplan &&{' '}
+          <CippContentCard>
+            <CippCodeBlock code={dialplan} />
+          </CippContentCard>
+        </CCol>
+      }
     </CippPage>
   )
-
 }
 
 export default EditDialplan
