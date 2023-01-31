@@ -23,18 +23,11 @@ const EditDialplan = () => {
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
-    //@todo: need to fix copyfrom in api so this is no longer required
-
-    //@todo: need to fix this in api so this hacky shit is no longer needed.
-
-    const shippedValues = {
-      Name: values.Name,
-      Description: values.Description,
-      Dialplan: values.Dialplan,
-    }
     window.alert(JSON.stringify(shippedValues))
     console.log(values)
-    genericPostRequest({ path: '/api/LtRatelSetupEditDialplan', values: shippedValues })
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+    })
   }
 
   return (

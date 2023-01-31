@@ -65,7 +65,7 @@ const EditDid = () => {
     }
      //window.alert(JSON.stringify(shippedValues))
     // console.log(values)
-    genericPostRequest({ path: '/api/LtRatelAddDi', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelDIDs', values: shippedValues })
   }
 
   const initialState = {
