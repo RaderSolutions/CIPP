@@ -63,13 +63,13 @@ const EditDialplan = () => {
             />
           </CippContentCard>
         </CCol>
-        <CCol style={{ maxWidth: '50vw' }}>
+        {/* <CCol style={{ maxWidth: '50vw' }}>
           {dialplan && (
             <CippContentCard>
               <CippCodeBlock code={dialplan} language="json" />
             </CippContentCard>
           )}
-        </CCol>
+        </CCol> */}
       </CRow>
     </>
   )
