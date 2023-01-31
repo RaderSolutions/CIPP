@@ -38,7 +38,7 @@ const EditDialplan = () => {
     // genericPostRequest({ path: '/api/LtRatelDIDs', values: shippedValues })
   }
 
-  // this is dumb
+
 
   return (
     <CippPage title="Edit Dialplan" tenantSelector={false}>
@@ -58,7 +58,7 @@ const EditDialplan = () => {
           <CCol lg={6} xs={12}>
             <CippContentCard title="Placeholder" icon={faEdit}>
               <Form
-                initialValues={{ ...initialState }}
+        
                 onSubmit={onSubmit}
                 render={({ handleSubmit, submitting, values }) => {
                   return (
@@ -83,7 +83,7 @@ const EditDialplan = () => {
                       <CCol lg={6} xs={12}></CCol>
                       <CRow className="mb-3">
                         <CCol md={6}>
-                          <CButton type="submit" disabled={submitting || formDisabled}>
+                          <CButton type="submit">
                             {/* {postResults.isFetching && (
                               <FontAwesomeIcon
                                 icon={faCircleNotch}
