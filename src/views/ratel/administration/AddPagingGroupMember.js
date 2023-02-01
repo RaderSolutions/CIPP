@@ -30,7 +30,7 @@ import { useSelector } from 'react-redux'
 //   name: PropTypes.string.isRequired,
 // }
 
-const AddPickupGroupMember = () => {
+const AddPagingGroupMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -44,14 +44,14 @@ const AddPickupGroupMember = () => {
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPickupGroup', values: shippedValues })
+    genericPostRequest({ path: '/api/LtAddRatelPagingGroup', values: shippedValues })
   }
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Pickup Group Member Wizard">
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Member Wizard">
       <CippWizard.Page
         title="Tenant Choice"
-        description="Choose the tenant to add a pickup group member to"
+        description="Choose the tenant to add a paging group member to"
       >
         <center>
           <h3 className="text-primary">Step 1</h3>
@@ -63,12 +63,12 @@ const AddPickupGroupMember = () => {
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page
-        title="Pickup Group Member Information"
-        description="Enter the pickup group member information"
+        title="Paging Group Member Information"
+        description="Enter the paging group member information"
       >
         <center>
           <h3 className="text-primary">Step 2</h3>
-          <h5>Enter Pickup Group Information</h5>
+          <h5>Enter Paging Group Information</h5>
         </center>
         <hr className="my-4" />
         <div className="mb-2">
@@ -85,21 +85,31 @@ const AddPickupGroupMember = () => {
             <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
-                name="Groups"
-                label="Groups"
+                name="PageGroup"
+                label="Page Group"
                 //disabled={formDIsabled}
               />
             </CCol>
             <CCol lg={6} xs={12}>
+              <RFFCFormInput name="DeviceID" label="Device ID" />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput name="DeviceExt" label="Device Extension" />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput name="User" label="User" />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput name="Location" label="Location" />
+            </CCol>
+            <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="Type"
-                label="Type"
-                placeholder={'Select Type'}
+                name="Hide"
+                label="Hide From Phonebook"
                 values={[
-                  { value: 'Pickup', label: 'Pickup' },
-                  { value: 'Call', label: 'Call' },
+                  { value: 'Hide', label: 'Hide' },
+                  { value: 'Unhide', label: 'Unhide' },
                 ]}
-                //disabled={formDIsabled}
               />
             </CCol>
           </CRow>
@@ -124,4 +134,4 @@ const AddPickupGroupMember = () => {
   )
 }
 
-export default AddPickupGroupMember
+export default AddPagingGroupMember
