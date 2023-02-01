@@ -21,6 +21,12 @@ const EditDialplan = () => {
   // const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
 
+  const initialState = {
+    dialplan: dialplan,
+    name: name,
+    description: description,
+  }
+
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = (values) => {
     window.alert(JSON.stringify(shippedValues))
@@ -36,20 +42,20 @@ const EditDialplan = () => {
         <CCol>
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
-              // initialValues={{ ...initialState }}
+              initialValues={{ ...initialState }}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="Name" label="Name" placeholder={name} />
+                        <RFFCFormInput type="text" name="Name" label="Name" />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="Description" label="Description" placeholder={description} />
+                        <RFFCFormInput type="text" name="Description" label="Description" />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" placeholder={dialplan} />
+                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
