@@ -26,7 +26,7 @@ const onSubmit = (values) => {
 
   return (
     <CippPage>
-      <CCol lg={6} xs={12}>
+      <CCol>
         <CippContentCard title="Member Details" icon={faEdit}>
           <Form
             // initialValues={{ ...initialState }}

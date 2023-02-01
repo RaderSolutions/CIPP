@@ -38,7 +38,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             link: editLink,
             color: 'info',
             modal: true,
-            modalUrl: `TODO`,
+            // modalUrl: `TODO`,
           },
           {
             label: 'Remove Member from Pickup group',
