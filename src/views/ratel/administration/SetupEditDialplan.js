@@ -18,7 +18,7 @@ const EditDialplan = () => {
   const dialplan = query.get('dialplan')
   const name = query.get('name')
   const description = query.get('description')
-  const tenantDomain = query.get('tenantDomain')
+  // const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
@@ -43,13 +43,13 @@ const EditDialplan = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="Name" label="Name" />
+                        <RFFCFormInput type="text" name="Name" label="Name" placeholder={name} />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="Description" label="Description" />
+                        <RFFCFormInput type="text" name="Description" label="Description" placeholder={description} />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
+                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" placeholder={dialplan} />
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
