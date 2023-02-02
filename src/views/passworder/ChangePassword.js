@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from 'react'
 import { CButton, CCol, CForm, CRow, CSpinner } from '@coreui/react'
 import useQuery from 'src/hooks/useQuery'
