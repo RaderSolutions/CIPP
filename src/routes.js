@@ -42,8 +42,8 @@ const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administratio
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditMember = React.lazy(() => import('src/views/ratel/administration/EditMember'))
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
-const RatelAddPhonebookEntry = React.lazy(() =>
-  import('src/views/ratel/administration/RatelAddPhonebookEntry'),
+const AddPhonebookEntry = React.lazy(() =>
+  import('src/views/ratel/administration/AddPhonebookEntry'),
 )
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
@@ -349,7 +349,7 @@ const routes = [
   {
     path: '/ratel/administration/phonebookEditor/addEntry',
     name: 'Add RATEL Phonebook Entry',
-    component: RatelAddPhonebookEntry,
+    component: AddPhonebookEntry,
   },
   {
     path: '/ratel/administration/setup/setupVoiceRecording',
