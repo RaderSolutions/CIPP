@@ -46,7 +46,7 @@ const RatelAddPhonebookEntry = React.lazy(() =>
   import('src/views/ratel/administration/RatelAddPhonebookEntry'),
 )
 const AddPickupGroupMember = React.lazy(() =>
-  import('src/views/ratel/administration/RatelAddPickupGroupMember'),
+  import('src/views/ratel/administration/AddPickupGroupMember'),
 )
 const AddPagingGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPagingGroupMember'),
