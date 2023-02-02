@@ -44,7 +44,7 @@ const AddPickupGroupMember = () => {
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPickupGroup', values: shippedValues })
+    genericPostRequest({ path: '/api/LtAddRatelPickupGroupMember', values: shippedValues })
   }
 
   return (

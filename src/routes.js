@@ -40,7 +40,9 @@ const SetupEditDialplan = React.lazy(() =>
 )
 const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
-const EditMember = React.lazy(() => import('src/views/ratel/administration/EditMember'))
+const EditPickupGroupMember = React.lazy(() =>
+  import('src/views/ratel/administration/EditPickupGroupMember'),
+)
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
 const AddPhonebookEntry = React.lazy(() =>
   import('src/views/ratel/administration/AddPhonebookEntry'),
@@ -374,7 +376,7 @@ const routes = [
   {
     path: 'ratel/administration/pickupgroups/editMember',
     name: 'Edit Member',
-    component: EditMember,
+    component: EditPickupGroupMember,
   },
   {
     path: 'ratel/administration/devices/changeLabel',
