@@ -49,6 +49,8 @@ const AddPhonebookEntry = () => {
       JobTitle: values.jobTitle,
       Location: values.location,
       Notes: values.notes,
+      ContactType: values.ContactType,
+      IsFromFOP: values.IsFromFOP
     }
 
     alert(JSON.stringify(values, null, 2))
@@ -96,7 +98,7 @@ const AddPhonebookEntry = () => {
                 label="Salutation"
                 placeholder={'Select Salutation'}
                 values={[
-                  { value: null, label: 'None'},
+                  { value: null, label: 'None' },
                   { value: 'Mr.', label: 'Mr.' },
                   { value: 'Ms.', label: 'Ms.' },
                   { value: 'Mrs.', label: 'Mrs.' },
@@ -135,7 +137,7 @@ const AddPhonebookEntry = () => {
                 label="Suffix"
                 placeholder={'Select Suffix'}
                 values={[
-                  { value: null, label: 'None'},
+                  { value: null, label: 'None' },
                   { value: 'II', label: 'II' },
                   { value: 'III', label: 'III' },
                   { value: 'IV', label: 'IV' },
@@ -182,6 +184,27 @@ const AddPhonebookEntry = () => {
                 type="text"
                 name="notes"
                 label="Notes"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="contactType"
+                label="Contact Type"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                name="select"
+                label="Is From FOP"
+                placeholder={'Select Option'}
+                values={[
+                  { value: null, label: 'None' },
+                  { value: true, label: 'true' },
+                  { value: false, label: 'false' },
+                ]}
                 //disabled={formDIsabled}
               />
             </CCol>
