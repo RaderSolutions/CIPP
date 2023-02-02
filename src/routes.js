@@ -61,7 +61,7 @@ const CreateGreetingWithText = React.lazy(() =>
 )
 const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
-const EditDialplan = React.lazy(() => import('src/views/ratel/administration/EditDialplan'))
+const DIDsEditDialplan = React.lazy(() => import('src/views/ratel/administration/DIDsEditDialplan'))
 const RatelAddDid = React.lazy(() => import('src/views/ratel/administration/RatelAddDid'))
 const RatelVariables = React.lazy(() => import('src/views/ratel/administration/variables'))
 const EditVariable = React.lazy(() => import('src/views/ratel/administration/EditVariable'))
@@ -337,7 +337,7 @@ const routes = [
   { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
   { path: '/ratel/administration/setup', name: 'RATEL Setup', component: RatelSetup },
   {
-    path: '/ratel/administration/setupEditDialplan',
+    path: '/ratel/administration/setup/EditDialplan',
     name: 'Setup Edit Dialplan',
     component: SetupEditDialplan,
   },
@@ -384,7 +384,11 @@ const routes = [
     component: ChangeDeviceLabel,
   },
   { path: '/ratel/administration/dids', name: 'RATEL DIDs', component: RatelDIDs },
-  { path: '/ratel/administration/dids/editDialplan', name: 'Edit DID', component: EditDialplan },
+  {
+    path: '/ratel/administration/dids/editDialplan',
+    name: 'Edit DID',
+    component: DIDsEditDialplan,
+  },
   { path: '/rate/administration/dids/add', name: 'Add RATEL DID', component: RatelAddDid },
   { path: '/ratel/administration/variables', name: 'RATEL Variables', component: RatelVariables },
   { path: '/ratel/administration/variables/edit', name: 'Edit Variable', component: EditVariable },
