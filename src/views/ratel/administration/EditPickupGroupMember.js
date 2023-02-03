@@ -33,19 +33,9 @@ export const EditMember = () => {
   }
 
   useEffect(() => {
-    if (!ext || !tenantDomain) {
-      ModalService.open({
-        body: 'Error: Invalid Request; could not load requested group member',
-        title: 'Invalid Request',
-      })
-      setQueryError(true)
-      console.log(queryError)
-      console.log(member, initialState)
-    } else {
-      setQueryError(false)
-      console.log(member, initialState)
+   console.log(initialState)
     }
-  }, [])
+  , [])
 
   const onSubmit = (values) => {
     const shippedValues = {
