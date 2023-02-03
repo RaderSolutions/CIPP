@@ -8,6 +8,7 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
         path: '/api/LtListRatelPickupGroups',
         params: {
           TenantFilter: tenantDomain,
+          MailboxId: 'id',
           extensionId: ext,
           membershipType: type,
         },
