@@ -27,18 +27,18 @@ export const EditMember = () => {
     error: memberError,
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
-  useEffect(() => {
-    if (!ext || !tenantDomain) {
-      ModalService.open({
-        body: 'Error: Invalid Request; could not load requested group member',
-        title: 'Invalid Request',
-      })
-      setQueryError(true)
-      console.log(queryError)
-    } else {
-      setQueryError(false)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!ext || !tenantDomain) {
+  //     ModalService.open({
+  //       body: 'Error: Invalid Request; could not load requested group member',
+  //       title: 'Invalid Request',
+  //     })
+  //     setQueryError(true)
+  //     console.log(queryError)
+  //   } else {
+  //     setQueryError(false)
+  //   }
+  // }, [])
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -64,6 +64,7 @@ export const EditMember = () => {
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
+                  {formFields}
                   <CRow>
                     <CCol>
                       <RFFCFormInput type="text" name="Extension" label="Extension" />
