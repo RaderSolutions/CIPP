@@ -53,7 +53,7 @@ export const EditMember = () => {
       <CCol>
         <CippContentCard title="Member Details" icon={faEdit}>
           <Form
-            initialValues={{ initialState }}
+            // initialValues={{ ...initialState }}
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
