@@ -24,5 +24,5 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useListPickupMemberQuery } = pickupGroupsApi
+export const { useListPickupMemberQuery, useEditMemberMutation } = pickupGroupsApi
 export default pickupGroupsApi
