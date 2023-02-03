@@ -27,18 +27,25 @@ export const EditMember = () => {
     error: memberError,
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
-  // useEffect(() => {
-  //   if (!ext || !tenantDomain) {
-  //     ModalService.open({
-  //       body: 'Error: Invalid Request; could not load requested group member',
-  //       title: 'Invalid Request',
-  //     })
-  //     setQueryError(true)
-  //     console.log(queryError)
-  //   } else {
-  //     setQueryError(false)
-  //   }
-  // }, [])
+  
+  const initialState = {
+    ...member
+  }
+
+  useEffect(() => {
+    if (!ext || !tenantDomain) {
+      ModalService.open({
+        body: 'Error: Invalid Request; could not load requested group member',
+        title: 'Invalid Request',
+      })
+      setQueryError(true)
+      console.log(queryError)
+      console.log(member, initialState)
+    } else {
+      setQueryError(false)
+      console.log(member, initialState)
+    }
+  }, [])
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -50,21 +57,18 @@ export const EditMember = () => {
     genericPostRequest({ path: '/api/LtAddPickupGroupMember', values: shippedValues })
   }
 
-  const initialState = {
-    ...member
-  }
 
   return (
     <CippPage>
       <CCol>
         <CippContentCard title="Member Details" icon={faEdit}>
           <Form
-            initialValues={{ ...initialState }}
+            initialValues={{ initialState }}
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
-                  {formFields}
+                  
                   <CRow>
                     <CCol>
                       <RFFCFormInput type="text" name="Extension" label="Extension" />
