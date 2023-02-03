@@ -10,43 +10,74 @@ import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
-
+import { useListPickupMemberQuery } from 'src/store/api/ratelDevices'
 
 export const EditMember = () => {
-const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery();
-const onSubmit = (values) => {
-  const shippedValues = {
-    Extension: values.Extension,
-    Groups: values.Groups,
-    Type: values.Type
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const [queryError, setQueryError] = useState(false)
+
+  let query = useQuery()
+  const tenantDomain = query.get('tenantDomain')
+  const ext = query.get('extension')
+  const type = query.get('type')
+
+  const {
+    data: member = {},
+    isFetching: memberIsFetching,
+    error: memberError,
+  } = useListPickupMemberQuery({ tenantDomain, ext, type })
+
+  useEffect(() => {
+    if (!ext || !tenantDomain) {
+      ModalService.open({
+        body: 'Error: Invalid Request; could not load requested group member',
+        title: 'Invalid Request',
+      })
+      setQueryError(true)
+      console.log(queryError)
+    } else {
+      setQueryError(false)
+    }
+  }, [])
+
+  const onSubmit = (values) => {
+    const shippedValues = {
+      Extension: values.Extension,
+      Groups: values.Groups,
+      Type: values.Type,
+    }
+
+    genericPostRequest({ path: '/api/LtAddPickupGroupMember', values: shippedValues })
   }
 
-  genericPostRequest({ path: '/api/LtAddPickupGroupMember', values: shippedValues})
-}
+  const initialState = {
+    ...member
+  }
 
   return (
     <CippPage>
       <CCol>
         <CippContentCard title="Member Details" icon={faEdit}>
           <Form
-            // initialValues={{ ...initialState }}
+            initialValues={{ ...initialState }}
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
-                <CRow><CCol>
-                        <RFFCFormInput type="text" name="Extension" label="Extension"  />
+                  <CRow>
+                    <CCol>
+                      <RFFCFormInput type="text" name="Extension" label="Extension" />
                     </CCol>
                     <CCol>
-                        <RFFCFormInput type="text" name="Groups" label="Groups"  />
+                      <RFFCFormInput type="text" name="Groups" label="Groups" />
                     </CCol>
                     <CCol>
-                        <RFFCFormInput type="text" name="Type" label="Type" />
+                      <RFFCFormInput type="text" name="Type" label="Type" />
                     </CCol>
-                </CRow>
+                  </CRow>
                   <CRow className="mb-3">
                     <CCol md={6}>
-                      <CButton type="submit" >
+                      <CButton type="submit">
                         Edit Member
                         {postResults.isFetching && (
                           <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
