@@ -28,12 +28,10 @@ export const EditMember = () => {
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
   
-  const initialState = {
-    ...member
-  }
+
 
   useEffect(() => {
-   console.log(initialState)
+   console.log(member)
     }
   , [])
 
