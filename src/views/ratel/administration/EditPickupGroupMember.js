@@ -27,14 +27,6 @@ export const EditMember = () => {
     error: memberError,
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
-  
-
-
-  useEffect(() => {
-   console.log(member)
-    }
-  , [])
-
   const onSubmit = (values) => {
     const shippedValues = {
       Extension: values.Extension,
