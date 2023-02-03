@@ -10,7 +10,7 @@ import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
-import { useListPickupMemberQuery } from 'src/store/api/ratelDevices'
+import { useListPickupMemberQuery } from 'src/store/api/pickupGroups'
 
 export const EditMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
