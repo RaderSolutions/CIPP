@@ -21,7 +21,7 @@ import {
   faScroll,
   faUserShield,
   faEnvelope,
-  faCog
+  faGear,
 } from '@fortawesome/free-solid-svg-icons'
 
 const _nav = [
@@ -138,7 +138,7 @@ const _nav = [
     name: 'Labtech Configs',
     to: '/configs',
     section: 'LtConfigs',
-    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
+    icon: <FontAwesomeIcon icon={faGear} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
