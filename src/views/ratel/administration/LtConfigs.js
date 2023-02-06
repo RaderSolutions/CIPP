@@ -74,17 +74,17 @@ const Configs = () => {
   //     params: { ScriptFile: selectedScript, MakeLink: 'True' },
   //   })
   // }
-  const dumb = [
-    {
-      config: 'config',
-    },
-    {
-      config: 'config',
-    },
-    {
-      config: 'config',
-    },
-  ]
+  // const dumb = [
+  //   {
+  //     config: 'config',
+  //   },
+  //   {
+  //     config: 'config',
+  //   },
+  //   {
+  //     config: 'config',
+  //   },
+  // ]
 
   return (
     <>
@@ -117,7 +117,11 @@ const Configs = () => {
                               name="ConfigFile"
                               label="Config File"
                               placeholder="-- Select a config --"
-                              values={dumb}
+                              // values={dumb}
+                              values={[
+                                { value: 'name', label: 'value' },
+                                { value: 'name', label: 'value' },
+                              ]}
                             />
                           </CCol>
                         </CRow>
