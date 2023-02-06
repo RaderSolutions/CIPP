@@ -38,7 +38,7 @@ export const EditMember = () => {
       Type: values.Type,
     }
 
-    genericPostRequest({ path: '/api/LtAddPickupGroupMember', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
   }
 
 
