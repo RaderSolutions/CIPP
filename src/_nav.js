@@ -137,7 +137,7 @@ const _nav = [
     name: 'Labtech Configs',
     to: '/configs',
     section: 'LtConfigs',
-    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
+    // icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
     items: [
       {
         component: CNavItem,
