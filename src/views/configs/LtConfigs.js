@@ -33,7 +33,7 @@ import {
   //   faTrash,
   //   faRecycle,
   faLink,
-  faScroll,
+  faCog,
 } from '@fortawesome/free-solid-svg-icons'
 // import { useListTenantsQuery } from 'src/store/api/tenants'
 // import { useLazyEditDnsConfigQuery, useLazyGetDnsConfigQuery } from 'src/store/api/domains'
@@ -55,15 +55,15 @@ import {
 } from 'src/components/utilities'
 // import CippListOffcanvas from 'src/components/utilities/CippListOffcanvas'
 // import { TitleButton } from 'src/components/buttons'
-import Skeleton from 'react-loading-skeleton'
-import { Buffer } from 'buffer'
+// import Skeleton from 'react-loading-skeleton'
+// import { Buffer } from 'buffer'
 
 const Configs = () => {
   const [selectedConfig, setSelectedConfig] = useState()
   //   const [listConfigs] = useLazyGenericGetRequestQuery()
 
   const handleSubmit = async (values) => {
- console.log(values)
+    console.log(values)
   }
 
   // const handleGetLink = () => {
@@ -100,15 +100,6 @@ const Configs = () => {
                 render={({ handleSubmit, submitting, values }) => {
                   return (
                     <CForm onSubmit={handleSubmit}>
-                      {/*                     
-                        <>
-                          <CRow>
-                            <CCol>
-                              <Skeleton count={5} />
-                            </CCol>
-                          </CRow>
-                        </> */}
-
                       <>
                         <CRow>
                           <CCol>
@@ -119,7 +110,7 @@ const Configs = () => {
                               // values={dumb}
                               values={[
                                 { value: 'name', label: 'value' },
-                                { value: 'name', label: 'value' },
+                                { value: 'name2', label: 'value2' },
                               ]}
                             />
                           </CCol>
@@ -127,7 +118,7 @@ const Configs = () => {
                         <CRow className="mb-3">
                           <CCol>
                             <CButton type="submit" disabled={submitting}>
-                              <FontAwesomeIcon icon={faScroll} className="me-2" />
+                              <FontAwesomeIcon icon={faCog} className="me-2" />
                               Load Config
                             </CButton>
                           </CCol>
@@ -149,7 +140,7 @@ const Configs = () => {
               </CCardBody>
             </CCard>
          */}
-          <CCard>
+          {/* <CCard>
             <CCardHeader>
               <CCardTitle>Script Details</CCardTitle>
             </CCardHeader>
@@ -160,7 +151,7 @@ const Configs = () => {
                   Create Link
                 </CButton>
               </p> */}
-
+          {/* 
               <p>
                 <>
                   <p>
@@ -188,7 +179,7 @@ const Configs = () => {
                 />
               </p>
             </CCardBody>
-          </CCard>
+          </CCard>  */}
         </CCol>
       </CRow>
     </>
