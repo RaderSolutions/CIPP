@@ -62,10 +62,9 @@ const Configs = () => {
   const [selectedConfig, setSelectedConfig] = useState()
   //   const [listConfigs] = useLazyGenericGetRequestQuery()
 
-  // const handleSubmit = async (values) => {
-  //   listScript({ path: 'api/ExecMaintenanceScripts', params: values })
-  //   setSelectedScript(values.ScriptFile)
-  // }
+  const handleSubmit = async (values) => {
+ console.log(values)
+  }
 
   // const handleGetLink = () => {
   //   console.log('Making link')
@@ -155,12 +154,12 @@ const Configs = () => {
               <CCardTitle>Script Details</CCardTitle>
             </CCardHeader>
             <CCardBody>
-              <p>
+              {/* <p>
                 <CButton type="submit" onClick={handleGetLink}>
                   <FontAwesomeIcon icon={faLink} className="me-2" />
                   Create Link
                 </CButton>
-              </p>
+              </p> */}
 
               <p>
                 <>
