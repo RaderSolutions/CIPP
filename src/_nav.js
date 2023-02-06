@@ -133,6 +133,20 @@ const _nav = [
     ],
   },
   {
+    component: CNavGroup,
+    name: 'Configs',
+    to: '/configs',
+    section: 'LtConfigs',
+    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'View Configs',
+        to: '/configs/list',
+      },
+    ],
+  },
+  {
     component: CNavTitle,
     name: 'Identity Management',
   },

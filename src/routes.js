@@ -86,6 +86,8 @@ const ChangePassword = React.lazy(() => import('src/views/passworder/ChangePassw
 const LtScripts = React.lazy(() => import('src/views/scripts/scripts'))
 const ScheduleScript = React.lazy(() => import('src/views/scripts/ScheduleScript'))
 const NewScript = React.lazy(() => import('src/views/scripts/NewScript'))
+// lt configs
+const LtConfigs = React.lazy(() => import('src/views/configs/configs'))
 
 const Domains = React.lazy(() => import('src/views/tenant/administration/Domains'))
 const EditTenant = React.lazy(() => import('src/views/tenant/administration/EditTenant'))
@@ -437,6 +439,8 @@ const routes = [
   { path: 'scripts/list', name: 'Enhanced Labtech Scripts', component: LtScripts },
   { path: 'scripts/schedule', name: 'Schedule Enhanced Labtech Script', component: ScheduleScript },
   { path: 'scripts/new', name: 'Add Enhanced Labtech Script', component: NewScript },
+  // lt configs
+  { path: 'configs/list', name: 'Labtech Configs', component: LtConfigs },
 
   { path: '/tenant', name: 'Tenant' },
   { path: '/tenant/administration', name: 'Administration' },
