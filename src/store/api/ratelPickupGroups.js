@@ -8,19 +8,18 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
         path: '/api/LtListRatelPickupGroups',
         params: {
           TenantFilter: tenantDomain,
-        //   MailboxId: 'id',
-          extensionId: ext,
-          membershipType: type,
+          Extension: ext,
+          Type: type,
         },
       }),
     }),
     editMember: builder.mutation({
-        query: (member) => ({
-          path: '/api/',
-          method: 'post',
-          data: member,
-        }),
+      query: (member) => ({
+        path: '/api/LtRatelPickupGroups',
+        method: 'post',
+        data: member,
       }),
+    }),
   }),
 })
 
