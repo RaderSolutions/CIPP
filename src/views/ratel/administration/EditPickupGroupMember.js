@@ -17,7 +17,7 @@ export const EditMember = () => {
   const [queryError, setQueryError] = useState(false)
 
   let query = useQuery()
-  const tenantDomain = query.get('tenantDomain')
+  // const tenantDomain = query.get('tenantDomain')
   const ext = query.get('extension')
   const type = query.get('type')
 
@@ -25,11 +25,7 @@ export const EditMember = () => {
     data: member = {},
     isFetching: memberIsFetching,
     error: memberError,
-  } = useListPickupMemberQuery({ tenantDomain, ext, type })
-
-useEffect(()=>{
-  console.log(member)
-},[member])
+  } = useListPickupMemberQuery({ ext, type })
 
   const onSubmit = (values) => {
     const shippedValues = {
