@@ -22,7 +22,7 @@ export const EditMember = () => {
   const type = query.get('type')
 
   const {
-    data: member = {},
+    data: member,
     isFetching: memberIsFetching,
     error: memberError,
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
