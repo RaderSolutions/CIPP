@@ -26,10 +26,15 @@ export const EditMember = () => {
     data: member,
     isFetching: memberIsFetching,
     error: memberError,
-  } = useListPickupMemberQuery({ tenantDomain, ext, type }, {skip})
+  } = useListPickupMemberQuery(
+    { tenantDomain, ext, type },
+    {
+      skip,
+    },
+  )
 
   useEffect(() => {
-    if (tenantDomain && ext && type) {
+    if (tenantDomain !== '') {
       setSkip(false)
     }
   }, [tenantDomain, ext, type])
