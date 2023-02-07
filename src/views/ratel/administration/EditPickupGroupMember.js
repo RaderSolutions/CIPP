@@ -23,9 +23,7 @@ export const EditMember = () => {
   const type = query.get('type')
 
   const {
-    data: member,
-    isFetching: memberIsFetching,
-    error: memberError,
+    data
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
   const onSubmit = (values) => {
