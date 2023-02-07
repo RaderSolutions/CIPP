@@ -44,8 +44,12 @@ const EditPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/EditPickupGroupMember'),
 )
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
+const PhonebookEditor = React.lazy(() => import('src/views/ratel/administration/PhonebookEditor'))
 const AddPhonebookEntry = React.lazy(() =>
   import('src/views/ratel/administration/AddPhonebookEntry'),
+)
+const EditPhonebookEntry = React.lazy(() =>
+  import('src/views/ratel/administration/EditPhonebookEntry'),
 )
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
@@ -73,9 +77,6 @@ const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/m
 const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
 
 const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
-const EditPhonebookEntry = React.lazy(() =>
-  import('src/views/ratel/administration/EditPhonebookEntry'),
-)
 
 //passworder
 const GeneratePasswords = React.lazy(() => import('src/views/passworder/GeneratePasswords'))
@@ -351,9 +352,19 @@ const routes = [
     component: RatelAddDevice,
   },
   {
+    path: '/ratel/administration/phonebookEditor',
+    name: 'RATEL Phonebook Editor',
+    component: PhonebookEditor,
+  },
+  {
     path: '/ratel/administration/phonebookEditor/addEntry',
     name: 'Add RATEL Phonebook Entry',
     component: AddPhonebookEntry,
+  },
+  {
+    path: '/ratel/administration/editPhonebookEntry',
+    name: 'RATEL Paging Groups',
+    component: EditPhonebookEntry,
   },
   {
     path: '/ratel/administration/setup/setupVoiceRecording',
@@ -423,11 +434,6 @@ const routes = [
     path: '/ratel/administration/callBlocking',
     name: 'RATEL Paging Groups',
     component: RatelCallBlocking,
-  },
-  {
-    path: '/ratel/administration/editPhonebookEntry',
-    name: 'RATEL Paging Groups',
-    component: EditPhonebookEntry,
   },
 
   //passworder
