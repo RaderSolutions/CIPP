@@ -43,6 +43,7 @@ useEffect(()=>{
 
 
   return (
+    <>
     <CippPage>
       <CCol>
         <CippContentCard title="Member Details" icon={faEdit}>
@@ -88,6 +89,7 @@ useEffect(()=>{
         </CippContentCard>
       </CCol>
     </CippPage>
+    </>
   )
 }
 
