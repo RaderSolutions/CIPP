@@ -21,15 +21,15 @@ export const EditMember = () => {
   const ext = query.get('extension')
   const type = query.get('type')
 
-  const {
-    data: member = {},
-    isFetching: memberIsFetching,
-    error: memberError,
-  } = useListPickupMemberQuery({ tenantDomain, ext, type })
+//   const {
+//     data: member = {},
+//     isFetching: memberIsFetching,
+//     error: memberError,
+//   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
-useEffect(()=>{
-  console.log(member)
-},[member])
+// useEffect(()=>{
+//   console.log(member)
+// },[member])
 
   const onSubmit = (values) => {
     const shippedValues = {
