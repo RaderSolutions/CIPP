@@ -28,7 +28,7 @@ export const EditEntry = () => {
         Notes: values.notes,
     }
 
-    genericPostRequest({ path: '/api/LtAddRatelPhonebookEntry', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPhonebookEntry', values: shippedValues })
   }
 
   return (

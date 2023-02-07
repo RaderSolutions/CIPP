@@ -73,8 +73,8 @@ const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/m
 const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
 
 const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
-const RatelPhonebookEditor = React.lazy(() =>
-  import('src/views/ratel/administration/PhonebookEditor'),
+const EditPhonebookEntry = React.lazy(() =>
+  import('src/views/ratel/administration/EditPhonebookEntry'),
 )
 
 //passworder
@@ -425,9 +425,9 @@ const routes = [
     component: RatelCallBlocking,
   },
   {
-    path: '/ratel/administration/phonebookEditor',
+    path: '/ratel/administration/editPhonebookEntry',
     name: 'RATEL Paging Groups',
-    component: RatelPhonebookEditor,
+    component: EditPhonebookEntry,
   },
 
   //passworder
