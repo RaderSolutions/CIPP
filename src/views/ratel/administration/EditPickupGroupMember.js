@@ -19,12 +19,12 @@ export const EditMember = () => {
 
   let query = useQuery()
   const tenantDomain = query.get('tenantDomain')
-  const ext = query.get('extension')
+  const extension = query.get('extension')
   const type = query.get('type')
 
   const {
     data
-  } = useListPickupMemberQuery({ tenantDomain, ext, type })
+  } = useListPickupMemberQuery({ tenantDomain, extension, type })
 
   const onSubmit = (values) => {
     const shippedValues = {
