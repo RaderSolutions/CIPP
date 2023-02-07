@@ -74,7 +74,7 @@ const columns = [
     name: 'Type',
     selector: (row) => row['Type'],
     sortable: true,
-    exportSelector: 'DeviceId',
+    exportSelector: 'Type',
   },
   {
     name: 'Actions',
