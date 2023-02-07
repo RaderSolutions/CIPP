@@ -10,13 +10,13 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { FullScreenLoading } from 'src/components/utilities'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<FullScreenLoading />} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={<FullScreenLoading />} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 )
 
