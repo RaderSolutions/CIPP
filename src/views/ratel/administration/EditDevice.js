@@ -35,7 +35,7 @@ const EditDevice = () => {
     data: deviceLocations = {},
     isFetching: deviceLocationsAreFetching,
     error: deviceLocationsError,
-  } = useListDeviceLocationsQuery({ tenantDomain})
+  } = useListDeviceLocationsQuery({ tenantDomain })
 
   const {
     data: deviceContacts = {},

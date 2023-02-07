@@ -23,7 +23,7 @@ export const EditMember = () => {
   const type = query.get('type')
 
   const {
-    data
+    data: members = []
   } = useListPickupMemberQuery({ tenantDomain, extension, type })
 
   const onSubmit = (values) => {
