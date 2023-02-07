@@ -22,15 +22,17 @@ export const EditMember = () => {
   const ext = query.get('extension')
   const type = query.get('type')
 
-  // const {
-  //   data: member,
-  //   isFetching: memberIsFetching,
-  //   error: memberError,
-  // } = useListPickupMemberQuery({ tenantDomain, ext, type }, {skip})
+  const {
+    data: member,
+    isFetching: memberIsFetching,
+    error: memberError,
+  } = useListPickupMemberQuery({ tenantDomain, ext, type }, {skip})
 
-  useEffect(()=>{
-    console.log(tenantDomain, ext, type)
-  },[])
+  useEffect(() => {
+    if (tenantDomain && ext && type) {
+      setSkip(false)
+    }
+  }, [tenantDomain, ext, type])
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -42,54 +44,52 @@ export const EditMember = () => {
     genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
   }
 
-
   return (
     <>
-    <CippPage>
-      <CCol>
-        <CippContentCard title="Member Details" icon={faEdit}>
-          <Form
-            // initialValues={{ ...initialState }}
-            onSubmit={onSubmit}
-            render={({ handleSubmit, submitting, values }) => {
-              return (
-                <CForm onSubmit={handleSubmit}>
-                  
-                  <CRow>
-                    <CCol>
-                      <RFFCFormInput type="text" name="Extension" label="Extension" />
-                    </CCol>
-                    <CCol>
-                      <RFFCFormInput type="text" name="Groups" label="Groups" />
-                    </CCol>
-                    <CCol>
-                      <RFFCFormInput type="text" name="Type" label="Type" />
-                    </CCol>
-                  </CRow>
-                  <CRow className="mb-3">
-                    <CCol md={6}>
-                      <CButton type="submit">
-                        Edit Member
-                        {postResults.isFetching && (
-                          <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
-                        )}
-                      </CButton>
-                    </CCol>
-                  </CRow>
-                  {postResults.isSuccess && (
-                    <CCallout color="success">
-                      {postResults.data.Results.map((message, idx) => {
-                        return <li key={idx}>{message}</li>
-                      })}
-                    </CCallout>
-                  )}
-                </CForm>
-              )
-            }}
-          />
-        </CippContentCard>
-      </CCol>
-    </CippPage>
+      <CippPage>
+        <CCol>
+          <CippContentCard title="Member Details" icon={faEdit}>
+            <Form
+              // initialValues={{ ...initialState }}
+              onSubmit={onSubmit}
+              render={({ handleSubmit, submitting, values }) => {
+                return (
+                  <CForm onSubmit={handleSubmit}>
+                    <CRow>
+                      <CCol>
+                        <RFFCFormInput type="text" name="Extension" label="Extension" />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormInput type="text" name="Groups" label="Groups" />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormInput type="text" name="Type" label="Type" />
+                      </CCol>
+                    </CRow>
+                    <CRow className="mb-3">
+                      <CCol md={6}>
+                        <CButton type="submit">
+                          Edit Member
+                          {postResults.isFetching && (
+                            <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
+                          )}
+                        </CButton>
+                      </CCol>
+                    </CRow>
+                    {postResults.isSuccess && (
+                      <CCallout color="success">
+                        {postResults.data.Results.map((message, idx) => {
+                          return <li key={idx}>{message}</li>
+                        })}
+                      </CCallout>
+                    )}
+                  </CForm>
+                )
+              }}
+            />
+          </CippContentCard>
+        </CCol>
+      </CippPage>
     </>
   )
 }
