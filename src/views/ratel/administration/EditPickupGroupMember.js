@@ -28,8 +28,8 @@ export const EditMember = () => {
   } = useListPickupMemberQuery({ tenantDomain, ext, type })
 
   useEffect(()=>{
-    console.log(member)
-  },[member])
+    console.log(tenantDomain, ext, type)
+  },[])
 
   const onSubmit = (values) => {
     const shippedValues = {
