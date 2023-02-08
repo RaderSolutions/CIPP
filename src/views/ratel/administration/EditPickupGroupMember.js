@@ -22,26 +22,28 @@ export const EditMember = () => {
   const extension = query.get('extension')
   const type = query.get('type')
 
-  console.log(type)
+  console.log('type',type, 'ext', extension)
 
   // tenantDomain=fd715e1a-29b4-4bdb-bf15-14dcb99f2bf7&extension=1001&groups=Reception&type=undefined
 
   const {
-    data: members = [],
+    data: members,
     isFetching: pickupGroupMemberIsFetching,
     error: pickupGroupError,
   } = useListPickupMemberQuery({ tenantDomain, extension, type })
 
+  useEffect(()=>{
+    console.log(members)
+  }, [members])
+
   useEffect(() => {
     if (!extension || !tenantDomain || !type) {
-      console.log(extension)
       ModalService.open({
         body: 'Error invalid request, could not load requested pickup group member.',
         title: 'Invalid Request',
       })
       setQueryError(true)
     } else {
-      console.log(members)
       setQueryError(false)
     }
   }, [members, isFetching, error])
@@ -60,13 +62,9 @@ export const EditMember = () => {
   return (
     <>
       <CippPage
-      title={
-        `Edit Member: ${
-          pickupGroupMemberIsFetching ? 'Loading...' : 'Member'
-        }
+        title={`Edit Member: ${pickupGroupMemberIsFetching ? 'Loading...' : 'Member'}
         
-        `
-      }
+        `}
       >
         {!queryError && (
           <CCol>
