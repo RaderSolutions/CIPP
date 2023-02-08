@@ -38,13 +38,12 @@ const AddPagingGroupMember = () => {
   const handleSubmit = async (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      Extension: values.Extension,
-      Groups: values.Groups,
-      Type: values.Type,
+      PageGroupExtension: values.PageGroupExtension,
+      DeviceExtension: values.DeviceExtension,
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPagingGroup', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
   }
 
   return (
@@ -73,44 +72,12 @@ const AddPagingGroupMember = () => {
         <hr className="my-4" />
         <div className="mb-2">
           <CRow>
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput
-                type="text"
-                name="Extension"
-                label="Extension"
-                //disabled={formDIsabled}
-              />
-            </CCol>
             {/* TODO: discuss w SW */}
             <CCol lg={6} xs={12}>
-              <RFFCFormInput
-                type="text"
-                name="PageGroup"
-                label="Page Group"
-                //disabled={formDIsabled}
-              />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput name="DeviceID" label="Device ID" />
+              <RFFCFormInput name="PagegroupExt" label="Page Group Extension" />
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormInput name="DeviceExt" label="Device Extension" />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput name="User" label="User" />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput name="Location" label="Location" />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="Hide"
-                label="Hide From Phonebook"
-                values={[
-                  { value: 'Hide', label: 'Hide' },
-                  { value: 'Unhide', label: 'Unhide' },
-                ]}
-              />
             </CCol>
           </CRow>
         </div>

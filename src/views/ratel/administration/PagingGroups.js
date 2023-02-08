@@ -117,7 +117,7 @@ const columns = [
 
 const PagingGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addPagingGroupButton = <TitleButton href="ratel/administration/paginggroups/add" title="Add Paging Group" />
+  const addPagingGroupButton = <TitleButton href="ratel/administration/paginggroups/addMember" title="Add Paging Group" />
   return (
     <CippPageList
       title="Paging Groups"
