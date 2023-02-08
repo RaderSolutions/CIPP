@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
 import { CippCodeBlock, ModalService } from 'src/components/utilities'
-import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
+import { useLazyGenericGetRequestQuery, useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
@@ -22,9 +22,9 @@ export const EditMember = () => {
   const extension = query.get('extension')
   const type = query.get('type')
 
-  const {
-    data: members = []
-  } = useListPickupMemberQuery({ tenantDomain, extension, type })
+  // const {
+  //   data: members = []
+  // } = useListPickupMemberQuery({ tenantDomain, extension, type })
 
   const onSubmit = (values) => {
     const shippedValues = {
