@@ -34,12 +34,14 @@ export const EditMember = () => {
 
   useEffect(() => {
     if (!extension || !tenantDomain || !type) {
+      console.log(extension)
       ModalService.open({
-        body: 'Error invalid request, could not load requested pickup groups.',
+        body: 'Error invalid request, could not load requested pickup group member.',
         title: 'Invalid Request',
       })
       setQueryError(true)
     } else {
+      console.log(members)
       setQueryError(false)
     }
   }, [members, isFetching, error])
