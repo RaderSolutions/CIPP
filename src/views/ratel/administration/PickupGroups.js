@@ -72,7 +72,7 @@ const columns = [
   },
   {
     name: 'Type',
-    selector: (row) => row['membership_type'],
+    selector: (row) => row['Type'],
     sortable: true,
     exportSelector: 'Type',
   },
