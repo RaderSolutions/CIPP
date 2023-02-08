@@ -22,11 +22,27 @@ export const EditMember = () => {
   const extension = query.get('extension')
   const type = query.get('type')
 
+  console.log(type)
+
   // tenantDomain=fd715e1a-29b4-4bdb-bf15-14dcb99f2bf7&extension=1001&groups=Reception&type=undefined
 
   const {
-    data: members = []
+    data: members = {},
+    isFetching: pickupGroupMemberIsFetching,
+    error: pickupGroupError,
   } = useListPickupMemberQuery({ tenantDomain, extension, type })
+
+  useEffect(() => {
+    if (!extension || !tenantDomain || !type) {
+      ModalService.open({
+        body: 'Error invalid request, could not load requested pickup groups.',
+        title: 'Invalid Request',
+      })
+      setQueryError(true)
+    } else {
+      setQueryError(false)
+    }
+  }, [members, isFetching, error])
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -38,51 +54,67 @@ export const EditMember = () => {
     genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
   }
 
+  const formDisabled = queryError === true || !members || Object.keys(members).length === 0
   return (
     <>
-      <CippPage>
-        <CCol>
-          <CippContentCard title="Member Details" icon={faEdit}>
-            <Form
-              // initialValues={{ ...initialState }}
-              onSubmit={onSubmit}
-              render={({ handleSubmit, submitting, values }) => {
-                return (
-                  <CForm onSubmit={handleSubmit}>
-                    <CRow>
-                      <CCol>
-                        <RFFCFormInput type="text" name="Extension" label="Extension" />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormInput type="text" name="Groups" label="Groups" />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormInput type="text" name="Type" label="Type" />
-                      </CCol>
-                    </CRow>
-                    <CRow className="mb-3">
-                      <CCol md={6}>
-                        <CButton type="submit">
-                          Edit Member
-                          {postResults.isFetching && (
-                            <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
-                          )}
-                        </CButton>
-                      </CCol>
-                    </CRow>
-                    {postResults.isSuccess && (
-                      <CCallout color="success">
-                        {postResults.data.Results.map((message, idx) => {
-                          return <li key={idx}>{message}</li>
-                        })}
-                      </CCallout>
-                    )}
-                  </CForm>
-                )
-              }}
-            />
-          </CippContentCard>
-        </CCol>
+      <CippPage
+      title={
+        `Edit Member: ${
+          pickupGroupMemberIsFetching ? 'Loading...' : 'Member'
+        }
+        
+        `
+      }
+      >
+        {!queryError && (
+          <CCol>
+            <CippContentCard title="Member Details" icon={faEdit}>
+              <Form
+                // initialValues={{ ...initialState }}
+                onSubmit={onSubmit}
+                render={({ handleSubmit, submitting, values }) => {
+                  return (
+                    <CForm onSubmit={handleSubmit}>
+                      <CRow>
+                        <CCol>
+                          <RFFCFormInput type="text" name="Extension" label="Extension" />
+                        </CCol>
+                        <CCol>
+                          <RFFCFormInput type="text" name="Groups" label="Groups" />
+                        </CCol>
+                        <CCol>
+                          <RFFCFormInput type="text" name="Type" label="Type" />
+                        </CCol>
+                      </CRow>
+                      <CRow className="mb-3">
+                        <CCol md={6}>
+                          <CButton type="submit" disabled={submitting || formDisabled}>
+                            Edit Member
+                            {postResults.isFetching && (
+                              <FontAwesomeIcon
+                                icon={faCircleNotch}
+                                spin
+                                className="ms-2"
+                                size="1x"
+                              />
+                            )}
+                          </CButton>
+                        </CCol>
+                      </CRow>
+                      {postResults.isSuccess && (
+                        <CCallout color="success">
+                          {postResults.data.Results.map((message, idx) => {
+                            return <li key={idx}>{message}</li>
+                          })}
+                        </CCallout>
+                      )}
+                    </CForm>
+                  )
+                }}
+              />
+            </CippContentCard>
+          </CCol>
+        )}
       </CippPage>
     </>
   )
