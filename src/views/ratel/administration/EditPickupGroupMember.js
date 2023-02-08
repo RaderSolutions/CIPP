@@ -27,7 +27,7 @@ export const EditMember = () => {
   // tenantDomain=fd715e1a-29b4-4bdb-bf15-14dcb99f2bf7&extension=1001&groups=Reception&type=undefined
 
   const {
-    data: members = {},
+    data: members = [],
     isFetching: pickupGroupMemberIsFetching,
     error: pickupGroupError,
   } = useListPickupMemberQuery({ tenantDomain, extension, type })
