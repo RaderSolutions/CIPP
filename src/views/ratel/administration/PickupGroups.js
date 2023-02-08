@@ -29,7 +29,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         extendedInfo={[
           { label: 'Extension', value: `${row.Extension}` },
           { label: 'Groups', value: `${row.Groups}` },
-          { label: 'Type', value: `${row.membership_type}` },
+          { label: 'Type', value: `${row.Type}` },
         ]}
         actions={[
           {
