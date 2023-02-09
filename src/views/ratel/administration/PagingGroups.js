@@ -120,12 +120,18 @@ const PagingGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addPagingGroupMemberButton = (
     <TitleButton
+      style={{
+        marginRight: "1.5em"
+      }}
       href="/ratel/administration/paginggroups/addMember"
       title="Add Paging Group Member"
     />
   )
   const addPagingGroupButton = (
     <TitleButton 
+      style={{
+        marginLeft: "1.5em"
+      }}
       href="/ratel/administration/paginggroups/addPagingGroup"
       title="Add Paging Group"
     />
