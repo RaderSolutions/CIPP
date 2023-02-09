@@ -75,10 +75,10 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  useEffect(() => {
-    console.log(this.state)
-    console.log(this.props)
-  }, [])
+  // useEffect(() => {
+  //   console.log(this.state)
+  //   console.log(this.props)
+  // }, [])
 
   useEffect(() => {
     if (deviceDids) {
