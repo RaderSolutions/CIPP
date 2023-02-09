@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CCard, CCardBody, CCardHeader, CCardTitle, CContainer } from '@coreui/react'
+import { CCard, CCardBody, CCardHeader, CCardTitle } from '@coreui/react'
 import { CippDatatable } from 'src/components/tables'
 import { useSelector } from 'react-redux'
 
@@ -10,7 +10,6 @@ export function CippPage({
   title,
   children,
   titleButton = null,
-  secondTitleButton = null,
   wizard = false,
 }) {
   return (
@@ -34,14 +33,12 @@ CippPage.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node,
   titleButton: PropTypes.node,
-  secondTitleButton: PropTypes.node,
   wizard: PropTypes.bool,
 }
 
 export function CippPageList({
   title,
   titleButton,
-  secondTitleButton,
   // see CippDatatable for full list
   datatable: { reportName, path, columns, params, ...rest },
   children,
@@ -57,10 +54,9 @@ export function CippPageList({
         <>
           {children}
           <CCard className="content-card">
-            <CCardHeader className="d-flex justify-content-end align-items-center">
+            <CCardHeader className="d-flex justify-content-between align-items-center">
               <CCardTitle>{title}</CCardTitle>
               {titleButton ? titleButton : null}
-              {secondTitleButton ? secondTitleButton : null}
             </CCardHeader>
             <CCardBody>
               <CippDatatable

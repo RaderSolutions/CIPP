@@ -127,21 +127,21 @@ const PagingGroupsList = () => {
       title="Add Paging Group Member"
     />
   )
-  const addPagingGroupButton = (
-    <TitleButton 
-      style={{
-        marginLeft: "1.5em"
-      }}
-      href="/ratel/administration/paginggroups/addPagingGroup"
-      title="Add Paging Group"
-    />
-  )
+  // const addPagingGroupButton = (
+  //   <TitleButton 
+  //     style={{
+  //       marginLeft: "1.5em"
+  //     }}
+  //     href="/ratel/administration/paginggroups/addPagingGroup"
+  //     title="Add Paging Group"
+  //   />
+  // )
 
   return (
     <CippPageList
       title="Paging Groups"
       titleButton={addPagingGroupMemberButton}
-      secondTitleButton={addPagingGroupButton}
+      // secondTitleButton={addPagingGroupButton}
       datatable={{
         keyField: 'Extension',
         columns,
