@@ -430,9 +430,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                onChange={() => {
-                  setDeviceType(value)
-                }}
+                onChange={() => setDeviceType(value)}
                 //disabled={formDIsabled}
               />
             </CCol>
@@ -495,4 +493,3 @@ const AddRatelDevice = () => {
 }
 
 export default AddRatelDevice
-
