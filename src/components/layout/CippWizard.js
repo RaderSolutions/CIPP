@@ -27,6 +27,7 @@ export default class CippWizard extends React.Component {
       page: 0,
       values: props.initialValues,
       wizardTitle: props.wizardTitle,
+      onInputChange: props.onInputChange
     }
   }
 
@@ -51,6 +52,7 @@ export default class CippWizard extends React.Component {
     return activePage.props.validate ? activePage.props.validate(values) : {}
   }
 
+
   handleSubmit = (values) => {
     const { children, onSubmit } = this.props
     const { page } = this.state
@@ -64,12 +66,12 @@ export default class CippWizard extends React.Component {
 
   render() {
     const { children } = this.props
-    const { page, values, wizardTitle } = this.state
+    const { page, values, wizardTitle, onInputChange } = this.state
     const activePage = React.Children.toArray(children)[page]
     const isLastPage = page === React.Children.count(children) - 1
 
     return (
-      <CippPage title={wizardTitle} tenantSelector={false} wizard={true}>
+      <CippPage title={wizardTitle} onInputChange={onInputChange} tenantSelector={false} wizard={true}>
         <CRow className="row justify-content-center cipp-wizard">
           <CCol xxl={12}>
             <CCardHeader className="bg-transparent mb-4">

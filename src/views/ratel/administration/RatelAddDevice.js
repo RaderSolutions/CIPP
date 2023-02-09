@@ -75,10 +75,6 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  useEffect(() => {
-    console.log(this.state)
-    console.log(this.props)
-  }, [])
 
   useEffect(() => {
     if (deviceDids) {
@@ -400,8 +396,12 @@ const AddRatelDevice = () => {
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
 
+  const handleChange = (values) => {
+    console.log(values)
+  }
+
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard onInputChange={handleChange} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
