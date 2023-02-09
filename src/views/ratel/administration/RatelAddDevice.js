@@ -76,6 +76,11 @@ const AddRatelDevice = () => {
   } = useListDidsQuery({ tenantDomain })
 
   useEffect(() => {
+    console.log(this.state)
+    console.log(this.props)
+  }, [])
+
+  useEffect(() => {
     if (deviceDids) {
       setCallerIdField(
         <CRow>
@@ -395,16 +400,8 @@ const AddRatelDevice = () => {
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
 
-  // const handleChange = (values) => {
-  //   console.log(values)
-  // }
-
   return (
-    <CippWizard
-      onInputChange={handleChange}
-      onSubmit={handleSubmit}
-      wizardTitle="Add Ratel Device Wizard"
-    >
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -438,7 +435,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                // onChange={handleChange}
+                  
                 //disabled={formDIsabled}
               />
             </CCol>
