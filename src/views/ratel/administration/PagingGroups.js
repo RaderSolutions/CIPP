@@ -8,6 +8,7 @@ import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { Link } from 'react-router-dom'
 import { TitleButton } from 'src/components/buttons'
+import AddPagingGroup from './AddPagingGroup'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -123,11 +124,17 @@ const PagingGroupsList = () => {
       title="Add Paging Group Member"
     />
   )
+  const addPagingGroupButton = (
+    <TitleButton 
+      href="/ratel/administration/paginggroups/addPagingGroup"
+    />
+  )
 
   return (
     <CippPageList
       title="Paging Groups"
       titleButton={addPagingGroupMemberButton}
+      secondTitleButton={addPagingGroupButton}
       datatable={{
         keyField: 'Extension',
         columns,
