@@ -75,7 +75,6 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-
   useEffect(() => {
     if (deviceDids) {
       setCallerIdField(
@@ -401,7 +400,11 @@ const AddRatelDevice = () => {
   }
 
   return (
-    <CippWizard onInputChange={handleChange} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard
+      onInputChange={handleChange}
+      onSubmit={handleSubmit}
+      wizardTitle="Add Ratel Device Wizard"
+    >
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -435,9 +438,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                  onChange={() => {
-                    console.log('change')
-                  }}
+                onChange={() => console.log('change')}
                 //disabled={formDIsabled}
               />
             </CCol>
