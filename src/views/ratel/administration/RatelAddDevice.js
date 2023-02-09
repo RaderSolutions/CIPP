@@ -76,8 +76,9 @@ const AddRatelDevice = () => {
   } = useListDidsQuery({ tenantDomain })
 
   useEffect(() => {
-    console.log(values)
-  }, [values])
+    console.log(this.state)
+    console.log(this.props)
+  }, [])
 
   useEffect(() => {
     if (deviceDids) {
@@ -434,7 +435,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                  onChange={() => (console.log(this.props.values))}
+                  
                 //disabled={formDIsabled}
               />
             </CCol>
