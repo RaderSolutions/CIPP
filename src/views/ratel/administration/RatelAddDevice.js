@@ -75,6 +75,10 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
+  useEffect(()=>{
+    console.log(deviceType)
+  },[deviceType])
+
   useEffect(() => {
     if (deviceDids) {
       setCallerIdField(
@@ -191,7 +195,6 @@ const AddRatelDevice = () => {
         <CRow>
           <CCol lg={6} xs={12}>
             <RFFCFormSelect
-              type="text"
               name="HideFromPhonebook"
               label="Hide From Phonebook?"
               placeholder="Select an option"
