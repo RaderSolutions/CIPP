@@ -12,7 +12,7 @@ import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 // import { useListPickupMemberQuery } from 'src/store/api/pickupgroups'
 
-export const EditMember = () => {
+export const EditPageMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const [queryError, setQueryError] = useState(false)
@@ -120,4 +120,4 @@ export const EditMember = () => {
   )
 }
 
-export default EditMember
+export default EditPageMember
