@@ -434,7 +434,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                  onChange={() => (console.log(value))}
+                  onChange={() => (console.log(values.SelectDeviceType))}
                 //disabled={formDIsabled}
               />
             </CCol>
