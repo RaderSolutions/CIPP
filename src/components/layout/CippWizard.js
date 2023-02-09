@@ -27,7 +27,6 @@ export default class CippWizard extends React.Component {
       page: 0,
       values: props.initialValues,
       wizardTitle: props.wizardTitle,
-      
     }
   }
 
@@ -51,7 +50,6 @@ export default class CippWizard extends React.Component {
     const activePage = React.Children.toArray(this.props.children)[this.state.page]
     return activePage.props.validate ? activePage.props.validate(values) : {}
   }
-
 
   handleSubmit = (values) => {
     const { children, onSubmit } = this.props

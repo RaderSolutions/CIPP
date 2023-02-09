@@ -75,11 +75,6 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  // useEffect(() => {
-  //   console.log(this.state)
-  //   console.log(this.props)
-  // }, [])
-
   useEffect(() => {
     if (deviceDids) {
       setCallerIdField(
@@ -435,7 +430,9 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                  
+                onChange={() => {
+                  setDeviceType(value)
+                }}
                 //disabled={formDIsabled}
               />
             </CCol>
