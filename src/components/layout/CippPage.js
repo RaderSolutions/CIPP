@@ -61,7 +61,7 @@ export function CippPageList({
               <CCardHeader>
                 <CCardTitle>{title}</CCardTitle>
               </CCardHeader>
-              <CContainer className="d-flex justify-content-end align-items-start">
+              <CContainer>
                 {titleButton ? titleButton : null}
                 {secondTitleButton ? secondTitleButton : null}
               </CContainer>
