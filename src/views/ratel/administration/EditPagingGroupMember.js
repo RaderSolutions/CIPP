@@ -49,6 +49,7 @@ export const EditMember = () => {
 //   }, [members, isFetching, error])
 
   const onSubmit = (values) => {
+    console.log('submit')
     // const shippedValues = {
     //  MemberPageExtension: values.MemberPageExtension,
     //  MemberDeviceExtension: values.MemberDeviceExtension
@@ -61,11 +62,11 @@ export const EditMember = () => {
   return (
     <>
       <CippPage
-        title={`Edit Member: ${pagingGroupMemberIsFetching ? 'Loading...' : 'Member'}
+        // title={`Edit Member: ${pagingGroupMemberIsFetching ? 'Loading...' : 'Member'}
         
-        `}
+        // `}
       >
-        {!queryError && (
+        {/* {!queryError && ( */}
           <CCol>
             <CippContentCard title="Member Details" icon={faEdit}>
               <Form
@@ -113,7 +114,7 @@ export const EditMember = () => {
               />
             </CippContentCard>
           </CCol>
-        )}
+        {/* )} */}
       </CippPage>
     </>
   )
