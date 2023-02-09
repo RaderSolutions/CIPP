@@ -26,15 +26,15 @@ export const EditMember = () => {
 
   // tenantDomain=fd715e1a-29b4-4bdb-bf15-14dcb99f2bf7&extension=1001&groups=Reception&type=undefined
 
-  const {
-    data: members = {},
-    isFetching: pagingGroupMemberIsFetching,
-    error: pagingGroupMemberError,
-  } = useListPagingMemberQuery({ tenantDomain, extension, type })
+//   const {
+//     data: members = {},
+//     isFetching: pagingGroupMemberIsFetching,
+//     error: pagingGroupMemberError,
+//   } = useListPagingMemberQuery({ tenantDomain, extension, type })
 
-  useEffect(() => {
-    console.log(members)
-  }, [members])
+//   useEffect(() => {
+//     console.log(members)
+//   }, [members])
 
 //   useEffect(() => {
 //     if (!extension || !tenantDomain || !type) {
@@ -49,12 +49,12 @@ export const EditMember = () => {
 //   }, [members, isFetching, error])
 
   const onSubmit = (values) => {
-    const shippedValues = {
-     MemberPageExtension: values.MemberPageExtension,
-     MemberDeviceExtension: values.MemberDeviceExtension
-    }
+    // const shippedValues = {
+    //  MemberPageExtension: values.MemberPageExtension,
+    //  MemberDeviceExtension: values.MemberDeviceExtension
+    // }
 
-    genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
+    // genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
   }
 
   const formDisabled = queryError === true || !members || Object.keys(members).length === 0
