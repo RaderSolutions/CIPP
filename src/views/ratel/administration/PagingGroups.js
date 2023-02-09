@@ -13,7 +13,7 @@ import AddPagingGroup from './AddPagingGroup'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/PagingGroups/editMember?tenantDomain=${tenant.customerId}`
+  const editLink = `/ratel/administration/paginggroups/editMember?tenantDomain=${tenant.customerId}`
   //console.log(row)
   return (
     <>
