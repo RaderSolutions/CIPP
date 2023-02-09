@@ -94,7 +94,7 @@ const AddPhonebookEntry = () => {
             {/* TODO: discuss w SW */}
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="select"
+                name="salutation"
                 label="Salutation"
                 placeholder={'Select Salutation'}
                 values={[
@@ -133,7 +133,7 @@ const AddPhonebookEntry = () => {
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="select"
+                name="suffix"
                 label="Suffix"
                 placeholder={'Select Suffix'}
                 values={[
