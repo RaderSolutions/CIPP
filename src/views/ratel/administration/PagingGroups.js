@@ -8,12 +8,11 @@ import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { Link } from 'react-router-dom'
 import { TitleButton } from 'src/components/buttons'
-import AddPagingGroup from './AddPagingGroup'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/paginggroups/editMember?tenantDomain=${tenant.customerId}`
+  const editLink = `/ratel/administration/PagingGroups/addMember?tenantDomain=${tenant.customerId}`
   //console.log(row)
   return (
     <>
@@ -39,7 +38,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         actions={[
           {
             icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
-            label: 'Edit Page Group Member',
+            label: 'Add Member to Page group',
             link: editLink,
             color: 'info',
           },
@@ -120,27 +119,15 @@ const PagingGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addPagingGroupMemberButton = (
     <TitleButton
-      style={{
-        marginRight: "1.5em"
-      }}
       href="/ratel/administration/paginggroups/addMember"
       title="Add Paging Group Member"
     />
   )
-  // const addPagingGroupButton = (
-  //   <TitleButton 
-  //     style={{
-  //       marginLeft: "1.5em"
-  //     }}
-  //     href="/ratel/administration/paginggroups/addPagingGroup"
-  //     title="Add Paging Group"
-  //   />
-  // )
-
+  // const addPagingGroupButton = <CButton href="/ratel/administration/paginggroups/addPagingGroup" title="Add Paging Group" />
   return (
     <CippPageList
       title="Paging Groups"
-      titleButton={addPagingGroupMemberButton}
+      TitleButton={addPagingGroupMemberButton}
       // secondTitleButton={addPagingGroupButton}
       datatable={{
         keyField: 'Extension',
