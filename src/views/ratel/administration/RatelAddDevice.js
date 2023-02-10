@@ -38,7 +38,7 @@ Error.propTypes = {
   name: PropTypes.string.isRequired,
 }
 
-const AddRatelDevice = () => {
+const AddRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [formFields, setFormFields] = useState('')
   const [dialplanFormFields, setDialplanFormFields] = useState(<></>)
@@ -53,6 +53,8 @@ const AddRatelDevice = () => {
       </CRow>
     </>,
   )
+  const arrayChildren = React.Children.toArray(children);
+  console.log(arrayChildren)
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
     data: deviceLocations = {},
