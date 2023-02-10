@@ -410,18 +410,18 @@ const AddRatelDevice = () => {
         <center>
           <CRow>
             <CCol lg={6} xs={12}>
-              <Select 
-                type="text"
-                name="SelectDeviceType"
-                label="Select Device Type:"
-                placeholder="Select an option"
-                values={[
-                  { value: "Generic", label: "Generic" },
-                  { value: "User", label: "User" },
+            <Select
+                className="react-select-container me-3"
+                classNamePrefix="react-select"
+                options={[
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
                 ]}
-                onChange={(e) => {
-                  console.log(e.target.value)
-                }}
+                isClearable={true}
+                name="SelectDeviceType"
+                placeholder="Select an option"
+                label="Select Device Type:"
+                onChange={handleTypeChange}
               />
               {/* <RFFCFormSelect
                 type="text"
