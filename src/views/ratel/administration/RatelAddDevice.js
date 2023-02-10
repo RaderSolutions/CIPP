@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -395,10 +395,11 @@ const AddRatelDevice = () => {
     alert(JSON.stringify(values, null, 2))
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
+  const selectRef = useRef()
 
-  const handleTypeChange = (e) => {
-    setDeviceType(e.target.value)
-  }
+  const handleTypeChange = (selectedOption) => {
+    selectRef.current.value = selectedOption;
+  };
   useEffect(() => {
     console.log(deviceType)
   }, [deviceType])
