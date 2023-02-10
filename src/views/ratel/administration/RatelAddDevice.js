@@ -399,9 +399,9 @@ const AddRatelDevice = () => {
     setDeviceType(e.target.value)
     console.log(e.target.value)
   }
-  useEffect(()=>{
+  useEffect(() => {
     console.log(deviceType)
-  },[deviceType])
+  }, [deviceType])
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
@@ -430,7 +430,7 @@ const AddRatelDevice = () => {
           <CRow>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                type="text"
+                // type="text"
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
@@ -441,6 +441,19 @@ const AddRatelDevice = () => {
                 handleChange={handleTypeChange}
                 //disabled={formDIsabled}
               />
+              {/* <Select
+                className="react-select-container me-3"
+                classNamePrefix="react-select"
+                options={[
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
+                ]}
+                isClearable={true}
+                name="SelectDeviceType"
+                placeholder="Select an option"
+                label="Select Device Type:"
+                onChange={handleTypeChange}
+              /> */}
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
