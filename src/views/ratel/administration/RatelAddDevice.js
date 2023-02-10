@@ -45,7 +45,7 @@ const AddRatelDevice = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery();
   const [formFields, setFormFields] = useState(<></>);
   const [dialplanFormFields, setDialplanFormFields] = useState(<></>);
-  const [deviceType, setDeviceType] = useState("Generic");
+  const [deviceType, setDeviceType] = useState("User");
   const [dialplanType, setDialplanType] = useState("Default");
   const [callerIdType, setCallerIdType] = useState("Default");
   const [callerIdField, setCallerIdField] = useState(<></>);
@@ -474,7 +474,9 @@ const AddRatelDevice = () => {
           <h5>Enter device information</h5>
         </center>
         <hr className="my-4" />
-        <div className="mb-2">{formFields}</div>
+        <div className="mb-2">
+          {dialplanFormFields}
+          {formFields}</div>
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page
