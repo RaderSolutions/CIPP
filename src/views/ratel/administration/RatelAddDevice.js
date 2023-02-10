@@ -414,7 +414,7 @@ const AddRatelDevice = ({ children }) => {
   }
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard initialValues={formFields} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -490,7 +490,8 @@ const AddRatelDevice = ({ children }) => {
           <h5>Enter device information</h5>
         </center>
         <hr className="my-4" />
-        <div className="mb-2">{formFields}</div>
+        {/* <div className="mb-2">{formFields}</div> */}
+        <div className="mb-2">{initalValues}</div>
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
