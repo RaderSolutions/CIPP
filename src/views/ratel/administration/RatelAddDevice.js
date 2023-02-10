@@ -75,11 +75,6 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  const deviceTypes = [
-    { value: 'Generic', name: 'Generic' },
-    { value: 'User', name: 'User' },
-  ]
-
   useEffect(() => {
     console.log(deviceType)
   }, [deviceType])
@@ -434,10 +429,10 @@ const AddRatelDevice = () => {
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
-                values={deviceTypes.map((type) => ({
-                  value: type.value,
-                  name: type.name,
-                }))}
+                values={[
+                  { value: 'Generic', name: 'Generic' },
+                  { value: 'User', name: 'User' },
+                ]}
                 onChange={() => {
                   setDeviceType(value)
                 }}
