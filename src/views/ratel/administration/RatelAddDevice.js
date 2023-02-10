@@ -51,7 +51,6 @@ const AddRatelDevice = ({ children }) => {
     </>,
   )
 
-
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
     data: deviceLocations = {},
@@ -77,23 +76,11 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
- 
+  const handleSelectChange = (e) => {
+    console.log(e.target.value)
+  }
 
-  const deviceTypeRef = useRef('')
-
-  useEffect(() => {
-    console.log(deviceType)
-    console.log(deviceTypeRef)
-    React.Children.map(children, child => {
-      if (!React.isValidElement(child)) {
-        return child;
-      }
-  
-      if (child.props) {
-          console.log(child.props.section)
-      }
-  })
-  }, [deviceType, deviceTypeRef])
+  useEffect(() => {}, [deviceType])
 
   useEffect(() => {
     if (deviceDids) {
@@ -415,7 +402,11 @@ const AddRatelDevice = ({ children }) => {
   }
 
   return (
-    <CippWizard initialValues={formFields} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard
+      initialValues={formFields}
+      onSubmit={handleSubmit}
+      wizardTitle="Add Ratel Device Wizard"
+    >
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -441,7 +432,6 @@ const AddRatelDevice = ({ children }) => {
           <CRow>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                ref={deviceTypeRef}
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
@@ -449,8 +439,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                validate={required}
-                
+                onChange={handleSelectChange}
               />
             </CCol>
             <CCol lg={6} xs={12}>
