@@ -405,7 +405,7 @@ const AddRatelDevice = () => {
                   { value: 'User', label: 'User' },
                 ]}
                 // setFormFieldState={setFormFields}
-                onChange={handleTypeChange}
+                onChange={setFormFields}
               />
             </CCol>
             <CCol lg={6} xs={12}>
