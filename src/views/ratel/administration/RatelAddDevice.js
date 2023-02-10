@@ -397,11 +397,11 @@ const AddRatelDevice = () => {
   }
 
   const handleTypeChange = (inputValue, action) => {
-    if (action === 'User'){
+    if (inputValue === 'User'){
       setDeviceType('User')
       console.log('handler fired; user')
     } 
-    if (action === 'Generic'){
+    if (inputValue === 'Generic'){
       setDeviceType('Generic')
       console.log('handler fired; Generic')
     } 
