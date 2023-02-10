@@ -399,7 +399,7 @@ const AddRatelDevice = () => {
               <RFFCFormSelect
                 name="SelectDeviceType"
                 label="Select Device Type:"
-                placeholder="Select an option"
+                // placeholder="Select an option"
                 values={[
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
