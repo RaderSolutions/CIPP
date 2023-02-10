@@ -53,8 +53,7 @@ const AddRatelDevice = ({ children }) => {
       </CRow>
     </>,
   )
-  const arrayChildren = React.Children.toArray(children);
-  console.log(arrayChildren)
+
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
     data: deviceLocations = {},
