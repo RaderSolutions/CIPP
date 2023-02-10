@@ -352,9 +352,9 @@ const AddRatelDevice = () => {
   // const handleTypeChange = (selectedOption) => {
   //   setFormFields(selectedOption.value)
   // }
-  const handleTypeChange = (value) => {
-    console.log(input.value)
-    setFormFields(input.value)
+  const handleTypeChange = (e) => {
+    console.log(e.target.value)
+    setFormFields(e.target.value)
   }
 
   return (
