@@ -401,7 +401,7 @@ const AddRatelDevice = () => {
     if (action === 'Generic') console.log('Generic')
   }
   useEffect(() => {
-    console.log(deviceType)
+    console.log(formFields)
   }, [deviceType])
 
   return (
