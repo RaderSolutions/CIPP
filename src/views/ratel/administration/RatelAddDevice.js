@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,10 +36,10 @@ Error.propTypes = {
   name: PropTypes.string.isRequired,
 }
 
-const AddRatelDevice = ({ children }) => {
+const AddRatelDevice = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [formFields, setFormFields] = useState(<></>)
-  const [deviceType, setDeviceType] = useState('User')
+  const [deviceType, setDeviceType] = useState('Generic')
   const [dialplanType, setDialplanType] = useState('Default')
   const [callerIdType, setCallerIdType] = useState('Default')
   const [callerIdField, setCallerIdField] = useState(<></>)
@@ -50,7 +50,6 @@ const AddRatelDevice = ({ children }) => {
       </CRow>
     </>,
   )
-
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
     data: deviceLocations = {},
@@ -75,12 +74,6 @@ const AddRatelDevice = ({ children }) => {
     isFetching: deviceDidsAreFetching,
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
-
-  const handleSelectChange = (e) => {
-    console.log(e.target.value)
-  }
-
-  useEffect(() => {}, [deviceType])
 
   useEffect(() => {
     if (deviceDids) {
@@ -198,6 +191,7 @@ const AddRatelDevice = ({ children }) => {
         <CRow>
           <CCol lg={6} xs={12}>
             <RFFCFormSelect
+              type="text"
               name="HideFromPhonebook"
               label="Hide From Phonebook?"
               placeholder="Select an option"
@@ -402,11 +396,7 @@ const AddRatelDevice = ({ children }) => {
   }
 
   return (
-    <CippWizard
-      initialValues={formFields}
-      onSubmit={handleSubmit}
-      wizardTitle="Add Ratel Device Wizard"
-    >
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -432,6 +422,7 @@ const AddRatelDevice = ({ children }) => {
           <CRow>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
+                type="text"
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
@@ -439,7 +430,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                onChange={handleSelectChange}
+                //disabled={formDIsabled}
               />
             </CCol>
             <CCol lg={6} xs={12}>
@@ -478,8 +469,7 @@ const AddRatelDevice = ({ children }) => {
           <h5>Enter device information</h5>
         </center>
         <hr className="my-4" />
-        {/* <div className="mb-2">{formFields}</div> */}
-        <div className="mb-2">{initalValues}</div>
+        <div className="mb-2">{formFields}</div>
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
