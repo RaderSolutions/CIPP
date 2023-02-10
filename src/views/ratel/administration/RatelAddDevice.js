@@ -395,11 +395,7 @@ const AddRatelDevice = () => {
     alert(JSON.stringify(values, null, 2))
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
-  const selectRef = useRef()
 
-  const handleTypeChange = (selectedOption) => {
-    selectRef.current.value = selectedOption;
-  };
   useEffect(() => {
     console.log(deviceType)
   }, [deviceType])
@@ -453,7 +449,9 @@ const AddRatelDevice = () => {
                 name="SelectDeviceType"
                 placeholder="Select an option"
                 label="Select Device Type:"
-                onChange={handleTypeChange}
+                onChange={(e) => {
+                  setDeviceType(e.target.value)
+                }}
               />
             </CCol>
             <CCol lg={6} xs={12}>
