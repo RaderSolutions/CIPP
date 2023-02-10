@@ -249,7 +249,7 @@ export const RFFCFormSelect = ({
             onChange={(event) => {
               input.onChange(event)
               if (onChange) {
-                console.log(event.target.value)
+                console.log(input.value)
                 onChange(event.target.value)
               }
             }}
