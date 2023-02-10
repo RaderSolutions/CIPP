@@ -91,7 +91,7 @@ const AddRatelDevice = ({ children }) => {
 
   useEffect(() => {
     console.log(deviceType)
-    console.log(deviceTypeRef.current.value)
+    console.log(deviceTypeRef.current)
   }, [deviceType])
 
   useEffect(() => {
@@ -445,8 +445,8 @@ const AddRatelDevice = ({ children }) => {
                 label="Select Device Type:"
                 placeholder="Select an option"
                 values={[
-                  { value: 'Generic', name: 'Generic' },
-                  { value: 'User', name: 'User' },
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
                 ]}
                 onChange={() => {
                   setDeviceType(value)
