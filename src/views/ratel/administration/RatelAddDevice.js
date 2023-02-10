@@ -348,8 +348,12 @@ const AddRatelDevice = () => {
     })
   }
 
-  const handleTypeChange = (selectedOption) => {
-    setFormFields(selectedOption.value)
+  // const handleTypeChange = (selectedOption) => {
+  //   setFormFields(selectedOption.value)
+  // }
+  const handleTypeChange = (e) => {
+    console.log(e.target.value)
+    setFormFields(e.target.value)
   }
 
   return (
@@ -391,7 +395,7 @@ const AddRatelDevice = () => {
                 label="Select Device Type:"
                 onChange={handleTypeChange}
               />
-              {/* <RFFCFormSelect
+              <RFFCFormSelect
                 type="text"
                 name="SelectDeviceType"
                 label="Select Device Type:"
@@ -400,8 +404,9 @@ const AddRatelDevice = () => {
                   { value: "Generic", label: "Generic" },
                   { value: "User", label: "User" },
                 ]}
+                handleChange={handleTypeChange}
                 //disabled={formDIsabled}
-              /> */}
+              />
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
