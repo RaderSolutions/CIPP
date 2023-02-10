@@ -352,10 +352,10 @@ const AddRatelDevice = () => {
   // const handleTypeChange = (selectedOption) => {
   //   setFormFields(selectedOption.value)
   // }
-  const handleTypeChange = (e) => {
-    console.log(e.target.value)
-    setFormFields(e.target.value)
-  }
+  // const handleTypeChange = (e) => {
+  //   console.log(e.target.value)
+  //   setFormFields(e.target.value)
+  // }
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
