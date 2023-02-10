@@ -397,10 +397,10 @@ const AddRatelDevice = () => {
   }
 
   const handleTypeChange = (e) => {
-    setDeviceType(e.value)
+    setDeviceType(e.target.value)
   }
   useEffect(() => {
-    console.log(formFields, deviceType)
+    console.log(deviceType)
   }, [deviceType])
 
   return (
