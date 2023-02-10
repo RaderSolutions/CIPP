@@ -39,7 +39,7 @@ Error.propTypes = {
 const AddRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [formFields, setFormFields] = useState(<></>)
-  const [deviceType, setDeviceType] = useState('Generic')
+  const [deviceType, setDeviceType] = useState('User')
   const [dialplanType, setDialplanType] = useState('Default')
   const [callerIdType, setCallerIdType] = useState('Default')
   const [callerIdField, setCallerIdField] = useState(<></>)
@@ -448,6 +448,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
+                validate={required}
                 // onChange={() => {
                 //   setDeviceType(value)
                 // }}
