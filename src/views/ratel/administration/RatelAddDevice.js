@@ -396,15 +396,8 @@ const AddRatelDevice = () => {
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
 
-  const handleTypeChange = (inputValue, action) => {
-    if (inputValue === 'User'){
-      setDeviceType('User')
-      console.log('handler fired; user')
-    } 
-    if (inputValue === 'Generic'){
-      setDeviceType('Generic')
-      console.log('handler fired; Generic')
-    } 
+  const handleTypeChange = (e) => {
+    setDeviceType(e.value)
   }
   // useEffect(() => {
   //   console.log(formFields)
