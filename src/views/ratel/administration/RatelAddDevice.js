@@ -382,7 +382,7 @@ const AddRatelDevice = () => {
   };
 
   const handleTypeChange= (e) => {
-    console.log(e.target)
+    console.log(e.target.value)
   }
 
   return (
