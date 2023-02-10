@@ -241,7 +241,10 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={handleChange}
+            onChange={(event) => {
+              input.onChange(event)
+              handleChange(input.value)
+            }}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
