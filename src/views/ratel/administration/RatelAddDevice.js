@@ -397,13 +397,12 @@ const AddRatelDevice = () => {
                 onChange={handleTypeChange}
               /> */}
               <RFFCFormSelect
-                type="text"
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
                 values={[
-                  { value: "Generic", label: "Generic" },
-                  { value: "User", label: "User" },
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
                 ]}
                 validate={required}
                 handleChange={handleTypeChange}
