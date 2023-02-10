@@ -232,7 +232,7 @@ export const RFFCFormSelect = ({
   }
 
   const handleChange = (e) => {
-    setParentState(e.target.value)
+    console.log(e)
   }
 
   return (

@@ -450,7 +450,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'User', label: 'User' },
                 ]}
                 validate={required}
-                setParentState={setDeviceType}
+                
               />
             </CCol>
             <CCol lg={6} xs={12}>
