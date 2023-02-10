@@ -219,6 +219,7 @@ export const RFFCFormSelect = ({
   className = 'mb-3',
   validate,
   disabled = false,
+  setParentState,
 }) => {
   // handler for ignoring the first element ('the placeholder')
   const selectValidate = (value, allValues, meta) => {
@@ -228,6 +229,10 @@ export const RFFCFormSelect = ({
       }
       return null
     }
+  }
+
+  const handleChange = (e) => {
+    setParentState(e.target.value)
   }
 
   return (
@@ -247,6 +252,7 @@ export const RFFCFormSelect = ({
                 {label}
               </option>
             ))}
+            onChange={handleChange}
           </CFormSelect>
           <RFFCFormFeedback meta={meta} />
         </div>
