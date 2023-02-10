@@ -50,7 +50,15 @@ const AddRatelDevice = ({ children }) => {
       </CRow>
     </>,
   )
-React.Children.map(child => console.log(child))
+  React.Children.map(children, child => {
+    if (!React.isValidElement(child)) {
+      return child;
+    }
+
+    if (child.props) {
+        console.log(child.props.section)
+    }
+})
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
