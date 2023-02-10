@@ -219,7 +219,7 @@ export const RFFCFormSelect = ({
   className = 'mb-3',
   validate,
   disabled = false,
-  // handleChange,
+  onChange,
   setFormFieldState,
 }) => {
   // handler for ignoring the first element ('the placeholder')
