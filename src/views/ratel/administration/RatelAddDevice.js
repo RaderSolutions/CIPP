@@ -349,8 +349,8 @@ const AddRatelDevice = () => {
     })
   }
 
-  // const handleTypeChange = (selectedOption) => {
-  //   setFormFields(selectedOption.value)
+  // const handleTypeChange = (selectedValue) => {
+  //   setFormFields(selectedValue)
   // }
   // const handleTypeChange = (e) => {
   //   console.log(e.target.value)
@@ -405,8 +405,7 @@ const AddRatelDevice = () => {
                   { value: 'User', label: 'User' },
                 ]}
                 setFormFieldState={setFormFields}
-                // handleChange={handleTypeChange}
-                //disabled={formDIsabled}
+             
               />
             </CCol>
             <CCol lg={6} xs={12}>
