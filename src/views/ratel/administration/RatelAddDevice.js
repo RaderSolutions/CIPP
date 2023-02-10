@@ -397,12 +397,18 @@ const AddRatelDevice = () => {
   }
 
   const handleTypeChange = (inputValue, action) => {
-    if (action === 'User') console.log('user')
-    if (action === 'Generic') console.log('Generic')
+    if (action === 'User'){
+      setDeviceType('User')
+      console.log('handler fired; user')
+    } 
+    if (action === 'Generic'){
+      setDeviceType('Generic')
+      console.log('handler fired; Generic')
+    } 
   }
-  useEffect(() => {
-    console.log(formFields)
-  }, [deviceType])
+  // useEffect(() => {
+  //   console.log(formFields)
+  // }, [deviceType])
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
