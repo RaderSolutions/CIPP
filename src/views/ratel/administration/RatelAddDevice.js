@@ -381,6 +381,10 @@ const AddRatelDevice = () => {
     });
   };
 
+  const handleTypeChange= (e) => {
+    console.log(e.target)
+  }
+
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
