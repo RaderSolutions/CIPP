@@ -395,6 +395,10 @@ const AddRatelDevice = () => {
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
 
+  const handleTypeChange = (e) => {
+    console.log(e.target.value)
+  }
+
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
@@ -430,6 +434,7 @@ const AddRatelDevice = () => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
+                handleChange={handleTypeChange}
                 //disabled={formDIsabled}
               />
             </CCol>
