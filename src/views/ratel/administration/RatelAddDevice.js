@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -75,8 +75,13 @@ const AddRatelDevice = () => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
+ 
+
+  const deviceTypeRef = useRef('')
+
   useEffect(() => {
     console.log(deviceType)
+    console.log(deviceTypeRef.current.value)
   }, [deviceType])
 
   useEffect(() => {
@@ -425,7 +430,7 @@ const AddRatelDevice = () => {
           <CRow>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                type="text"
+                ref={deviceTypeRef}
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 placeholder="Select an option"
