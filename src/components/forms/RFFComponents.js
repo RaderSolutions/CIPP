@@ -241,6 +241,7 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
+            onChange={handleChange}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
@@ -248,7 +249,6 @@ export const RFFCFormSelect = ({
                 {label}
               </option>
             ))}
-            onChange={handleChange}
           </CFormSelect>
           <RFFCFormFeedback meta={meta} />
         </div>
