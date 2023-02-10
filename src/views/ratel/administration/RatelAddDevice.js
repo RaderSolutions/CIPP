@@ -16,7 +16,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
-import Select from "react-select"
+import Select from 'react-select'
 
 const Error = ({ name }) => (
   <Field
@@ -396,9 +396,9 @@ const AddRatelDevice = () => {
     genericPostRequest({ path: '/api/LtAddRatelDevice', values: shippedValues })
   }
 
-  const handleTypeChange = (e) => {
-    setDeviceType(e.target.value)
-    console.log(e.target.value)
+  const handleTypeChange = (inputValue, action) => {
+    if (action === 'User') console.log('user')
+    if (action === 'Generic') console.log('Generic')
   }
   useEffect(() => {
     console.log(deviceType)
