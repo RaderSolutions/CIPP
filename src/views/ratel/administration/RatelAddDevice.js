@@ -353,6 +353,7 @@ const AddRatelDevice = () => {
   // }
   const handleTypeChange = (e) => {
     console.log(e.target.value)
+    console.log(input.value)
     setFormFields(e.target.value)
   }
 
@@ -404,6 +405,7 @@ const AddRatelDevice = () => {
                   { value: "Generic", label: "Generic" },
                   { value: "User", label: "User" },
                 ]}
+                validate={required}
                 handleChange={handleTypeChange}
                 //disabled={formDIsabled}
               />
