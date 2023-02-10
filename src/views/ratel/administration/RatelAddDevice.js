@@ -382,7 +382,7 @@ const AddRatelDevice = () => {
         <center>
           <CRow>
             <CCol lg={6} xs={12}>
-              <Select
+              {/* <Select
                 className="react-select-container me-3"
                 classNamePrefix="react-select"
                 options={[
@@ -394,7 +394,7 @@ const AddRatelDevice = () => {
                 placeholder="Select an option"
                 label="Select Device Type:"
                 onChange={handleTypeChange}
-              />
+              /> */}
               <RFFCFormSelect
                 type="text"
                 name="SelectDeviceType"
