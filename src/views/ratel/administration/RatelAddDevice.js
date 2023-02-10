@@ -91,8 +91,8 @@ const AddRatelDevice = ({ children }) => {
 
   useEffect(() => {
     console.log(deviceType)
-    console.log(deviceTypeRef.current)
-  }, [deviceType])
+    console.log(deviceTypeRef)
+  }, [deviceType, deviceTypeRef])
 
   useEffect(() => {
     if (deviceDids) {
