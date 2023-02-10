@@ -459,7 +459,7 @@ const AddRatelDevice = () => {
                 name="SelectDeviceType"
                 placeholder="Select an option"
                 label="Select Device Type:"
-                onChange={handleTypeChange}
+                onChange={handleTypeChange(e.target.value, setDeviceType)}
               />
             </CCol>
             <CCol lg={6} xs={12}>
