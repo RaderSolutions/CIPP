@@ -4,7 +4,7 @@ import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-
+import { CippWizard } from 'src/components/layout'
 import PropTypes from 'prop-types'
 import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
