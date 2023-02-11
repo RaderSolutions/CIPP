@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 import { CButton, CCardHeader, CNav, CNavItem, CNavLink, CRow, CCol } from '@coreui/react'
@@ -31,6 +31,10 @@ const CippWizard = ({ wizardTitle, onSubmit, children, initialValues, setFormFie
       next(values)
     }
   }
+
+  useEffect(()=>{
+    console.log(values)
+  },[values])
 
   const activePage = React.Children.toArray(children)[page]
   const isLastPage = page === React.Children.count(children) - 1
