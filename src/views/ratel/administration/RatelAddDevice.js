@@ -358,6 +358,10 @@ const AddRatelDevice = ({ children }) => {
   //   setFormFields(e.target.value)
   // }
 
+  useEffect(()=>{
+    console.log(values)
+  },[])
+
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
