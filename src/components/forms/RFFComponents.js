@@ -232,7 +232,7 @@ export const RFFCFormSelect = ({
     }
   }
   const handleChange = (e) => {
-    console.log('event', e.target)
+    console.log('event', e.target.value)
     // return e.target.value
   }
 
