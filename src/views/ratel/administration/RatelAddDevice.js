@@ -358,11 +358,6 @@ const AddRatelDevice = ({ children }) => {
   //   setFormFields(e.target.value)
   // }
 
-  useEffect(()=>{
-    console.log(values)
-  },[])
-
-
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
@@ -410,7 +405,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
                 ]}
-                
+
                 // setFormFieldState={setFormFields}
                 // onChange={setFormFields}
               />
