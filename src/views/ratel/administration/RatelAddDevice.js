@@ -4,7 +4,7 @@ import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import { ratelRatelCippWizard } from 'src/components/layout'
+
 import PropTypes from 'prop-types'
 import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
@@ -18,7 +18,6 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
 // import Select from 'react-select'
 import { required } from 'src/validators'
-import RatelCippWizard from 'src/components/layout/RatelCippWizard'
 
 const Error = ({ name }) => (
   <Field
@@ -361,8 +360,8 @@ const AddRatelDevice = ({ children }) => {
 
 
   return (
-    <RatelCippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
-      <RatelCippWizard.Page
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+      <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
       >
@@ -374,8 +373,8 @@ const AddRatelDevice = ({ children }) => {
         <Field name="selectedTenants">{(props) => <TenantSelector />}</Field>
         <Error name="selectedTenants" />
         <hr className="my-4" />
-      </RatelCippWizard.Page>
-      <RatelCippWizard.Page title="Select Device Type" description="Choose the type of device to add">
+      </CippWizard.Page>
+      <CippWizard.Page title="Select Device Type" description="Choose the type of device to add">
         <center>
           <h3 className="text-primary">Step 2</h3>
           <h5>Choose Device Type</h5>
@@ -441,8 +440,8 @@ const AddRatelDevice = ({ children }) => {
           </CRow>
         </center>
         <hr className="my-4" />
-      </RatelCippWizard.Page>
-      <RatelCippWizard.Page title="Device Information" description="Enter the device information">
+      </CippWizard.Page>
+      <CippWizard.Page title="Device Information" description="Enter the device information">
         <center>
           <h3 className="text-primary">Step 3</h3>
           <h5>Enter device information</h5>
@@ -453,8 +452,8 @@ const AddRatelDevice = ({ children }) => {
           {formFields === 'Generic' ? genericFields : userFields}
         </div>
         <hr className="my-4" />
-      </RatelCippWizard.Page>
-      <RatelCippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
+      </CippWizard.Page>
+      <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
         <center>
           <h3 className="text-primary">Step 4</h3>
           <h5 className="mb-4">Confirm and apply</h5>
@@ -468,8 +467,8 @@ const AddRatelDevice = ({ children }) => {
           {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
         </center>
         <hr className="my-4" />
-      </RatelCippWizard.Page>
-    </RatelCippWizard>
+      </CippWizard.Page>
+    </CippWizard>
   )
 }
 
