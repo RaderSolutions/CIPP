@@ -231,10 +231,10 @@ export const RFFCFormSelect = ({
       return null
     }
   }
-  // const handleChange = () => {
-  //   console.log(values)
-  //   // setFormFieldState()
-  // }
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    return e.target.value
+  }
 
   return (
     <Field name={name} validate={selectValidate}>
@@ -246,13 +246,7 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={(event) => {
-              input.onChange(event)
-              if (onChange) {
-                console.log(input.value)
-                onChange(event.target.value)
-              }
-            }}
+            onChange={handleChange}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (

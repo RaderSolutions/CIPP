@@ -353,10 +353,10 @@ const AddRatelDevice = ({ children }) => {
   // const handleTypeChange = (selectedValue) => {
   //   setFormFields(selectedValue)
   // }
-  const handleTypeChange = (e) => {
-    console.log(e.target.value)
-    setFormFields(e.target.value)
-  }
+  // const handleTypeChange = (e) => {
+  //   console.log(e.target.value)
+  //   setFormFields(e.target.value)
+  // }
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
@@ -406,7 +406,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 'User', label: 'User' },
                 ]}
                 // setFormFieldState={setFormFields}
-                onChange={setFormFields}
+                // onChange={setFormFields}
               />
             </CCol>
             <CCol lg={6} xs={12}>
