@@ -5,7 +5,7 @@ import { Form } from 'react-final-form'
 import { CButton, CCardHeader, CNav, CNavItem, CNavLink, CRow, CCol } from '@coreui/react'
 import { CippPage } from 'src/components/layout'
 
-const CippWizard = ({ wizardTitle, onSubmit, children, initialValues, setFormFieldState }) => {
+export const RatelCippWizard = ({ wizardTitle, onSubmit, children, initialValues, setFormFieldState }) => {
   const [page, setPage] = useState(0)
   const [values, setValues] = useState(initialValues)
 
