@@ -62,6 +62,11 @@ export default class CippWizard extends React.Component {
     }
   }
 
+  handleCurrentValues = (values) => {
+    console.log(values)
+    return values
+  }
+
   render() {
     const { children } = this.props
     const { page, values, wizardTitle } = this.state
@@ -88,7 +93,7 @@ export default class CippWizard extends React.Component {
                 ))}
               </CNav>
             </CCardHeader>
-            <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit}>
+            <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit} handle={this.handleCurrentValues}>
               {({ handleSubmit, submitting, values }) => (
                 <>
                   <form onSubmit={handleSubmit}>
