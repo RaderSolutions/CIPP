@@ -357,6 +357,7 @@ const AddRatelDevice = ({ children }) => {
   //   console.log(e.target.value)
   //   setFormFields(e.target.value)
   // }
+  console.log(CippWizard.props)
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
