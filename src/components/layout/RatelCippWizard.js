@@ -33,7 +33,7 @@ export const CippWizard = ({ wizardTitle, onSubmit, children, initialValues, set
   }
 
   useEffect(()=>{
-    console.log(values)
+    console.log(input.values)
   },[values])
 
   const activePage = React.Children.toArray(children)[page]

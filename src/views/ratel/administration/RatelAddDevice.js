@@ -407,7 +407,7 @@ const AddRatelDevice = ({ children }) => {
                 ]}
 
                 // setFormFieldState={setFormFields}
-                // onChange={setFormFields}
+                
               />
             </CCol>
             <CCol lg={6} xs={12}>
