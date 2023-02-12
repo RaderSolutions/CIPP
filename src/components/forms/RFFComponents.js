@@ -248,7 +248,7 @@ export const RFFCFormSelect = ({
             disabled={disabled}
             onChange={(e, input) => {
               console.log('e', e.target)
-              console.log('input', input)
+              console.log('values', values)
             }}
           >
             <option value={placeholder}>{placeholder}</option>

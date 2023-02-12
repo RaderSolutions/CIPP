@@ -402,8 +402,8 @@ const AddRatelDevice = ({ children }) => {
                 label="Select Device Type:"
                 // placeholder="Select an option"
                 values={[
-                  { value: 'Generic', label: 'Generic' },
-                  { value: 'User', label: 'User' },
+                  { value: 'Generic', name: 'Generic' },
+                  { value: 'User', name: 'User' },
                 ]}
 
                 // setFormFieldState={setFormFields}
