@@ -219,7 +219,7 @@ export const RFFCFormSelect = ({
   className = 'mb-3',
   validate,
   disabled = false,
-  onChange,
+  // onChange,
   setFormFieldState,
 }) => {
   // handler for ignoring the first element ('the placeholder')
@@ -231,10 +231,10 @@ export const RFFCFormSelect = ({
       return null
     }
   }
-  const handleChange = (e) => {
-    console.log('event', e.target.value)
-    // return e.target.value
-  }
+  // const handleChange = (e) => {
+  //   console.log('event', e.target.value)
+  //   // return e.target.value
+  // }
 
   return (
     <Field name={name} validate={selectValidate}>
@@ -246,7 +246,10 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={handleChange}
+            onChange={(e, input) => {
+              console.log('e', e.target)
+              console.log('input', input)
+            }}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
