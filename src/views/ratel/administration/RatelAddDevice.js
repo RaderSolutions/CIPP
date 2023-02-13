@@ -396,15 +396,12 @@ const AddRatelDevice = ({ children }) => {
               {deviceType && (
                 <RFFCFormSelect
                   name="SelectDeviceType"
-                  label="Select Device Type:"
-                  // placeholder="Select an option"
                   values={deviceTypeValues.map((type) => ({
                     value: type.value,
                     label: type.label,
                   }))}
-                  // onChange={handleInputChange}
-
-                  // setFormFieldState={setFormFields}
+                  placeholder="Select an option"
+                  label="Select Device Type:"
                 />
               )}
             </CCol>
