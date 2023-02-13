@@ -235,9 +235,9 @@ export const RFFCFormSelect = ({
   //   console.log('event', e.target.value)
   //   // return e.target.value
   // }
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     input.onChange(event)
-    console.log(`Selected value: ${event.target.value}`)
+    console.log(event.target.value)
   }
 
   return (
@@ -250,7 +250,7 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={handleChange}
+            onChange={handleInputChange}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (

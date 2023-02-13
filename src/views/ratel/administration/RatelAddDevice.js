@@ -18,7 +18,7 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
 // import Select from 'react-select'
 import { required } from 'src/validators'
-import { handleInputChange } from 'react-select/dist/declarations/src/utils'
+
 
 
 const Error = ({ name }) => (
