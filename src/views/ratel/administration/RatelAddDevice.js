@@ -212,7 +212,7 @@ const AddRatelDevice = ({ children }) => {
               name="ModelId"
               label="Device Model"
               placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
-              values={deviceModels?.map((deviceModel) => ({
+              values={deviceModels && deviceModels?.map((deviceModel) => ({
                 value: deviceModel.modelId,
                 label: deviceModel.Name,
               }))}
@@ -238,7 +238,7 @@ const AddRatelDevice = ({ children }) => {
               name="ContactID"
               label="Device Contact"
               placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
-              values={deviceContacts?.map((deviceContact) => ({
+              values={deviceContacts && deviceContacts?.map((deviceContact) => ({
                 value: deviceContact.ContactID,
                 label: deviceContact.Name,
               }))}
