@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
 import PropTypes from 'prop-types'
-import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
+import { RFFCFormInput, RFFCFormRadio, RFFCFormSelect, RFFCFormSwitch, RFFCFormTextarea } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useSelector } from 'react-redux'
@@ -36,15 +36,10 @@ const AddPagingGroup = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const handleSubmit = async (values) => {
-    const shippedValues = {
-        // Tenant
-      DialExtension: values.DialExtension,
-      PageGroupName: values.PageGroupName,
-      HideFromPhonebook: values.HideFromPhonebook,
-    }
-
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=dial_ext|Value=${values.DialExtension},Key=pagegroup_name|Value=${values.PageGroupName},Key=hide_from_pb|Values=${values.HideFromPhonebook}&RatelScript=true&ScriptId=7410`,
+    })
   }
 
   return (
@@ -63,8 +58,8 @@ const AddPagingGroup = () => {
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page
-        title="Paging Group Member Information"
-        description="Enter the paging group member information"
+        title="Paging Group Information"
+        description="Enter the paging group information"
       >
         <center>
           <h3 className="text-primary">Step 2</h3>
@@ -75,10 +70,13 @@ const AddPagingGroup = () => {
           <CRow>
             {/* TODO: discuss w SW */}
             <CCol lg={6} xs={12}>
-              <RFFCFormInput name="PagegroupExt" label="Page Group Extension" />
+              <RFFCFormInput name="DialExtension" label="Page Group Extension" />
             </CCol>
             <CCol lg={6} xs={12}>
-              <RFFCFormInput name="DeviceExt" label="Device Extension" />
+              <RFFCFormInput name="PageGroupName" label="Page Group Name" />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSwitch name="PageGroupName" label="Page Group Name" />
             </CCol>
           </CRow>
         </div>
