@@ -221,6 +221,8 @@ export const RFFCFormSelect = ({
   disabled = false,
   // onChange,
   setDeviceTypeLocal,
+  setDialplanTypeLocal,
+  setCallerIdTypeLocal
 }) => {
   // handler for ignoring the first element ('the placeholder')
   const selectValidate = (value, allValues, meta) => {
@@ -243,6 +245,8 @@ export const RFFCFormSelect = ({
   useEffect(() => {
     console.log(currentValues)
     setDeviceTypeLocal(currentValues.SelectDeviceType)
+    setDialplanTypeLocal(current.SelectDialplanType)
+    // setCallerIdTypeLocal(currrent.SelectCal)
   }, [currentValues])
 
   return (

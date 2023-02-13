@@ -301,7 +301,7 @@ const AddRatelDevice = ({ children }) => {
 
     if (callerIdTypeLocal === 'Custom') {
       setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
-    } else if (callerIdType === 'Default' && dialplanType === 'Custom') {
+    } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
       setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
     }
   }, [
