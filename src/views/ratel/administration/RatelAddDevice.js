@@ -69,50 +69,6 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  // useEffect(() => {
-  //   if (deviceDids) {
-  //     setCallerIdField(
-  //       <>
-  //         <CRow>
-  //           <CCol lg={6} xs={12}>
-  //             {deviceDidsAreFetching && <CSpinner />}
-  //             {!deviceDidsAreFetching && (
-  //               <RFFCFormSelect
-  //                 name="Did"
-  //                 label="Choose Caller ID"
-  //                 placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-  //                 values={deviceDids?.map((deviceDid) => ({
-  //                   value: deviceDid.Number,
-  //                   label: deviceDid.Number,
-  //                 }))}
-  //                 //disabled={formDIsabled}
-  //               />
-  //             )}
-  //             {deviceDidsError && <span>Failed to load list of client DIDs</span>}
-  //           </CCol>
-
-  //           <RFFCFormInput
-  //             type="text"
-  //             name="Did"
-  //             label="Need to add a new DID?"
-  //             placeholder="Enter new DID value"
-  //           />
-  //         </CRow>
-  //       </>,
-  //     )
-  //   } else {
-  //     setCallerIdField(<text>No available DIDs for this customer.</text>)
-  //   }
-  // }, [deviceDids, deviceDidsAreFetching, deviceDidsError])
-
-  // useEffect(()=>{
-  //   if (callerIdTypeLocal === 'Custom') {
-  //     setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
-  //   } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
-  //     setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
-  //   }
-  // },[callerIdTypeLocal, dialplanTypeLocal])
-
   const handleSubmit = async (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
