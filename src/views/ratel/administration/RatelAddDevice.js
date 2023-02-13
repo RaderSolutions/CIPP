@@ -204,8 +204,8 @@ const AddRatelDevice = ({ children }) => {
                 label="Select CallerID Type:"
                 placeholder="Select an option"
                 values={[
-                  { value: 'default', label: 'Default' },
-                  { value: 'custom', label: 'Custom' },
+                  { value: 'Default', label: 'Default' },
+                  { value: 'Custom', label: 'Custom' },
                 ]}
                 //disabled={formDIsabled}
               />
