@@ -241,7 +241,7 @@ export const RFFCFormSelect = ({
   // }
   const { values: currentValues } = useFormState()
   useEffect(() => {
-    console.log(values[name])
+    console.log(currentValues)
   }, [currentValues])
 
   return (
