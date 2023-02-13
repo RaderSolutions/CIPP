@@ -65,44 +65,45 @@ const AddRatelDevice = ({ children }) => {
   const {
     data: deviceDids = {},
     isFetching: deviceDidsAreFetching,
+    isSuccess: deviceDidsSuccess,
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  useEffect(() => {
-    if (deviceDids) {
-      setCallerIdField(
-        <>
-          <CRow>
-            <CCol lg={6} xs={12}>
-              {deviceDidsAreFetching && <CSpinner />}
-              {!deviceDidsAreFetching && (
-                <RFFCFormSelect
-                  name="Did"
-                  label="Choose Caller ID"
-                  placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-                  values={deviceDids?.map((deviceDid) => ({
-                    value: deviceDid.Number,
-                    label: deviceDid.Number,
-                  }))}
-                  //disabled={formDIsabled}
-                />
-              )}
-              {deviceDidsError && <span>Failed to load list of client DIDs</span>}
-            </CCol>
+  // useEffect(() => {
+  //   if (deviceDids) {
+  //     setCallerIdField(
+  //       <>
+  //         <CRow>
+  //           <CCol lg={6} xs={12}>
+  //             {deviceDidsAreFetching && <CSpinner />}
+  //             {!deviceDidsAreFetching && (
+  //               <RFFCFormSelect
+  //                 name="Did"
+  //                 label="Choose Caller ID"
+  //                 placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+  //                 values={deviceDids?.map((deviceDid) => ({
+  //                   value: deviceDid.Number,
+  //                   label: deviceDid.Number,
+  //                 }))}
+  //                 //disabled={formDIsabled}
+  //               />
+  //             )}
+  //             {deviceDidsError && <span>Failed to load list of client DIDs</span>}
+  //           </CCol>
 
-            <RFFCFormInput
-              type="text"
-              name="Did"
-              label="Need to add a new DID?"
-              placeholder="Enter new DID value"
-            />
-          </CRow>
-        </>,
-      )
-    } else {
-      setCallerIdField(<text>No available DIDs for this customer.</text>)
-    }
-  }, [deviceDids, deviceDidsAreFetching, deviceDidsError])
+  //           <RFFCFormInput
+  //             type="text"
+  //             name="Did"
+  //             label="Need to add a new DID?"
+  //             placeholder="Enter new DID value"
+  //           />
+  //         </CRow>
+  //       </>,
+  //     )
+  //   } else {
+  //     setCallerIdField(<text>No available DIDs for this customer.</text>)
+  //   }
+  // }, [deviceDids, deviceDidsAreFetching, deviceDidsError])
 
   // useEffect(()=>{
   //   if (callerIdTypeLocal === 'Custom') {
@@ -344,7 +345,34 @@ const AddRatelDevice = ({ children }) => {
             </CRow>
           </Condition>
           <Condition when="SelectCallerIDType" is={'Custom'}>
-            <CCol>{callerIdField}</CCol>
+            <>
+              <CRow>
+                <CCol lg={6} xs={12}>
+                  {deviceDidsAreFetching && <CSpinner />}
+                  {deviceDidsSuccess && deviceDids !== {} && (
+                    <RFFCFormSelect
+                      name="Did"
+                      label="Choose Caller ID"
+                      placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+                      values={deviceDids?.map((deviceDid) => ({
+                        value: deviceDid.Number,
+                        label: deviceDid.Number,
+                      }))}
+                      //disabled={formDIsabled}
+                    />
+                  )}
+                  {deviceDidsError && <span>Failed to load list of client DIDs</span>}
+                </CCol>
+
+                <RFFCFormInput
+                  type="text"
+                  name="Did"
+                  label="Need to add a new DID?"
+                  placeholder="Enter new DID value"
+                />
+              </CRow>
+            </>
+            ,<CCol>{callerIdField}</CCol>
           </Condition>
         </div>
         <hr className="my-4" />
