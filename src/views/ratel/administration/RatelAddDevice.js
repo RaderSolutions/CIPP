@@ -351,7 +351,7 @@ const AddRatelDevice = ({ children }) => {
   }
 
   return (
-    <CippWizard formRef={formRef} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
