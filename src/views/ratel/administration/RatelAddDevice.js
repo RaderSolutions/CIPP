@@ -162,16 +162,15 @@ const AddRatelDevice = ({ children }) => {
           />
         </CCol>
         <Condition when="SelectDeviceType" is={'Generic'}>
-
+          <CCol lg={6} xs={12}>
+            <RFFCFormInput
+              type="text"
+              name="EmailAddress"
+              label="Voicemail Email"
+              //disabled={formDIsabled}
+            />
+          </CCol>
         </Condition>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="EmailAddress"
-            label="Voicemail Email"
-            //disabled={formDIsabled}
-          />
-        </CCol>
       </CRow>
     </>
   )
@@ -215,10 +214,13 @@ const AddRatelDevice = ({ children }) => {
               name="ModelId"
               label="Device Model"
               placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
-              values={deviceModels && deviceModels?.map((deviceModel) => ({
-                value: deviceModel.modelId,
-                label: deviceModel.Name,
-              }))}
+              values={
+                deviceModels &&
+                deviceModels?.map((deviceModel) => ({
+                  value: deviceModel.modelId,
+                  label: deviceModel.Name,
+                }))
+              }
               //disabled={formDIsabled}
             />
           )}
@@ -241,10 +243,13 @@ const AddRatelDevice = ({ children }) => {
               name="ContactID"
               label="Device Contact"
               placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
-              values={deviceContacts && deviceContacts?.map((deviceContact) => ({
-                value: deviceContact.ContactID,
-                label: deviceContact.Name,
-              }))}
+              values={
+                deviceContacts &&
+                deviceContacts?.map((deviceContact) => ({
+                  value: deviceContact.ContactID,
+                  label: deviceContact.Name,
+                }))
+              }
               //disabled={formDIsabled}
             />
           )}
@@ -416,7 +421,6 @@ const AddRatelDevice = ({ children }) => {
                 }))}
                 placeholder="Select an option"
                 label="Select Device Type:"
-              
               />
             </CCol>
             <CCol lg={6} xs={12}>
