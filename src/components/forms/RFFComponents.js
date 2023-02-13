@@ -246,8 +246,9 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={(e) => {
-              console.log('e', e.target.value)
+            onChange={(arg) => {
+              input.onChange(arg)
+              console.log('arg', arg)
               console.log('values', values)
               console.log('input', input)
             }}
