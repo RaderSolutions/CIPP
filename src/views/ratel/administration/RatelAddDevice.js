@@ -354,8 +354,14 @@ const AddRatelDevice = ({ children }) => {
     { value: 'Generic', label: 'Generic' },
     { value: 'User', label: 'User' },
   ]
+
+  const formValues = {
+    deviceType: 'Generic', 
+    dialplanType: 'Generic',
+    callerIdType: 'Generic'
+  }
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard initialValues={{...formValues}} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
