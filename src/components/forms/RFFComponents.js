@@ -250,7 +250,7 @@ export const RFFCFormSelect = ({
               console.log('e', e.target.value)
               console.log('values', values)
               console.log('input', input)
-              console.log(input.value)
+              console.log(input.getValue())
             }}
           >
             <option value={placeholder}>{placeholder}</option>
