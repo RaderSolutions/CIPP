@@ -421,8 +421,8 @@ const AddRatelDevice = ({ children }) => {
                 label="Select Dialplan Type:"
                 placeholder="Select an option"
                 values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
+                  { value: 'default', label: 'Default' },
+                  { value: 'custom', label: 'Custom' },
                 ]}
                 //disabled={formDIsabled}
               />
@@ -433,8 +433,8 @@ const AddRatelDevice = ({ children }) => {
                 label="Select CallerID Type:"
                 placeholder="Select an option"
                 values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
+                  { value: 'default', label: 'Default' },
+                  { value: 'custom', label: 'Custom' },
                 ]}
                 //disabled={formDIsabled}
               />
