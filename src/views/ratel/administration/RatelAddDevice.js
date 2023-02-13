@@ -350,16 +350,13 @@ const AddRatelDevice = ({ children }) => {
     })
   }
 
-  // const handleTypeChange = (selectedValue) => {
-  //   setFormFields(selectedValue)
-  // }
-  // const handleTypeChange = (e) => {
-  //   console.log(e.target.value)
-  //   setFormFields(e.target.value)
-  // }
+  const formRef = React.MutableRefObject = useRef(null);
+  useEffect(()=>{
+    console.log(formRef)
+  },[formRef])
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard formRef={formRef} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
