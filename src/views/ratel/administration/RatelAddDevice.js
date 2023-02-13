@@ -278,7 +278,7 @@ const AddRatelDevice = ({ children }) => {
               />
             </CCol>
           </Condition>
-          <Condition when="SelectDeviceTyp" is={'Generic'}>
+          <Condition when="SelectDeviceType" is={'Generic'}>
             <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
