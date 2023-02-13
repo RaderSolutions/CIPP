@@ -246,7 +246,7 @@ export const RFFCFormSelect = ({
     console.log(currentValues)
     setDeviceTypeLocal(currentValues.SelectDeviceType)
     setDialplanTypeLocal(current.SelectDialplanType)
-    // setCallerIdTypeLocal(currrent.SelectCal)
+    setCallerIdTypeLocal(current.SelectCal)
   }, [currentValues])
 
   return (

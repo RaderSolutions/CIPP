@@ -299,11 +299,6 @@ const AddRatelDevice = ({ children }) => {
       setCallerIdField(<text>No available DIDs for this customer.</text>)
     }
 
-    if (callerIdTypeLocal === 'Custom') {
-      setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
-    } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
-      setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
-    }
   }, [
     tenantDomain,
     dialplanTypeLocal,
@@ -323,6 +318,14 @@ const AddRatelDevice = ({ children }) => {
     callerIdField,
     dialplanField,
   ])
+
+  useEffect(()=>{
+    if (callerIdTypeLocal === 'Custom') {
+      setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
+    } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
+      setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
+    }
+  },[callerIdTypeLocal, dialplanTypeLocal])
 
   const handleSubmit = async (values) => {
     const shippedValues = {
@@ -357,26 +360,7 @@ const AddRatelDevice = ({ children }) => {
   const formValues = {
     TemplateType: 'Admin',
   }
-  const WhenFieldChanges = ({ field, set }) => (
-    <Field name={set} subscription={{}}>
-      {(
-        // No subscription. We only use Field to get to the change function
-        { input: { onChange } },
-      ) => (
-        <FormSpy subscription={{}}>
-          {({ form }) => (
-            <OnChange name={field}>
-              {(value) => {
-                console.log(value)
-                // console.log(template[0][set])
-                // onChange(JSON.stringify(template[0]))
-              }}
-            </OnChange>
-          )}
-        </FormSpy>
-      )}
-    </Field>
-  )
+
   return (
     <CippWizard
       initialValues={{ ...formValues }}
@@ -433,8 +417,6 @@ const AddRatelDevice = ({ children }) => {
                 setCallerIdTypeLocal={setCallerIdTypeLocal}
                 setDialplanTypeLocal={setDialplanTypeLocal}
               />
-
-              <WhenFieldChanges field="SelectDeviceType" />
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
