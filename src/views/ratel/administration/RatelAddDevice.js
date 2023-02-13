@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field } from 'react-final-form'
+import { Field, FormSpy } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -18,7 +18,7 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
 // import Select from 'react-select'
 import { required } from 'src/validators'
-import { type } from 'jquery'
+import { OnChange } from 'react-final-form-listeners'
 
 const Error = ({ name }) => (
   <Field
@@ -360,6 +360,26 @@ const AddRatelDevice = ({ children }) => {
     SelectDialplanType: 'Generic',
     SelectCallerIDType: 'Generic',
   }
+  const WhenFieldChanges = ({ field, set }) => (
+    <Field name={set} subscription={{}}>
+      {(
+        // No subscription. We only use Field to get to the change function
+        { input: { onChange } },
+      ) => (
+        <FormSpy subscription={{}}>
+          {({ form }) => (
+            <OnChange name={field}>
+              {(value) => {
+                console.log(value)
+                // console.log(template[0][set])
+                // onChange(JSON.stringify(template[0]))
+              }}
+            </OnChange>
+          )}
+        </FormSpy>
+      )}
+    </Field>
+  )
   return (
     <CippWizard
       initialValues={{ ...formValues }}
@@ -414,6 +434,7 @@ const AddRatelDevice = ({ children }) => {
                   label="Select Device Type:"
                 />
               )}
+              <WhenFieldChanges field="SelectDeviceType" />
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
