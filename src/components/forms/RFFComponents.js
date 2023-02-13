@@ -220,7 +220,7 @@ export const RFFCFormSelect = ({
   validate,
   disabled = false,
   // onChange,
-  setFormFieldState,
+  setDeviceTypeLocal,
 }) => {
   // handler for ignoring the first element ('the placeholder')
   const selectValidate = (value, allValues, meta) => {
@@ -242,6 +242,7 @@ export const RFFCFormSelect = ({
   const { values: currentValues } = useFormState()
   useEffect(() => {
     console.log(currentValues)
+    setDeviceTypeLocal(currentValues.SelectDeviceType)
   }, [currentValues])
 
   return (
