@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field, FormSpy } from 'react-final-form'
+import { Field, FormSpy, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -79,6 +79,11 @@ const AddRatelDevice = ({ children }) => {
     isFetching: deviceDidsAreFetching,
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
+
+  useEffect(()=>{
+    const values = useFormState()
+  console.log(values)
+  },[values])
 
   const genericFields = (
     <>
