@@ -413,9 +413,7 @@ const AddRatelDevice = ({ children }) => {
                 }))}
                 placeholder="Select an option"
                 label="Select Device Type:"
-                setDeviceTypeLocal={setDeviceTypeLocal}
-                setCallerIdTypeLocal={setCallerIdTypeLocal}
-                setDialplanTypeLocal={setDialplanTypeLocal}
+              
               />
             </CCol>
             <CCol lg={6} xs={12}>
