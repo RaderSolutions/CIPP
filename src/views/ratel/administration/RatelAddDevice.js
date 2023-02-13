@@ -80,12 +80,6 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  const { values: currentValues } = useFormState()
-
-  useEffect(() => {
-    console.log(currentValues)
-  }, [currentValues])
-
   const genericFields = (
     <>
       <CRow>
