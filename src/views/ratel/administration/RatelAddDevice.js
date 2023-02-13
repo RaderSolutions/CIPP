@@ -306,9 +306,8 @@ const AddRatelDevice = ({ children }) => {
     }
   }, [
     tenantDomain,
-
-    dialplanType,
-    callerIdType,
+    dialplanTypeLocal,
+    callerIdTypeLocal,
     deviceLocationsAreFetching,
     deviceLocations,
     deviceLocationsError,
