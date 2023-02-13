@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,9 +16,6 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
-// import Select from 'react-select'
-import { required } from 'src/validators'
-import { OnChange } from 'react-final-form-listeners'
 
 const Error = ({ name }) => (
   <Field
@@ -317,6 +314,7 @@ const AddRatelDevice = ({ children }) => {
                       //disabled={formDIsabled}
                     />
                   )}
+                  {!deviceDids && <text>No available DIDs for this customer.</text>}
                   {deviceDidsError && <span>Failed to load list of client DIDs</span>}
                 </CCol>
 
