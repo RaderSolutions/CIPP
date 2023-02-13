@@ -356,12 +356,16 @@ const AddRatelDevice = ({ children }) => {
   ]
 
   const formValues = {
-    SelectDeviceType: 'Generic', 
+    SelectDeviceType: 'Generic',
     SelectDialplanType: 'Generic',
-    SelectCallerIDType: 'Generic'
+    SelectCallerIDType: 'Generic',
   }
   return (
-    <CippWizard initialValues={{...formValues}} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
+    <CippWizard
+      initialValues={{ ...formValues }}
+      onSubmit={handleSubmit}
+      wizardTitle="Add Ratel Device Wizard"
+    >
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -413,7 +417,6 @@ const AddRatelDevice = ({ children }) => {
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                type="text"
                 name="SelectDialplanType"
                 label="Select Dialplan Type:"
                 placeholder="Select an option"
@@ -426,7 +429,6 @@ const AddRatelDevice = ({ children }) => {
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                type="text"
                 name="SelectCallerIDType"
                 label="Select CallerID Type:"
                 placeholder="Select an option"
