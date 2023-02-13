@@ -10,7 +10,7 @@ import {
 } from '@coreui/react'
 import Select from 'react-select'
 import AsyncSelect from 'react-select/async'
-import { Field, getFieldState } from 'react-final-form'
+import { Field } from 'react-final-form'
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
@@ -255,7 +255,7 @@ export const RFFCFormSelect = ({
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
               <option
-                onSelect={console.log('optionVal', value)}
+                onClick={console.log('option', option.value)}
                 key={`${idx}-${value}`}
                 value={value}
               >

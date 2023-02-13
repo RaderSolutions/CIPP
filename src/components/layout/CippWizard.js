@@ -27,7 +27,6 @@ export default class CippWizard extends React.Component {
       page: 0,
       values: props.initialValues,
       wizardTitle: props.wizardTitle,
-      formRef: props.formRef
     }
   }
 
@@ -89,10 +88,9 @@ export default class CippWizard extends React.Component {
                 ))}
               </CNav>
             </CCardHeader>
-            <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit} formRef={this.formRef}>
+            <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit}>
               {({ handleSubmit, submitting, values }) => (
                 <>
-                formRef={this.formRef}
                   <form onSubmit={handleSubmit}>
                     {activePage}
                     <div className="d-flex justify-content-between">

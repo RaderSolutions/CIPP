@@ -350,11 +350,6 @@ const AddRatelDevice = ({ children }) => {
     })
   }
 
-  const formRef = React.MutableRefObject = useRef(null);
-  useEffect(()=>{
-    console.log(formRef)
-  },[formRef])
-
   return (
     <CippWizard formRef={formRef} onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
