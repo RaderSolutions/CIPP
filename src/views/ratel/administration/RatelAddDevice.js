@@ -18,8 +18,7 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
 // import Select from 'react-select'
 import { required } from 'src/validators'
-
-
+import { type } from 'jquery'
 
 const Error = ({ name }) => (
   <Field
@@ -351,10 +350,10 @@ const AddRatelDevice = ({ children }) => {
       values: shippedValues,
     })
   }
-  // handleInputChange = (e) => {
-  //   console.log(e.target.value)
-  // }
-
+  const deviceTypeValues = [
+    { value: 'Generic', label: 'Generic' },
+    { value: 'User', label: 'User' },
+  ]
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Device Wizard">
       <CippWizard.Page
@@ -398,14 +397,13 @@ const AddRatelDevice = ({ children }) => {
                 name="SelectDeviceType"
                 label="Select Device Type:"
                 // placeholder="Select an option"
-                values={[
-                  { label: 'Generic', value: 'Generic' },
-                  { label: 'User', value: 'User' },
-                ]}
+                values={deviceTypeValues.map((type) => ({
+                  value: type.value,
+                  label: type.label,
+                }))}
                 // onChange={handleInputChange}
 
                 // setFormFieldState={setFormFields}
-                
               />
             </CCol>
             <CCol lg={6} xs={12}>
