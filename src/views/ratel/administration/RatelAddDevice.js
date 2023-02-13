@@ -437,6 +437,64 @@ const AddRatelDevice = ({ children }) => {
           {/* {dialplanFormFields} */}
           {/* {formFields === 'Generic' ? genericFields : userFields} */}
           {/* {genericFields} */}
+          <CRow>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput type="text" name="MacAddress" label="MAC Address" />
+            </CCol>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="ExtensionNumber"
+                label="Extension Number"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+          </CRow>
+          <CRow>
+            <CCol lg={6} xs={12}>
+              {deviceLocationsAreFetching && <CSpinner />}
+              {!deviceLocationsAreFetching && (
+                <RFFCFormSelect
+                  name="Location"
+                  label="Device Location"
+                  placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
+                  values={deviceLocations?.map((deviceLocation) => ({
+                    value: deviceLocation.locationId,
+                    label: deviceLocation.Name,
+                  }))}
+                  //disabled={formDIsabled}
+                />
+              )}
+              {deviceLocationsError && <span>Failed to load list of client locations</span>}
+            </CCol>
+            <CCol lg={6} xs={12}>
+              {deviceModelsAreFetching && <CSpinner />}
+              {!deviceModelsAreFetching && (
+                <RFFCFormSelect
+                  name="ModelId"
+                  label="Device Model"
+                  placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
+                  values={
+                    deviceModels &&
+                    deviceModels?.map((deviceModel) => ({
+                      value: deviceModel.modelId,
+                      label: deviceModel.Name,
+                    }))
+                  }
+                  //disabled={formDIsabled}
+                />
+              )}
+              {deviceModelsError && <span>Failed to load list of device models</span>}
+            </CCol>
+          </CRow>
+          <CCol lg={6} xs={12}>
+            <RFFCFormInput
+              type="text"
+              name="FopGroup"
+              label="FOP Group"
+              //disabled={formDIsabled}
+            />
+          </CCol>
           <Condition when="SelectDeviceType" is={'User'}>
             <CCol lg={6} xs={12}>
               {deviceContactsAreFetching && <CSpinner />}
