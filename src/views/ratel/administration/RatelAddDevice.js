@@ -43,9 +43,9 @@ const AddRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [formFields, setFormFields] = useState('')
   const [dialplanFormFields, setDialplanFormFields] = useState(<></>)
-  const [deviceType, setDeviceType] = useState('User')
-  const [dialplanType, setDialplanType] = useState('Default')
-  const [callerIdType, setCallerIdType] = useState('Default')
+  // const [deviceType, setDeviceType] = useState('User')
+  // const [dialplanType, setDialplanType] = useState('Default')
+  // const [callerIdType, setCallerIdType] = useState('Default')
   const [callerIdField, setCallerIdField] = useState(<></>)
   const [dialplanField] = useState(
     <>
@@ -356,9 +356,7 @@ const AddRatelDevice = ({ children }) => {
   ]
 
   const formValues = {
-    SelectDeviceType: 'Generic',
-    SelectDialplanType: 'Generic',
-    SelectCallerIDType: 'Generic',
+    TemplateType: 'Admin',
   }
   const WhenFieldChanges = ({ field, set }) => (
     <Field name={set} subscription={{}}>
@@ -423,7 +421,7 @@ const AddRatelDevice = ({ children }) => {
                 label="Select Device Type:"
                 onChange={handleTypeChange}
               /> */}
-              {deviceType && (
+            
                 <RFFCFormSelect
                   name="SelectDeviceType"
                   values={deviceTypeValues.map((type) => ({
@@ -433,7 +431,7 @@ const AddRatelDevice = ({ children }) => {
                   placeholder="Select an option"
                   label="Select Device Type:"
                 />
-              )}
+    
               <WhenFieldChanges field="SelectDeviceType" />
             </CCol>
             <CCol lg={6} xs={12}>
