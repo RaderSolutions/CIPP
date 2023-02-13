@@ -41,19 +41,7 @@ Error.propTypes = {
 
 const AddRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const [formFields, setFormFields] = useState('')
-  const [dialplanFormFields, setDialplanFormFields] = useState(<></>)
-  const [deviceTypeLocal, setDeviceTypeLocal] = useState('')
-  const [dialplanTypeLocal, setDialplanTypeLocal] = useState('Default')
-  const [callerIdTypeLocal, setCallerIdTypeLocal] = useState('Default')
   const [callerIdField, setCallerIdField] = useState(<></>)
-  const [dialplanField] = useState(
-    <>
-      <CRow>
-        <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
-      </CRow>
-    </>,
-  )
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
@@ -80,242 +68,41 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  const genericFields = (
-    <>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput type="text" name="MacAddress" label="MAC Address" />
-        </CCol>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="ExtensionNumber"
-            label="Extension Number"
-            //disabled={formDIsabled}
-          />
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          {deviceLocationsAreFetching && <CSpinner />}
-          {!deviceLocationsAreFetching && (
-            <RFFCFormSelect
-              name="Location"
-              label="Device Location"
-              placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
-              values={deviceLocations?.map((deviceLocation) => ({
-                value: deviceLocation.locationId,
-                label: deviceLocation.Name,
-              }))}
-              //disabled={formDIsabled}
+  useEffect(() => {
+    if (deviceDids) {
+      setCallerIdField(
+        <>
+          <CRow>
+            <CCol lg={6} xs={12}>
+              {deviceDidsAreFetching && <CSpinner />}
+              {!deviceDidsAreFetching && (
+                <RFFCFormSelect
+                  name="Did"
+                  label="Choose Caller ID"
+                  placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+                  values={deviceDids?.map((deviceDid) => ({
+                    value: deviceDid.Number,
+                    label: deviceDid.Number,
+                  }))}
+                  //disabled={formDIsabled}
+                />
+              )}
+              {deviceDidsError && <span>Failed to load list of client DIDs</span>}
+            </CCol>
+
+            <RFFCFormInput
+              type="text"
+              name="Did"
+              label="Need to add a new DID?"
+              placeholder="Enter new DID value"
             />
-          )}
-          {deviceLocationsError && <span>Failed to load list of client locations</span>}
-        </CCol>
-        <CCol lg={6} xs={12}>
-          {deviceModelsAreFetching && <CSpinner />}
-          {!deviceModelsAreFetching && (
-            <RFFCFormSelect
-              name="ModelId"
-              label="Device Model"
-              placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
-              values={deviceModels?.map((deviceModel) => ({
-                value: deviceModel.modelId,
-                label: deviceModel.Name,
-              }))}
-              //disabled={formDIsabled}
-            />
-          )}
-          {deviceModelsError && <span>Failed to load list of device models</span>}
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="FopGroup"
-            label="FOP Group"
-            //disabled={formDIsabled}
-          />
-        </CCol>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="Label"
-            label="Label"
-            //disabled={formDIsabled}
-          />
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          <RFFCFormSelect
-            type="text"
-            name="HideFromPhonebook"
-            label="Hide From Phonebook?"
-            placeholder="Select an option"
-            values={[
-              { value: 1, label: 'true' },
-              { value: 0, label: 'false' },
-            ]}
-            //disabled={formDIsabled}
-          />
-        </CCol>
-      </CRow>
-    </>
-  )
-
-  const userFields = (
-    <>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput type="text" name="MacAddress" label="MAC Address" />
-        </CCol>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="ExtensionNumber"
-            label="Extension Number"
-            //disabled={formDIsabled}
-          />
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          {deviceLocationsAreFetching && <CSpinner />}
-          {!deviceLocationsAreFetching && (
-            <RFFCFormSelect
-              name="Location"
-              label="Device Location"
-              placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
-              values={deviceLocations?.map((deviceLocation) => ({
-                value: deviceLocation.locationId,
-                label: deviceLocation.Name,
-              }))}
-              //disabled={formDIsabled}
-            />
-          )}
-          {deviceLocationsError && <span>Failed to load list of client locations</span>}
-        </CCol>
-        <CCol lg={6} xs={12}>
-          {deviceModelsAreFetching && <CSpinner />}
-          {!deviceModelsAreFetching && (
-            <RFFCFormSelect
-              name="ModelId"
-              label="Device Model"
-              placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
-              values={
-                deviceModels &&
-                deviceModels?.map((deviceModel) => ({
-                  value: deviceModel.modelId,
-                  label: deviceModel.Name,
-                }))
-              }
-              //disabled={formDIsabled}
-            />
-          )}
-          {deviceModelsError && <span>Failed to load list of device models</span>}
-        </CCol>
-      </CRow>
-      <CRow>
-        <CCol lg={6} xs={12}>
-          <RFFCFormInput
-            type="text"
-            name="FopGroup"
-            label="FOP Group"
-            //disabled={formDIsabled}
-          />
-        </CCol>
-        <CCol lg={6} xs={12}>
-          {deviceContactsAreFetching && <CSpinner />}
-          {!deviceContactsAreFetching && (
-            <RFFCFormSelect
-              name="ContactID"
-              label="Device Contact"
-              placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
-              values={
-                deviceContacts &&
-                deviceContacts?.map((deviceContact) => ({
-                  value: deviceContact.ContactID,
-                  label: deviceContact.Name,
-                }))
-              }
-              //disabled={formDIsabled}
-            />
-          )}
-          {deviceContactsError && <span>Failed to load list of client contacts</span>}
-        </CCol>
-      </CRow>
-    </>
-  )
-
-  const customCallerIDcustomDialplan = (
-    <div>
-      <CRow>
-        {callerIdField}
-        {dialplanField}
-      </CRow>
-    </div>
-  )
-
-  const defaultCallerIDcustomDialplan = dialplanField
-
-  const customCallerIDdefaultDialplan = <div>{callerIdField}</div>
-
-  // useEffect(() => {
-  //   if (deviceDids) {
-  //     setCallerIdField(
-  //       <>
-  //         <CRow>
-  //           <CCol lg={6} xs={12}>
-  //             {deviceDidsAreFetching && <CSpinner />}
-  //             {!deviceDidsAreFetching && (
-  //               <RFFCFormSelect
-  //                 name="Did"
-  //                 label="Choose Caller ID"
-  //                 placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-  //                 values={deviceDids?.map((deviceDid) => ({
-  //                   value: deviceDid.Number,
-  //                   label: deviceDid.Number,
-  //                 }))}
-  //                 //disabled={formDIsabled}
-  //               />
-  //             )}
-  //             {deviceDidsError && <span>Failed to load list of client DIDs</span>}
-  //           </CCol>
-
-  //           <RFFCFormInput
-  //             type="text"
-  //             name="Did"
-  //             label="Need to add a new DID?"
-  //             placeholder="Enter new DID value"
-  //           />
-  //         </CRow>
-  //       </>,
-  //     )
-  //   } else {
-  //     setCallerIdField(<text>No available DIDs for this customer.</text>)
-  //   }
-
-  // }, [
-  //   tenantDomain,
-  //   dialplanTypeLocal,
-  //   callerIdTypeLocal,
-  //   deviceLocationsAreFetching,
-  //   deviceLocations,
-  //   deviceLocationsError,
-  //   deviceContactsAreFetching,
-  //   deviceContacts,
-  //   deviceContactsError,
-  //   deviceModelsAreFetching,
-  //   deviceModels,
-  //   deviceModelsError,
-  //   deviceDidsAreFetching,
-  //   deviceDids,
-  //   deviceDidsError,
-  //   callerIdField,
-  //   dialplanField,
-  // ])
+          </CRow>
+        </>,
+      )
+    } else {
+      setCallerIdField(<text>No available DIDs for this customer.</text>)
+    }
+  }, [deviceDids, deviceDidsAreFetching, deviceDidsError])
 
   // useEffect(()=>{
   //   if (callerIdTypeLocal === 'Custom') {
@@ -550,6 +337,14 @@ const AddRatelDevice = ({ children }) => {
                 //disabled={formDIsabled}
               />
             </CCol>
+          </Condition>
+          <Condition when="SelectDialplanType" is={'Custom'}>
+            <CRow>
+              <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
+            </CRow>
+          </Condition>
+          <Condition when="SelectCallerIDType" is={'Custom'}>
+            <CCol>{callerIdField}</CCol>
           </Condition>
         </div>
         <hr className="my-4" />
