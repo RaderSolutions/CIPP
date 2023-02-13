@@ -10,10 +10,10 @@ import {
 } from '@coreui/react'
 import Select from 'react-select'
 import AsyncSelect from 'react-select/async'
-import { Field } from 'react-final-form'
+import { Field, useFormState } from 'react-final-form'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useRef } from 'react'
+import { useEffect } from 'react'
 
 /*
   wrapper classes for React Final Form with CoreUI
@@ -235,10 +235,14 @@ export const RFFCFormSelect = ({
   //   console.log('event', e.target.value)
   //   // return e.target.value
   // }
-  const handleInputChange = (event) => {
-    input.onChange(event)
-    console.log(event.target.value)
-  }
+  // const handleInputChange = (event) => {
+  //   input.onChange(event)
+  //   console.log(event.target.value)
+  // }
+  const { values: currentValues } = useFormState()
+  useEffect(() => {
+    console.log(values)
+  }, [currentValues])
 
   return (
     <Field name={name} validate={selectValidate}>
@@ -250,7 +254,7 @@ export const RFFCFormSelect = ({
             valid={!meta.error && meta.touched}
             invalid={meta.error && meta.touched}
             disabled={disabled}
-            onChange={handleInputChange}
+            // onChange={onChange}
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
