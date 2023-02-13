@@ -220,9 +220,7 @@ export const RFFCFormSelect = ({
   validate,
   disabled = false,
   // onChange,
-  setDeviceTypeLocal,
-  setDialplanTypeLocal,
-  setCallerIdTypeLocal,
+  setTypeState,
 }) => {
   // handler for ignoring the first element ('the placeholder')
   const selectValidate = (value, allValues, meta) => {
