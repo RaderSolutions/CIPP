@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field, FormSpy, useFormState } from 'react-final-form'
+import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -80,10 +80,11 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
 
-  useEffect(()=>{
-    const values = useFormState()
-  console.log(values)
-  },[values])
+  const { values: currentValues } = useFormState()
+
+  useEffect(() => {
+    console.log(currentValues)
+  }, [currentValues])
 
   const genericFields = (
     <>
@@ -426,17 +427,17 @@ const AddRatelDevice = ({ children }) => {
                 label="Select Device Type:"
                 onChange={handleTypeChange}
               /> */}
-            
-                <RFFCFormSelect
-                  name="SelectDeviceType"
-                  values={deviceTypeValues.map((type) => ({
-                    value: type.value,
-                    label: type.label,
-                  }))}
-                  placeholder="Select an option"
-                  label="Select Device Type:"
-                />
-    
+
+              <RFFCFormSelect
+                name="SelectDeviceType"
+                values={deviceTypeValues.map((type) => ({
+                  value: type.value,
+                  label: type.label,
+                }))}
+                placeholder="Select an option"
+                label="Select Device Type:"
+              />
+
               <WhenFieldChanges field="SelectDeviceType" />
             </CCol>
             <CCol lg={6} xs={12}>
