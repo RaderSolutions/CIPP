@@ -319,13 +319,13 @@ const AddRatelDevice = ({ children }) => {
     dialplanField,
   ])
 
-  useEffect(()=>{
-    if (callerIdTypeLocal === 'Custom') {
-      setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
-    } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
-      setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
-    }
-  },[callerIdTypeLocal, dialplanTypeLocal])
+  // useEffect(()=>{
+  //   if (callerIdTypeLocal === 'Custom') {
+  //     setDialplanFormFields(<div>{customCallerIDcustomDialplan}</div>)
+  //   } else if (callerIdTypeLocal === 'Default' && dialplanTypeLocal === 'Custom') {
+  //     setDialplanFormFields(<div>{defaultCallerIDcustomDialplan}</div>)
+  //   }
+  // },[callerIdTypeLocal, dialplanTypeLocal])
 
   const handleSubmit = async (values) => {
     const shippedValues = {
