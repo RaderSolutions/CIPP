@@ -32,10 +32,6 @@ export const CippWizard = ({ wizardTitle, onSubmit, children, initialValues, set
     }
   }
 
-  useEffect(()=>{
-    console.log(input.values)
-    console.log(input.current.value)
-  },[values])
 
   const activePage = React.Children.toArray(children)[page]
   const isLastPage = page === React.Children.count(children) - 1
@@ -60,14 +56,14 @@ export const CippWizard = ({ wizardTitle, onSubmit, children, initialValues, set
               ))}
             </CNav>
           </CCardHeader>
-          <Form initialValues={values} validate={this.validate} onSubmit={this.handleSubmit} setFormFieldState={setFormFieldState}>
+          <Form initialValues={values} validate={validate} onSubmit={handleSubmit} setFormFieldState={setFormFieldState}>
             {({ handleSubmit, submitting, values }) => (
               <>
                 <form onSubmit={handleSubmit}>
                   {activePage}
                   <div className="d-flex justify-content-between">
                     {page > 0 && (
-                      <CButton className="me-auto" type="button" onClick={this.previous}>
+                      <CButton className="me-auto" type="button" onClick={previous}>
                         « Previous
                       </CButton>
                     )}
