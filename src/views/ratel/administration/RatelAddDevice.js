@@ -161,7 +161,6 @@ const AddRatelDevice = ({ children }) => {
             //disabled={formDIsabled}
           />
         </CCol>
-       
       </CRow>
     </>
   )
@@ -452,16 +451,62 @@ const AddRatelDevice = ({ children }) => {
           {/* {dialplanFormFields} */}
           {/* {formFields === 'Generic' ? genericFields : userFields} */}
           {/* {genericFields} */}
+          <Condition when="SelectDeviceType" is={'User'}>
+            <CCol lg={6} xs={12}>
+              {deviceContactsAreFetching && <CSpinner />}
+              {!deviceContactsAreFetching && (
+                <RFFCFormSelect
+                  name="ContactID"
+                  label="Device Contact"
+                  placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
+                  values={
+                    deviceContacts &&
+                    deviceContacts?.map((deviceContact) => ({
+                      value: deviceContact.ContactID,
+                      label: deviceContact.Name,
+                    }))
+                  }
+                  //disabled={formDIsabled}
+                />
+              )}
+              {deviceContactsError && <span>Failed to load list of client contacts</span>}
+            </CCol>
+          </Condition>
           <Condition when="SelectDeviceType" is={'Generic'}>
-          <CCol lg={6} xs={12}>
-            <RFFCFormInput
-              type="text"
-              name="EmailAddress"
-              label="Voicemail Email"
-              //disabled={formDIsabled}
-            />
-          </CCol>
-        </Condition>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="EmailAddress"
+                label="Voicemail Email"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+          </Condition>
+          <Condition when="SelectDeviceType" is={'Generic'}>
+            <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                type="text"
+                name="HideFromPhonebook"
+                label="Hide From Phonebook?"
+                placeholder="Select an option"
+                values={[
+                  { value: 1, label: 'true' },
+                  { value: 0, label: 'false' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol>
+          </Condition>
+          <Condition when="SelectDeviceTyp" is={'Generic'}>
+            <CCol lg={6} xs={12}>
+              <RFFCFormInput
+                type="text"
+                name="Label"
+                label="Label"
+                //disabled={formDIsabled}
+              />
+            </CCol>
+          </Condition>
         </div>
         <hr className="my-4" />
       </CippWizard.Page>
