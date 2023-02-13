@@ -161,16 +161,7 @@ const AddRatelDevice = ({ children }) => {
             //disabled={formDIsabled}
           />
         </CCol>
-        <Condition when="SelectDeviceType" is={'Generic'}>
-          <CCol lg={6} xs={12}>
-            <RFFCFormInput
-              type="text"
-              name="EmailAddress"
-              label="Voicemail Email"
-              //disabled={formDIsabled}
-            />
-          </CCol>
-        </Condition>
+       
       </CRow>
     </>
   )
@@ -458,9 +449,19 @@ const AddRatelDevice = ({ children }) => {
         </center>
         <hr className="my-4" />
         <div className="mb-2">
-          {dialplanFormFields}
+          {/* {dialplanFormFields} */}
           {/* {formFields === 'Generic' ? genericFields : userFields} */}
-          {genericFields}
+          {/* {genericFields} */}
+          <Condition when="SelectDeviceType" is={'Generic'}>
+          <CCol lg={6} xs={12}>
+            <RFFCFormInput
+              type="text"
+              name="EmailAddress"
+              label="Voicemail Email"
+              //disabled={formDIsabled}
+            />
+          </CCol>
+        </Condition>
         </div>
         <hr className="my-4" />
       </CippWizard.Page>
