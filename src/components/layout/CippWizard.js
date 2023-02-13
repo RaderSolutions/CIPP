@@ -41,12 +41,6 @@ export default class CippWizard extends React.Component {
       page: Math.max(state.page - 1, 0),
     }))
 
-    componentDidUpdate(prevState) {
-      if (this.state.values !== prevState) {
-        console.log(this.state.values)
-      }
-    }
-
   /**
    * NOTE: Both validate and handleSubmit switching are implemented
    * here because 🏁 Redux Final Form does not accept changes to those
