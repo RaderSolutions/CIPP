@@ -91,10 +91,6 @@ const AddRatelDevice = ({ children }) => {
       values: shippedValues,
     })
   }
-  const deviceTypeValues = [
-    { value: 'Generic', label: 'Generic' },
-    { value: 'User', label: 'User' },
-  ]
 
   const formValues = {
     TemplateType: 'Admin',
@@ -132,10 +128,10 @@ const AddRatelDevice = ({ children }) => {
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 name="SelectDeviceType"
-                values={deviceTypeValues.map((type) => ({
-                  value: type.value,
-                  label: type.label,
-                }))}
+                values={[
+                  { value: 'Generic', label: 'Generic' },
+                  { value: 'User', label: 'User' },
+                ]}
                 placeholder="Select an option"
                 label="Select Device Type:"
               />
