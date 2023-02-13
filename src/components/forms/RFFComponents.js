@@ -239,10 +239,10 @@ export const RFFCFormSelect = ({
   //   input.onChange(event)
   //   console.log(event.target.value)
   // }
-  // const { values: currentValues } = useFormState()
-  // useEffect(() => {
-  //   console.log(currentValues)
-  // }, [currentValues])
+  const { values: currentValues } = useFormState()
+  useEffect(() => {
+    console.log(currentValues)
+  }, [currentValues])
 
   return (
     <Field name={name} validate={selectValidate}>
