@@ -244,9 +244,9 @@ export const RFFCFormSelect = ({
   const { values: currentValues } = useFormState()
   useEffect(() => {
     console.log(currentValues)
-    setDeviceTypeLocal(currentValues.SelectDeviceType)
-    setDialplanTypeLocal(current.SelectDialplanType)
-    setCallerIdTypeLocal(current.SelectCal)
+    // setDeviceTypeLocal(currentValues.SelectDeviceType)
+    // setDialplanTypeLocal(current.SelectDialplanType)
+    // setCallerIdTypeLocal(current.SelectCal)
   }, [currentValues])
 
   return (
