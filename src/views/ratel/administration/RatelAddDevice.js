@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
 import PropTypes from 'prop-types'
-import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
+import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea, Condition } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import {
@@ -161,6 +161,9 @@ const AddRatelDevice = ({ children }) => {
             //disabled={formDIsabled}
           />
         </CCol>
+        <Condition when="SelectDeviceType" is={'Generic'}>
+
+        </Condition>
         <CCol lg={6} xs={12}>
           <RFFCFormInput
             type="text"
@@ -452,7 +455,8 @@ const AddRatelDevice = ({ children }) => {
         <hr className="my-4" />
         <div className="mb-2">
           {dialplanFormFields}
-          {formFields === 'Generic' ? genericFields : userFields}
+          {/* {formFields === 'Generic' ? genericFields : userFields} */}
+          {genericFields}
         </div>
         <hr className="my-4" />
       </CippWizard.Page>
