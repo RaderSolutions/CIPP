@@ -299,7 +299,7 @@ const AddRatelDevice = ({ children }) => {
                 <CCol>
                   <RFFCFormSwitch name="ToggleNewDidInput" label="Need to add a new DID?" />
                 </CCol>
-                <Condition when="ToggleNewDidInput" is={'false'}>
+                <Condition when="ToggleNewDidInput" is={false}>
                   <CCol lg={6} xs={12}>
                     {deviceDidsAreFetching && <CSpinner />}
                     {deviceDidsSuccess && deviceDids !== {} && (
@@ -318,7 +318,7 @@ const AddRatelDevice = ({ children }) => {
                     {deviceDidsError && <span>Failed to load list of client DIDs</span>}
                   </CCol>
                 </Condition>
-                <Condition when="ToggleNewDidInput" is={'true'}>
+                <Condition when="ToggleNewDidInput" is={true}>
                   <CCol>
                     <RFFCFormInput
                       type="text"
