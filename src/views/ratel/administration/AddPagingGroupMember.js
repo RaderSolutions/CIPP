@@ -38,12 +38,14 @@ const AddPagingGroupMember = () => {
   const handleSubmit = async (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      PageGroupExtension: values.PageGroupExtension,
-      DeviceExtension: values.DeviceExtension,
+      PageGroupExtension: values.PagegroupExt,
+      DeviceExtension: values.DeviceExt,
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=pagegroup_ext|Value=${values.PageGroupExtension},Key=device_ext|Value=${values.DeviceExtension}&RatelScript=true&ScriptId=7411`,
+    })
   }
 
   return (
