@@ -53,6 +53,7 @@ export default class CippWizard extends React.Component {
   }
 
   handleSubmit = (values) => {
+    console.log('wizard submit fired', values)
     const { children, onSubmit } = this.props
     const { page } = this.state
     const isLastPage = page === React.Children.count(children) - 1
