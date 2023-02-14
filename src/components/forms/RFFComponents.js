@@ -76,6 +76,10 @@ RFFCFormCheck.propTypes = {
 }
 
 export const RFFCFormSwitch = ({ name, label, className = 'mb-3', validate, disabled = false }) => {
+  const { values: currentValues } = useFormState()
+  useEffect(() => {
+    console.log(currentValues)
+  }, [currentValues])
   return (
     <Field name={name} type="checkbox" validate={validate}>
       {({ meta, input }) => (
