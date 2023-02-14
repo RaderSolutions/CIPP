@@ -38,36 +38,40 @@ const EditDialplan = () => {
 
   return (
     <>
-      <CippPage title="Edit Dialplan">
-        <CippContentCard title="Edit Dialplan" icon={faEdit}>
-          <Form
-            initialValues={{ ...initialState }}
-            onSubmit={onSubmit}
-            render={({ handleSubmit, submitting, values }) => {
-              return (
-                <CForm onSubmit={handleSubmit}>
-                  <CRow>
-                    <CCol>
-                      <RFFCFormInput type="text" name="Name" label="Name" />
-                    </CCol>
-                    <CCol>
-                      <RFFCFormInput type="text" name="Description" label="Description" />
-                    </CCol>
-                    <CCol>
-                      <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
-                    </CCol>
-                  </CRow>
-                  <CRow className="mb-3">
-                    <CCol md={6}>
-                      <CButton type="submit">Edit Member</CButton>
-                    </CCol>
-                  </CRow>
-                </CForm>
-              )
-            }}
-          />
-        </CippContentCard>
-      </CippPage>
+      {dialplan && name && description && tenantDomain ? (
+        <CippPage title="Edit Dialplan">
+          <CippContentCard title="Edit Dialplan" icon={faEdit}>
+            <Form
+              initialValues={{ ...initialState }}
+              onSubmit={onSubmit}
+              render={({ handleSubmit, submitting, values }) => {
+                return (
+                  <CForm onSubmit={handleSubmit}>
+                    <CRow>
+                      <CCol>
+                        <RFFCFormInput type="text" name="Name" label="Name" />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormInput type="text" name="Description" label="Description" />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
+                      </CCol>
+                    </CRow>
+                    <CRow className="mb-3">
+                      <CCol md={6}>
+                        <CButton type="submit">Edit Member</CButton>
+                      </CCol>
+                    </CRow>
+                  </CForm>
+                )
+              }}
+            />
+          </CippContentCard>
+        </CippPage>
+      ) : (
+        <CippPage title="Edit Dialplan"> </CippPage>
+      )}
     </>
   )
 }
