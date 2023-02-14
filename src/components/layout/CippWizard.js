@@ -107,6 +107,7 @@ export default class CippWizard extends React.Component {
                           onClick={(e) => {
                             e.stopPropagation()
                             e.nativeEvent[STOP_PROP_TAG] = true
+                            handleSubmit(values)
                           }}
                           type="submit"
                         >
