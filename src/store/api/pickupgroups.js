@@ -13,13 +13,6 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
         },
       }),
     }),
-      // editMember: builder.mutation({
-      //   query: (member) => ({
-      //     path: '/api/LtRatelPickupGroups',
-      //     method: 'post',
-      //     data: member,
-      //   }),
-      // }),
   }),
 })
 
