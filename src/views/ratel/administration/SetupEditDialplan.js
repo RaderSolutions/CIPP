@@ -18,7 +18,7 @@ const EditDialplan = () => {
   const dialplan = query.get('dialplan')
   const name = query.get('name')
   const description = query.get('description')
-  // const tenantDomain = query.get('tenantDomain')
+  const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
 
   const initialState = {
@@ -32,51 +32,42 @@ const EditDialplan = () => {
     window.alert(JSON.stringify(shippedValues))
     console.log(values)
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
     })
   }
 
   return (
     <>
-      <CRow>
-        <CCol>
-          <CippContentCard title="Edit Dialplan" icon={faEdit}>
-            <Form
-              initialValues={{ ...initialState }}
-              onSubmit={onSubmit}
-              render={({ handleSubmit, submitting, values }) => {
-                return (
-                  <CForm onSubmit={handleSubmit}>
-                    <CRow>
-                      <CCol>
-                        <RFFCFormInput type="text" name="Name" label="Name" />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormInput type="text" name="Description" label="Description" />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
-                      </CCol>
-                    </CRow>
-                    <CRow className="mb-3">
-                      <CCol md={6}>
-                        <CButton type="submit">Edit Member</CButton>
-                      </CCol>
-                    </CRow>
-                  </CForm>
-                )
-              }}
-            />
-          </CippContentCard>
-        </CCol>
-        {/* <CCol style={{ maxWidth: '50vw' }}>
-          {dialplan && (
-            <CippContentCard>
-              <CippCodeBlock code={dialplan} language="json" />
-            </CippContentCard>
-          )}
-        </CCol> */}
-      </CRow>
+      <CippPage title="Edit Dialplan">
+        <CippContentCard title="Edit Dialplan" icon={faEdit}>
+          <Form
+            initialValues={{ ...initialState }}
+            onSubmit={onSubmit}
+            render={({ handleSubmit, submitting, values }) => {
+              return (
+                <CForm onSubmit={handleSubmit}>
+                  <CRow>
+                    <CCol>
+                      <RFFCFormInput type="text" name="Name" label="Name" />
+                    </CCol>
+                    <CCol>
+                      <RFFCFormInput type="text" name="Description" label="Description" />
+                    </CCol>
+                    <CCol>
+                      <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
+                    </CCol>
+                  </CRow>
+                  <CRow className="mb-3">
+                    <CCol md={6}>
+                      <CButton type="submit">Edit Member</CButton>
+                    </CCol>
+                  </CRow>
+                </CForm>
+              )
+            }}
+          />
+        </CippContentCard>
+      </CippPage>
     </>
   )
 }
