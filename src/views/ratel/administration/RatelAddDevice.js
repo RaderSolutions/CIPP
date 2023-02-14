@@ -100,6 +100,7 @@ const AddRatelDevice = ({ children }) => {
 
   const formValues = {
     TemplateType: 'Admin',
+    ToggleNewDidInput: false,
   }
 
   const FalseCondition = ({ when, is, children }) => (
@@ -309,7 +310,7 @@ const AddRatelDevice = ({ children }) => {
             <>
               <CRow>
                 <CCol>
-                  <RFFCFormSwitch initialValues={false} name="ToggleNewDidInput" label="Need to add a new DID?" />
+                  <RFFCFormSwitch name="ToggleNewDidInput" label="Need to add a new DID?" />
                 </CCol>
                 <Condition when="ToggleNewDidInput" is={false}>
                   {/* <CCol lg={6} xs={12}> */}
