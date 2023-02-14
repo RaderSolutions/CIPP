@@ -65,7 +65,7 @@ export const EditMember = () => {
         {!queryError && (
           <CCol>
             <CippContentCard title="Member Details" icon={faEdit}>
-              {!pickupGroupMemberIsFetching ? (
+              {!pickupGroupMemberIsFetching && (
                 <Form
                   // initialValues={{ ...initialState }}
                   onSubmit={onSubmit}
@@ -110,10 +110,6 @@ export const EditMember = () => {
                     )
                   }}
                 />
-              ) : (
-                <>
-                  <CSpinner />
-                </>
               )}
             </CippContentCard>
           </CCol>
