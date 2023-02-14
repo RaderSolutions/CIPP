@@ -99,15 +99,8 @@ const AddRatelDevice = ({ children }) => {
   }
 
   const formValues = {
-    TemplateType: 'Admin',
     ToggleNewDidInput: false,
   }
-
-  const FalseCondition = ({ when, is, children }) => (
-    <FormSpy subscription={{ values: true }}>
-      {({ values }) => (values[when] !== is ? children : null)}
-    </FormSpy>
-  )
 
   return (
     <CippWizard
