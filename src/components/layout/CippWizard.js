@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 import { CButton, CCardHeader, CNav, CNavItem, CNavLink, CRow, CCol } from '@coreui/react'
 import { CippPage } from 'src/components/layout'
+import { STOP_PROP_TAG } from 'react-data-table-component'
 
 export default class CippWizard extends React.Component {
   static propTypes = {
@@ -100,7 +101,14 @@ export default class CippWizard extends React.Component {
                         </CButton>
                       )}
                       {!isLastPage && (
-                        <CButton className="ms-auto" type="submit">
+                        <CButton
+                          className="ms-auto"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            e.nativeEvent[STOP_PROP_TAG] = true
+                          }}
+                          type="submit"
+                        >
                           Next »
                         </CButton>
                       )}
