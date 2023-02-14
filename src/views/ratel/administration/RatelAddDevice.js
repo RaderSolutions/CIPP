@@ -6,7 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
 import PropTypes from 'prop-types'
-import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea, RFFCFormSwitch, Condition } from 'src/components/forms'
+import {
+  RFFCFormInput,
+  RFFCFormSelect,
+  RFFCFormTextarea,
+  RFFCFormSwitch,
+  Condition,
+} from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import {
@@ -95,6 +101,12 @@ const AddRatelDevice = ({ children }) => {
   const formValues = {
     TemplateType: 'Admin',
   }
+
+  const FalseCondition = ({ when, is, children }) => (
+    <FormSpy subscription={{ values: true }}>
+      {({ values }) => (values[when] !== is ? children : null)}
+    </FormSpy>
+  )
 
   return (
     <CippWizard
@@ -299,25 +311,27 @@ const AddRatelDevice = ({ children }) => {
                 <CCol>
                   <RFFCFormSwitch name="ToggleNewDidInput" label="Need to add a new DID?" />
                 </CCol>
-                <Condition when="ToggleNewDidInput" is={false}>
+                {/* <Condition when="ToggleNewDidInput" is={false}> */}
+                <FalseCondition>
                   {/* <CCol lg={6} xs={12}> */}
-                    {deviceDidsAreFetching && <CSpinner />}
-                    {deviceDidsSuccess && deviceDids !== {} && (
-                      <RFFCFormSelect
-                        name="Did"
-                        label="Choose Caller ID"
-                        placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-                        values={deviceDids?.map((deviceDid) => ({
-                          value: deviceDid.Number,
-                          label: deviceDid.Number,
-                        }))}
-                        //disabled={formDIsabled}
-                      />
-                    )}
-                    {!deviceDids && <text>No available DIDs for this customer.</text>}
-                    {deviceDidsError && <span>Failed to load list of client DIDs</span>}
+                  {deviceDidsAreFetching && <CSpinner />}
+                  {deviceDidsSuccess && deviceDids !== {} && (
+                    <RFFCFormSelect
+                      name="Did"
+                      label="Choose Caller ID"
+                      placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+                      values={deviceDids?.map((deviceDid) => ({
+                        value: deviceDid.Number,
+                        label: deviceDid.Number,
+                      }))}
+                      //disabled={formDIsabled}
+                    />
+                  )}
+                  {!deviceDids && <text>No available DIDs for this customer.</text>}
+                  {deviceDidsError && <span>Failed to load list of client DIDs</span>}
                   {/* </CCol> */}
-                </Condition>
+                </FalseCondition>
+                {/* </Condition> */}
                 <Condition when="ToggleNewDidInput" is={true}>
                   <CCol>
                     <RFFCFormInput
