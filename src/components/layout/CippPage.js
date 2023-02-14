@@ -59,9 +59,8 @@ export function CippPageList({
           <CCard className="content-card">
             <CCardHeader className="d-flex justify-content-between align-items-center">
               <CCardTitle>{title}</CCardTitle>
-              {titleButton}
+              {titleButton ? titleButton : null}
             </CCardHeader>
-
             <CCardBody>
               <CippDatatable
                 reportName={reportName}

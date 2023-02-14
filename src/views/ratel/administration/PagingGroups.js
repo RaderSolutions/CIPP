@@ -127,7 +127,7 @@ const PagingGroupsList = () => {
   return (
     <CippPageList
       title="Paging Groups"
-      TitleButton={addPagingGroupMemberButton}
+      titleButton={addPagingGroupMemberButton}
       secondTitleButton={addPagingGroupButton}
       datatable={{
         keyField: 'Extension',
