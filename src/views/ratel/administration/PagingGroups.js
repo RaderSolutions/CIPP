@@ -125,14 +125,16 @@ const PagingGroupsList = () => {
   )
   const addPagingGroupTitleButtons = (
     <>
-      <TitleButton
-        href="/ratel/administration/paginggroups/addMember"
-        title="Add Paging Group Member"
-      />
-      <TitleButton
-        href="/ratel/administration/paginggroups/addPagingGroup"
-        title="Add Paging Group"
-      />
+      <div>
+        <TitleButton
+          href="/ratel/administration/paginggroups/addMember"
+          title="Add Paging Group Member"
+        />
+        <TitleButton
+          href="/ratel/administration/paginggroups/addPagingGroup"
+          title="Add Paging Group"
+        />
+      </div>
     </>
   )
   const addPagingGroupButton = (
