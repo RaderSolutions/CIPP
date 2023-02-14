@@ -12,7 +12,7 @@ import { TitleButton } from 'src/components/buttons'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/pickupgroups/editMember?tenantDomain=${tenant.customerId}&extension=${row.Extension}&groups=${row.Groups}&type=${row.membership_type}`
+  const editLink = `/ratel/administration/pickupgroups/editMember?tenantDomain=${tenant.customerId}&extension=${row.Extension}&groups=${row.Groups}&type=${row.Type}`
 
   return (
     <>
