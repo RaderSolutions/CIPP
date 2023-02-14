@@ -127,10 +127,12 @@ const PagingGroupsList = () => {
     <>
       <div>
         <TitleButton
+          style={{ marginRight: '.5em' }}
           href="/ratel/administration/paginggroups/addMember"
           title="Add Paging Group Member"
         />
         <TitleButton
+          style={{ marginLeft: '.5em' }}
           href="/ratel/administration/paginggroups/addPagingGroup"
           title="Add Paging Group"
         />
