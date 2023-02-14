@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
 import useQuery from 'src/hooks/useQuery'
 import { useDispatch } from 'react-redux'
@@ -57,64 +57,66 @@ export const EditMember = () => {
   const formDisabled = queryError === true || !members || Object.keys(members).length === 0
   return (
     <>
-      <CippPage
-        title={`Edit Member: ${pickupGroupMemberIsFetching ? 'Loading...' : 'Member'}
+      <Suspense fallback={'loading'}>
+        <CippPage
+          title={`Edit Member: ${pickupGroupMemberIsFetching ? 'Loading...' : 'Member'}
         
         `}
-      >
-        {!queryError && (
-          <CCol>
-            <CippContentCard title="Member Details" icon={faEdit}>
-              {!pickupGroupMemberIsFetching && (
-                <Form
-                  // initialValues={{ ...initialState }}
-                  onSubmit={onSubmit}
-                  render={({ handleSubmit, submitting, values }) => {
-                    return (
-                      <CForm onSubmit={handleSubmit}>
-                        <CRow>
-                          <CCol>
-                            <RFFCFormInput type="text" name="Extension" label="Extension" />
-                          </CCol>
-                          <CCol>
-                            <RFFCFormInput type="text" name="Groups" label="Groups" />
-                          </CCol>
-                          <CCol>
-                            <RFFCFormInput type="text" name="Type" label="Type" />
-                          </CCol>
-                        </CRow>
+        >
+          {!queryError && (
+            <CCol>
+              <CippContentCard title="Member Details" icon={faEdit}>
+                {!pickupGroupMemberIsFetching && (
+                  <Form
+                    // initialValues={{ ...initialState }}
+                    onSubmit={onSubmit}
+                    render={({ handleSubmit, submitting, values }) => {
+                      return (
+                        <CForm onSubmit={handleSubmit}>
+                          <CRow>
+                            <CCol>
+                              <RFFCFormInput type="text" name="Extension" label="Extension" />
+                            </CCol>
+                            <CCol>
+                              <RFFCFormInput type="text" name="Groups" label="Groups" />
+                            </CCol>
+                            <CCol>
+                              <RFFCFormInput type="text" name="Type" label="Type" />
+                            </CCol>
+                          </CRow>
 
-                        <CRow className="mb-3">
-                          <CCol md={6}>
-                            <CButton type="submit" disabled={submitting || formDisabled}>
-                              Edit Member
-                              {postResults.isFetching && (
-                                <FontAwesomeIcon
-                                  icon={faCircleNotch}
-                                  spin
-                                  className="ms-2"
-                                  size="1x"
-                                />
-                              )}
-                            </CButton>
-                          </CCol>
-                        </CRow>
-                        {postResults.isSuccess && (
-                          <CCallout color="success">
-                            {postResults.data.Results.map((message, idx) => {
-                              return <li key={idx}>{message}</li>
-                            })}
-                          </CCallout>
-                        )}
-                      </CForm>
-                    )
-                  }}
-                />
-              )}
-            </CippContentCard>
-          </CCol>
-        )}
-      </CippPage>
+                          <CRow className="mb-3">
+                            <CCol md={6}>
+                              <CButton type="submit" disabled={submitting || formDisabled}>
+                                Edit Member
+                                {postResults.isFetching && (
+                                  <FontAwesomeIcon
+                                    icon={faCircleNotch}
+                                    spin
+                                    className="ms-2"
+                                    size="1x"
+                                  />
+                                )}
+                              </CButton>
+                            </CCol>
+                          </CRow>
+                          {postResults.isSuccess && (
+                            <CCallout color="success">
+                              {postResults.data.Results.map((message, idx) => {
+                                return <li key={idx}>{message}</li>
+                              })}
+                            </CCallout>
+                          )}
+                        </CForm>
+                      )
+                    }}
+                  />
+                )}
+              </CippContentCard>
+            </CCol>
+          )}
+        </CippPage>
+      </Suspense>
     </>
   )
 }
