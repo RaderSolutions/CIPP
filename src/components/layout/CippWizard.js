@@ -102,14 +102,7 @@ export default class CippWizard extends React.Component {
                         </CButton>
                       )}
                       {!isLastPage && (
-                        <CButton
-                          className="ms-auto"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            e.nativeEvent[STOP_PROP_TAG] = true
-                          }}
-                          type="submit"
-                        >
+                        <CButton className="ms-auto" type="submit">
                           Next »
                         </CButton>
                       )}
