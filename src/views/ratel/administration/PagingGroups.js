@@ -125,7 +125,7 @@ const PagingGroupsList = () => {
   )
   const addPagingGroupTitleButtons = (
     <>
-      <div>
+      <div style={{display: "flex", justifyContent:"space-between"}}>
         <TitleButton
           style={{ marginRight: '.5em' }}
           href="/ratel/administration/paginggroups/addMember"
