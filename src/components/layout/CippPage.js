@@ -58,10 +58,8 @@ export function CippPageList({
           {children}
           <CCard className="content-card">
             <CCardHeader className="d-flex justify-content-between align-items-center">
-              <CCardTitle>
-                {title}
-                {titleButton}
-              </CCardTitle>
+              <CCardTitle>{title}</CCardTitle>
+              {titleButton}
             </CCardHeader>
 
             <CCardBody>
