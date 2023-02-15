@@ -286,6 +286,8 @@ export function Condition({ when, is, children, like, regex }) {
   const { value } = useFormState()
   useEffect(() => {
     console.log('value from condition', value)
+    console.log('is', is)
+    console.log('when', when)
   }, [value])
   return (
     <>
