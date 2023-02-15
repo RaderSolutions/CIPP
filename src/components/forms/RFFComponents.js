@@ -282,14 +282,13 @@ RFFCFormSelect.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
 }
 
-export function Condition({ when, is, children, like, regex, bool }) {
+export function Condition({ when, is, children, like, regex }) {
+  const { value } = useFormState()
+  useEffect(() => {
+    console.log('value from condition', value)
+  }, [value])
   return (
     <>
-      {bool && (
-        <Field name={when} subscription={{ value: true }}>
-          {({ input: { value } }) => (bool === true ? children : null)}
-        </Field>
-      )}
       {is && (
         <Field name={when} subscription={{ value: true }}>
           {({ input: { value } }) => (value === is ? children : null)}
