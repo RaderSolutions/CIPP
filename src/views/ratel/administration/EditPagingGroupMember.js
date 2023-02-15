@@ -17,12 +17,12 @@ export const EditPageMember = () => {
 
   const [queryError, setQueryError] = useState(false)
 
-//   let query = useQuery()
-//   const tenantDomain = query.get('tenantDomain')
-//   const extension = query.get('extension')
-//   const type = query.get('type')
+  //   let query = useQuery()
+  //   const tenantDomain = query.get('tenantDomain')
+  //   const extension = query.get('extension')
+  //   const type = query.get('type')
 
-//   console.log('type', type, 'ext', extension)
+  //   console.log('type', type, 'ext', extension)
 
   // tenantDomain=fd715e1a-29b4-4bdb-bf15-14dcb99f2bf7&extension=1001&groups=Reception&type=undefined
 
@@ -58,7 +58,7 @@ export const EditPageMember = () => {
     genericPostRequest({ path: '/api/LtRatelPagingGroups', values: shippedValues })
   }
 
-//   const formDisabled = queryError === true || !members || Object.keys(members).length === 0
+  //   const formDisabled = queryError === true || !members || Object.keys(members).length === 0
   return (
     <>
       <CippPage

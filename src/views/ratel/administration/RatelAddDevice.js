@@ -305,7 +305,7 @@ const AddRatelDevice = ({ children }) => {
                 <CCol>
                   <RFFCFormSwitch name="ToggleNewDidInput" label="Need to add a new DID?" />
                 </CCol>
-                <Condition when="ToggleNewDidInput" is={false}>
+                <Condition when="ToggleNewDidInput" bool={false}>
                   <CCol>
                     <div>test</div>
                     {deviceDidsAreFetching && <CSpinner />}
