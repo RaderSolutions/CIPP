@@ -307,7 +307,6 @@ const AddRatelDevice = ({ children }) => {
                 </CCol>
 
                 <CCol>
-                  <div>test</div>
                   {deviceDidsAreFetching && <CSpinner />}
                   {deviceDidsSuccess && deviceDids !== {} && (
                     <RFFCFormSelect
