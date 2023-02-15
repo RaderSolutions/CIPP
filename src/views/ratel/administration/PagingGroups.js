@@ -12,7 +12,8 @@ import { TitleButton } from 'src/components/buttons'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/PagingGroups/addMember?tenantDomain=${tenant.customerId}`
+  const addMemberLink = `/ratel/administration/PagingGroups/addMember?tenantDomain=${tenant.customerId}`
+  const editLink = `/ratel/administration/PagingGroups/edit?tenantDomain=${tenant.customerId}&extension=${row.Extension}&groups=${row.PageGroupName}&type=${row.Type}`
   //console.log(row)
   return (
     <>
@@ -38,8 +39,14 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         actions={[
           {
             icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
-            label: 'Add Member to Page group',
+            label: 'Edit Page Group',
             link: editLink,
+            color: 'info',
+          },
+          {
+            icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
+            label: 'Add Member to Page group',
+            link: addMemberLink,
             color: 'info',
           },
           {
