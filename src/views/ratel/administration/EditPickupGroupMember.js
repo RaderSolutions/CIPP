@@ -30,7 +30,9 @@ export const EditMember = () => {
 
   useEffect(() => {
     console.log(members)
-  }, [members])
+    console.log('error', pickupGroupError)
+    console.log('pickupGroupMemberIsFetching', pickupGroupMemberIsFetching)
+  }, [members, pickupGroupError, pickupGroupMemberIsFetching])
 
   useEffect(() => {
     if (!extension || !tenantDomain || !type) {
