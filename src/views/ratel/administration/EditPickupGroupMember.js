@@ -10,7 +10,7 @@ import { useLazyGenericGetRequestQuery, useLazyGenericPostRequestQuery } from 's
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
-import { useListMemberQuery } from 'src/store/api/pickupgroups'
+import { useListPickupMemberQuery } from 'src/store/api/pickupgroups'
 
 export const EditMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
@@ -26,7 +26,7 @@ export const EditMember = () => {
     data: members = {},
     isFetching: pickupGroupMemberIsFetching,
     error: pickupGroupError,
-  } = useListMemberQuery({ tenantDomain, extension, type })
+  } = usePickupListMemberQuery({ tenantDomain, extension, type })
 
   useEffect(() => {
     if (!extension || !tenantDomain || !type) {

@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const pickupGroupsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    listMember: builder.query({
+    listPickupMember: builder.query({
       query: ({ tenantDomain, extension, type }) => ({
         path: '/api/LtListRatelPickupGroups',
         params: {
@@ -17,4 +17,4 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useListMemberQuery } = pickupGroupsApi
+export const { useListPickupMemberQuery } = pickupGroupsApi
