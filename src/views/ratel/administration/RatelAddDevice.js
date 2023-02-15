@@ -305,26 +305,26 @@ const AddRatelDevice = ({ children }) => {
                 <CCol>
                   <RFFCFormSwitch name="ToggleNewDidInput" label="Need to add a new DID?" />
                 </CCol>
-                <Condition when="ToggleNewDidInput" is={false}>
-                  <CCol>
-                    <div>test</div>
-                    {deviceDidsAreFetching && <CSpinner />}
-                    {deviceDidsSuccess && deviceDids !== {} && (
-                      <RFFCFormSelect
-                        name="Did"
-                        label="Choose Caller ID"
-                        placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-                        values={deviceDids?.map((deviceDid) => ({
-                          value: deviceDid.Number,
-                          label: deviceDid.Number,
-                        }))}
-                        //disabled={formDIsabled}
-                      />
-                    )}
-                    {!deviceDids && <text>No available DIDs for this customer.</text>}
-                    {deviceDidsError && <span>Failed to load list of client DIDs</span>}
-                  </CCol>
-                </Condition>
+
+                <CCol>
+                  <div>test</div>
+                  {deviceDidsAreFetching && <CSpinner />}
+                  {deviceDidsSuccess && deviceDids !== {} && (
+                    <RFFCFormSelect
+                      name="Did"
+                      label="Choose Caller ID"
+                      placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+                      values={deviceDids?.map((deviceDid) => ({
+                        value: deviceDid.Number,
+                        label: deviceDid.Number,
+                      }))}
+                      //disabled={formDIsabled}
+                    />
+                  )}
+                  {!deviceDids && <text>No available DIDs for this customer.</text>}
+                  {deviceDidsError && <span>Failed to load list of client DIDs</span>}
+                </CCol>
+
                 <Condition when="ToggleNewDidInput" is={true}>
                   <CCol>
                     <RFFCFormInput
