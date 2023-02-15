@@ -29,12 +29,6 @@ export const EditMember = () => {
   } = useListMemberQuery({ tenantDomain, extension, type })
 
   useEffect(() => {
-    console.log(members)
-    console.log('error', pickupGroupError)
-    console.log('pickupGroupMemberIsFetching', pickupGroupMemberIsFetching)
-  }, [members, pickupGroupError, pickupGroupMemberIsFetching])
-
-  useEffect(() => {
     if (!extension || !tenantDomain || !type) {
       ModalService.open({
         body: 'Error invalid request, could not load requested pickup group member.',
