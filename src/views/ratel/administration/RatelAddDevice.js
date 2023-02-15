@@ -347,6 +347,9 @@ const AddRatelDevice = ({ children }) => {
           <h3 className="text-primary">Step 4</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
+          {
+          console.log(useFormState().values)
+          }
 
           {postResults.isFetching && (
             <CCallout color="info">
