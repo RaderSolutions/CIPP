@@ -307,7 +307,7 @@ const AddRatelDevice = ({ children }) => {
                 </CCol>
               </CRow>
               <CRow>
-                <CCol>
+                <CCol lg={6} xs={12}>
                   {deviceDidsAreFetching && <CSpinner />}
                   {deviceDidsSuccess && deviceDids !== {} && (
                     <RFFCFormSelect
@@ -326,7 +326,7 @@ const AddRatelDevice = ({ children }) => {
                 </CCol>
 
                 <Condition when="ToggleNewDidInput" is={true}>
-                  <CCol>
+                  <CCol lg={6} xs={12}>
                     <RFFCFormInput
                       type="text"
                       name="Did"
