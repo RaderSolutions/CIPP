@@ -18,4 +18,3 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
 })
 
 export const { useListMemberQuery } = pickupGroupsApi
-export default pickupGroupsApi
