@@ -38,7 +38,7 @@ export const EditMember = () => {
     } else {
       setQueryError(false)
     }
-  }, [members, isFetching, error])
+  }, [members, pickupGroupMemberIsFetching, pickupGroupError])
 
   const onSubmit = (values) => {
     const shippedValues = {
