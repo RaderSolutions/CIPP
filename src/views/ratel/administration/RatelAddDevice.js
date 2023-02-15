@@ -348,7 +348,7 @@ const AddRatelDevice = ({ children }) => {
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
           {
-          console.log(useFormState().values)
+          console.log(values)
           }
 
           {postResults.isFetching && (
