@@ -40,6 +40,10 @@ export const EditMember = () => {
     }
   }, [members, pickupGroupMemberIsFetching, pickupGroupError])
 
+  useEffect(() => {
+    console.log('members', members, 'errors', pickupGroupError)
+  }, [members, pickupGroupError])
+
   const onSubmit = (values) => {
     const shippedValues = {
       Extension: values.Extension,
