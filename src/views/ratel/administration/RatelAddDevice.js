@@ -347,9 +347,9 @@ const AddRatelDevice = ({ children }) => {
           <h3 className="text-primary">Step 4</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
-          {
-          console.log(values)
-          }
+        {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
+        so that the user can review the information and make necessary changes before submitting */}  
+          
 
           {postResults.isFetching && (
             <CCallout color="info">
