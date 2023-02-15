@@ -26,7 +26,7 @@ export const EditMember = () => {
     data: members = {},
     isFetching: pickupGroupMemberIsFetching,
     error: pickupGroupError,
-  } = usePickupListMemberQuery({ tenantDomain, extension, type })
+  } = useListPickupMemberQuery({ tenantDomain, extension, type })
 
   useEffect(() => {
     if (!extension || !tenantDomain || !type) {
