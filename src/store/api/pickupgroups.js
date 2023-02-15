@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { baseApi } from 'src/store/api/baseApi'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const pickupGroupsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,5 +17,5 @@ export const pickupGroupsApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useListPickupMemberQuery } = pickupGroupsApi
+export const { useListMemberQuery } = pickupGroupsApi
 export default pickupGroupsApi
