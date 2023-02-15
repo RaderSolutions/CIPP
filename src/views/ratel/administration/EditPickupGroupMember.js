@@ -42,6 +42,7 @@ export const EditMember = () => {
 
   useEffect(() => {
     console.log('members', members, 'errors', pickupGroupError)
+    console.log(tenantDomain, extension, type)
   }, [members, pickupGroupError])
 
   const onSubmit = (values) => {
