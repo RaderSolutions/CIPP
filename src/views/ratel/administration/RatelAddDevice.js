@@ -22,7 +22,6 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
-import { values } from 'core-js/core/array'
 
 const Error = ({ name }) => (
   <Field
