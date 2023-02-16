@@ -362,7 +362,7 @@ const AddRatelDevice = ({ children }) => {
                   if (value !== 'ToggleNewDidInput') {
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
-                      if (idx !== 0 && char === char.toUpperCase()) {
+                      if (idx !== 0 && char.toUpperCase()) {
                         console.log('found upper case')
                         value = value.replace(char, '$& ')
                         console.log('new return value', value)
