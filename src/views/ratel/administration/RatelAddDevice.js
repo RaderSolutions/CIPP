@@ -368,8 +368,8 @@ const AddRatelDevice = ({ children }) => {
                         console.log('new return value', value)
                       }
                     })
-                    return <div>{value + ': ' + values[value]}</div>
                   }
+                  return <div>{value + ': ' + values[value]}</div>
                 }
                 return <div>test</div>
               }}
