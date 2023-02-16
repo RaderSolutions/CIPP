@@ -103,7 +103,7 @@ const AddRatelDevice = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log(formValues)
+    console.log('formValues in AddDevice', formValues)
   }, [formValues])
 
   return (
