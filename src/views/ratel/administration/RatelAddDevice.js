@@ -98,9 +98,11 @@ const AddRatelDevice = ({ children }) => {
     })
   }
 
-  const formValues = {
-    ToggleNewDidInput: false,
-  }
+  const formValues = [
+    {
+      ToggleNewDidInput: false,
+    },
+  ]
 
   useEffect(() => {
     console.log('formValues in AddDevice', formValues)
@@ -352,6 +354,16 @@ const AddRatelDevice = ({ children }) => {
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
+          {!postResults.isSuccess && (
+            <FormSpy>
+              {({ props }) => {
+                console.log(props)
+                return props.map((prop) => {
+                  console.log('spy prop', prop)
+                })
+              }}
+            </FormSpy>
+          )}
 
           {postResults.isFetching && (
             <CCallout color="info">
