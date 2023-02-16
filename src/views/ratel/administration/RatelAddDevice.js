@@ -139,7 +139,7 @@ const AddRatelDevice = ({ children }) => {
           <CRow>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="SelectDeviceType"
+                name="DeviceType"
                 values={[
                   { value: 'Generic', label: 'Generic' },
                   { value: 'User', label: 'User' },
@@ -150,7 +150,7 @@ const AddRatelDevice = ({ children }) => {
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="SelectDialplanType"
+                name="DialplanType"
                 label="Select Dialplan Type:"
                 placeholder="Select an option"
                 values={[
@@ -162,7 +162,7 @@ const AddRatelDevice = ({ children }) => {
             </CCol>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
-                name="SelectCallerIDType"
+                name="CallerIDType"
                 label="Select CallerID Type:"
                 placeholder="Select an option"
                 values={[
@@ -361,6 +361,7 @@ const AddRatelDevice = ({ children }) => {
                 for (let value in values) {
                   if (value !== '0') {
                     console.log(value + ': ' + values[value])
+                    return <div>{value + ': ' + values[value]}</div>
                   }
                 }
                 return <div>test</div>
