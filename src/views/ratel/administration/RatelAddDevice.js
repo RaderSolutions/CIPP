@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
 import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -102,6 +102,10 @@ const AddRatelDevice = ({ children }) => {
   const formValues = {
     ToggleNewDidInput: false,
   }
+
+  useEffect(() => {
+    console.log(formValues)
+  }, [formValues])
 
   return (
     <CippWizard
@@ -349,7 +353,6 @@ const AddRatelDevice = ({ children }) => {
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
-          {values}
 
           {postResults.isFetching && (
             <CCallout color="info">
