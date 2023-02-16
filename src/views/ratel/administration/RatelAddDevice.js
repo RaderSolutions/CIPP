@@ -5,7 +5,7 @@ import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
-import PropTypes from 'prop-types'
+import PropTypes, { array } from 'prop-types'
 import {
   RFFCFormInput,
   RFFCFormSelect,
@@ -359,8 +359,9 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 const { values } = props
                 const renderedValues = []
+              
                 for (let value in values) {
-                  if (value !== 'ToggleNewDidInput') {
+                  if (value !== array) {
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
                       if (idx !== 0 && char.toUpperCase() === true) {
