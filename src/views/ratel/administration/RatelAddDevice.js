@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
+import { CCallout, CCol, CListGroup, CRow, CSpinner, CListGroupItem } from '@coreui/react'
 import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
@@ -13,6 +13,7 @@ import {
   RFFCFormSwitch,
   Condition,
 } from 'src/components/forms'
+
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import {
@@ -106,8 +107,8 @@ const AddRatelDevice = ({ children }) => {
   ]
 
   useEffect(() => {
-    console.log('formValues in AddDevice', formValues);
-    setConfirmFormState(prevState => [...prevState, formValues])
+    console.log('formValues in AddDevice', formValues)
+    setConfirmFormState((prevState) => [...prevState, formValues])
   }, [formValues])
 
   return (
@@ -361,7 +362,7 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 const { values } = props
                 const renderedValues = []
-              
+
                 for (let value in values) {
                   if (values[value] !== 0) {
                     console.log(deviceDids[value])
@@ -374,10 +375,17 @@ const AddRatelDevice = ({ children }) => {
                       }
                     })
                   }
-                  renderedValues.push(<div key={value}>{value + ': ' + values[value]}</div>)
+                  renderedValues.push(
+                    <CListGroupItem
+                      format={(value) => options.find((option) => option.value === value).label}
+                      key={value}
+                    >
+                      {value + ': ' + values[value]}
+                    </CListGroupItem>,
+                  )
                 }
 
-                return <div>{renderedValues}</div>
+                return <CListGroup>{renderedValues}</CListGroup>
               }}
             </FormSpy>
           )}
