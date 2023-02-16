@@ -91,7 +91,7 @@ const AddRatelDevice = ({ children }) => {
       callerIdType: values.callerIdType,
     }
 
-    alert(JSON.stringify(values, null, 2))
+    // alert(JSON.stringify(values, null, 2))
     genericPostRequest({
       path: '/api/LtAddRatelDevice',
       values: shippedValues,
@@ -244,7 +244,7 @@ const AddRatelDevice = ({ children }) => {
               //disabled={formDIsabled}
             />
           </CCol>
-          <Condition when="SelectDeviceType" is={'User'}>
+          <Condition when="DeviceType" is={'User'}>
             <CCol lg={6} xs={12}>
               {deviceContactsAreFetching && <CSpinner />}
               {!deviceContactsAreFetching && (
@@ -265,7 +265,7 @@ const AddRatelDevice = ({ children }) => {
               {deviceContactsError && <span>Failed to load list of client contacts</span>}
             </CCol>
           </Condition>
-          <Condition when="SelectDeviceType" is={'Generic'}>
+          <Condition when="DeviceType" is={'Generic'}>
             <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
@@ -275,7 +275,7 @@ const AddRatelDevice = ({ children }) => {
               />
             </CCol>
           </Condition>
-          <Condition when="SelectDeviceType" is={'Generic'}>
+          <Condition when="DeviceType" is={'Generic'}>
             <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 type="text"
@@ -290,7 +290,7 @@ const AddRatelDevice = ({ children }) => {
               />
             </CCol>
           </Condition>
-          <Condition when="SelectDeviceType" is={'Generic'}>
+          <Condition when="DeviceType" is={'Generic'}>
             <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
@@ -300,12 +300,12 @@ const AddRatelDevice = ({ children }) => {
               />
             </CCol>
           </Condition>
-          <Condition when="SelectDialplanType" is={'Custom'}>
+          <Condition when="DialplanType" is={'Custom'}>
             <CRow>
               <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
             </CRow>
           </Condition>
-          <Condition when="SelectCallerIDType" is={'Custom'}>
+          <Condition when="CallerIDType" is={'Custom'}>
             <>
               <CRow>
                 <CCol>
