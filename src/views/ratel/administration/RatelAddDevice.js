@@ -361,6 +361,7 @@ const AddRatelDevice = ({ children }) => {
                 for (let value in values) {
                   console.log(value)
                 }
+                return <div>test</div>
 
                 // return props.map((prop) => {
                 //   console.log('spy prop', prop)
