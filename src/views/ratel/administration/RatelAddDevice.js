@@ -46,7 +46,7 @@ Error.propTypes = {
 const AddRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [callerIdField, setCallerIdField] = useState(<></>)
-  const [confirmFormState, setConfirmFormState] = useState([])
+  // const [confirmFormState, setConfirmFormState] = useState([])
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
@@ -108,7 +108,7 @@ const AddRatelDevice = ({ children }) => {
 
   useEffect(() => {
     console.log('formValues in AddDevice', formValues)
-    setConfirmFormState((prevState) => [...prevState, formValues])
+    // setConfirmFormState((prevState) => [...prevState, formValues])
   }, [formValues])
 
   return (
