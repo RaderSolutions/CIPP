@@ -359,7 +359,7 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 const { values } = props
                 for (let value in values) {
-                  if (value !== '0') {
+                  if (value[index] !== '0') {
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
                       if (idx !== 0 && char === char.toUpperCase()) {
