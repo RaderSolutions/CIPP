@@ -359,7 +359,9 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 const { values } = props
                 for (let value in values) {
-                  console.log(value)
+                  if (typeof value !== 'number') {
+                    console.log(value + ': ' + values[value])
+                  }
                 }
                 return <div>test</div>
 
