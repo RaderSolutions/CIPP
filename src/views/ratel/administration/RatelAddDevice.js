@@ -380,7 +380,7 @@ const AddRatelDevice = ({ children }) => {
                       format={(value) => options.find((option) => option.value === value).label}
                       key={value}
                     >
-                      {value + ': ' + values[value]}
+                      {value.label + ': ' + values[value]}
                     </CListGroupItem>,
                   )
                 }
