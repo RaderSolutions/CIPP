@@ -358,9 +358,9 @@ const AddRatelDevice = ({ children }) => {
             <FormSpy>
               {({ props }) => {
                 console.log(props)
-                return props.map((prop) => {
-                  console.log('spy prop', prop)
-                })
+                // return props.map((prop) => {
+                //   console.log('spy prop', prop)
+                // })
               }}
             </FormSpy>
           )}
