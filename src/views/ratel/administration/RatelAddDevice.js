@@ -356,8 +356,9 @@ const AddRatelDevice = ({ children }) => {
         so that the user can review the information and make necessary changes before submitting */}
           {!postResults.isSuccess && (
             <FormSpy>
-              {({ props }) => {
+              {(props) => {
                 console.log(props)
+
                 return <div>test</div>
                 // return props.map((prop) => {
                 //   console.log('spy prop', prop)
