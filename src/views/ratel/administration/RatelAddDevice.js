@@ -358,6 +358,7 @@ const AddRatelDevice = ({ children }) => {
             <FormSpy>
               {(props) => {
                 const { values } = props
+                const renderedValues = []
                 for (let value in values) {
                   if (value !== 'ToggleNewDidInput') {
                     console.log(value + ': ' + values[value])
@@ -369,9 +370,10 @@ const AddRatelDevice = ({ children }) => {
                       }
                     })
                   }
-                  return <div>{value + ': ' + values[value]}</div>
+                  renderedValues.push(<div key={value}>{value + ': ' + values[value]}</div>)
                 }
-                return <div>test</div>
+
+                return <div>{renderedValues}</div>
               }}
             </FormSpy>
           )}
