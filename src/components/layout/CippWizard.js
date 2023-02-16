@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 import { CButton, CCardHeader, CNav, CNavItem, CNavLink, CRow, CCol } from '@coreui/react'
 import { CippPage } from 'src/components/layout'
-import { STOP_PROP_TAG } from 'react-data-table-component'
 
 export default class CippWizard extends React.Component {
   static propTypes = {

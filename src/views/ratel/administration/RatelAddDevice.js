@@ -22,6 +22,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
+import { values } from 'core-js/core/array'
 
 const Error = ({ name }) => (
   <Field
@@ -324,7 +325,6 @@ const AddRatelDevice = ({ children }) => {
                   {!deviceDids && <text>No available DIDs for this customer.</text>}
                   {deviceDidsError && <span>Failed to load list of client DIDs</span>}
                 </CCol>
-
                 <Condition when="ToggleNewDidInput" is={true}>
                   <CCol lg={6} xs={12}>
                     <RFFCFormInput
@@ -347,9 +347,9 @@ const AddRatelDevice = ({ children }) => {
           <h3 className="text-primary">Step 4</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
-        {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
-        so that the user can review the information and make necessary changes before submitting */}  
-          
+          {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
+        so that the user can review the information and make necessary changes before submitting */}
+          {values}
 
           {postResults.isFetching && (
             <CCallout color="info">
