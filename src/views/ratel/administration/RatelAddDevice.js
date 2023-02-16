@@ -361,21 +361,17 @@ const AddRatelDevice = ({ children }) => {
                 for (let value in values) {
                   if (value !== '0') {
                     console.log(value + ': ' + values[value])
-                    value.split('').forEach(char, idx) {
+                    value.split('').forEach((char, idx) => {
                       if (idx !== 0 && char === char.toUpperCase()) {
                         console.log('found upper case')
-                        value.replace(char, '$& ')
+                        value = value.replace(char, '$& ')
                         console.log('new return value', value)
                       }
-                    }
+                    })
                     return <div>{value + ': ' + values[value]}</div>
                   }
                 }
                 return <div>test</div>
-
-                // return props.map((prop) => {
-                //   console.log('spy prop', prop)
-                // })
               }}
             </FormSpy>
           )}
