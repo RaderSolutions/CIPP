@@ -361,7 +361,7 @@ const AddRatelDevice = ({ children }) => {
                 const renderedValues = []
               
                 for (let value in values) {
-                  if (value !== array) {
+                  if (values[value] !== '0') {
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
                       if (idx !== 0 && char.toUpperCase() === true) {
