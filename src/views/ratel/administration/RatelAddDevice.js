@@ -376,12 +376,23 @@ const AddRatelDevice = ({ children }) => {
                     })
                   }
                   renderedValues.push(
-                    <CListGroupItem
-                      format={(value) => options.find((option) => option.value === value).label}
-                      key={value}
+                    <Field
+                      name="myField"
+                      format={(value) => options.find((option) => option.value === value)}
                     >
-                      {value.label + ': ' + values[value]}
-                    </CListGroupItem>,
+                      {({ input, meta }) => (
+                        <div>
+                          <ul>
+                            {options.map((option) => (
+                              <CListGroupItem key={option.value} value={option}>
+                                {option.label}
+                              </CListGroupItem>
+                            ))}
+                          </ul>
+                          {meta.error && meta.touched && <span>{meta.error}</span>}
+                        </div>
+                      )}
+                    </Field>,
                   )
                 }
 
