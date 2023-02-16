@@ -357,9 +357,11 @@ const AddRatelDevice = ({ children }) => {
           {!postResults.isSuccess && (
             <FormSpy>
               {(props) => {
-                console.log(props)
+                const { values } = props
+                for (let value in values) {
+                  console.log(value)
+                }
 
-                return <div>test</div>
                 // return props.map((prop) => {
                 //   console.log('spy prop', prop)
                 // })
