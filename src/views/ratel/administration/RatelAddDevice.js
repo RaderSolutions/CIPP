@@ -360,6 +360,7 @@ const AddRatelDevice = ({ children }) => {
           {!postResults.isSuccess && (
             <FormSpy>
               {(props) => {
+                console.log('props', props)
                 const { values } = props
                 const renderedValues = []
 
