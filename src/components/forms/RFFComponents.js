@@ -245,11 +245,11 @@ export const RFFCFormSelect = ({
   // }
   const { values: currentValues } = useFormState()
   useEffect(() => {
-    console.log(currentValues)
+    console.log('label', label)
     // setDeviceTypeLocal(currentValues.SelectDeviceType)
     // setDialplanTypeLocal(current.SelectDialplanType)
     // setCallerIdTypeLocal(current.SelectCal)
-  }, [currentValues])
+  }, [label])
 
   return (
     <Field name={name} validate={selectValidate}>

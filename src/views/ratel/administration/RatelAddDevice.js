@@ -108,6 +108,7 @@ const AddRatelDevice = ({ children }) => {
 
   useEffect(() => {
     console.log('formValues in AddDevice', formValues)
+    console.log('deviceContacts in AddDevice', deviceContacts)
     // setConfirmFormState((prevState) => [...prevState, formValues])
   }, [formValues])
 
