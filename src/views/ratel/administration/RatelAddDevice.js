@@ -366,7 +366,7 @@ const AddRatelDevice = ({ children }) => {
                 const renderedValues = []
 
                 for (let value in values) {
-                  if (values[value] !== 0) {
+                  if (values.indexOf(value) !== 0) {
                     console.log(deviceDids[value])
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
