@@ -376,10 +376,11 @@ const AddRatelDevice = ({ children }) => {
                         console.log('new return value', value)
                       }
                     })
+                    renderedValues.push(
+                      <div>{value + ": " + values[value]}</div>
+                       )
                   }
-                  renderedValues.push(
-                 <div>{value + ": " + values[value]}</div>
-                  )
+                  
                 }
 
                 return <CListGroup>{renderedValues}</CListGroup>
