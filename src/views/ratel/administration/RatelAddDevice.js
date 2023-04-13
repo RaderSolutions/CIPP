@@ -363,10 +363,11 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 console.log('props', props)
                 const { values } = props
-                const renderedValues = []
+                
+                let renderedValues = []
 
                 for (let value in values) {
-                  if (values.indexOf(value) !== 0) {
+                  if (values[value] !== 0) {
                     console.log(deviceDids[value])
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
