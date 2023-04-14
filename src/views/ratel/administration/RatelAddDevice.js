@@ -363,11 +363,13 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 console.log('props', props)
                 const { values } = props
-                
-                let renderedValues = []
-                let removeLead = values.filter(value => values.indexOf(value) !== 0)
-                console.log('REMOVE LEAD: ', removeLead)
-                for (let value in values) {
+                const valuesArray = Object.keys(values).map((key) => ({
+                  key: key,
+                  value: values[key]
+                }));
+              
+                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                for (let value in newValues) {
                   if (values[value] !== 0) {
                     console.log(deviceDids[value])
                     console.log(value + ': ' + values[value])
