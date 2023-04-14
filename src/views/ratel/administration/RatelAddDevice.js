@@ -365,7 +365,8 @@ const AddRatelDevice = ({ children }) => {
                 const { values } = props
                 
                 let renderedValues = []
-
+                let removeLead = values.filter(value => values.indexOf(value) !== 0)
+                console.log('REMOVE LEAD: ', removeLead)
                 for (let value in values) {
                   if (values[value] !== 0) {
                     console.log(deviceDids[value])
