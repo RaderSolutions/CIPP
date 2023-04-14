@@ -115,7 +115,6 @@ const _nav = [
     ],
   },
 
-//Alex Configs
   {
     component: CNavGroup,
     name: 'Configs',
