@@ -114,6 +114,38 @@ const _nav = [
       },
     ],
   },
+
+//Alex Configs
+  {
+    component: CNavGroup,
+    name: 'Configs',
+    to: '/configs',
+    section: 'Aconfigs',
+    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'View Configs',
+        to: '/configs/list',
+      },
+    ],
+  },
+
+  {
+    component: CNavGroup,
+    name: 'NewConfigs',
+    to: '/configs',
+    section: 'NewConfigs',
+    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'New Configs',
+        to: '/configs/new',
+      },
+    ],
+  },
+
   {
     component: CNavGroup,
     name: 'Enhanced Labtech Scripts',
