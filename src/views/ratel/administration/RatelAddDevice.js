@@ -375,11 +375,12 @@ const AddRatelDevice = ({ children }) => {
                         console.log('found upper case')
                         value = value.replace(char, '$& ')
                         console.log('new return value', value)
+                        renderedValues.push(
+                          <div>{value + ": " + values[value]}</div>
+                           )
                       }
                     })
-                    renderedValues.push(
-                      <div>{value + ": " + values[value]}</div>
-                       )
+                   
                   }
                   
                 }
