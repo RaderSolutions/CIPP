@@ -363,9 +363,13 @@ const AddRatelDevice = ({ children }) => {
               {(props) => {
                 console.log('props', props)
                 const { values } = props
-                const renderedValues = []
-
-                for (let value in values) {
+                const valuesArray = Object.keys(values).map((key) => ({
+                  key: key,
+                  value: values[key]
+                }));
+              
+                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                for (let value in newValues) {
                   if (values[value] !== 0) {
                     console.log(deviceDids[value])
                     console.log(value + ': ' + values[value])
@@ -374,12 +378,14 @@ const AddRatelDevice = ({ children }) => {
                         console.log('found upper case')
                         value = value.replace(char, '$& ')
                         console.log('new return value', value)
+                        renderedValues.push(
+                          <div>{value + ": " + values[value]}</div>
+                           )
                       }
                     })
+                   
                   }
-                  renderedValues.push(
-                 <div>{value + ": " + values[value]}</div>
-                  )
+                  
                 }
 
                 return <CListGroup>{renderedValues}</CListGroup>
