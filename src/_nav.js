@@ -140,7 +140,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'New Configs',
+        name: 'New Config',
         to: '/configs/new',
       },
     ],
