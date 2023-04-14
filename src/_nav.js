@@ -127,16 +127,6 @@ const _nav = [
         name: 'View Configs',
         to: '/configs/list',
       },
-    ],
-  },
-
-  {
-    component: CNavGroup,
-    name: 'NewConfigs',
-    to: '/configs',
-    section: 'NewConfigs',
-    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
-    items: [
       {
         component: CNavItem,
         name: 'New Config',
@@ -144,6 +134,7 @@ const _nav = [
       },
     ],
   },
+
 
   {
     component: CNavGroup,
