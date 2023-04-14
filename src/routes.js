@@ -90,8 +90,6 @@ const LtScripts = React.lazy(() => import('src/views/scripts/scripts'))
 const ScheduleScript = React.lazy(() => import('src/views/scripts/ScheduleScript'))
 const NewScript = React.lazy(() => import('src/views/scripts/NewScript'))
 
-
-
 // lt configs
 const LtConfigs = React.lazy(() => import('src/views/configs/LtConfigs'))
 const LtNewConfigs = React.lazy(() => import('src/views/configs/LtNewConfigs'))
