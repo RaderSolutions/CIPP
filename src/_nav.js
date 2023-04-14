@@ -114,7 +114,6 @@ const _nav = [
       },
     ],
   },
-
   {
     component: CNavGroup,
     name: 'Configs',
@@ -134,8 +133,6 @@ const _nav = [
       },
     ],
   },
-
-
   {
     component: CNavGroup,
     name: 'Enhanced Labtech Scripts',
