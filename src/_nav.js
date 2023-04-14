@@ -116,25 +116,6 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Configs',
-    to: '/configs',
-    section: 'Aconfigs',
-    icon: <FontAwesomeIcon icon={faCog} className="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'View Configs',
-        to: '/configs/list',
-      },
-      {
-        component: CNavItem,
-        name: 'New Config',
-        to: '/configs/new',
-      },
-    ],
-  },
-  {
-    component: CNavGroup,
     name: 'Enhanced Labtech Scripts',
     to: '/scripts',
     section: 'LtScripts',
@@ -163,6 +144,11 @@ const _nav = [
         component: CNavItem,
         name: 'View Configs',
         to: '/configs/list',
+      },
+      {
+        component: CNavItem,
+        name: 'New Config',
+        to: '/configs/new',
       },
     ],
   },
