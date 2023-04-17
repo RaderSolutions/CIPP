@@ -26,7 +26,10 @@ const Configs = () => {
   useEffect(() => {
     fetch('/api/GrabConfigs')
       .then((response) => response.json())
-      .then((data) => setConfigList(data))
+      .then((data) => {
+        console.log('Config list fetched:', data)
+        setConfigList(data)
+      })
   }, [])
 
   const [selectedConfig, setSelectedConfig] = useState()
@@ -39,11 +42,14 @@ const Configs = () => {
 
   const configListFx = () => {
     if (configList !== []) {
-      return configList.map((config, index) => ({
+      const options = configList.map((config, index) => ({
         value: config.Number,
         label: config.Name,
       }))
+      console.log('Config list options:', options)
+      return options
     }
+    return []
   }
 
   const ConfigFields = ({ config }) => {
@@ -60,7 +66,8 @@ const Configs = () => {
   }
 
   const handleSubmit = async (values) => {
-    console.log(values)
+    console.log('Selected config:', selectedConfig)
+    console.log('Form values:', values)
   }
 
   return (
