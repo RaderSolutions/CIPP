@@ -19,7 +19,7 @@ import { RFFCFormSelect } from 'src/components/forms'
 import { Form } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
-import { LogarithmicScale } from 'chart.js';
+
 
 
 
@@ -93,12 +93,12 @@ const Configs = () => {
                                   <>
                                   <div>
                                     {
-                                      // fields
+                                      config.schema.config.text
                                     }
                                   </div>
                                   </>
                                 )
-                              })
+                              }) 
                             }
                           </CCol>
                         </CRow>
