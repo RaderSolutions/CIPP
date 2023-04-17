@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import React, { useEffect, useRef, useState } from 'react'
 import {
   CButton,
@@ -20,9 +20,6 @@ import { Form } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
 
-
-
-
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
@@ -36,19 +33,31 @@ const Configs = () => {
   const [configList, setConfigList] = useState([])
 
   useEffect(() => {
-    console.log("CONFIG LIST: ", configList)
-    // console.log("Config Text", configList.schema.config.text) 
+    console.log('CONFIG LIST: ', configList)
+    // console.log("Config Text", configList.schema.config.text)
   }, [configList])
 
- const configListFx = () => {
- if (configList !== []) {
-    return configList.map((config, index) => ({
-      value: config.Number,
-      label: config.Name,
-    }))
-  }
+  const configListFx = () => {
+    if (configList !== []) {
+      return configList.map((config, index) => ({
+        value: config.Number,
+        label: config.Name,
+      }))
+    }
   }
 
+  const ConfigFields = ({ config }) => {
+    const properties = Object.keys(config)
+    return properties.map((property, index) => {
+      return (
+        <CRow key={index}>
+          <CCol>
+            <input type="text" name={property} placeholder={property} />
+          </CCol>
+        </CRow>
+      )
+    })
+  }
 
   const handleSubmit = async (values) => {
     console.log(values)
@@ -88,15 +97,11 @@ const Configs = () => {
                             </CButton>
                           </CCol>
                           <CCol>
-                            {configList !== [] &&
-                             
-                                  <>
-                                  <div>
-                                   {/* Display selected config here; can use CippCodeBlock custom componenet */}
-                                  </div>
-                                  </>
-                             
-                            }
+                            {configList !== [] && selectedConfig && (
+                              <>
+                                <ConfigFields config={selectedConfig} />
+                              </>
+                            )}
                           </CCol>
                         </CRow>
                       </>
