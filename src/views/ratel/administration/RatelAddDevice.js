@@ -380,7 +380,7 @@ const AddRatelDevice = ({ children }) => {
                         value = value.replace(char, '$& ')
                         console.log('new return value', value)
                         renderedValues.push(
-                          <div>{value + ": " + values[value]}</div>
+                          <div>{value + ": " + values[label] ? values[label] : values[value]}</div>
                            )
                       }
                     })
