@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   CButton,
   CModal,
@@ -50,6 +51,12 @@ const Configs = () => {
   }
 
   const handleSubmit = async (values) => {
+    const selectedConfigFile = configList.find(
+      (config) => config.Number === values.ConfigFile,
+    ).FilePath
+    const response = await fetch(selectedConfigFile)
+    const data = await response.json()
+    setSelectedConfig(data)
     console.log(values)
     setShowModal(true)
   }
@@ -111,7 +118,13 @@ const Configs = () => {
           <CModal show={showModal} onClose={() => setShowModal(false)}>
             <CModalHeader closeButton>Modal title</CModalHeader>
             <CModalBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+              {selectedConfig &&
+                Object.entries(selectedConfig).map(([key, value]) => (
+                  <div key={key}>
+                    <label>{key}</label>
+                    <input type="text" name={key} defaultValue={value} />
+                  </div>
+                ))}
             </CModalBody>
             <CModalFooter>
               <CButton color="secondary" onClick={() => setShowModal(false)}>
