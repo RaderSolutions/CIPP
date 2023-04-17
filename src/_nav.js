@@ -145,6 +145,11 @@ const _nav = [
         name: 'View Configs',
         to: '/configs/list',
       },
+      {
+        component: CNavItem,
+        name: 'New Config',
+        to: '/configs/new',
+      },
     ],
   },
   {

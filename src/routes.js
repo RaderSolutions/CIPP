@@ -89,9 +89,10 @@ const ChangePassword = React.lazy(() => import('src/views/passworder/ChangePassw
 const LtScripts = React.lazy(() => import('src/views/scripts/scripts'))
 const ScheduleScript = React.lazy(() => import('src/views/scripts/ScheduleScript'))
 const NewScript = React.lazy(() => import('src/views/scripts/NewScript'))
+
 // lt configs
 const LtConfigs = React.lazy(() => import('src/views/configs/LtConfigs'))
-
+const LtNewConfigs = React.lazy(() => import('src/views/configs/LtNewConfigs'))
 const Domains = React.lazy(() => import('src/views/tenant/administration/Domains'))
 const EditTenant = React.lazy(() => import('src/views/tenant/administration/EditTenant'))
 const ConditionalAccess = React.lazy(() => import('src/views/tenant/conditional/ConditionalAccess'))
@@ -447,6 +448,9 @@ const routes = [
   { path: 'passworder/generate', name: 'Generate Passwords', component: GeneratePasswords },
   { path: 'passworder/contact-passwords', name: 'Contact Passwords', component: ContactPasswords },
   { path: 'passworder/change-password', name: 'Change Password', component: ChangePassword },
+
+  //Alex Configs
+  { path: 'configs/new', name: 'Add New Config', component: LtNewConfigs },
 
   //lt scripts
   { path: 'scripts/list', name: 'Enhanced Labtech Scripts', component: LtScripts },
