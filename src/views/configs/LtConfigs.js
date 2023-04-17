@@ -37,7 +37,7 @@ const Configs = () => {
 
   useEffect(() => {
     console.log("CONFIG LIST: ", configList)
-    console.log("Config Text", configList.schema.config.text) 
+    // console.log("Config Text", configList.schema.config.text) 
   }, [configList])
 
  const configListFx = () => {
@@ -93,9 +93,7 @@ const Configs = () => {
                                 return (
                                   <>
                                   <div>
-                                    {
-                                      //nothing
-                                    }
+                                   test
                                   </div>
                                   </>
                                 )
