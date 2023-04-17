@@ -369,6 +369,7 @@ const AddRatelDevice = ({ children }) => {
                 }));
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                const renderedValues = []
                 for (let value in newValues) {
                   if (values[value] !== 0) {
                     console.log(deviceDids[value])
