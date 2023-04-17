@@ -19,12 +19,12 @@ import { RFFCFormSelect } from 'src/components/forms'
 import { Form } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
+import { LogarithmicScale } from 'chart.js';
 
-const ConfigList = () => {
+
+
+const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-
-  // Get the list of configs from an API
-  const [configList, setConfigList] = useState([])
 
   useEffect(() => {
     fetch('/api/GrabConfigs')
@@ -32,14 +32,22 @@ const ConfigList = () => {
       .then((data) => setConfigList(data))
   }, [])
 
-  return configList.map((config, index) => ({
-    value: config.Number,
-    label: config.Name,
-  }))
-}
-
-const Configs = () => {
   const [selectedConfig, setSelectedConfig] = useState()
+  const [configList, setConfigList] = useState([])
+
+  useEffect(() => {
+    console.log("CONFIG LIST: ", configList)
+  }, [configList])
+
+ const configListFx = () => {
+ if (configList !== []) {
+    return configList.map((config, index) => ({
+      value: config.Number,
+      label: config.Name,
+    }))
+  }
+  }
+
 
   const handleSubmit = async (values) => {
     console.log(values)
@@ -67,7 +75,7 @@ const Configs = () => {
                               name="ConfigFile"
                               label="Config File"
                               placeholder="-- Select a config --"
-                              values={ConfigList()}
+                              values={configListFx()}
                             />
                           </CCol>
                         </CRow>
@@ -77,6 +85,21 @@ const Configs = () => {
                               <FontAwesomeIcon icon={faCog} className="me-2" />
                               Load Config
                             </CButton>
+                          </CCol>
+                          <CCol>
+                            {configList !== [] &&
+                              configList.map(config => {
+                                return (
+                                  <>
+                                  <div>
+                                    {
+                                      // fields
+                                    }
+                                  </div>
+                                  </>
+                                )
+                              })
+                            }
                           </CCol>
                         </CRow>
                       </>
