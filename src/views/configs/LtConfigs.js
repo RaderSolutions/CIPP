@@ -32,14 +32,20 @@ const ConfigList = () => {
       .then((data) => setConfigList(data))
   }, [])
 
-  return configList.map((config, index) => ({
-    value: config.Number,
-    label: config.Name,
-  }))
+  // Add an empty value for the -- Select a config -- option
+  const options = [
+    { value: '', label: '-- Select a config --' },
+    ...configList.map((config, index) => ({
+      value: config.Number,
+      label: config.Name,
+    })),
+  ];
+
+  return options;
 }
 
 const Configs = () => {
-  const [selectedConfig, setSelectedConfig] = useState()
+  const [selectedConfig, setSelectedConfig] = useState(null); // set to null or a default value
   const [configData, setConfigData] = useState(null)
   const [formData, setFormData] = useState({})
 
