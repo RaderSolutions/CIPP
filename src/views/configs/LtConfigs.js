@@ -20,11 +20,11 @@ import { Form } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
 
-const ConfigList = () => {
-  const tenant = useSelector((state) => state.app.currentTenant)
 
-  // Get the list of configs from an API
-  const [configList, setConfigList] = useState([])
+
+
+const Configs = () => {
+  const tenant = useSelector((state) => state.app.currentTenant)
 
   useEffect(() => {
     fetch('/api/GrabConfigs')
@@ -32,14 +32,23 @@ const ConfigList = () => {
       .then((data) => setConfigList(data))
   }, [])
 
-  return configList.map((config, index) => ({
-    value: config.Number,
-    label: config.Name,
-  }))
-}
-
-const Configs = () => {
   const [selectedConfig, setSelectedConfig] = useState()
+  const [configList, setConfigList] = useState([])
+
+  useEffect(() => {
+    console.log("CONFIG LIST: ", configList)
+    console.log("Config Text", config.schema.config.text) 
+  }, [configList])
+
+ const configListFx = () => {
+ if (configList !== []) {
+    return configList.map((config, index) => ({
+      value: config.Number,
+      label: config.Name,
+    }))
+  }
+  }
+
 
   const handleSubmit = async (values) => {
     console.log(values)
@@ -67,7 +76,7 @@ const Configs = () => {
                               name="ConfigFile"
                               label="Config File"
                               placeholder="-- Select a config --"
-                              values={ConfigList()}
+                              values={configListFx()}
                             />
                           </CCol>
                         </CRow>
@@ -77,6 +86,21 @@ const Configs = () => {
                               <FontAwesomeIcon icon={faCog} className="me-2" />
                               Load Config
                             </CButton>
+                          </CCol>
+                          <CCol>
+                            {configList !== [] &&
+                              configList.map(config => {
+                                return (
+                                  <>
+                                  <div>
+                                    {
+                                      //nothing
+                                    }
+                                  </div>
+                                  </>
+                                )
+                              }) 
+                            }
                           </CCol>
                         </CRow>
                       </>
