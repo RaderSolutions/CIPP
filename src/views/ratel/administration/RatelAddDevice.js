@@ -371,7 +371,7 @@ const AddRatelDevice = ({ children }) => {
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 const renderedValues = []
                 for (let value in newValues) {
-                  if (values[value] !== "ToggleNewDidInput") {
+                  if (values.indexOf(values[value]) !== 0) {
                     console.log(deviceDids[value])
                     console.log(value + ': ' + values[value])
                     value.split('').forEach((char, idx) => {
