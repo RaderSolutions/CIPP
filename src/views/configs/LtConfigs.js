@@ -89,15 +89,13 @@ const Configs = () => {
                           </CCol>
                           <CCol>
                             {configList !== [] &&
-                              configList.map(config => {
-                                return (
+                             
                                   <>
                                   <div>
-                                   test
+                                   {/* Display selected config here; can use CippCodeBlock custom componenet */}
                                   </div>
                                   </>
-                                )
-                              }) 
+                             
                             }
                           </CCol>
                         </CRow>
