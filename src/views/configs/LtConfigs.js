@@ -56,6 +56,7 @@ const Configs = () => {
   const ConfigFields = ({ config }) => {
     const properties = Object.keys(config)
     return properties.map((property, index) => {
+      console.log("The Prop: ", property)
       return (
         <CRow key={index}>
           <CCol>
@@ -106,7 +107,7 @@ const Configs = () => {
                             </CButton>
                           </CCol>
                           <CCol>
-                            {configList !== [] && (
+                            {configList.length > 0 && (
                               <>
                                 <ConfigFields config={selectedConfig} />
                               </>
