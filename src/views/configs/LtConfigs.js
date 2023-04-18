@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import React, { useEffect, useRef, useState } from 'react'
 import {
   CButton,
@@ -16,12 +16,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 
 import { RFFCFormSelect } from 'src/components/forms'
-import { Form } from 'react-final-form'
+import { Form, useFormState } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
-
-
-
 
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -29,29 +26,51 @@ const Configs = () => {
   useEffect(() => {
     fetch('/api/GrabConfigs')
       .then((response) => response.json())
-      .then((data) => setConfigList(data))
+      .then((data) => {
+        console.log('Config list fetched:', data)
+        setConfigList(data)
+      })
   }, [])
 
-  const [selectedConfig, setSelectedConfig] = useState()
+  const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
 
   useEffect(() => {
-    console.log("CONFIG LIST: ", configList)
-    // console.log("Config Text", configList.schema.config.text) 
+    console.log('CONFIG LIST: ', configList)
+    // const { values: currentValues } = useFormState()
+    // console.log('useFormState ', values)
   }, [configList])
 
- const configListFx = () => {
- if (configList !== []) {
-    return configList.map((config, index) => ({
-      value: config.Number,
-      label: config.Name,
-    }))
-  }
+  const configListFx = () => {
+    if (configList !== []) {
+      const options = configList.map((config, index) => ({
+        value: config.Number,
+        label: config.Name,
+      }))
+      console.log('Config list options:', options)
+      return options
+    }
+    return []
   }
 
+  const ConfigFields = ({ config }) => {
+    console.log('config in configFields: ', config)
+    const properties = Object.keys(config)
+    properties.map((property, index) => {
+      console.log("The Prop: ", property)
+      return (
+        <CRow key={index}>
+          <CCol>
+            <input type="text" name={property} placeholder={property} />
+          </CCol>
+        </CRow>
+      )
+    })
+  }
 
   const handleSubmit = async (values) => {
-    console.log(values)
+    console.log('Selected config:', selectedConfig)
+    console.log('Form values:', values)
   }
 
   return (
@@ -77,6 +96,9 @@ const Configs = () => {
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
+                              onChange={(value) => {
+                                console.log("Value: ", value)
+                                setSelectedConfig(configList.find(config => config.Number === value))}}
                             />
                           </CCol>
                         </CRow>
@@ -88,15 +110,11 @@ const Configs = () => {
                             </CButton>
                           </CCol>
                           <CCol>
-                            {configList !== [] &&
-                             
-                                  <>
-                                  <div>
-                                   {/* Display selected config here; can use CippCodeBlock custom componenet */}
-                                  </div>
-                                  </>
-                             
-                            }
+                            {configList.length > 0 && (
+                              <>
+                                <ConfigFields config={selectedConfig} />
+                              </>
+                            )}
                           </CCol>
                         </CRow>
                       </>
