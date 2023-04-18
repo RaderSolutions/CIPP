@@ -290,6 +290,7 @@ const AddRatelDevice = ({ children }) => {
                   { value: 1, label: 'true' },
                   { value: 0, label: 'false' },
                 ]}
+                
                 //disabled={formDIsabled}
               />
             </CCol>
