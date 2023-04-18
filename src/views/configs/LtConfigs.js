@@ -23,15 +23,35 @@ import { CippCodeBlock } from 'src/components/utilities'
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
 
+  // useEffect(() => {
+  //   fetch('/api/GrabConfigs')
+  //     .then((response) => response)
+  //     console.log('response non JSON: ', response)
+  //     .then((data) => {
+  //       console.log('Config list fetched:', data)
+  //       setConfigList(data)
+  //     })
+  // }, [])
+
   useEffect(() => {
-    fetch('/api/GrabConfigs')
-      .then((response) => response)
-      console.log('response non JSON: ', response)
-      .then((data) => {
-        console.log('Config list fetched:', data)
-        setConfigList(data)
-      })
-  }, [])
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/GrabConfigs');
+        console.log('response non JSON: ', response);
+  
+        const data = await response.json();
+        console.log('Config list fetched:', data);
+  
+        setConfigList(data);
+      } catch (error) {
+        console.error('Error fetching config list:', error);
+      }
+    }
+  
+    fetchData();
+  }, []);
+  
+
 
   const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
