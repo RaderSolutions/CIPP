@@ -39,7 +39,6 @@ const Configs = () => {
     console.log('CONFIG LIST: ', configList)
     // const { values: currentValues } = useFormState()
     // console.log('useFormState ', values)
-    // console.log("Config Text", configList.schema.config.text)
   }, [configList])
 
   const configListFx = () => {
