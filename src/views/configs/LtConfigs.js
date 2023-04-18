@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 
 import { RFFCFormSelect } from 'src/components/forms'
-import { Form } from 'react-final-form'
+import { Form, useFormState } from 'react-final-form'
 
 import { CippCodeBlock } from 'src/components/utilities'
 
@@ -37,6 +37,8 @@ const Configs = () => {
 
   useEffect(() => {
     console.log('CONFIG LIST: ', configList)
+    const { values: currentValues } = useFormState()
+    console.log('useFormState ', values)
     // console.log("Config Text", configList.schema.config.text)
   }, [configList])
 
@@ -104,7 +106,7 @@ const Configs = () => {
                             </CButton>
                           </CCol>
                           <CCol>
-                            {configList !== [] && selectedConfig && (
+                            {configList !== [] && (
                               <>
                                 <ConfigFields config={selectedConfig} />
                               </>
