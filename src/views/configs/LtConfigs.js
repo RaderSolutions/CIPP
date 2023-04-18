@@ -70,7 +70,7 @@ const Configs = () => {
             {
               <div>
                 {
-                  configList.find(config => config.Name === values.ConfigFile)
+                  configList.find(config => config.Name === currentValues.ConfigFile)
                 }
               </div>
             }
