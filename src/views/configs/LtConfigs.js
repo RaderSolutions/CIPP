@@ -32,7 +32,7 @@ const Configs = () => {
       })
   }, [])
 
-  const [selectedConfig, setSelectedConfig] = useState({})
+  const [selectedConfig, setSelectedConfig] = useState()
   const [configList, setConfigList] = useState([])
 
   useEffect(() => {
@@ -54,8 +54,9 @@ const Configs = () => {
   }
 
   const ConfigFields = ({ config }) => {
+    console.log('config in configFields: ', config)
     const properties = Object.keys(config)
-    return properties.map((property, index) => {
+    properties.map((property, index) => {
       console.log("The Prop: ", property)
       return (
         <CRow key={index}>
