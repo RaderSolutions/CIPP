@@ -56,16 +56,15 @@ const Configs = () => {
   const ConfigFields = ({ config }) => {
     const { values: currentValues } = useFormState()
     console.log('useFormState Values in ConfigFields: ', currentValues)
-    console.log('config prop in configFields: ', config)
-    const properties = Object.keys(config)
-    console.log('properties in ConfigFields: ', properties)
+  
     if (currentValues === {}) {
       return (
         <>
         </>
       )
     }
-
+let currentConfig = configList.find(config => config.Name === currentValues.ConfigFile)
+console.log('config in ConfigFields: ', currentConfig)
     return (
       <>
         <CRow>
@@ -73,7 +72,7 @@ const Configs = () => {
             {
               <div>
                 {
-                  configList.find(config => config.Name === currentValues.ConfigFile)
+                  
                 }
               </div>
             }
