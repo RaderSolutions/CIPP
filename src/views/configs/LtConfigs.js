@@ -59,19 +59,30 @@ const Configs = () => {
     console.log('config prop in configFields: ', config)
     const properties = Object.keys(config)
     console.log('properties in ConfigFields: ', properties)
+    if (!values.ConfigFile) {
+      return
+    }
+
     return (
-     <>
-     </>
-      //     properties.map((property, index) => {
-      //  <CRow key={index}>
-      //     <CCol>
-      //       <input type="text" name={property} placeholder={property} />
-      //     </CCol>
-      //   </CRow>
-      //    })
-         )
-  
-    
+      <>
+        <CRow>
+          <CCol>
+            {
+              <div>
+                {
+                  configList.find(config => config.Name === values.ConfigFile)
+                }
+              </div>
+            }
+            {/* <CippCodeBlock
+              title="Config"
+              language="json"
+              code={JSON.stringify(config, null, 2)}
+            /> */}
+          </CCol>
+        </CRow>
+        </>
+    )
   }
 
   const handleSubmit = async (values) => {

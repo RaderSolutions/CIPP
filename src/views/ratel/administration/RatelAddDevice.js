@@ -372,16 +372,16 @@ const AddRatelDevice = ({ children }) => {
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 const renderedValues = []
                 for (let value in newValues) {
-                  if (values.indexOf(values[value]) !== 0) {
+                  if (newValues.indexOf(values[value]) !== 0) {
                     console.log(deviceDids[value])
-                    console.log(value + ': ' + values[value])
+                    console.log(value + ': ' + newValues[value])
                     value.split('').forEach((char, idx) => {
                       if (idx !== 0 && char.toUpperCase() === true) {
                         console.log('found upper case')
                         value = value.replace(char, '$& ')
                         console.log('new return value', value)
                         renderedValues.push(
-                          <div>{value + ": " + values[label] ? values[label] : values[value]}</div>
+                          <div>{value + ": " + newValues[label] ? newValues[label] : newValues[value]}</div>
                            )
                       }
                     })
