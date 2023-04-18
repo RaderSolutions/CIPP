@@ -25,7 +25,8 @@ const Configs = () => {
 
   useEffect(() => {
     fetch('/api/GrabConfigs')
-      .then((response) => response.json())
+      .then((response) => response)
+      console.log('response non JSON: ', response)
       .then((data) => {
         console.log('Config list fetched:', data)
         setConfigList(data)
