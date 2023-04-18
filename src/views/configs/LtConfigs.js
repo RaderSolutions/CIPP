@@ -37,10 +37,8 @@ const Configs = () => {
     async function fetchData() {
       try {
         const response = await fetch('/api/GrabConfigs');
-        console.log('response non JSON: ', response);
-  const blob = await response.blob();
-  console.log('blob: ', blob);
-        const data = await response.json();
+        console.log('response b4 JSON: ', response);
+ 
         console.log('Config list fetched:', data);
   
         setConfigList(data);
