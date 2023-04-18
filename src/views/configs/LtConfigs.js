@@ -32,7 +32,7 @@ const Configs = () => {
       })
   }, [])
 
-  const [selectedConfig, setSelectedConfig] = useState()
+  const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
 
   useEffect(() => {
@@ -96,7 +96,9 @@ const Configs = () => {
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
-                              onChange={(value) => setSelectedConfig(configList.find(config => config.Number === value))}
+                              onChange={(value) => {
+                                console.log("Value: ", value)
+                                setSelectedConfig(configList.find(config => config.Number === value))}}
                             />
                           </CCol>
                         </CRow>
