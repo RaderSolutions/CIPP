@@ -59,8 +59,11 @@ const Configs = () => {
     console.log('config prop in configFields: ', config)
     const properties = Object.keys(config)
     console.log('properties in ConfigFields: ', properties)
-    if (!currentValues.ConfigFile) {
-      return
+    if (currentValues === {}) {
+      return (
+        <>
+        </>
+      )
     }
 
     return (
