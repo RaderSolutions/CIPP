@@ -54,18 +54,24 @@ const Configs = () => {
   }
 
   const ConfigFields = ({ config }) => {
-    console.log('config in configFields: ', config)
+    const { values: currentValues } = useFormState()
+    console.log('useFormState Values in ConfigFields: ', currentValues)
+    console.log('config prop in configFields: ', config)
     const properties = Object.keys(config)
-    properties.map((property, index) => {
-      console.log("The Prop: ", property)
-      return (
-        <CRow key={index}>
-          <CCol>
-            <input type="text" name={property} placeholder={property} />
-          </CCol>
-        </CRow>
-      )
-    })
+    console.log('properties in ConfigFields: ', properties)
+    return (
+     <>
+     </>
+      //     properties.map((property, index) => {
+      //  <CRow key={index}>
+      //     <CCol>
+      //       <input type="text" name={property} placeholder={property} />
+      //     </CCol>
+      //   </CRow>
+      //    })
+         )
+  
+    
   }
 
   const handleSubmit = async (values) => {
