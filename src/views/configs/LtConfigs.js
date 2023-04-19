@@ -122,9 +122,9 @@ console.log('config in ConfigFields: ', currentConfig)
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
-                              // onChange={(value) => {
-                              //   console.log("Value: ", value)
-                              //   setSelectedConfig(configList.find(config => config.Number === value))}}
+                              onChange={(value) => {
+                                console.log("Value: ", value)
+                                setSelectedConfig(configList.find(config => config.Number === value))}}
                             />
                           </CCol>
                         </CRow>
