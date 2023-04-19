@@ -64,14 +64,15 @@ const Configs = () => {
     const { values: currentValues } = useFormState()
     console.log('useFormState Values in ConfigFields: ', currentValues)
   
-    if (currentValues === {}) {
-      return (
-        <>
-        </>
-      )
-    }
+ 
 let currentConfig = configList.find(config => config.Name === currentValues.ConfigFile)
 console.log('config in ConfigFields: ', currentConfig)
+if (currentConfig === undefined) {
+  return (
+    <>
+    </>
+  )
+}
     return (
       <>
         <CRow>
