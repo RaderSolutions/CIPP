@@ -14,25 +14,19 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
-
 import { RFFCFormSelect } from 'src/components/forms'
 import { Form, useFormState } from 'react-final-form'
-
+// Might need
 import { CippCodeBlock } from 'src/components/utilities'
 
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-
-  // useEffect(() => {
-  //   fetch('/api/GrabConfigs')
-  //     .then((response) => response)
-  //     console.log('response non JSON: ', response)
-  //     .then((data) => {
-  //       console.log('Config list fetched:', data)
-  //       setConfigList(data)
-  //     })
-  // }, [])
-
+// May or may not want to leverage all state mgmt features of react-final-form? dependent on 
+// how we handle submission since ltConfigs is used to generate a file? -Tripp
+  const [selectedConfig, setSelectedConfig] = useState({})
+  const [configList, setConfigList] = useState([])
+// May want to refactor this to use redux/API instead of fetch
+// See ltConfigs and ratelDevices in store/api -Tripp
   useEffect(() => {
     async function fetchData() {
       try {
@@ -40,21 +34,15 @@ const Configs = () => {
         console.log('response b4 JSON: ', response);
  
         console.log('Config list fetched:', data);
-  
+       const data = await response.json();
         setConfigList(data);
       } catch (error) {
         console.error('Error fetching config list:', error);
       }
     }
-  
-    fetchData();
+   fetchData();
   }, []);
   
-
-
-  const [selectedConfig, setSelectedConfig] = useState({})
-  const [configList, setConfigList] = useState([])
-
   useEffect(() => {
     console.log('CONFIG LIST: ', configList)
     // const { values: currentValues } = useFormState()
@@ -92,7 +80,7 @@ console.log('config in ConfigFields: ', currentConfig)
             {
               <div>
                 {
-                  
+                 currentConfig.Name 
                 }
               </div>
             }
@@ -135,9 +123,9 @@ console.log('config in ConfigFields: ', currentConfig)
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
-                              onChange={(value) => {
-                                console.log("Value: ", value)
-                                setSelectedConfig(configList.find(config => config.Number === value))}}
+                              // onChange={(value) => {
+                              //   console.log("Value: ", value)
+                              //   setSelectedConfig(configList.find(config => config.Number === value))}}
                             />
                           </CCol>
                         </CRow>
