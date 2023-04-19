@@ -32,9 +32,8 @@ const Configs = () => {
       try {
         const response = await fetch('/api/GrabConfigs');
         console.log('response b4 JSON: ', response);
- 
+        const data = await response.json();
         console.log('Config list fetched:', data);
-       const data = await response.json();
         setConfigList(data);
       } catch (error) {
         console.error('Error fetching config list:', error);
