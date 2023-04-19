@@ -26,7 +26,9 @@ const Configs = () => {
   const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
 // May want to refactor this to use redux/API instead of fetch
-// See ltConfigs and ratelDevices in store/api -Tripp
+// See ltConfigs and ratelDevices in store/api 
+// If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
+// -Tripp
   useEffect(() => {
     async function fetchData() {
       try {
@@ -54,19 +56,18 @@ const Configs = () => {
         value: config.Number,
         label: config.Name,
       }))
+      // "value" is undefined here; looks like Number is not a property on our config objects -Tripp ********************
       console.log('Config list options:', options)
       return options
     }
     return []
   }
-
+// config prop here will be needed if we use react state mgmt. If we use react-final-form, use useFormState() hook. -Tripp
   const ConfigFields = ({ config }) => {
     const { values: currentValues } = useFormState()
     console.log('useFormState Values in ConfigFields: ', currentValues)
-  
- 
-let currentConfig = configList.find(config => config.Name === currentValues.ConfigFile)
-console.log('config in ConfigFields: ', currentConfig)
+    let currentConfig = configList.find(config => config.Name === currentValues.ConfigFile)
+    console.log('config in ConfigFields: ', currentConfig)
 if (currentConfig === undefined) {
   return (
     <>
