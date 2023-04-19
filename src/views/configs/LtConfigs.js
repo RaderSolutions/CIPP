@@ -79,6 +79,7 @@ if (currentConfig === undefined) {
         <CRow>
           <CCol>
             {
+              // Just displaying current config name for now -Tripp
               <div>
                 {
                  currentConfig.Name 
