@@ -364,7 +364,7 @@ const AddRatelDevice = ({ children }) => {
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
           {!postResults.isSuccess && (
-            <FormSpy>
+            <FormSpy subscription={{ values: true }}>
               {(props) => {
                 console.log('props', props)
                 const { values } = props;
