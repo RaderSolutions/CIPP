@@ -212,7 +212,7 @@ const AddRatelDevice = ({ children }) => {
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
                   values={deviceLocations?.map((deviceLocation) => ({
-                    value: {value: deviceLocation.locationId, label: deviceLocation.Name },
+                    value: { value: deviceLocation.locationId, label: deviceLocation.Name },
                     label: deviceLocation.Name,
                   }))}
                   //disabled={formDIsabled}
@@ -380,9 +380,13 @@ const AddRatelDevice = ({ children }) => {
                   className="d-flex justify-content-between align-items-center text-bold"
 
                 >
+                
+                  
                   {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
-                for (let value in newValues) {
+                    let objectValues = newValues.map(value => { value.value === typeof "array" ? JSON.stringify(value.value) : value.value})
+                  console.log('object values', objectValues)
+                    for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
                     
 
