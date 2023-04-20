@@ -370,6 +370,7 @@ const AddRatelDevice = ({ children }) => {
                 }));
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                console.log('NEW VALUES IN CONFIRM SCREEN: ', newValues)
                 function formatString(str) {
                   return str.replace(/([a-z])([A-Z])/g, '$1 $2')
                             .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
