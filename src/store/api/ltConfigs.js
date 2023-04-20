@@ -3,10 +3,10 @@ import { baseApi } from 'src/store/api/baseApi'
 
 export const configsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    listConfigs: builder.mutation({
+    listConfigs: builder.query({
       query: ({config}) => ({
         // TODO ?
-        path: '/api/LtListConfigs',
+        path: '/api/GrabConfigs',
         params: { 
             config: config
         }

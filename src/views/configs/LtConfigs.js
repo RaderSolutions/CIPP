@@ -16,6 +16,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 import { RFFCFormSelect } from 'src/components/forms'
 import { Form, useFormState } from 'react-final-form'
+import {
+  useListConfigsQuery,
+} from 'src/store/api/ltConfigs'
 // Might need
 import { CippCodeBlock } from 'src/components/utilities'
 
@@ -43,6 +46,14 @@ const Configs = () => {
     }
    fetchData();
   }, []);
+
+  const {
+    data: configs = {},
+    isFetching: configsAreFetching,
+    error: configsFetchingError,
+  } = useListConfigsQuery()
+
+  console.log('CONFIGS FROM QUERY: ', configs)
   
   useEffect(() => {
     console.log('CONFIG LIST: ', configList)
