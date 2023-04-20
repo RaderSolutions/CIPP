@@ -372,10 +372,10 @@ const AddRatelDevice = ({ children }) => {
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 const renderedValues = []
                 newValues.map(value => renderedValues.push(<CListGroupItem
-                  className="d-flex justify-content-between align-items-center"
+                  className="d-flex justify-content-between align-items-center text-bold"
 
                 >
-                  {value.key} + :  + {value.value}
+                  {value.key} : {value.value}
                   </CListGroupItem>))
                 for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
