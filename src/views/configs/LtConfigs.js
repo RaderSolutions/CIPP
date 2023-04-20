@@ -54,7 +54,7 @@ const Configs = () => {
   } = useListConfigsQuery()
 
   console.log('CONFIGS FROM QUERY: ', configs)
-  
+  console.log('CONFIGS ARE FETCHING: ', configsAreFetching)
   useEffect(() => {
     console.log('CONFIG LIST: ', configList)
     // const { values: currentValues } = useFormState()
