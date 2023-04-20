@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-import { CCallout, CCol, CListGroup, CRow, CSpinner, CListGroupItem } from '@coreui/react'
+import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem } from '@coreui/react'
 import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
@@ -371,7 +371,12 @@ const AddRatelDevice = ({ children }) => {
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 const renderedValues = []
-                newValues.map(value => renderedValues.push(<li>value.key + :  + value.value</li>))
+                newValues.map(value => renderedValues.push(<CListGroupItem
+                  className="d-flex justify-content-between align-items-center"
+
+                >
+                  {value.key} + :  + {value.value}
+                  </CListGroupItem>))
                 for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
                     
