@@ -367,7 +367,9 @@ const AddRatelDevice = ({ children }) => {
             <FormSpy>
               {(props) => {
                 console.log('props', props)
-                const { values } = props
+                const { values } = props;
+                const selectedLocationLabel = values.Location?.label
+                console.log('selectedLocation', selectedLocationLabel)
                 const valuesArray = Object.keys(values).map((key) => ({
                   key: key,
                   value: values[key]
