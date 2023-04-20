@@ -212,9 +212,13 @@ const AddRatelDevice = ({ children }) => {
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
                   values={deviceLocations?.map((deviceLocation) => ({
-                    value: { value: deviceLocation.locationId, label: deviceLocation.Name },
+                    value: deviceLocation.locationId,
                     label: deviceLocation.Name,
                   }))}
+                  parse={(value) => ({
+                    label: deviceLocations.find((location) => location.locationId === value)?.Name || '',
+                    value,
+                  })}
                   //disabled={formDIsabled}
                 />
               )}
