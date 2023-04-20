@@ -371,7 +371,7 @@ const AddRatelDevice = ({ children }) => {
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 const renderedValues = []
-                newValues.map(value => renderedValues.push(<li>`${value.key} + ": " + ${value.value}`</li>))
+                newValues.map(value => renderedValues.push(<li>value.key + :  + value.value</li>))
                 for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
                     
