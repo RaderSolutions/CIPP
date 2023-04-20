@@ -371,7 +371,8 @@ const AddRatelDevice = ({ children }) => {
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 function formatString(str) {
-                  return str.replace(/([a-z])([A-Z])/g, "$1 $2");
+                  return str.replace(/([a-z])([A-Z])/g, '$1 $2')
+                            .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
                 }
                 const renderedValues = []
                 newValues.map(value => renderedValues.push(<CListGroupItem

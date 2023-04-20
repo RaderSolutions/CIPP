@@ -7,9 +7,9 @@ export const configsApi = baseApi.injectEndpoints({
       query: ({config}) => ({
         // TODO ?
         path: '/api/GrabConfigs',
-        params: { 
-            config: config
-        }
+        // params: { 
+        //     config: config
+        // }
       }),
     }),
 }),
