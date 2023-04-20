@@ -4,7 +4,7 @@ import { baseApi } from 'src/store/api/baseApi'
 export const configsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     listConfigs: builder.query({
-      query: ({config}) => ({
+      query: () => ({
         // TODO ?
         path: '/api/GrabConfigs',
         // params: { 
