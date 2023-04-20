@@ -370,12 +370,15 @@ const AddRatelDevice = ({ children }) => {
                 }));
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                function formatString(str) {
+                  return str.replace(/([a-z])([A-Z])/g, "$1 $2");
+                }
                 const renderedValues = []
                 newValues.map(value => renderedValues.push(<CListGroupItem
                   className="d-flex justify-content-between align-items-center text-bold"
 
                 >
-                  {value.key} : {value.value}
+                  {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
                 for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
