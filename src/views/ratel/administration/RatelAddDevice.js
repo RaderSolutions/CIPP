@@ -73,6 +73,7 @@ const AddRatelDevice = ({ children }) => {
     isSuccess: deviceDidsSuccess,
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
+  console.log("DEVICE LOCATIONS", deviceLocations)
 
   const handleSubmit = async (values) => {
     const shippedValues = {
@@ -217,8 +218,13 @@ const AddRatelDevice = ({ children }) => {
                   }))}
                   parse={(value) => ({
                     // console.log(deviceLocation.find(loc) => loc.locationId === value))
-                    label: deviceLocations.find((location) => location.locationId === value)?.Name || '',
-                    value,
+                    value : value,
+                    label: deviceLocations.find((location) => location.locationId === value)?.Name || ''
+                    
+                 
+
+                   
+                    
                   })}
                   //disabled={formDIsabled}
                 />
