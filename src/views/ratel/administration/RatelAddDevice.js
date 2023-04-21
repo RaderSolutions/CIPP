@@ -219,7 +219,7 @@ const AddRatelDevice = ({ children }) => {
                   parse={(value) => ({
                     // console.log(deviceLocation.find(loc) => loc.locationId === value))
                     value : value,
-                    label: deviceLocations.find((location) => location.locationId === value)?.Name || ''
+                    label: deviceLocations.find((location) => deviceLocations.indexOf(location.locationId) === deviceLocations.indexOf(value?.Name) || '')
                     
                  
 
