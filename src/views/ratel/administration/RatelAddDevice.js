@@ -216,6 +216,7 @@ const AddRatelDevice = ({ children }) => {
                     label: deviceLocation.Name,
                   }))}
                   parse={(value) => ({
+                    // console.log(deviceLocation.find(loc) => loc.locationId === value))
                     label: deviceLocations.find((location) => location.locationId === value)?.Name || '',
                     value,
                   })}
@@ -364,9 +365,9 @@ const AddRatelDevice = ({ children }) => {
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
           {!postResults.isSuccess && (
-            <FormSpy subscription={{ values: true }}>
+            <FormSpy subscription={{ values: true, labels: true }}>
               {(props) => {
-                console.log('props', props)
+                console.log('PROPS IN FORM SPY', props)
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
