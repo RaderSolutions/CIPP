@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   CFormCheck,
   CFormFeedback,
@@ -322,7 +323,9 @@ export const RFFCFormSelectObjectValue = ({
   }, [label])
 
   return (
-    <Field name={name} format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
+    <Field 
+          name={name}
+                format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
       {({ input, meta }) => (
         <div className={className}>
           {label && <CFormLabel>{label}</CFormLabel>}
