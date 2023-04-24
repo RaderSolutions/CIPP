@@ -216,16 +216,16 @@ const AddRatelDevice = ({ children }) => {
                     value: deviceLocation.locationId,
                     label: deviceLocation.Name,
                   }))}
-                  parse={(value) => ({
-                    // console.log(deviceLocation.find(loc) => loc.locationId === value))
-                    value : value,
-                    label: deviceLocations.find((location) => deviceLocations.indexOf(location.locationId) === deviceLocations.indexOf(value?.Name) || '')
+                  // parse={(value) => ({
+                  //   // console.log(deviceLocation.find(loc) => loc.locationId === value))
+                  //   value : value,
+                  //   label: deviceLocations.find((location) => deviceLocations.indexOf(location.locationId) === deviceLocations.indexOf(value?.Name) || '')
                     
                  
 
                    
                     
-                  })}
+                  // })}
                   //disabled={formDIsabled}
                 />
               )}
@@ -374,6 +374,7 @@ const AddRatelDevice = ({ children }) => {
             <FormSpy subscription={{ values: true, labels: true }}>
               {(props) => {
                 console.log('PROPS IN FORM SPY', props)
+                console.log('GIT PUSH')
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
