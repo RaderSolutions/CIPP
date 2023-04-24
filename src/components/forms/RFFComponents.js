@@ -389,7 +389,7 @@ export const RFFCFormSelectObjectValue = ({
 
   return (
     <Field name={name} validate={selectValidate}
-     format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} >
+     format={(value) => (value ? value.value : '')} parse={(value) => ({ displayValue, value, label })} >
       {({ input, meta }) => {
         // this probably wont work
         // const currentValue = JSON.parse(input.value);
