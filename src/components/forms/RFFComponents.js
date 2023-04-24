@@ -411,8 +411,8 @@ export const RFFCFormSelectObjectValue = ({
               <option value={placeholder}>{placeholder}</option>
               {values.map(({ label, value }, idx) => (
                 <option key={`${idx}-${value}`} 
-                // value={JSON.stringify({ value, label })}
-                value={{ value: value, label: label }}
+                value={JSON.stringify({ value, label })}
+                // value={{ value: value, label: label }}
                 >
                   {label}
                 </option>
