@@ -315,14 +315,14 @@ export const RFFCFormSelectObjectValue = ({
   // }
   const { values: currentValues } = useFormState()
   useEffect(() => {
-    console.log('label', label)
+    console.log('values in custom select', values)
     // setDeviceTypeLocal(currentValues.SelectDeviceType)
     // setDialplanTypeLocal(current.SelectDialplanType)
     // setCallerIdTypeLocal(current.SelectCal)
   }, [label])
 
   return (
-    <Field name={name} validate={selectValidate}>
+    <Field name={name} format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
       {({ input, meta }) => (
         <div className={className}>
           {label && <CFormLabel>{label}</CFormLabel>}
