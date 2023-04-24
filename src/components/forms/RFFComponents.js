@@ -286,6 +286,77 @@ RFFCFormSelect.propTypes = {
   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
 }
 
+// export const RFFCFormSelectObjectValue = ({
+//   name,
+//   label,
+//   values = [],
+//   placeholder,
+//   className = 'mb-3',
+//   validate,
+//   disabled = false,
+//   // onChange,
+//   setTypeState,
+// }) => {
+//   // handler for ignoring the first element ('the placeholder')
+//   const selectValidate = (value, allValues, meta) => {
+//     if (validate) {
+//       if (value !== placeholder) {
+//         return validate(value, allValues, meta)
+//       }
+//       return null
+//     }
+//   }
+//   // const handleChange = (e) => {
+//   //   console.log('event', e.target.value)
+//   //   // return e.target.value
+//   // }
+//   // const handleInputChange = (event) => {
+//   //   input.onChange(event)
+//   //   console.log(event.target.value)
+//   // }
+//   const { values: currentValues } = useFormState()
+//   useEffect(() => {
+//     console.log('values in custom select', values)
+//     // setDeviceTypeLocal(currentValues.SelectDeviceType)
+//     // setDialplanTypeLocal(current.SelectDialplanType)
+//     // setCallerIdTypeLocal(current.SelectCal)
+//   }, [label])
+
+//   return (
+//     <Field 
+//           name={name}
+//                 format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
+//       {({ input, meta }) => (
+//         <div className={className}>
+//           {label && <CFormLabel>{label}</CFormLabel>}
+//           <CFormSelect
+//             {...input}
+//             valid={!meta.error && meta.touched}
+//             invalid={meta.error && meta.touched}
+//             disabled={disabled}
+//             onSelect={() => {
+//               console.log('select', input.label)
+//             }}
+//           >
+//             <option value={placeholder}>{placeholder}</option>
+//             {values.map(({ label, value }, idx) => (
+//               <option key={`${idx}-${value}`} value={{ value: value, label: label }}>
+//                 {label}
+//               </option>
+//             ))}
+//           </CFormSelect>
+//           <RFFCFormFeedback meta={meta} />
+//         </div>
+//       )}
+//     </Field>
+//   )
+// }
+
+// RFFCFormSelectObjectValue.propTypes = {
+//   ...sharedPropTypes,
+//   placeholder: PropTypes.string.isRequired,
+//   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
+// }
 export const RFFCFormSelectObjectValue = ({
   name,
   label,
@@ -306,15 +377,9 @@ export const RFFCFormSelectObjectValue = ({
       return null
     }
   }
-  // const handleChange = (e) => {
-  //   console.log('event', e.target.value)
-  //   // return e.target.value
-  // }
-  // const handleInputChange = (event) => {
-  //   input.onChange(event)
-  //   console.log(event.target.value)
-  // }
+  
   const { values: currentValues } = useFormState()
+  
   useEffect(() => {
     console.log('values in custom select', values)
     // setDeviceTypeLocal(currentValues.SelectDeviceType)
@@ -323,31 +388,32 @@ export const RFFCFormSelectObjectValue = ({
   }, [label])
 
   return (
-    <Field 
-          name={name}
-                format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
-      {({ input, meta }) => (
-        <div className={className}>
-          {label && <CFormLabel>{label}</CFormLabel>}
-          <CFormSelect
-            {...input}
-            valid={!meta.error && meta.touched}
-            invalid={meta.error && meta.touched}
-            disabled={disabled}
-            onSelect={() => {
-              console.log('select', input.label)
-            }}
-          >
-            <option value={placeholder}>{placeholder}</option>
-            {values.map(({ label, value }, idx) => (
-              <option key={`${idx}-${value}`} value={{ value: value, label: label }}>
-                {label}
-              </option>
-            ))}
-          </CFormSelect>
-          <RFFCFormFeedback meta={meta} />
-        </div>
-      )}
+    <Field name={name} validate={selectValidate}>
+      {({ input, meta }) => {
+        const currentValue = JSON.parse(input.value);
+        return (
+          <div className={className}>
+            {label && <CFormLabel>{label}</CFormLabel>}
+            <CFormSelect
+              {...input}
+              valid={!meta.error && meta.touched}
+              invalid={meta.error && meta.touched}
+              disabled={disabled}
+              onSelect={() => {
+                console.log('select', currentValue.label)
+              }}
+            >
+              <option value={placeholder}>{placeholder}</option>
+              {values.map(({ label, value }, idx) => (
+                <option key={`${idx}-${value}`} value={JSON.stringify({ value, label })}>
+                  {label}
+                </option>
+              ))}
+            </CFormSelect>
+            <RFFCFormFeedback meta={meta} />
+          </div>
+        )
+      }}
     </Field>
   )
 }
@@ -357,7 +423,6 @@ RFFCFormSelectObjectValue.propTypes = {
   placeholder: PropTypes.string.isRequired,
   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
 }
-
 export function Condition({ when, is, children, like, regex }) {
   return (
     <>
