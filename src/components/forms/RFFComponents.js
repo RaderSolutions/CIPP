@@ -389,7 +389,12 @@ export const RFFCFormSelectObjectValue = ({
 
   return (
     <Field name={name} validate={selectValidate}
-    // format={}
+    parse={value => {
+      value && JSON.parse(value)
+    }}
+    format={value => {
+      value && JSON.stringify(value)
+    }}
     >
       {({ input, meta }) => {
         // const currentValue = JSON.parse(input.value);
@@ -407,7 +412,7 @@ export const RFFCFormSelectObjectValue = ({
             >
               <option value={placeholder}>{placeholder}</option>
               {values.map(({ label, value }, idx) => (
-                <option key={`${idx}-${value}`} value={JSON.stringify({ value, label })}>
+                <option key={`${idx}-${value}`} value={{ value, label }}>
                   {label}
                 </option>
               ))}
