@@ -337,7 +337,7 @@ export const RFFCFormSelectObjectValue = ({
           >
             <option value={placeholder}>{placeholder}</option>
             {values.map(({ label, value }, idx) => (
-              <option key={`${idx}-${value}`} value={{value: value, label: label}}>
+              <option key={`${idx}-${value}`} value={{ value: value, label: label }}>
                 {label}
               </option>
             ))}
