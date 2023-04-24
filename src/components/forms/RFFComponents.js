@@ -393,7 +393,9 @@ export const RFFCFormSelectObjectValue = ({
     format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} >
    
       {({ input, meta }) => {
-        const currentValue = JSON.parse(input.value);
+        // this probably wont work
+        // const currentValue = JSON.parse(input.value);
+        const currentValue = input.label;
         return (
           <div className={className}>
             {label && <CFormLabel>{label}</CFormLabel>}
