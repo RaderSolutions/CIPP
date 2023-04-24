@@ -374,6 +374,7 @@ const AddRatelDevice = ({ children }) => {
             <FormSpy subscription={{ values: true, labels: true }}>
               {(props) => {
                 console.log('PROPS IN FORM SPY', props)
+                console.log('GIT PUSH')
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
