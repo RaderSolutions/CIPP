@@ -9,6 +9,7 @@ import PropTypes, { array } from 'prop-types'
 import {
   RFFCFormInput,
   RFFCFormSelect,
+  RFFCFormSelectObjectValue,
   RFFCFormTextarea,
   RFFCFormSwitch,
   Condition,
@@ -208,7 +209,7 @@ const AddRatelDevice = ({ children }) => {
             <CCol lg={6} xs={12}>
               {deviceLocationsAreFetching && <CSpinner />}
               {!deviceLocationsAreFetching && (
-                <RFFCFormSelect
+                <RFFCFormSelectObjectValue
                   name="Location"
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
