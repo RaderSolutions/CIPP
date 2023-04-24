@@ -7,6 +7,7 @@ import {
   RFFCFormRadio,
   RFFCFormTextarea,
   RFFCFormSelect,
+  RFFCFormSelectObjectValue,
   RFFSelectSearch,
 } from 'src/components/forms/RFFComponents'
 
@@ -19,5 +20,6 @@ export {
   RFFCFormRadio,
   RFFCFormTextarea,
   RFFCFormSelect,
+  RFFCFormSelectObjectValue,
   RFFSelectSearch,
 }
