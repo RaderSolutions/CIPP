@@ -399,8 +399,8 @@ const AddRatelDevice = ({ children }) => {
                   
                   {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
-                    let objectValues = newValues.map(value => { value === "Location" ? JSON.parse(values.Location) : value.value})
-                  console.log('object values', objectValues)
+                  //   let objectValues = newValues.map(value => { value === "Location" ? JSON.parse(values.Location) : value.value})
+                  // console.log('object values', objectValues)
                     for (let value in newValues) {
                   // if (newValues.indexOf(values[value]) !== 0) {
                     
