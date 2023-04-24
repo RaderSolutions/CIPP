@@ -40,6 +40,8 @@ const Configs = () => {
         const data = await response.json();
         console.log('Config list fetched:', data);
         setConfigList(data);
+        const text = data.schema.config.text;
+        console.log('Here be the text: ', text);
       } catch (error) {
         console.error('Error fetching config list:', error);
       }
