@@ -420,7 +420,7 @@ const AddRatelDevice = ({ children }) => {
                 // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
                 console.log("DEVICES", deviceModels)
                 let key = newValues.find(value => Object.values(value).includes("ModelId"))
-                let deviceLabel = deviceModels.find(device => device.ModelId === parseInt(key.value))
+                let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
                 console.log('key', key)
              
                 console.log('device label', deviceLabel)
