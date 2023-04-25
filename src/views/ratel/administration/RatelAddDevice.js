@@ -421,7 +421,8 @@ const AddRatelDevice = ({ children }) => {
                 console.log("DEVICE DIDS", deviceDids)
 
                 let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                // TEST; Change to not coerce
+                let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
                 // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
              console.log('device key', deviceKey)
                 console.log('device label', deviceLabel)
