@@ -395,9 +395,7 @@ const AddRatelDevice = ({ children }) => {
                   className="d-flex justify-content-between align-items-center text-bold"
 
                 >
-                
-                  
-                  {formatString(value.key)} : {formatString(value.value)}
+                {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
                   //   let objectValues = newValues.map(value => { value === "Location" ? JSON.parse(values.Location) : value.value})
                   // console.log('object values', objectValues)
@@ -419,10 +417,14 @@ const AddRatelDevice = ({ children }) => {
                   // }
                   
                 }
-
+                let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
+                console.log('device label', deviceLabel)
                 return <CListGroup>
                   <ul>
                   {renderedValues}
+                  <CListGroupItem>
+
+                  </CListGroupItem>
                   </ul>
                   </CListGroup>
               }}
