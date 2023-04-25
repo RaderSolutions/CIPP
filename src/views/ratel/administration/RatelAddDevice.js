@@ -421,10 +421,11 @@ const AddRatelDevice = ({ children }) => {
                 console.log("DEVICE DIDS", deviceDids)
 
                 let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                console.log('device key', deviceKey)
+
                 // TEST; Change to not coerce
-                let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
+                let deviceLabel = deviceModels.find(device => device.modelId == deviceKey)
                 // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
-             console.log('device key', deviceKey)
                 console.log('device label', deviceLabel)
                 return <CListGroup>
                  
