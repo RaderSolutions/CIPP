@@ -423,7 +423,7 @@ const AddRatelDevice = ({ children }) => {
                 let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                 let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
                 // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
-             
+             console.log('device key', deviceKey)
                 console.log('device label', deviceLabel)
                 return <CListGroup>
                  
