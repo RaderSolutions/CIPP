@@ -435,6 +435,22 @@ const AddRatelDevice = ({ children }) => {
                     return deviceLabel
                   }
                 }
+                // TODO ************************************************************
+                async function createDeviceLocationValues(key){
+                  if (key !== undefined) {
+                    // let locationLabel = await deviceLocations.find(location => location.locationId === parseInt(key.value))
+                    // console.log('location label', locationLabel)
+                    // return locationLabel
+                  }
+                }
+                async function createDeviceContactValues(key){
+
+                }
+                async function createHideFromPhonebookValues(key){
+
+                }
+                // TODO ************************************************************
+
                 let deviceModelLabel = createDeviceModelValues(deviceKey)
                 console.log('device model label', deviceModelLabel)
 
