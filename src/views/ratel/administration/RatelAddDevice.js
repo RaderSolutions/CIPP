@@ -419,6 +419,7 @@ const AddRatelDevice = ({ children }) => {
                 }
                 // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
                 console.log("DEVICE DIDS", deviceDids)
+                console.log("DEVICE MODELS", deviceModels)
 
                 let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                 console.log('device key', deviceKey)
