@@ -9,6 +9,8 @@
 # production
 /build
 
+devicemodels.js
+
 # misc
 .eslintcache
 .DS_Store
