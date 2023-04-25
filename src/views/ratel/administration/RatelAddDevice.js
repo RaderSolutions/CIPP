@@ -417,7 +417,10 @@ const AddRatelDevice = ({ children }) => {
                   // }
                   
                 }
-                let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
+                // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
+                let key = values.find(value => Object.values(value).includes("ModelId"))
+                let deviceLabel = deviceModels.find(device => device.ModelId === key.value)
+                console.log('key', key, "")
                 console.log("DEVICES", deviceModels)
                 console.log('device label', deviceLabel)
                 return <CListGroup>
