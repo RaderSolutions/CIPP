@@ -427,7 +427,7 @@ const AddRatelDevice = ({ children }) => {
                 // TEST; Change to not coerce
                 // let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
                 // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
-                console.log('device label', deviceLabel)
+                
                 async function createDeviceModelValues(key){
                   if (key !== undefined) {
                     let deviceLabel = await deviceModels.find(device => device.modelId === parseInt(key.value))
@@ -436,6 +436,7 @@ const AddRatelDevice = ({ children }) => {
                   }
                 }
                 let deviceModelLabel = createDeviceModelValues(deviceKey)
+                console.log('device model label', deviceModelLabel)
 
                 return <CListGroup>
                  
