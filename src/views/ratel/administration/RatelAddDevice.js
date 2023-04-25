@@ -418,19 +418,25 @@ const AddRatelDevice = ({ children }) => {
                   
                 }
                 // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
-                console.log("DEVICES", deviceModels)
-                let key = newValues.find(value => Object.values(value).includes("ModelId"))
+                console.log("DEVICE DIDS", deviceDids)
+
+                let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                 let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
-                console.log('key', key)
+                // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
              
                 console.log('device label', deviceLabel)
                 return <CListGroup>
-                  <ul>
+                 
                   {renderedValues}
-                  <CListGroupItem>
 
-                  </CListGroupItem>
-                  </ul>
+                  {deviceKey &&
+                    <CListGroupItem>
+                  {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`}
+                  </CListGroupItem>}
+                  {deviceKey &&
+                    <CListGroupItem>
+                  {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`}
+                  </CListGroupItem>}
                   </CListGroup>
               }}
             </FormSpy>
