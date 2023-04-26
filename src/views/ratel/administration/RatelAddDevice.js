@@ -477,11 +477,13 @@ const AddRatelDevice = ({ children }) => {
                  
                   {renderedValues}
 
+                  {/* 
                   {deviceKey &&
                     <CListGroupItem>
                       
                   {/* {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`} */}
-                  </CListGroupItem>}
+                  {/* </CListGroupItem>}  */}
+                 
                
                    
                   </CListGroup>
