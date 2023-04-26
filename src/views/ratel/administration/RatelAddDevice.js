@@ -107,24 +107,7 @@ const AddRatelDevice = ({ children }) => {
       ToggleNewDidInput: false,
     },
   ]
-  // state to find friendly confirm value keys -Tripp
-  const [deviceModelsKey, setDeviceModelsKey] = useState()
 
-  useEffect(() => {
-    console.log('formValues in AddDevice', formValues)
-    console.log('deviceContacts in AddDevice', deviceContacts)
-    const formState = useFormState()
-    console.log('FORM STATE VALUES', formState.values)
-    // setConfirmFormState((prevState) => [...prevState, formValues])
-  }, [formValues])
-  // effects to handle friendly confirm values -Tripp
-  useEffect(() => {
-    if (!deviceModels || !deviceModelsKey) {
-      return
-    }
-    let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
-    console.log('DEVICE MODEL LABEL IN EFFECT', deviceLabel)
-  }, [deviceModels])
 
   return (
     <CippWizard
@@ -397,6 +380,27 @@ const AddRatelDevice = ({ children }) => {
                 }));
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                  // state to find friendly confirm value keys -Tripp
+                  const [deviceModelsKey, setDeviceModelsKey] = useState()
+
+                   useEffect(() => {
+                   console.log('formValues in AddDevice', formValues)
+                      console.log('deviceContacts in AddDevice', deviceContacts)
+                     const formState = useFormState()
+                      console.log('FORM STATE VALUES', formState.values)
+                   // setConfirmFormState((prevState) => [...prevState, formValues])
+                    }, [formValues])
+                         // effects to handle friendly confirm values -Tripp
+                        useEffect(() => {
+                        if (!deviceModels || !deviceModelsKey) {
+                           return
+                        }
+                       let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
+                      console.log('DEVICE MODEL LABEL IN EFFECT', deviceLabel)
+                      }, [deviceModels])
+
+
+                
                 console.log('NEW VALUES IN CONFIRM SCREEN: ', newValues)
                 function formatString(str) {
                   return str.replace(/([a-z])([A-Z])/g, '$1 $2')
