@@ -384,8 +384,8 @@ const AddRatelDevice = ({ children }) => {
                   const formState = useFormState()
                   console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
                   let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                  let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                  console.log('DEVICE MODEL LABEL IN SPY', deviceLabel)
+                  let deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                  console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                 
 
 
@@ -423,7 +423,10 @@ const AddRatelDevice = ({ children }) => {
                 return <CListGroup>
                  
                   {renderedValues}
-
+                  <CListGroupItem>
+                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
+                    {}
+                  </CListGroupItem>
                   {/* 
                   {deviceKey &&
                     <CListGroupItem>
