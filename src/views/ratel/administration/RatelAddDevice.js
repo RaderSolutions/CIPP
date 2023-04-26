@@ -439,13 +439,13 @@ const AddRatelDevice = ({ children }) => {
                 // let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
                 // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
                 
-                async function createDeviceModelValues(key){
-                  if (key !== undefined) {
-                    let deviceLabel = await deviceModels.find(device => device.modelId === parseInt(key.value))
-                    console.log('device label', deviceLabel)
-                    return deviceLabel
-                  }
-                }
+                // async function createDeviceModelValues(key){
+                //   if (key !== undefined) {
+                //     let deviceLabel = await deviceModels.find(device => device.modelId === parseInt(key.value))
+                //     console.log('device label', deviceLabel)
+                //     return deviceLabel
+                //   }
+                // }
                 // TODO ************************************************************
                 async function createDeviceLocationValues(key){
                   if (key !== undefined) {
@@ -464,7 +464,7 @@ const AddRatelDevice = ({ children }) => {
 
                 let deviceModelLabel = createDeviceModelValues(deviceKey)
                 // let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                console.log('device label', deviceLabel)
+                // console.log('device label', deviceLabel)
                 console.log('device model label', deviceModelLabel)
 
                 return <CListGroup>
