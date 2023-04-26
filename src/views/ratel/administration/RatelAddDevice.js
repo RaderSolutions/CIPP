@@ -381,23 +381,12 @@ const AddRatelDevice = ({ children }) => {
               
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                   // state to find friendly confirm value keys -Tripp
-                  const [deviceModelsKey, setDeviceModelsKey] = useState()
-
-                   useEffect(() => {
-                   
-                     const formState = useFormState()
-                      console.log('FORM STATE VALUES', formState.values)
-                 
-                    }, [formValues])
-                         // effects to handle friendly confirm values -Tripp
-                        useEffect(() => {
-                        if (!deviceModels || !deviceModelsKey) {
-                           return
-                        }
-                        let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                       let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                      console.log('DEVICE MODEL LABEL IN EFFECT', deviceLabel)
-                      }, [deviceModels])
+                  const formState = useFormState()
+                  console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
+                  let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                  let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                  console.log('DEVICE MODEL LABEL IN SPY', deviceLabel)
+                
 
 
                 
@@ -413,45 +402,7 @@ const AddRatelDevice = ({ children }) => {
                 >
                 {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
-                  //   let objectValues = newValues.map(value => { value === "Location" ? JSON.parse(values.Location) : value.value})
-                  // console.log('object values', objectValues)
-                    for (let value in newValues) {
-                  // if (newValues.indexOf(values[value]) !== 0) {
-                    
-
-                    // value.split('').forEach((char, idx) => {
-                    //   if (idx !== 0 && char.toUpperCase() === true) {
-                    //     console.log('found upper case')
-                    //     value = value.replace(char, '$& ')
-                    //     console.log('new return value', value)
-                    //     renderedValues.push(
-                    //       <div>{value + ": " + newValues[label] ? newValues[label] : newValues[value]}</div>
-                    //        )
-                    //   }
-                    // })
-                   
-                  // }
-                  
-                }
-                // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
-                // console.log("DEVICE DIDS", deviceDids)
-                // console.log("DEVICE MODELS", deviceModels)
-
-                // let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                // setDeviceModelsKey(deviceKey)
-                // console.log('device key', deviceKey)
-
-                // TEST; Change to not coerce
-                // let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
-                // let didsKey = newValues.find(value => Object.values(value).includes("Did"))
-                
-                // async function createDeviceModelValues(key){
-                //   if (key !== undefined) {
-                //     let deviceLabel = await deviceModels.find(device => device.modelId === parseInt(key.value))
-                //     console.log('device label', deviceLabel)
-                //     return deviceLabel
-                //   }
-                // }
+           
                 // TODO ************************************************************
                 async function createDeviceLocationValues(key){
                   if (key !== undefined) {
@@ -468,10 +419,6 @@ const AddRatelDevice = ({ children }) => {
                 }
                 // TODO ************************************************************
 
-                // let deviceModelLabel = createDeviceModelValues(deviceKey)
-                // let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                // console.log('device label', deviceLabel)
-                // console.log('device model label', deviceModelLabel)
 
                 return <CListGroup>
                  
