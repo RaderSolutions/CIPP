@@ -113,11 +113,13 @@ const AddRatelDevice = ({ children }) => {
   useEffect(() => {
     console.log('formValues in AddDevice', formValues)
     console.log('deviceContacts in AddDevice', deviceContacts)
+    const formState = useFormState()
+    console.log('FORM STATE VALUES', formState.values)
     // setConfirmFormState((prevState) => [...prevState, formValues])
   }, [formValues])
   // effects to handle friendly confirm values -Tripp
   useEffect(() => {
-    if (!deviceModels || !deviceModelsKey){
+    if (!deviceModels || !deviceModelsKey) {
       return
     }
     let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
@@ -428,12 +430,12 @@ const AddRatelDevice = ({ children }) => {
                   
                 }
                 // let deviceLabel = deviceModels.filter(device => device.Name === values.DeviceModel)
-                console.log("DEVICE DIDS", deviceDids)
-                console.log("DEVICE MODELS", deviceModels)
+                // console.log("DEVICE DIDS", deviceDids)
+                // console.log("DEVICE MODELS", deviceModels)
 
-                let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                setDeviceModelsKey(deviceKey)
-                console.log('device key', deviceKey)
+                // let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                // setDeviceModelsKey(deviceKey)
+                // console.log('device key', deviceKey)
 
                 // TEST; Change to not coerce
                 // let deviceLabel = deviceModels.find(device => device.modelId == deviceKey.value)
