@@ -462,10 +462,10 @@ const AddRatelDevice = ({ children }) => {
                 }
                 // TODO ************************************************************
 
-                let deviceModelLabel = createDeviceModelValues(deviceKey)
+                // let deviceModelLabel = createDeviceModelValues(deviceKey)
                 // let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
                 // console.log('device label', deviceLabel)
-                console.log('device model label', deviceModelLabel)
+                // console.log('device model label', deviceModelLabel)
 
                 return <CListGroup>
                  
