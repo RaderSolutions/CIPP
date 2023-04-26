@@ -384,18 +384,18 @@ const AddRatelDevice = ({ children }) => {
                   const [deviceModelsKey, setDeviceModelsKey] = useState()
 
                    useEffect(() => {
-                   console.log('formValues in AddDevice', formValues)
-                      console.log('deviceContacts in AddDevice', deviceContacts)
+                   
                      const formState = useFormState()
                       console.log('FORM STATE VALUES', formState.values)
-                   // setConfirmFormState((prevState) => [...prevState, formValues])
+                 
                     }, [formValues])
                          // effects to handle friendly confirm values -Tripp
                         useEffect(() => {
                         if (!deviceModels || !deviceModelsKey) {
                            return
                         }
-                       let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
+                        let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                       let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
                       console.log('DEVICE MODEL LABEL IN EFFECT', deviceLabel)
                       }, [deviceModels])
 
