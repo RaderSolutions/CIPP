@@ -107,12 +107,22 @@ const AddRatelDevice = ({ children }) => {
       ToggleNewDidInput: false,
     },
   ]
+  // state to find friendly confirm value keys -Tripp
+  const [deviceModelsKey, setDeviceModelsKey] = useState()
 
   useEffect(() => {
     console.log('formValues in AddDevice', formValues)
     console.log('deviceContacts in AddDevice', deviceContacts)
     // setConfirmFormState((prevState) => [...prevState, formValues])
   }, [formValues])
+  // effects to handle friendly confirm values -Tripp
+  useEffect(() => {
+    if (!deviceModels || !deviceModelsKey){
+      return
+    }
+    let deviceLabel = deviceModels.find(device => device.modelId === parseInt(key.value))
+    console.log('DEVICE MODEL LABEL IN EFFECT', deviceLabel)
+  }, [deviceModels])
 
   return (
     <CippWizard
@@ -422,6 +432,7 @@ const AddRatelDevice = ({ children }) => {
                 console.log("DEVICE MODELS", deviceModels)
 
                 let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                setDeviceModelsKey(deviceKey)
                 console.log('device key', deviceKey)
 
                 // TEST; Change to not coerce
@@ -452,20 +463,21 @@ const AddRatelDevice = ({ children }) => {
                 // TODO ************************************************************
 
                 let deviceModelLabel = createDeviceModelValues(deviceKey)
+                // let deviceLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                console.log('device label', deviceLabel)
                 console.log('device model label', deviceModelLabel)
 
                 return <CListGroup>
                  
                   {renderedValues}
-{/* 
+
                   {deviceKey &&
                     <CListGroupItem>
-                  {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`}
+                      
+                  {/* {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`} */}
                   </CListGroupItem>}
-                  {deviceKey &&
-                    <CListGroupItem>
-                  {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`}
-                  </CListGroupItem>} */}
+               
+                   
                   </CListGroup>
               }}
             </FormSpy>
