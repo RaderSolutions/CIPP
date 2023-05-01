@@ -204,7 +204,7 @@ const AddRatelDevice = ({ children }) => {
             <CCol lg={6} xs={12}>
               {deviceLocationsAreFetching && <CSpinner />}
               {!deviceLocationsAreFetching && (
-                <RFFCFormSelectObjectValue
+                <RFFCFormSelect
                   name="Location"
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
@@ -385,6 +385,8 @@ const AddRatelDevice = ({ children }) => {
                   console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
                   let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   let deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                  let deviceLocationKey = newValues.find(value => Object.values(value).includes("LocationId"))
+                  // let deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
                   console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                 
 
