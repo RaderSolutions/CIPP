@@ -383,10 +383,23 @@ const AddRatelDevice = ({ children }) => {
                   // state to find friendly confirm value keys -Tripp
                   const formState = useFormState()
                   console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
-                  let deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                  let deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                  let deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
-                  let deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
+                  let deviceKey
+                  if (newValues.includes("ModelId")) {
+                    deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                  }
+                  let deviceModelLabel
+                  if (deviceKey){
+                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                  }
+                  let deviceLocationKey
+                  if (newValues.includes("Location")) {
+                    deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
+                  }
+                  let deviceLocationLabel
+                  if (deviceLocationKey) {
+                    deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
+                    }
+                   
                   console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                 
 
