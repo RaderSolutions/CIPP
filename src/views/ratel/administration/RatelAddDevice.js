@@ -24,6 +24,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
+import { filter } from 'core-js/core/array'
 
 const Error = ({ name }) => (
   <Field
@@ -107,7 +108,10 @@ const AddRatelDevice = ({ children }) => {
       ToggleNewDidInput: false,
     },
   ]
-
+const [newValues, setNewValues] = useState([])
+useEffect(()=>{
+  console.log("NEW VALUES USE EFFECT", newValues)
+}, [newValues])
 
   return (
     <CippWizard
@@ -379,7 +383,8 @@ const AddRatelDevice = ({ children }) => {
                   value: values[key]
                 }));
               
-                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                let filteredValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                 setNewValues(filteredValues)
                   // state to find friendly confirm value keys -Tripp
                   const formState = useFormState()
                   console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
@@ -388,8 +393,9 @@ const AddRatelDevice = ({ children }) => {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   }
                   let deviceModelLabel
-                  if (deviceKey){
+                  if (deviceKey) {
                     deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                    setNewValues(deviceModelLabel)
                   }
                   let deviceLocationKey
                   if (newValues.includes("Location")) {
@@ -398,7 +404,8 @@ const AddRatelDevice = ({ children }) => {
                   let deviceLocationLabel
                   if (deviceLocationKey) {
                     deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
-                    }
+                  setNewValues(deviceLocationLabel)  
+                  }
                    
                   console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                 
