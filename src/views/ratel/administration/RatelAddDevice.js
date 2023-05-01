@@ -383,8 +383,8 @@ useEffect(()=>{
                   value: values[key]
                 }));
               
-                let filteredValues = valuesArray.filter((obj) => typeof obj.value !== "object");
-                 setNewValues(filteredValues)
+                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                //  setNewValues(filteredValues)
                   // state to find friendly confirm value keys -Tripp
                   const formState = useFormState()
                   console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
@@ -392,19 +392,20 @@ useEffect(()=>{
                   if (newValues.includes("ModelId")) {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   }
-                  let deviceModelLabel
-                  if (deviceKey) {
-                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                    setNewValues(deviceModelLabel)
-                  }
                   let deviceLocationKey
                   if (newValues.includes("Location")) {
                     deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
                   }
+                  let deviceModelLabel
+                  if (deviceKey) {
+                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                    // setNewValues(deviceModelLabel)
+                  }
+                
                   let deviceLocationLabel
                   if (deviceLocationKey) {
                     deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
-                  setNewValues(deviceLocationLabel)  
+                  // setNewValues(deviceLocationLabel)  
                   }
                    
                   console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
@@ -418,39 +419,34 @@ useEffect(()=>{
                             .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
                 }
                 const renderedValues = []
+                console.log('RENDERED VALUES', renderedValues)
                 newValues.map(value => renderedValues.push(<CListGroupItem
                   className="d-flex justify-content-between align-items-center text-bold"
 
                 >
                 {formatString(value.key)} : {formatString(value.value)}
                   </CListGroupItem>))
-           
-                // TODO ************************************************************
-                async function createDeviceLocationValues(key){
-                  if (key !== undefined) {
-                    // let locationLabel = await deviceLocations.find(location => location.locationId === parseInt(key.value))
-                    // console.log('location label', locationLabel)
-                    // return locationLabel
-                  }
+                if (deviceModelLabel) {
+                  renderedValues.push(<CListGroupItem>
+                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
+                    </CListGroupItem>)
                 }
-                async function createDeviceContactValues(key){
-
+                if (deviceLocationLabel) {
+                  renderedValues.push(<CListGroupItem>
+                    {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
+                    </CListGroupItem>)
                 }
-                async function createHideFromPhonebookValues(key){
-
-                }
-                // TODO ************************************************************
-
+              
 
                 return <CListGroup>
                  
                   {renderedValues}
-                  <CListGroupItem>
+                  {/* <CListGroupItem>
                     {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
                     </CListGroupItem>
                     <CListGroupItem>
                     {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
-                    </CListGroupItem>
+                    </CListGroupItem> */}
                   {/* 
                   {deviceKey &&
                     <CListGroupItem>
