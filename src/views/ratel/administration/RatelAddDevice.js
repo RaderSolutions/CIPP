@@ -392,10 +392,12 @@ useEffect(()=>{
                   if (newValues.includes("ModelId")) {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   }
+                  console.log('DEVICE KEY IN SPY', deviceKey)
                   let deviceLocationKey
                   if (newValues.includes("Location")) {
                     deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
                   }
+                  console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
                   if (deviceKey) {
                     deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
