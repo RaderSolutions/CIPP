@@ -24,6 +24,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
+import { ConfirmDevice } from './ConfirmDevice'
 
 
 const Error = ({ name }) => (
@@ -370,8 +371,13 @@ useEffect(()=>{
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
+        <ConfirmDevice useFormState={useFormState}/>
+       
           {!postResults.isSuccess && (
             <FormSpy subscription={{ values: true, labels: true }}>
+             
+
+              
               {(props) => {
                 console.log('PROPS IN FORM SPY', props)
                 console.log('GIT PUSH')
@@ -383,66 +389,11 @@ useEffect(()=>{
                   value: values[key]
                 }));
               
-                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
-                //  setNewValues(filteredValues)
-                  // state to find friendly confirm value keys -Tripp
-                  const formState = useFormState()
-                  console.log('FORM STATE FROM HOOK IN FORM SPY', formState)
-                  let deviceKey
-                  if (newValues.includes("ModelId")) {
-                    deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                  }
-                  console.log('DEVICE KEY IN SPY', deviceKey)
-                  let deviceLocationKey
-                  if (newValues.includes("Location")) {
-                    deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
-                  }
-                  console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
-                  let deviceModelLabel
-                  if (deviceKey) {
-                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
-                    // setNewValues(deviceModelLabel)
-                  }
                 
-                  let deviceLocationLabel
-                  if (deviceLocationKey) {
-                    deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
-                  // setNewValues(deviceLocationLabel)  
-                  }
-                   
-                  console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
-                
-
-
-                
-                console.log('NEW VALUES IN CONFIRM SCREEN: ', newValues)
-                function formatString(str) {
-                  return str.replace(/([a-z])([A-Z])/g, '$1 $2')
-                            .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
-                }
-                const renderedValues = []
-                console.log('RENDERED VALUES', renderedValues)
-                newValues.map(value => renderedValues.push(<CListGroupItem
-                  className="d-flex justify-content-between align-items-center text-bold"
-
-                >
-                {formatString(value.key)} : {formatString(value.value)}
-                  </CListGroupItem>))
-                if (deviceModelLabel) {
-                  renderedValues.push(<CListGroupItem>
-                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
-                    </CListGroupItem>)
-                }
-                if (deviceLocationLabel) {
-                  renderedValues.push(<CListGroupItem>
-                    {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
-                    </CListGroupItem>)
-                }
-              
-
+               
                 return <CListGroup>
                  
-                  {renderedValues}
+                  {/* {renderedValues} */}
                   {/* <CListGroupItem>
                     {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
                     </CListGroupItem>
