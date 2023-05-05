@@ -395,9 +395,9 @@ useEffect(()=>{
                 }));
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
                 let deviceKey
-                  if (newValues.includes("ModelId")) {
+                  // if (newValues.includes("ModelId")) {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
-                  }
+                  // }
                   console.log('DEVICE KEY IN SPY', deviceKey)
                   let deviceLocationKey
                   if (newValues.includes("Location")) {
