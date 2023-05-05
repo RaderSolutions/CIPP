@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ConfirmDevice = ({ useFormState }) => {
+export const ConfirmDevice = ({ useFormState }) => {
   return (
     <div>ConfirmDevice</div>
   )

@@ -24,7 +24,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
-import { ConfirmDevice } from './ConfirmDevice'
+// import { ConfirmDevice } from './ConfirmDevice'
 
 
 const Error = ({ name }) => (
@@ -113,6 +113,9 @@ const [newValues, setNewValues] = useState([])
 useEffect(()=>{
   console.log("NEW VALUES USE EFFECT", newValues)
 }, [newValues])
+
+const formState = useFormState()
+
 
   return (
     <CippWizard
@@ -371,7 +374,7 @@ useEffect(()=>{
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
-        <ConfirmDevice useFormState={useFormState}/>
+        {/* <ConfirmDevice useFormState={useFormState}/> */}
        
           {!postResults.isSuccess && (
             <FormSpy subscription={{ values: true, labels: true }}>
@@ -380,7 +383,7 @@ useEffect(()=>{
               
               {(props) => {
                 console.log('PROPS IN FORM SPY', props)
-                console.log('GIT PUSH')
+                console.log('FORM STATE IN FORM SPY', formState)
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
