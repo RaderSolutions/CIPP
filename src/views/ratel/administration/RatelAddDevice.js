@@ -389,11 +389,33 @@ useEffect(()=>{
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
-                const valuesArray = Object.keys(values).map((key) => ({
+                const valuesArray = Object.keys(formState.values).map((key) => ({
                   key: key,
                   value: values[key]
                 }));
-                
+                let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                let deviceKey
+                  if (newValues.includes("ModelId")) {
+                    deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                  }
+                  console.log('DEVICE KEY IN SPY', deviceKey)
+                  let deviceLocationKey
+                  if (newValues.includes("Location")) {
+                    deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
+                  }
+                  console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
+                  let deviceModelLabel
+                  if (deviceKey) {
+                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                    // setNewValues(deviceModelLabel)
+                  }
+                  console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
+                  let deviceLocationLabel
+                  if (deviceLocationKey) {
+                    deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
+                  // setNewValues(deviceLocationLabel)  
+                  }
+                   
                
                 
                
