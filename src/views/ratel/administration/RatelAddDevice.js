@@ -114,7 +114,7 @@ useEffect(()=>{
   console.log("NEW VALUES USE EFFECT", newValues)
 }, [newValues])
 
-const formState = useFormState()
+
 
 
   return (
@@ -123,6 +123,7 @@ const formState = useFormState()
       onSubmit={handleSubmit}
       wizardTitle="Add Ratel Device Wizard"
     >
+      
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -382,6 +383,7 @@ const formState = useFormState()
 
               
               {(props) => {
+                const formState = useFormState()
                 console.log('PROPS IN FORM SPY', props)
                 console.log('FORM STATE IN FORM SPY', formState)
                 const { values } = props;
@@ -391,7 +393,8 @@ const formState = useFormState()
                   key: key,
                   value: values[key]
                 }));
-              
+                
+               
                 
                
                 return <CListGroup>
