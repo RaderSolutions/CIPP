@@ -399,10 +399,11 @@ useEffect(()=>{
                   // if (newValues.includes("Location")) {
                     deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
                   console.log('DEVICE KEY IN SPY', deviceKey)
-                  // let deviceLocationKey
-                  // if (newValues.includes("Location")) {
-                  //   deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
-                  // }
+                  let deviceContactKey
+                  // if (newValues.includes("ContactID")) {
+                    deviceContactKey = newValues.find(value => Object.values(value).includes("ContactID"))
+                  console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
+
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
                   if (deviceKey) {
@@ -410,11 +411,14 @@ useEffect(()=>{
                     // setNewValues(deviceModelLabel)
                     console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                   }
-                  
                   let deviceLocationLabel
                   if (deviceLocationKey) {
                     deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
                   // setNewValues(deviceLocationLabel)  
+                  }
+                  let deviceContactLabel
+                  if (deviceContactKey) {
+                    deviceContactLabel = deviceContacts.find(contact => contact.contactId === parseInt(deviceContactKey.value))
                   }
                    
                
@@ -429,6 +433,10 @@ useEffect(()=>{
                     <CListGroupItem>
                     {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
                     </CListGroupItem>
+                    <CListGroupItem>
+                    {deviceContactLabel && `Contact : ${deviceContactLabel.Name}`}
+                    </CListGroupItem>
+                    
                   {/* 
                   {deviceKey &&
                     <CListGroupItem>
