@@ -441,7 +441,7 @@ useEffect(()=>{
                     }
                     {
                       deviceTypeKey && <CListGroupItem>
-                      {`Device Type : ${deviceTypeKey}`}
+                      {`Device Type : ${deviceTypeKey.value}`}
                       </CListGroupItem>
                     }
                    
