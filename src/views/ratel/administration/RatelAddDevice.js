@@ -408,7 +408,7 @@ useEffect(()=>{
                   // if (newValues.includes("DeviceType")) {
                     deviceTypeKey = newValues.find(value => Object.values(value).includes("DeviceType"))
                     console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
-
+                  console.log('DEVICE TYPE KEY IN SPY', deviceTypeKey)
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
                   if (deviceKey) {
