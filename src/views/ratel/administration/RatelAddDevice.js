@@ -379,10 +379,7 @@ useEffect(()=>{
        
           {!postResults.isSuccess && (
             <FormSpy subscription={{ values: true, labels: true }}>
-             
-
-              
-              {(props) => {
+             {(props) => {
                 const formState = useFormState()
                 console.log('PROPS IN FORM SPY', props)
                 console.log('FORM STATE IN FORM SPY', formState)
@@ -398,11 +395,14 @@ useEffect(()=>{
                   // if (newValues.includes("ModelId")) {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   // }
-                  console.log('DEVICE KEY IN SPY', deviceKey)
                   let deviceLocationKey
-                  if (newValues.includes("Location")) {
+                  // if (newValues.includes("Location")) {
                     deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
-                  }
+                  console.log('DEVICE KEY IN SPY', deviceKey)
+                  // let deviceLocationKey
+                  // if (newValues.includes("Location")) {
+                  //   deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
+                  // }
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
                   if (deviceKey) {
