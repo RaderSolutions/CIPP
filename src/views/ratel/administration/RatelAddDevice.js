@@ -419,7 +419,7 @@ useEffect(()=>{
                   }
                   let deviceContactLabel
                   if (deviceContactKey) {
-                    deviceContactLabel = deviceContacts.find(contact => contact.contactID === parseInt(deviceContactKey.value))
+                    deviceContactLabel = deviceContacts.find(contact => contact.ContactID === parseInt(deviceContactKey.value))
                   }
                    
                
