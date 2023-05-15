@@ -404,7 +404,10 @@ useEffect(()=>{
                   let deviceContactKey
                   // if (newValues.includes("ContactID")) {
                     deviceContactKey = newValues.find(value => Object.values(value).includes("ContactID"))
-                  console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
+                  let deviceTypeKey
+                  // if (newValues.includes("DeviceType")) {
+                    deviceTypeKey = newValues.find(value => Object.values(value).includes("DeviceType"))
+                    console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
 
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
@@ -423,9 +426,6 @@ useEffect(()=>{
                     deviceContactLabel = deviceContacts.find(contact => contact.ContactID === parseInt(deviceContactKey.value))
                   }
                    
-               
-                
-               
                 return <CListGroup>
                  
                   {/* {renderedValues} */}
@@ -440,8 +440,8 @@ useEffect(()=>{
                     </CListGroupItem>
                     }
                     {
-                      newValues.DeviceType && <CListGroupItem>
-                      {`Device Type : ${newValues.DeviceType}`}
+                      deviceTypeKey && <CListGroupItem>
+                      {`Device Type : ${deviceTypeKey}`}
                       </CListGroupItem>
                     }
                    
