@@ -408,8 +408,9 @@ useEffect(()=>{
                   if (deviceKey) {
                     deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
                     // setNewValues(deviceModelLabel)
+                    console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
                   }
-                  console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
+                  
                   let deviceLocationLabel
                   if (deviceLocationKey) {
                     deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
@@ -422,12 +423,12 @@ useEffect(()=>{
                 return <CListGroup>
                  
                   {/* {renderedValues} */}
-                  {/* <CListGroupItem>
+                  <CListGroupItem>
                     {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
                     </CListGroupItem>
                     <CListGroupItem>
                     {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
-                    </CListGroupItem> */}
+                    </CListGroupItem>
                   {/* 
                   {deviceKey &&
                     <CListGroupItem>
