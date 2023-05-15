@@ -392,6 +392,7 @@ useEffect(()=>{
                   value: values[key]
                 }));
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
+                console.log('NEW VALUES', newValues)
                 let deviceKey
                   // if (newValues.includes("ModelId")) {
                     deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
@@ -437,6 +438,7 @@ useEffect(()=>{
                     <CListGroupItem>
                     {deviceContactLabel && `Contact : ${deviceContactLabel.Name}`}
                     </CListGroupItem>
+                   
 
                   {/* 
                   {deviceKey &&
