@@ -435,9 +435,15 @@ useEffect(()=>{
                     <CListGroupItem>
                     {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
                     </CListGroupItem>
-                    <CListGroupItem>
-                    {deviceContactLabel && `Contact : ${deviceContactLabel.Name}`}
+                   {deviceContactLabel && <CListGroupItem>
+                    `Contact : ${deviceContactLabel.Name}`
                     </CListGroupItem>
+                    }
+                    {
+                      newValues.DeviceType && <CListGroupItem>
+                      {`Device Type : ${newValues.DeviceType}`}
+                      </CListGroupItem>
+                    }
                    
 
                   {/* 
