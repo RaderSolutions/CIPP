@@ -77,6 +77,7 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
   console.log("DEVICE LOCATIONS", deviceLocations)
+  console.log("DEVICE CONTACTS", deviceContacts)
 
   const handleSubmit = async (values) => {
     const shippedValues = {
@@ -436,7 +437,7 @@ useEffect(()=>{
                     <CListGroupItem>
                     {deviceContactLabel && `Contact : ${deviceContactLabel.Name}`}
                     </CListGroupItem>
-                    
+
                   {/* 
                   {deviceKey &&
                     <CListGroupItem>
