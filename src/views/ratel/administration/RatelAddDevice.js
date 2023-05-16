@@ -408,7 +408,27 @@ useEffect(()=>{
                   let deviceTypeKey
                   // if (newValues.includes("DeviceType")) {
                     deviceTypeKey = newValues.find(value => Object.values(value).includes("DeviceType"))
-                  console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
+                    let dialplanKey
+                    dialplanKey = newValues.find(value => Object.values(value).includes("DialplanType"))
+                    let callerIDKey
+                    callerIDKey = newValues.find(value => Object.values(value).includes("CallerIDType"))
+                    let modelIDKey
+                    modelIDKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                    let locationKey
+                    locationKey = newValues.find(value => Object.values(value).includes("Location"))
+                    let hideFromPhonebookKey
+                    hideFromPhonebookKey = newValues.find(value => Object.values(value).includes("HideFromPhonebook"))
+                    let macAddressKey
+                    macAddressKey = newValues.find(value => Object.values(value).includes("MacAddress"))
+                    let extensionNumberKey
+                    extensionNumberKey = newValues.find(value => Object.values(value).includes("ExtensionNumber"))
+                    let fopGroupKey
+                    fopGroupKey = newValues.find(value => Object.values(value).includes("FopGroup"))
+                    let emailKey
+                    emailKey = newValues.find(value => Object.values(value).includes("Email"))
+                    let labelKey
+                    labelKey = newValues.find(value => Object.values(value).includes("Label"))
+                    console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
                   console.log('DEVICE TYPE KEY IN SPY', deviceTypeKey)
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
                   let deviceModelLabel
@@ -431,17 +451,17 @@ useEffect(()=>{
                  
                  
                   {
-                      newValues.DeviceType && <CListGroupItem>
+                      deviceTypeKey && <CListGroupItem>
                       {`Device Type : ${newValues.DeviceType.value}`}
                       </CListGroupItem>
                     }
                    {
-                    newValues.DialplanType && <CListGroupItem>
+                    dialplanKey && <CListGroupItem>
                     {`Dialplan Type : ${newValues.DialplanType.value}`}
                     </CListGroupItem>
                    }
                    {
-                    newValues.CallerIDType && <CListGroupItem>
+                    callerIDKey && <CListGroupItem>
                     {`Caller ID Type : ${newValues.CallerIDType.value}`}
                     </CListGroupItem>
                    }
@@ -453,33 +473,33 @@ useEffect(()=>{
                     {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
                     </CListGroupItem>
                     {
-                      newValues.HideFromPhonebook && <CListGroupItem>
+                      hideFromPhonebookKey && <CListGroupItem>
                       {`Hide From Phonebook : ${newValues.HideFromPhonebook.value}`}
                       </CListGroupItem>
                     }
                     {
-                      newValues.MacAddress && <CListGroupItem>
+                      macAddressKey && <CListGroupItem>
                       {`MAC Address : ${newValues.MacAddress.value}`}
                       </CListGroupItem>
                     }
                     {
-                      newValues.ExtensionNumber && <CListGroupItem>
+                      extensionNumberKey && <CListGroupItem>
                       {`Extension Number : ${newValues.ExtensionNumber.value}`}
                       </CListGroupItem>
                     }
                     {
-                      newValues.FopGroup && <CListGroupItem>
+                      fopGroupKey && <CListGroupItem>
                       {`FOP Group : ${newValues.FopGroup.value}`}
                       </CListGroupItem>
                     }
                     {
-                      newValues.EmailAddress && <CListGroupItem>
+                      emailKey && <CListGroupItem>
                       {`Email Address : ${newValues.EmailAddress.value}`}
                       </CListGroupItem>
 
                     }
                     {
-                      newValues.Label && <CListGroupItem>
+                      labelKey && <CListGroupItem>
                       {`Label : ${newValues.Label.value}`}
                       </CListGroupItem>
                     }
