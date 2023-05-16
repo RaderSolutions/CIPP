@@ -452,17 +452,17 @@ useEffect(()=>{
                  
                   {
                       deviceTypeKey && <CListGroupItem>
-                      {`Device Type : ${newValues.DeviceType.value}`}
+                      {`Device Type : ${deviceTypeKey.value}`}
                       </CListGroupItem>
                     }
                    {
                     dialplanKey && <CListGroupItem>
-                    {`Dialplan Type : ${newValues.DialplanType.value}`}
+                    {`Dialplan Type : ${dialplanKey.value}`}
                     </CListGroupItem>
                    }
                    {
                     callerIDKey && <CListGroupItem>
-                    {`Caller ID Type : ${newValues.CallerIDType.value}`}
+                    {`Caller ID Type : ${callerIDKey.value}`}
                     </CListGroupItem>
                    }
                    
@@ -474,33 +474,33 @@ useEffect(()=>{
                     </CListGroupItem>
                     {
                       hideFromPhonebookKey && <CListGroupItem>
-                      {`Hide From Phonebook : ${newValues.HideFromPhonebook.value}`}
+                      {`Hide From Phonebook : ${hideFromPhonebookKey.value}`}
                       </CListGroupItem>
                     }
                     {
                       macAddressKey && <CListGroupItem>
-                      {`MAC Address : ${newValues.MacAddress.value}`}
+                      {`MAC Address : ${macAddressKey.value}`}
                       </CListGroupItem>
                     }
                     {
                       extensionNumberKey && <CListGroupItem>
-                      {`Extension Number : ${newValues.ExtensionNumber.value}`}
+                      {`Extension Number : ${extensionNumberKey.value}`}
                       </CListGroupItem>
                     }
                     {
                       fopGroupKey && <CListGroupItem>
-                      {`FOP Group : ${newValues.FopGroup.value}`}
+                      {`FOP Group : ${fopGroupKey.value}`}
                       </CListGroupItem>
                     }
                     {
                       emailKey && <CListGroupItem>
-                      {`Email Address : ${newValues.EmailAddress.value}`}
+                      {`Email Address : ${emailKey.value}`}
                       </CListGroupItem>
 
                     }
                     {
                       labelKey && <CListGroupItem>
-                      {`Label : ${newValues.Label.value}`}
+                      {`Label : ${labelKey.value}`}
                       </CListGroupItem>
                     }
                    {deviceContactLabel && <CListGroupItem>
