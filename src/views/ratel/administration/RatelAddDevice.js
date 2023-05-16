@@ -451,7 +451,7 @@ useEffect(()=>{
                  
                  
                   {
-                      deviceTypeKey && <CListGroupItem>
+                   deviceTypeKey && <CListGroupItem>
                       {`Device Type : ${deviceTypeKey.value}`}
                       </CListGroupItem>
                     }
@@ -466,12 +466,13 @@ useEffect(()=>{
                     </CListGroupItem>
                    }
                    
-                   <CListGroupItem>
-                    {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
-                    </CListGroupItem>
-                    <CListGroupItem>
-                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
-                    </CListGroupItem>
+                   {deviceLocationLabel && <CListGroupItem>
+                     {`Location : ${deviceLocationLabel.Name}`}
+                    </CListGroupItem>}
+                    {deviceModelLabel &&
+                      <CListGroupItem>
+                    { `Model : ${deviceModelLabel.Name}`}
+                    </CListGroupItem>}
                     {
                       hideFromPhonebookKey && <CListGroupItem>
                       {`Hide From Phonebook : ${hideFromPhonebookKey.value}`}
