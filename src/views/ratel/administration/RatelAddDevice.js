@@ -24,6 +24,7 @@ import {
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
+import { Dial } from 'twilio/lib/twiml/VoiceResponse'
 // import { ConfirmDevice } from './ConfirmDevice'
 
 
@@ -428,23 +429,65 @@ useEffect(()=>{
                    
                 return <CListGroup>
                  
-                  {/* {renderedValues} */}
-                  <CListGroupItem>
-                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
+                 
+                  {
+                      newValues.DeviceType && <CListGroupItem>
+                      {`Device Type : ${newValues.DeviceType.value}`}
+                      </CListGroupItem>
+                    }
+                   {
+                    newValues.DialplanType && <CListGroupItem>
+                    {`Dialplan Type : ${newValues.DialplanType.value}`}
                     </CListGroupItem>
-                    <CListGroupItem>
+                   }
+                   {
+                    newValues.CallerIDType && <CListGroupItem>
+                    {`Caller ID Type : ${newValues.CallerIDType.value}`}
+                    </CListGroupItem>
+                   }
+                   
+                   <CListGroupItem>
                     {deviceLocationLabel && `Location : ${deviceLocationLabel.Name}`}
                     </CListGroupItem>
+                    <CListGroupItem>
+                    {deviceModelLabel && `Model : ${deviceModelLabel.Name}`}
+                    </CListGroupItem>
+                    {
+                      newValues.HideFromPhonebook && <CListGroupItem>
+                      {`Hide From Phonebook : ${newValues.HideFromPhonebook.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      newValues.MacAddress && <CListGroupItem>
+                      {`MAC Address : ${newValues.MacAddress.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      newValues.ExtensionNumber && <CListGroupItem>
+                      {`Extension Number : ${newValues.ExtensionNumber.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      newValues.FopGroup && <CListGroupItem>
+                      {`FOP Group : ${newValues.FopGroup.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      newValues.EmailAddress && <CListGroupItem>
+                      {`Email Address : ${newValues.EmailAddress.value}`}
+                      </CListGroupItem>
+
+                    }
+                    {
+                      newValues.Label && <CListGroupItem>
+                      {`Label : ${newValues.Label.value}`}
+                      </CListGroupItem>
+                    }
                    {deviceContactLabel && <CListGroupItem>
                     `Contact : ${deviceContactLabel.Name}`
                     </CListGroupItem>
                     }
-                    {
-                      deviceTypeKey && <CListGroupItem>
-                      {`Device Type : ${deviceTypeKey.value}`}
-                      </CListGroupItem>
-                    }
-                   
+                  
 
                   {/* 
                   {deviceKey &&
