@@ -504,7 +504,7 @@ useEffect(()=>{
                       </CListGroupItem>
                     }
                    {deviceContactLabel && <CListGroupItem>
-                    `Contact : ${deviceContactLabel.Name}`
+                    {`Contact : ${deviceContactLabel.Name}`}
                     </CListGroupItem>
                     }
                   
