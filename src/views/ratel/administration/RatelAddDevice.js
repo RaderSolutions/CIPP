@@ -428,6 +428,8 @@ useEffect(()=>{
                     emailKey = newValues.find(value => Object.values(value).includes("Email"))
                     let labelKey
                     labelKey = newValues.find(value => Object.values(value).includes("Label"))
+                    let didKey
+                    didKey = newValues.find(value => Object.values(value).includes("Did"))
                     console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
                   console.log('DEVICE TYPE KEY IN SPY', deviceTypeKey)
                   console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
@@ -507,6 +509,11 @@ useEffect(()=>{
                    {deviceContactLabel && <CListGroupItem>
                     {`Contact : ${deviceContactLabel.Name}`}
                     </CListGroupItem>
+                    }
+                    {
+                      didKey && <CListGroupItem>
+                      {`DID : ${didKey.value}`}
+                      </CListGroupItem>
                     }
                   
 
