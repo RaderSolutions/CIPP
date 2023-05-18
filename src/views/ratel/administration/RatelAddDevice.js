@@ -448,6 +448,10 @@ useEffect(()=>{
                   if (deviceContactKey) {
                     deviceContactLabel = deviceContacts.find(contact => contact.ContactID === parseInt(deviceContactKey.value))
                   }
+                  let hideFromPhonebookLabel
+                  if (hideFromPhonebookKey) {
+                    hideFromPhonebookLabel = hideFromPhonebookKey.value === "1" ? "True" : "False"
+                  }
                    
                 return <CListGroup>
                  
