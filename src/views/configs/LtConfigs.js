@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { useSelector } from 'react-redux'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {
   CButton,
   CCard,
@@ -17,27 +17,24 @@ import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 import { RFFCFormSelect } from 'src/components/forms'
 import { Form, useFormState } from 'react-final-form'
 import { useListConfigsQuery } from 'src/store/api/ltConfigs'
-import { CippCodeBlock } from 'src/components/utilities'
 
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
-  const [jsonContents, setJsonContents] = useState([])
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch('/api/GrabConfigs')
         const data = await response.json()
-        const configs = data.jsonContents
         const blobs = data.blobs
 
-        console.log('Config list fetched:', configs)
         console.log('Blobs:', blobs)
 
-        setConfigList(configs)
-        setJsonContents(blobs.map((blob) => JSON.parse(blob)))
+        setConfigList(blobs.map((blob) => JSON.parse(blob)))
+
+        const jsonContents = data.jsonContents
+        jsonContents.forEach((content) => console.log('JSON Content:', content))
       } catch (error) {
         console.error('Error fetching config list:', error)
       }
@@ -57,13 +54,12 @@ const Configs = () => {
 
   useEffect(() => {
     console.log('CONFIG LIST:', configList)
-    console.log('JSON CONTENTS:', jsonContents)
-  }, [configList, jsonContents])
+  }, [configList])
 
   const configListFx = () => {
     if (configList.length !== 0) {
       const options = configList.map((config, index) => ({
-        value: config.Number,
+        value: index,
         label: config.Name,
       }))
 
@@ -74,30 +70,14 @@ const Configs = () => {
     return []
   }
 
-  const ConfigFields = ({ config }) => {
+  const ConfigFields = () => {
     const { values: currentValues } = useFormState()
     console.log('useFormState Values in ConfigFields:', currentValues)
-    const currentConfig = configList.find((cfg) => cfg.Name === currentValues.ConfigFile)
-    console.log('config in ConfigFields:', currentConfig)
 
-    if (currentConfig === undefined) {
-      return null
-    }
-
-    return (
-      <>
-        <CRow>
-          <CCol>
-            <div>{currentConfig.Name}</div>
-            <CippCodeBlock title="Config" language="json" code={JSON.stringify(config, null, 2)} />
-          </CCol>
-        </CRow>
-      </>
-    )
+    return null
   }
 
   const handleSubmit = async (values) => {
-    console.log('Selected config:', selectedConfig)
     console.log('Form values:', values)
   }
 
@@ -124,10 +104,7 @@ const Configs = () => {
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
-                              onChange={(value) => {
-                                console.log('Value:', value)
-                                setSelectedConfig(configList.find((cfg) => cfg.Number === value))
-                              }}
+                              onChange={() => {}}
                             />
                           </CCol>
                         </CRow>
@@ -138,9 +115,7 @@ const Configs = () => {
                               Load Config
                             </CButton>
                           </CCol>
-                          <CCol>
-                            {configList.length > 0 && <ConfigFields config={selectedConfig} />}
-                          </CCol>
+                          <CCol>{configList.length > 0 && <ConfigFields />}</CCol>
                         </CRow>
                       </>
                     </CForm>
@@ -150,6 +125,9 @@ const Configs = () => {
             </CCardBody>
           </CCard>
         </CCol>
+      </CRow>
+      <CRow>
+        <CCol>{/* Additional components */}</CCol>
       </CRow>
     </>
   )
