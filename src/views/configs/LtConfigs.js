@@ -16,37 +16,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 import { RFFCFormSelect } from 'src/components/forms'
 import { Form, useFormState } from 'react-final-form'
-import {
-  useListConfigsQuery,
-} from 'src/store/api/ltConfigs'
+import { useListConfigsQuery } from 'src/store/api/ltConfigs'
 // Might need
 import { CippCodeBlock } from 'src/components/utilities'
 
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-// May or may not want to leverage all state mgmt features of react-final-form? dependent on 
-// how we handle submission since ltConfigs is used to generate a file? -Tripp
+  // May or may not want to leverage all state mgmt features of react-final-form? dependent on
+  // how we handle submission since ltConfigs is used to generate a file? -Tripp
   const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
-// May want to refactor this to use redux/API instead of fetch
-// See ltConfigs and ratelDevices in store/api 
-// If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
-// -Tripp
+  // May want to refactor this to use redux/API instead of fetch
+  // See ltConfigs and ratelDevices in store/api
+  // If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
+  // -Tripp
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/GrabConfigs');
-        console.log('response b4 JSON: ', response);
-        const data = await response.json();
-        console.log('Config list fetched:', data);
-        data.forEach(dat => console.log('Heres a piece! ', dat));
-        setConfigList(data);
+        const response = await fetch('/api/GrabConfigs')
+        console.log('response b4 JSON: ', response)
+        const data = await response.json()
+        console.log('Config list fetched:', data)
+        data.forEach((dat) => console.log('Heres a piece! ', dat))
+        setConfigList(data)
       } catch (error) {
-        console.error('Error fetching config list:', error);
+        console.error('Error fetching config list:', error)
       }
     }
-   fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const {
     data: configs = {},
@@ -74,29 +72,22 @@ const Configs = () => {
     }
     return []
   }
-// config prop here will be needed if we use react state mgmt. If we use react-final-form, use useFormState() hook. -Tripp
+  // config prop here will be needed if we use react state mgmt. If we use react-final-form, use useFormState() hook. -Tripp
   const ConfigFields = ({ config }) => {
     const { values: currentValues } = useFormState()
     console.log('useFormState Values in ConfigFields: ', currentValues)
-    let currentConfig = configList.find(config => config.Name === currentValues.ConfigFile)
+    let currentConfig = configList.find((config) => config.Name === currentValues.ConfigFile)
     console.log('config in ConfigFields: ', currentConfig)
-if (currentConfig === undefined) {
-  return (
-    <>
-    </>
-  )
-}
+    if (currentConfig === undefined) {
+      return <></>
+    }
     return (
       <>
         <CRow>
           <CCol>
             {
               // Just displaying current config name for now -Tripp
-              <div>
-                {
-                 currentConfig.Name 
-                }
-              </div>
+              <div>{currentConfig.Name}</div>
             }
             {/* <CippCodeBlock
               title="Config"
@@ -105,7 +96,7 @@ if (currentConfig === undefined) {
             /> */}
           </CCol>
         </CRow>
-        </>
+      </>
     )
   }
 
@@ -138,8 +129,11 @@ if (currentConfig === undefined) {
                               placeholder="-- Select a config --"
                               values={configListFx()}
                               onChange={(value) => {
-                                console.log("Value: ", value)
-                                setSelectedConfig(configList.find(config => config.Number === value))}}
+                                console.log('Value: ', value)
+                                setSelectedConfig(
+                                  configList.find((config) => config.Number === value),
+                                )
+                              }}
                             />
                           </CCol>
                         </CRow>
