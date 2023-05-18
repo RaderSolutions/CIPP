@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { useSelector } from 'react-redux'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   CButton,
   CCard,
@@ -17,29 +17,32 @@ import { faLink, faCog } from '@fortawesome/free-solid-svg-icons'
 import { RFFCFormSelect } from 'src/components/forms'
 import { Form, useFormState } from 'react-final-form'
 import { useListConfigsQuery } from 'src/store/api/ltConfigs'
+// Might need
+import { CippCodeBlock } from 'src/components/utilities'
 
 const Configs = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  // May or may not want to leverage all state mgmt features of react-final-form? dependent on
+  // how we handle submission since ltConfigs is used to generate a file? -Tripp
+  const [selectedConfig, setSelectedConfig] = useState({})
   const [configList, setConfigList] = useState([])
-
+  // May want to refactor this to use redux/API instead of fetch
+  // See ltConfigs and ratelDevices in store/api
+  // If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
+  // -Tripp
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch('/api/GrabConfigs')
+        console.log('response b4 JSON: ', response)
         const data = await response.json()
-        const blobs = data.blobs
-
-        console.log('Blobs:', blobs)
-
-        setConfigList(blobs.map((blob) => JSON.parse(blob)))
-
-        const jsonContents = data.jsonContents
-        jsonContents.forEach((content) => console.log('JSON Content:', content))
+        console.log('Config list fetched:', data)
+        data.forEach((dat) => console.log('Heres a piece! ', dat))
+        setConfigList(data)
       } catch (error) {
         console.error('Error fetching config list:', error)
       }
     }
-
     fetchData()
   }, [])
 
@@ -49,35 +52,56 @@ const Configs = () => {
     error: configsFetchingError,
   } = useListConfigsQuery()
 
-  console.log('CONFIGS FROM QUERY:', configs)
-  console.log('CONFIGS ARE FETCHING:', configsAreFetching)
-
+  console.log('CONFIGS FROM QUERY: ', configs)
+  console.log('CONFIGS ARE FETCHING: ', configsAreFetching)
   useEffect(() => {
-    console.log('CONFIG LIST:', configList)
+    console.log('CONFIG LIST: ', configList)
+    // const { values: currentValues } = useFormState()
+    // console.log('useFormState ', values)
   }, [configList])
 
   const configListFx = () => {
-    if (configList.length !== 0) {
+    if (configList !== []) {
       const options = configList.map((config, index) => ({
-        value: index,
+        value: config.Number,
         label: config.Name,
       }))
-
+      // "value" is undefined here; looks like Number is not a property on our config objects -Tripp ********************
       console.log('Config list options:', options)
       return options
     }
-
     return []
   }
-
-  const ConfigFields = () => {
+  // config prop here will be needed if we use react state mgmt. If we use react-final-form, use useFormState() hook. -Tripp
+  const ConfigFields = ({ config }) => {
     const { values: currentValues } = useFormState()
-    console.log('useFormState Values in ConfigFields:', currentValues)
-
-    return null
+    console.log('useFormState Values in ConfigFields: ', currentValues)
+    let currentConfig = configList.find((config) => config.Name === currentValues.ConfigFile)
+    console.log('config in ConfigFields: ', currentConfig)
+    if (currentConfig === undefined) {
+      return <></>
+    }
+    return (
+      <>
+        <CRow>
+          <CCol>
+            {
+              // Just displaying current config name for now -Tripp
+              <div>{currentConfig.Name}</div>
+            }
+            {/* <CippCodeBlock
+              title="Config"
+              language="json"
+              code={JSON.stringify(config, null, 2)}
+            /> */}
+          </CCol>
+        </CRow>
+      </>
+    )
   }
 
   const handleSubmit = async (values) => {
+    console.log('Selected config:', selectedConfig)
     console.log('Form values:', values)
   }
 
@@ -104,7 +128,12 @@ const Configs = () => {
                               label="Config File"
                               placeholder="-- Select a config --"
                               values={configListFx()}
-                              onChange={() => {}}
+                              onChange={(value) => {
+                                console.log('Value: ', value)
+                                setSelectedConfig(
+                                  configList.find((config) => config.Number === value),
+                                )
+                              }}
                             />
                           </CCol>
                         </CRow>
@@ -115,7 +144,13 @@ const Configs = () => {
                               Load Config
                             </CButton>
                           </CCol>
-                          <CCol>{configList.length > 0 && <ConfigFields />}</CCol>
+                          <CCol>
+                            {configList.length > 0 && (
+                              <>
+                                <ConfigFields config={selectedConfig} />
+                              </>
+                            )}
+                          </CCol>
                         </CRow>
                       </>
                     </CForm>
@@ -127,7 +162,11 @@ const Configs = () => {
         </CCol>
       </CRow>
       <CRow>
-        <CCol>{/* Additional components */}</CCol>
+        <CCol>
+          {}
+          {}
+          {}
+        </CCol>
       </CRow>
     </>
   )
