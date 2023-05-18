@@ -25,6 +25,9 @@ import {
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
 
+// import { ConfirmDevice } from './ConfirmDevice'
+
+
 const Error = ({ name }) => (
   <Field
     name={name}
@@ -75,6 +78,7 @@ const AddRatelDevice = ({ children }) => {
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
   console.log("DEVICE LOCATIONS", deviceLocations)
+  console.log("DEVICE CONTACTS", deviceContacts)
 
   const handleSubmit = async (values) => {
     const shippedValues = {
@@ -107,12 +111,13 @@ const AddRatelDevice = ({ children }) => {
       ToggleNewDidInput: false,
     },
   ]
+const [newValues, setNewValues] = useState([])
+useEffect(()=>{
+  console.log("NEW VALUES USE EFFECT", newValues)
+}, [newValues])
 
-  useEffect(() => {
-    console.log('formValues in AddDevice', formValues)
-    console.log('deviceContacts in AddDevice', deviceContacts)
-    // setConfirmFormState((prevState) => [...prevState, formValues])
-  }, [formValues])
+
+
 
   return (
     <CippWizard
@@ -120,6 +125,7 @@ const AddRatelDevice = ({ children }) => {
       onSubmit={handleSubmit}
       wizardTitle="Add Ratel Device Wizard"
     >
+      
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -209,7 +215,7 @@ const AddRatelDevice = ({ children }) => {
             <CCol lg={6} xs={12}>
               {deviceLocationsAreFetching && <CSpinner />}
               {!deviceLocationsAreFetching && (
-                <RFFCFormSelectObjectValue
+                <RFFCFormSelect
                   name="Location"
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
@@ -371,59 +377,155 @@ const AddRatelDevice = ({ children }) => {
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}
+        {/* <ConfirmDevice useFormState={useFormState}/> */}
+       
           {!postResults.isSuccess && (
             <FormSpy subscription={{ values: true, labels: true }}>
-              {(props) => {
+             {(props) => {
+                const formState = useFormState()
                 console.log('PROPS IN FORM SPY', props)
-                console.log('GIT PUSH')
+                console.log('FORM STATE IN FORM SPY', formState)
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
-                const valuesArray = Object.keys(values).map((key) => ({
+                const valuesArray = Object.keys(formState.values).map((key) => ({
                   key: key,
                   value: values[key]
                 }));
-              
                 let newValues = valuesArray.filter((obj) => typeof obj.value !== "object");
-                console.log('NEW VALUES IN CONFIRM SCREEN: ', newValues)
-                function formatString(str) {
-                  return str.replace(/([a-z])([A-Z])/g, '$1 $2')
-                            .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
-                }
-                const renderedValues = []
-                newValues.map(value => renderedValues.push(<CListGroupItem
-                  className="d-flex justify-content-between align-items-center text-bold"
-
-                >
-                
-                  
-                  {formatString(value.key)} : {formatString(value.value)}
-                  </CListGroupItem>))
-                  //   let objectValues = newValues.map(value => { value === "Location" ? JSON.parse(values.Location) : value.value})
-                  // console.log('object values', objectValues)
-                    for (let value in newValues) {
-                  // if (newValues.indexOf(values[value]) !== 0) {
-                    
-
-                    // value.split('').forEach((char, idx) => {
-                    //   if (idx !== 0 && char.toUpperCase() === true) {
-                    //     console.log('found upper case')
-                    //     value = value.replace(char, '$& ')
-                    //     console.log('new return value', value)
-                    //     renderedValues.push(
-                    //       <div>{value + ": " + newValues[label] ? newValues[label] : newValues[value]}</div>
-                    //        )
-                    //   }
-                    // })
-                   
+                console.log('NEW VALUES', newValues)
+                let deviceKey
+                  // if (newValues.includes("ModelId")) {
+                    deviceKey = newValues.find(value => Object.values(value).includes("ModelId"))
                   // }
-                  
-                }
-
+                  let deviceLocationKey
+                  // if (newValues.includes("Location")) {
+                    deviceLocationKey = newValues.find(value => Object.values(value).includes("Location"))
+                  console.log('DEVICE KEY IN SPY', deviceKey)
+                  let deviceContactKey
+                  // if (newValues.includes("ContactID")) {
+                    deviceContactKey = newValues.find(value => Object.values(value).includes("ContactID"))
+                  let deviceTypeKey
+                  // if (newValues.includes("DeviceType")) {
+                    deviceTypeKey = newValues.find(value => Object.values(value).includes("DeviceType"))
+                    let dialplanKey
+                    dialplanKey = newValues.find(value => Object.values(value).includes("DialplanType"))
+                    let callerIDKey
+                    callerIDKey = newValues.find(value => Object.values(value).includes("CallerIDType"))
+                    let modelIDKey
+                    modelIDKey = newValues.find(value => Object.values(value).includes("ModelId"))
+                    let locationKey
+                    locationKey = newValues.find(value => Object.values(value).includes("Location"))
+                    let hideFromPhonebookKey
+                    hideFromPhonebookKey = newValues.find(value => Object.values(value).includes("HideFromPhonebook"))
+                    let macAddressKey
+                    macAddressKey = newValues.find(value => Object.values(value).includes("MacAddress"))
+                    let extensionNumberKey
+                    extensionNumberKey = newValues.find(value => Object.values(value).includes("ExtensionNumber"))
+                    let fopGroupKey
+                    fopGroupKey = newValues.find(value => Object.values(value).includes("FopGroup"))
+                    let emailKey
+                    emailKey = newValues.find(value => Object.values(value).includes("Email"))
+                    let labelKey
+                    labelKey = newValues.find(value => Object.values(value).includes("Label"))
+                    let didKey
+                    didKey = newValues.find(value => Object.values(value).includes("Did"))
+                    console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
+                  console.log('DEVICE TYPE KEY IN SPY', deviceTypeKey)
+                  console.log('DEVICE LOCATION KEY IN SPY', deviceLocationKey)
+                  let deviceModelLabel
+                  if (deviceKey) {
+                    deviceModelLabel = deviceModels.find(device => device.modelId === parseInt(deviceKey.value))
+                    // setNewValues(deviceModelLabel)
+                    console.log('DEVICE MODEL LABEL IN SPY', deviceModelLabel)
+                  }
+                  let deviceLocationLabel
+                  if (deviceLocationKey) {
+                    deviceLocationLabel = deviceLocations.find(location => location.locationId === parseInt(deviceLocationKey.value))
+                  // setNewValues(deviceLocationLabel)  
+                  }
+                  let deviceContactLabel
+                  if (deviceContactKey) {
+                    deviceContactLabel = deviceContacts.find(contact => contact.ContactID === parseInt(deviceContactKey.value))
+                  }
+                   
                 return <CListGroup>
-                  <ul>
-                  {renderedValues}
-                  </ul>
+                 
+                 
+                  {
+                   deviceTypeKey && <CListGroupItem>
+                      {`Device Type : ${deviceTypeKey.value}`}
+                      </CListGroupItem>
+                    }
+                   {
+                    dialplanKey && <CListGroupItem>
+                    {`Dialplan Type : ${dialplanKey.value}`}
+                    </CListGroupItem>
+                   }
+                   {
+                    callerIDKey && <CListGroupItem>
+                    {`Caller ID Type : ${callerIDKey.value}`}
+                    </CListGroupItem>
+                   }
+                   
+                   {deviceLocationLabel && <CListGroupItem>
+                     {`Location : ${deviceLocationLabel.Name}`}
+                    </CListGroupItem>}
+                    {deviceModelLabel &&
+                      <CListGroupItem>
+                    { `Model : ${deviceModelLabel.Name}`}
+                    </CListGroupItem>}
+                    {
+                      hideFromPhonebookKey && <CListGroupItem>
+                      {`Hide From Phonebook : ${hideFromPhonebookKey.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      macAddressKey && <CListGroupItem>
+                      {`MAC Address : ${macAddressKey.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      extensionNumberKey && <CListGroupItem>
+                      {`Extension Number : ${extensionNumberKey.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      fopGroupKey && <CListGroupItem>
+                      {`FOP Group : ${fopGroupKey.value}`}
+                      </CListGroupItem>
+                    }
+                    {
+                      emailKey && <CListGroupItem>
+                      {`Email Address : ${emailKey.value}`}
+                      </CListGroupItem>
+
+                    }
+                    {
+                      labelKey && <CListGroupItem>
+                      {`Label : ${labelKey.value}`}
+                      </CListGroupItem>
+                    }
+                   {deviceContactLabel && <CListGroupItem>
+                    {`Contact : ${deviceContactLabel.Name}`}
+                    </CListGroupItem>
+                    }
+                    {
+                      didKey && <CListGroupItem>
+                      {`DID : ${didKey.value}`}
+                      </CListGroupItem>
+                    }
+                  
+
+                  {/* 
+                  {deviceKey &&
+                    <CListGroupItem>
+                      
+                  {/* {`${formatString(deviceKey)} " : " ${deviceLabel.Name}`} */}
+                  {/* </CListGroupItem>}  */}
+                 
+               
+                   
                   </CListGroup>
               }}
             </FormSpy>

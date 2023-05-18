@@ -32,7 +32,7 @@ const ChangeDeviceLabel = () => {
     }
     // window.alert(JSON.stringify(shippedValues))
     // console.log(values)
-    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId}&RatelScript=true&ScriptId=7853`})
+    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId},Key=newEmail|Value=0,Key=newLTID|Value=0&RatelScript=true&ScriptId=7853`})
   }
 
 
