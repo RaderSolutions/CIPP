@@ -410,8 +410,8 @@ useEffect(()=>{
                     deviceTypeKey = newValues.find(value => Object.values(value).includes("DeviceType"))
                     let dialplanKey
                     dialplanKey = newValues.find(value => Object.values(value).includes("DialplanType"))
-                    let callerIDKey
-                    callerIDKey = newValues.find(value => Object.values(value).includes("CallerIDType"))
+                    let callerIDTypeKey
+                    callerIDTypeKey = newValues.find(value => Object.values(value).includes("CallerIDType"))
                     let modelIDKey
                     modelIDKey = newValues.find(value => Object.values(value).includes("ModelId"))
                     let locationKey
@@ -428,6 +428,8 @@ useEffect(()=>{
                     emailKey = newValues.find(value => Object.values(value).includes("Email"))
                     let labelKey
                     labelKey = newValues.find(value => Object.values(value).includes("Label"))
+                    let callerIDKey
+                    callerIDKey = newValues.find(value => Object.values(value).includes("CallerID"))
                     let didKey
                     didKey = newValues.find(value => Object.values(value).includes("Did"))
                     console.log('DEVICE CONTACT KEY IN SPY', deviceContactKey)
@@ -467,8 +469,8 @@ useEffect(()=>{
                     </CListGroupItem>
                    }
                    {
-                    callerIDKey && <CListGroupItem>
-                    {`Caller ID Type : ${callerIDKey.value}`}
+                    callerIDTypeKey && <CListGroupItem>
+                    {`Caller ID Type : ${callerIDTypeKey.value}`}
                     </CListGroupItem>
                    }
                    
@@ -519,7 +521,11 @@ useEffect(()=>{
                       {`DID : ${didKey.value}`}
                       </CListGroupItem>
                     }
-                  
+                  {
+                    callerIDKey && <CListGroupItem>
+                    {`Caller ID : ${callerIDKey.value}`}
+                    </CListGroupItem>
+                  }
 
                   {/* 
                   {deviceKey &&
