@@ -340,7 +340,7 @@ useEffect(()=>{
                   {deviceDidsAreFetching && <CSpinner />}
                   {deviceDidsSuccess && deviceDids !== {} && (
                     <RFFCFormSelect
-                      name="Did"
+                      name="CallerID"
                       label="Choose Caller ID"
                       placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
                       values={deviceDids?.map((deviceDid) => ({
