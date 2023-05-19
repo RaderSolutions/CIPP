@@ -480,8 +480,8 @@ useEffect(()=>{
                     { `Model : ${deviceModelLabel.Name}`}
                     </CListGroupItem>}
                     {
-                      hideFromPhonebookKey && <CListGroupItem>
-                      {`Hide From Phonebook : ${hideFromPhonebookKey.value}`}
+                      hideFromPhonebookLabel && <CListGroupItem>
+                      {`Hide From Phonebook : ${hideFromPhonebookLabel}`}
                       </CListGroupItem>
                     }
                     {
