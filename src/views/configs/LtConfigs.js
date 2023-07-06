@@ -30,6 +30,7 @@ const Configs = () => {
   // See ltConfigs and ratelDevices in store/api
   // If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
   // -Tripp
+  // Test commit 7/6
   useEffect(() => {
     async function fetchData() {
       try {
