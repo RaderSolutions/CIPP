@@ -225,8 +225,8 @@ const AddPhonebookEntry = () => {
                   const formState = useFormState()
                   console.log('formState', formState)
                   console.log('props', props)
-
-                  const valuesArray = Object.keys(props.values).map((key) => ({
+                  const { values } = props;
+                  const valuesArray = Object.keys(values).map((key) => ({
                     key: key,
                     value: values[key]
                   }))
