@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field } from 'react-final-form'
+import { Field, FormSpy, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -217,6 +217,22 @@ const AddPhonebookEntry = () => {
           <h3 className="text-primary">Step 3</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
+          {
+            !postResults.isSuccess && (
+              <FormSpy subscription={{ values: true, labels: true }}>
+               {
+                (props) => {
+                  const formState = useFormState()
+                  const valuesArray = Object.keys(formState.values).map((key) => ({
+                    key: key,
+                    value: values[key]
+                  }))
+                  console.log('valuesArray', valuesArray)
+                }
+               }
+                </FormSpy>
+            )
+          }
 
           {postResults.isFetching && (
             <CCallout color="info">
