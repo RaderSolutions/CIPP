@@ -223,11 +223,12 @@ const AddPhonebookEntry = () => {
                {
                 (props) => {
                   const formState = useFormState()
-                  const valuesArray = Object.keys(formState.values).map((key) => ({
-                    key: key,
-                    value: values[key]
-                  }))
-                  console.log('valuesArray', valuesArray)
+                  console.log('formState', formState)
+                  // const valuesArray = Object.keys(formState.values).map((key) => ({
+                  //   key: key,
+                  //   value: values[key]
+                  // }))
+                  // console.log('valuesArray', valuesArray)
                 }
                }
                 </FormSpy>
