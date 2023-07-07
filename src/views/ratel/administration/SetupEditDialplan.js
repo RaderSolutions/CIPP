@@ -13,32 +13,33 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
 const EditDialplan = () => {
-  const dispatch = useDispatch()
-  let query = useQuery()
-  const dialplan = query.get('dialplan')
-  const name = query.get('name')
-  const description = query.get('description')
-  const tenantDomain = query.get('tenantDomain')
-  const [queryError, setQueryError] = useState(false)
+  // const dispatch = useDispatch()
+  // let query = useQuery()
+  // const dialplan = query.get('dialplan')
+  // const name = query.get('name')
+  // const description = query.get('description')
+  // const tenantDomain = query.get('tenantDomain')
+  // const [queryError, setQueryError] = useState(false)
 
-  const initialState = {
-    dialplan: dialplan,
-    name: name,
-    description: description,
-  }
+  // const initialState = {
+  //   dialplan: dialplan,
+  //   name: name,
+  //   description: description,
+  // }
 
-  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const onSubmit = (values) => {
-    window.alert(JSON.stringify(shippedValues))
-    console.log(values)
-    genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
-    })
-  }
+  // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  // const onSubmit = (values) => {
+  //   window.alert(JSON.stringify(shippedValues))
+  //   console.log(values)
+  //   genericPostRequest({
+  //     path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+  //   })
+  // }
 
   return (
     <>
-      {dialplan && name && description && tenantDomain ? (
+    <div>test dialplan</div>
+      {/* {dialplan && name && description && tenantDomain ? (
         <CippPage title="Edit Dialplan">
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
@@ -71,7 +72,7 @@ const EditDialplan = () => {
         </CippPage>
       ) : (
         <CippPage title="Edit Dialplan"> </CippPage>
-      )}
+      )} */}
     </>
   )
 }
