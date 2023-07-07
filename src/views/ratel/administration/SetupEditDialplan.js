@@ -12,7 +12,7 @@ import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
-const EditDialplan = () => {
+const EditSetup = () => {
   // const dispatch = useDispatch()
   // let query = useQuery()
   // const dialplan = query.get('dialplan')
@@ -77,4 +77,4 @@ const EditDialplan = () => {
   )
 }
 
-export default EditDialplan
+export default EditSetup
