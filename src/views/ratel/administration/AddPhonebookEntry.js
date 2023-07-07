@@ -230,6 +230,9 @@ const AddPhonebookEntry = () => {
                     key: key,
                     value: values[key]
                   }))
+                  let dialKey
+                  dialKey = valuesArray.find((item) => item.key === 'Dial')
+                  console.log('dialKey', dialKey)
                   console.log('valuesArray', valuesArray)
                   return (
                     <div>test</div>)
