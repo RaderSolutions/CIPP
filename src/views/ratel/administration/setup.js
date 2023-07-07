@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/setup/editDialplan?tenantDomain=${tenant.customerId}&name=${row.Name}&description=${row.Description}&dialplan=${row.Dialplan}`
+  const editLink = `/ratel/administration/setup/setupEditDialplan?tenantDomain=${tenant.customerId}&name=${row.Name}&description=${row.Description}&dialplan=${row.Dialplan}`
 
   return (
     <>

@@ -343,7 +343,7 @@ const routes = [
   { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
   { path: '/ratel/administration/setup', name: 'RATEL Setup', component: RatelSetup },
   {
-    path: '/ratel/administration/setup/EditDialplan',
+    path: '/ratel/administration/setup/setupEditDialplan',
     name: 'Setup Edit Dialplan',
     component: SetupEditDialplan,
   },
