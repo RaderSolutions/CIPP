@@ -232,12 +232,106 @@ const AddPhonebookEntry = () => {
                   }))
                   let dialKey
                   dialKey = valuesArray.find((item) => item.key === 'Dial')
+                  let salutationKey
+                  salutationKey = valuesArray.find((item) => item.key === 'salutation')
+                  let firstNameKey
+                  firstNameKey = valuesArray.find((item) => item.key === 'firstName')
+                  let middleNameKey
+                  middleNameKey = valuesArray.find((item) => item.key === 'middleName')
+                  let lastNameKey
+                  lastNameKey = valuesArray.find((item) => item.key === 'lastName')
+                  let suffixKey
+                  suffixKey = valuesArray.find((item) => item.key === 'suffix')
+                  let emailKey
+                  emailKey = valuesArray.find((item) => item.key === 'email')
+                  let organizationKey
+                  organizationKey = valuesArray.find((item) => item.key === 'organization')
+                  let jobTitleKey
+                  jobTitleKey = valuesArray.find((item) => item.key === 'jobTitle')
+                  let locationKey
+                  locationKey = valuesArray.find((item) => item.key === 'location')
+                  let notesKey
+                  notesKey = valuesArray.find((item) => item.key === 'notes')
+                  let contactTypeKey
+                  contactTypeKey = valuesArray.find((item) => item.key === 'contactType')
+                  let isFromFOPKey
+                  isFromFOPKey = valuesArray.find((item) => item.key === 'select')
+                  
+                  
                   console.log('dialKey', dialKey)
                   console.log('valuesArray', valuesArray)
                   return (
-                    <div>test</div>)
-                }
-               }
+                    <CListGroup>
+                    {
+                      dialKey && <CListGroupItem>
+                        {`Dial: ${dialKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      salutationKey && <CListGroupItem>
+                        {`Salutation: ${salutationKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      firstNameKey && <CListGroupItem>
+                        {`First Name: ${firstNameKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      middleNameKey && <CListGroupItem>
+                        {`Middle Name: ${middleNameKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      lastNameKey && <CListGroupItem>
+                        {`Last Name: ${lastNameKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      suffixKey && <CListGroupItem>
+                        {`Suffix: ${suffixKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      emailKey && <CListGroupItem>
+                        {`Email: ${emailKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      organizationKey && <CListGroupItem>
+                        {`Organization: ${organizationKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      jobTitleKey && <CListGroupItem>
+                        {`Job Title: ${jobTitleKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      locationKey && <CListGroupItem>
+                        {`Location: ${locationKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      notesKey && <CListGroupItem>
+                        {`Notes: ${notesKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      contactTypeKey && <CListGroupItem>
+                        {`Contact Type: ${contactTypeKey.value}`}
+                        </CListGroupItem>
+                    }
+                    {
+                      isFromFOPKey && <CListGroupItem>
+                        {`Is From FOP: ${isFromFOPKey.value}`}
+                        </CListGroupItem>
+                    }
+                      
+                    </CListGroup>
+               
+               )
+                }}
                 </FormSpy>
             )
           }
