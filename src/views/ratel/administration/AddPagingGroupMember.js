@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
+import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem } from '@coreui/react'
 import { Field } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
@@ -90,12 +90,41 @@ const AddPagingGroupMember = () => {
           <h3 className="text-primary">Step 3</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
+          {
+            !postResults.isSuccess && (
+              <FormSpy subscription={{ values: true }}>
+                {
+                  (props) => {
+                    const { values } = props
+                    console.log("VALUES ADD PAGING GROUP MEMBER: ", values)
+                    const valuesArray = Object.values(values).map((key) => ({
+                      key: key,
+                      value: values[key],
+                    }))
+                    let pageGroupKey
+                    // pageGroupKey = valuesArray.find((item) => item.key === 'PagegroupExt')
+                    let deviceExtKey
+                    return (
+                     <CListGroup>
+                      {
+
+                      }
+                      </CListGroup>
+                    )
+                  }
+                }
+                </FormSpy>
+            )
+              }
           {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
             </CCallout>
           )}
-          {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
+          {postResults.isSuccess && 
+          <CCallout color="success">{postResults.data.Results}
+          
+          </CCallout>}
         </center>
         <hr className="my-4" />
       </CippWizard.Page>
