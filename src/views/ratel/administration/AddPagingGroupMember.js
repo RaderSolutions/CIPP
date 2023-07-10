@@ -101,6 +101,7 @@ const AddPagingGroupMember = () => {
                       key: key,
                       value: values[key],
                     }))
+                    console.log("VALUES ARRAY: ", valuesArray)
                     let pageGroupKey
                     pageGroupKey = valuesArray.find((item) => item.key === 'PagegroupExt')
                     let deviceExtKey
