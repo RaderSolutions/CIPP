@@ -102,12 +102,16 @@ const AddPagingGroupMember = () => {
                       value: values[key],
                     }))
                     let pageGroupKey
-                    // pageGroupKey = valuesArray.find((item) => item.key === 'PagegroupExt')
+                    pageGroupKey = valuesArray.find((item) => item.key === 'PagegroupExt')
                     let deviceExtKey
+                    deviceExtKey = valuesArray.find((item) => item.key === 'DeviceExt')
                     return (
                      <CListGroup>
                       {
-
+                        pageGroupKey && <CListGroupItem>Page Group Extension: {pageGroupKey.value}</CListGroupItem>
+                      }
+                      {
+                        deviceExtKey && <CListGroupItem>Device Extension: {deviceExtKey.value}</CListGroupItem>
                       }
                       </CListGroup>
                     )
