@@ -108,10 +108,10 @@ const AddPagingGroupMember = () => {
                     return (
                      <CListGroup>
                       {
-                        pageGroupKey && <CListGroupItem>Page Group Extension: {pageGroupKey.value}</CListGroupItem>
+                        pageGroupKey && <CListGroupItem>{`Page Group Extension: ${pageGroupKey.value}`}</CListGroupItem>
                       }
                       {
-                        deviceExtKey && <CListGroupItem>Device Extension: {deviceExtKey.value}</CListGroupItem>
+                        deviceExtKey && <CListGroupItem>{`Device Extension: ${deviceExtKey.value}`}</CListGroupItem>
                       }
                       </CListGroup>
                     )
