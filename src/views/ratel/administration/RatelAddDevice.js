@@ -96,7 +96,7 @@ const AddRatelDevice = ({ children }) => {
       tenantID: tenantDomain,
       deviceType: values.deviceType,
       dialplanType: values.dialplanType,
-      callerIdType: values.callerIdType,
+      callerIDType: values.callerIDType,
     }
 
     // alert(JSON.stringify(values, null, 2))
