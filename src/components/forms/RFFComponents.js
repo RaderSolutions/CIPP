@@ -267,7 +267,7 @@ export const RFFCFormSelect = ({
             }}
           >
             <option value={placeholder}>{placeholder}</option>
-            {!values ? "test null" : values.map(({ label, value }, idx) => (
+            {values === null || values === undefined ? <option key={'test null'}>"test null" </option>: values.map(({ label, value }, idx) => (
               <option key={`${idx}-${value}`} value={value}>
                 {label}
               </option>
