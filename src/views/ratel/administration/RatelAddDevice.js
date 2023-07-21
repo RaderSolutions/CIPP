@@ -117,10 +117,20 @@ useEffect(()=>{
 }, [newValues])
 
 
-
+if (!formValues) {
+  return (
+    
+    <>
+    <CSpinner />
+    <div>
+      Loading...
+    </div>
+    </>
+  )
+}
 
   return (
-    <CippWizard
+   <CippWizard
       initialValues={{ ...formValues }}
       onSubmit={handleSubmit}
       wizardTitle="Add Ratel Device Wizard"
@@ -551,6 +561,7 @@ useEffect(()=>{
         <hr className="my-4" />
       </CippWizard.Page>
     </CippWizard>
+
   )
 }
 
