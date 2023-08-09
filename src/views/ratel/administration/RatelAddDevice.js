@@ -72,7 +72,7 @@ const AddRatelDevice = ({ children }) => {
   } = useListDeviceModelsQuery()
 
   const {
-    data: deviceDids = {},
+    data: deviceDids = [],
     isFetching: deviceDidsAreFetching,
     isSuccess: deviceDidsSuccess,
     error: deviceDidsError,
