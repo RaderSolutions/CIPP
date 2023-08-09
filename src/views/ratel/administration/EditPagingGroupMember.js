@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react'
-import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
+import { CButton, CCallout, CCol, CForm, CRow, CListGroup, CListGroupItem, CSpinner } from '@coreui/react'
 import useQuery from 'src/hooks/useQuery'
 import { useDispatch } from 'react-redux'
-import { Form } from 'react-final-form'
+import { Form, FormSpy } from 'react-final-form'
 import { RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
 import { CippCodeBlock, ModalService } from 'src/components/utilities'
 import { useLazyGenericGetRequestQuery, useLazyGenericPostRequestQuery } from 'src/store/api/app'
@@ -104,7 +104,21 @@ export const EditPageMember = () => {
                     {postResults.isSuccess && (
                       <CCallout color="success">
                         {postResults.data.Results.map((message, idx) => {
-                          return <li key={idx}>{message}</li>
+                          return (
+                            <FormSpy subscription={{ values: true, labels: true }}>
+                              {
+                                (props) => {
+                                  return (
+                                    <CListGroup>
+
+                                    </CListGroup>
+                                  )
+                                }
+                              }
+
+                            </FormSpy>
+                          )
+
                         })}
                       </CCallout>
                     )}

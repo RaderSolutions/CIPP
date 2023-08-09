@@ -348,7 +348,8 @@ if (!formValues) {
               <CRow>
                 <CCol lg={6} xs={12}>
                   {deviceDidsAreFetching && <CSpinner />}
-                  {deviceDidsSuccess && deviceDids !== {} && (
+                  
+                  {!deviceDidsAreFetching && deviceDids !== {} && (
                     <RFFCFormSelect
                       name="CallerID"
                       label="Choose Caller ID"
