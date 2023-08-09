@@ -355,7 +355,7 @@ if (!formValues) {
                       name="CallerID"
                       label="Choose Caller ID"
                       placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-                      values={deviceDids?.map((deviceDid) => ({
+                      values={deviceDids && deviceDids?.map((deviceDid) => ({
                         label: deviceDid.Number,
                         value: deviceDid.Number,
                       }))}
