@@ -236,11 +236,11 @@ export const RFFCFormSelect = ({
       return null
     }
   }
+
+
   let newValues;
   if (!Array.isArray(values) && Object.isObject(values)) {
     newValues = Object.entries(values)
-  }
-
   }
   // const handleChange = (e) => {
   //   console.log('event', e.target.value)
