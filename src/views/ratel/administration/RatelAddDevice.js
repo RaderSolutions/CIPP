@@ -230,7 +230,7 @@ if (!formValues) {
                   name="Location"
                   label="Device Location"
                   placeholder={!deviceLocationsAreFetching ? 'Select Location' : 'Loading...'}
-                  values={deviceLocations?.map((deviceLocation) => ({
+                  values={deviceLocations && deviceLocations?.map((deviceLocation) => ({
                     value: deviceLocation.locationId,
                     label: deviceLocation.Name,
                   }))}
@@ -400,7 +400,7 @@ if (!formValues) {
                 const { values } = props;
                 const selectedLocationLabel = values.Location?.label
                 console.log('selectedLocation', selectedLocationLabel)
-                const valuesArray = Object.keys(formState.values).map((key) => ({
+                const valuesArray = Object.keys(formState.values)?.map((key) => ({
                   key: key,
                   value: values[key]
                 }));
