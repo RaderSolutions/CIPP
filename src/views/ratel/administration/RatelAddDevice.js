@@ -77,6 +77,7 @@ const AddRatelDevice = ({ children }) => {
     isSuccess: deviceDidsSuccess,
     error: deviceDidsError,
   } = useListDidsQuery({ tenantDomain })
+  console.log("DEVICE DIDS", deviceDids)
   console.log("DEVICE LOCATIONS", deviceLocations)
   console.log("DEVICE CONTACTS", deviceContacts)
 
