@@ -244,7 +244,7 @@ export const RFFCFormSelect = ({
   //   input.onChange(event)
   //   console.log(event.target.value)
   // }
-  const { values: currentValues } = useFormState()
+  // const { values: currentValues } = useFormState()
   useEffect(() => {
     console.log('label', label)
     // setDeviceTypeLocal(currentValues.SelectDeviceType)
