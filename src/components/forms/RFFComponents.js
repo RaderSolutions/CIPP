@@ -236,6 +236,12 @@ export const RFFCFormSelect = ({
       return null
     }
   }
+  let newValues;
+  if (!Array.isArray(values) && Object.isObject(values)) {
+    newValues = Object.entries(values)
+  }
+
+  }
   // const handleChange = (e) => {
   //   console.log('event', e.target.value)
   //   // return e.target.value
@@ -267,7 +273,7 @@ export const RFFCFormSelect = ({
             }}
           >
             <option value={placeholder}>{placeholder}</option>
-            {!values || values === null || Array.isArray(values) === false ? <option key={'test null'}>"test null" </option> : values.map(({ label, value }, idx) => (
+            {!newValues || newValues === null || Array.isArray(newValues) === false ? <option key={'test null'}>"test null" </option> : newValues.map(({ label, value }, idx) => (
               <option key={`${idx}-${value}`} value={value}>
                 {label}
               </option>
