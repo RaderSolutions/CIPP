@@ -54,19 +54,19 @@ const AddRatelDevice = ({ children }) => {
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const {
-    data: deviceLocations = {},
+    data: deviceLocations = [],
     isFetching: deviceLocationsAreFetching,
     error: deviceLocationsError,
   } = useListDeviceLocationsQuery({ tenantDomain })
 
   const {
-    data: deviceContacts = {},
+    data: deviceContacts = [],
     isFetching: deviceContactsAreFetching,
     error: deviceContactsError,
   } = useListDeviceContactsQuery({ tenantDomain })
 
   const {
-    data: deviceModels = {},
+    data: deviceModels = [],
     isFetching: deviceModelsAreFetching,
     error: deviceModelsError,
   } = useListDeviceModelsQuery()
@@ -350,7 +350,7 @@ if (!formValues) {
                 <CCol lg={6} xs={12}>
                   {deviceDidsAreFetching && <CSpinner />}
                   
-                  {!deviceDidsAreFetching && deviceDids !== {} && (
+                  {!deviceDidsAreFetching && deviceDids && (
                     <RFFCFormSelect
                       name="CallerID"
                       label="Choose Caller ID"
