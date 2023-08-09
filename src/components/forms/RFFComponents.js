@@ -215,84 +215,8 @@ RFFCFormTextarea.propTypes = {
   ...sharedPropTypes,
   placeholder: PropTypes.string,
 }
-
-export const RFFCFormSelect = ({
-  name,
-  label,
-  values = [],
-  placeholder,
-  className = 'mb-3',
-  validate,
-  disabled = false,
-  // onChange,
-  setTypeState,
-}) => {
-  // handler for ignoring the first element ('the placeholder')
-  const selectValidate = (value, allValues, meta) => {
-    if (validate) {
-      if (value !== placeholder) {
-        return validate(value, allValues, meta)
-      }
-      return null
-    }
-  }
-
-
-  let newValues;
-  if (!Array.isArray(values) && Object.isObject(values)) {
-    newValues = Object.entries(values)
-  }
-  // const handleChange = (e) => {
-  //   console.log('event', e.target.value)
-  //   // return e.target.value
-  // }
-  // const handleInputChange = (event) => {
-  //   input.onChange(event)
-  //   console.log(event.target.value)
-  // }
-  // const { values: currentValues } = useFormState()
-  useEffect(() => {
-    console.log('label', label)
-    // setDeviceTypeLocal(currentValues.SelectDeviceType)
-    // setDialplanTypeLocal(current.SelectDialplanType)
-    // setCallerIdTypeLocal(current.SelectCal)
-  }, [label])
-
-  return (
-    <Field name={name} validate={selectValidate}>
-      {({ input, meta }) => (
-        <div className={className}>
-          {label && <CFormLabel>{label}</CFormLabel>}
-          <CFormSelect
-            {...input}
-            valid={!meta.error && meta.touched}
-            invalid={meta.error && meta.touched}
-            disabled={disabled}
-            onSelect={() => {
-              console.log('select', input.label)
-            }}
-          >
-            <option value={placeholder}>{placeholder}</option>
-            {!newValues || newValues === null || Array.isArray(newValues) === false ? <option key={'test null'}>"test null" </option> : newValues.map(({ label, value }, idx) => (
-              <option key={`${idx}-${value}`} value={value}>
-                {label}
-              </option>
-            ))}
-          </CFormSelect>
-          <RFFCFormFeedback meta={meta} />
-        </div>
-      )}
-    </Field>
-  )
-}
-
-RFFCFormSelect.propTypes = {
-  ...sharedPropTypes,
-  placeholder: PropTypes.string.isRequired,
-  values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
-}
-
-// export const RFFCFormSelectObjectValue = ({
+// modified rffcformselect
+// export const RFFCFormSelect = ({
 //   name,
 //   label,
 //   values = [],
@@ -312,6 +236,12 @@ RFFCFormSelect.propTypes = {
 //       return null
 //     }
 //   }
+
+
+//   let newValues;
+//   if (!Array.isArray(values) && Object.isObject(values)) {
+//     newValues = Object.entries(values)
+//   }
 //   // const handleChange = (e) => {
 //   //   console.log('event', e.target.value)
 //   //   // return e.target.value
@@ -320,18 +250,16 @@ RFFCFormSelect.propTypes = {
 //   //   input.onChange(event)
 //   //   console.log(event.target.value)
 //   // }
-//   const { values: currentValues } = useFormState()
+//   // const { values: currentValues } = useFormState()
 //   useEffect(() => {
-//     console.log('values in custom select', values)
+//     console.log('label', label)
 //     // setDeviceTypeLocal(currentValues.SelectDeviceType)
 //     // setDialplanTypeLocal(current.SelectDialplanType)
 //     // setCallerIdTypeLocal(current.SelectCal)
 //   }, [label])
 
 //   return (
-//     <Field 
-//           name={name}
-//                 format={(value) => (value ? value.value : '')} parse={(value) => ({ value, label })} validate={selectValidate}>
+//     <Field name={name} validate={selectValidate}>
 //       {({ input, meta }) => (
 //         <div className={className}>
 //           {label && <CFormLabel>{label}</CFormLabel>}
@@ -345,8 +273,8 @@ RFFCFormSelect.propTypes = {
 //             }}
 //           >
 //             <option value={placeholder}>{placeholder}</option>
-//             {values.map(({ label, value }, idx) => (
-//               <option key={`${idx}-${value}`} value={{ value: value, label: label }}>
+//             {!newValues || newValues === null || Array.isArray(newValues) === false ? <option key={'test null'}>"test null" </option> : newValues.map(({ label, value }, idx) => (
+//               <option key={`${idx}-${value}`} value={value}>
 //                 {label}
 //               </option>
 //             ))}
@@ -358,11 +286,61 @@ RFFCFormSelect.propTypes = {
 //   )
 // }
 
-// RFFCFormSelectObjectValue.propTypes = {
+// RFFCFormSelect.propTypes = {
 //   ...sharedPropTypes,
 //   placeholder: PropTypes.string.isRequired,
 //   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
 // }
+// original rrfcformselect
+export const RFFCFormSelect = ({
+  name,
+  label,
+  values = [],
+  placeholder,
+  className = 'mb-3',
+  validate,
+  disabled = false,
+}) => {
+  // handler for ignoring the first element ('the placeholder')
+  const selectValidate = (value, allValues, meta) => {
+    if (validate) {
+      if (value !== placeholder) {
+        return validate(value, allValues, meta)
+      }
+      return null
+    }
+  }
+
+  return (
+    <Field name={name} validate={selectValidate}>
+      {({ input, meta }) => (
+        <div className={className}>
+          {label && <CFormLabel>{label}</CFormLabel>}
+          <CFormSelect
+            {...input}
+            valid={!meta.error && meta.touched}
+            invalid={meta.error && meta.touched}
+            disabled={disabled}
+          >
+            <option value={placeholder}>{placeholder}</option>
+            {values.map(({ label, value }, idx) => (
+              <option key={`${idx}-${value}`} value={value}>
+                {label}
+              </option>
+            ))}
+          </CFormSelect>
+          <RFFCFormFeedback meta={meta} />
+        </div>
+      )}
+    </Field>
+  )
+}
+
+RFFCFormSelect.propTypes = {
+  ...sharedPropTypes,
+  placeholder: PropTypes.string.isRequired,
+  values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
+}
 export const RFFCFormSelectObjectValue = ({
   name,
   label,
