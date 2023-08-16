@@ -32,6 +32,10 @@ export const EditEntry = () => {
     genericPostRequest({ path: '/api/LtRatelPhonebookEntry', values: shippedValues })
   }
 
+  useEffect(() => {
+    console.log('postResults', postResults)
+  },[postResults])
+
   return (
     <>
       <CippPage>
