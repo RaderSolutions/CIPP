@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
 import useQuery from 'src/hooks/useQuery'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Form } from 'react-final-form'
 import { RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
 import { CippCodeBlock, ModalService } from 'src/components/utilities'
@@ -13,9 +13,11 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 
 export const EditEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const onSubmit = (values) => {
     const shippedValues = {
+      TenantFilter: tenantDomain,
       Dial: values.dial,
       Salutation: values.salutation,
       FirstName: values.firstName,
@@ -29,7 +31,7 @@ export const EditEntry = () => {
       Notes: values.notes,
     }
 
-    genericPostRequest({ path: '/api/LtRatelPhonebookEntry', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPhonebookEntry?Action=Update', values: shippedValues })
   }
 
   useEffect(() => {
