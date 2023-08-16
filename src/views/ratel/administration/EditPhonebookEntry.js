@@ -158,7 +158,7 @@ export const EditEntry = () => {
                         </CButton>
                       </CCol>
                     </CRow>
-                    {postResults.isSuccess && postResults.data.Results !== "Something went wrong." (
+                    {postResults.isSuccess && postResults.data.Results !== "Something went wrong." && (
                       <CCallout color="success">
                         {postResults.data.Results.map((message, idx) => {
                           return <li key={idx}>{message}</li>
