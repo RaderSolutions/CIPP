@@ -58,7 +58,7 @@ export const EditEntry = () => {
                       </CCol>
                       <CCol>
                         <RFFCFormSelect
-                          name="Salutation"
+                          name="salutation"
                           label="Salutation"
                           values={[
                             { value: '', label: 'None' },
