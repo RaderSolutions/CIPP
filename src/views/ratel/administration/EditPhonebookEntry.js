@@ -95,7 +95,7 @@ export const EditEntry = () => {
                       </CCol>
                       <CCol>
                         <RFFCFormSelect
-                          name="select"
+                          name="suffix"
                           label="Suffix"
                           placeholder={'Select Suffix'}
                           values={[
