@@ -61,7 +61,7 @@ export const EditEntry = () => {
                           name="Salutation"
                           label="Salutation"
                           values={[
-                            { value: null, label: 'None' },
+                            { value: '', label: 'None' },
                             { value: 'Mr.', label: 'Mr.' },
                             { value: 'Ms.', label: 'Ms.' },
                             { value: 'Mrs.', label: 'Mrs.' },
