@@ -99,7 +99,7 @@ export const EditEntry = () => {
                           label="Suffix"
                           placeholder={'Select Suffix'}
                           values={[
-                            { value: null, label: 'None' },
+                            { value: '', label: 'None' },
                             { value: 'II', label: 'II' },
                             { value: 'III', label: 'III' },
                             { value: 'IV', label: 'IV' },
