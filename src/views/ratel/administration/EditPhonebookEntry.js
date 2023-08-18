@@ -54,7 +54,7 @@ export const EditEntry = () => {
                         <RFFCFormInput type="text" name="ID" label="ID" />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="Dial" label="Dial" />
+                        <RFFCFormInput type="text" name="dial" label="Dial" />
                       </CCol>
                       <CCol>
                         <RFFCFormSelect
