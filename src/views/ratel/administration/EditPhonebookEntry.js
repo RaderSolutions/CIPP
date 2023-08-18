@@ -31,7 +31,7 @@ export const EditEntry = () => {
       Notes: values.notes,
     }
 
-    genericPostRequest({ path: '/api/LtRatelPhonebookEntry?Action=Update', values: shippedValues })
+    genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}Action=Update`, values: shippedValues })
   }
 
   useEffect(() => {
