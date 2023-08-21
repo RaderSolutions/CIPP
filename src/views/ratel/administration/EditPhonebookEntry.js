@@ -14,6 +14,8 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 export const EditEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const query = useQuery()
+  const customerID = query.get('customerID')
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -29,6 +31,7 @@ export const EditEntry = () => {
       JobTitle: values.jobTitle,
       Location: values.location,
       Notes: values.notes,
+      ID: customerID,
     }
 
     genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`, values: shippedValues })
