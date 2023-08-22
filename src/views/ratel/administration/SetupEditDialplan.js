@@ -60,12 +60,12 @@ export const EditSetup = () => {
                       </CCol>
                       <CCol>
                         {/* <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" /> */}
-                        <CippContentCard title="Dialplan" icon={faEye}>
-                        <CippCodeBlock
-                        language='javascript'
-                        code={values.Dialplan}
-                        />
-                        </CippContentCard>
+                      {/* <CippContentCard title="Dialplan" icon={faEye}>
+                      <CippCodeBlock
+                      language='javascript'
+                      code={values.Dialplan}
+                      />
+                      </CippContentCard> */}
                       </CCol>
                     </CRow>
                     <CRow className="mb-3">
