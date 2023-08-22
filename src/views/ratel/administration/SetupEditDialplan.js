@@ -13,6 +13,7 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
 const EditSetup = () => {
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const dispatch = useDispatch()
   let query = useQuery()
   const dialplan = query.get('dialplan')
@@ -27,9 +28,9 @@ const EditSetup = () => {
   //   description: description,
   // }
 
-  useEffect(() =>{
-    console.log('initialState', initialState)
-  },[initialState])
+  // useEffect(() =>{
+  //   console.log('initialState', initialState)
+  // },[initialState])
 
   // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   // const onSubmit = (values) => {
