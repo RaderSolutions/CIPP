@@ -12,7 +12,7 @@ import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
-const EditSetup = () => {
+export const EditSetup = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const dispatch = useDispatch()
   let query = useQuery()
@@ -43,10 +43,7 @@ const EditSetup = () => {
 
   return (
     <>
-    {/* <div>test dialplan</div> */}
-      {/* {dialplan && name && description && tenantDomain ? */}
-      {/* ( */}
-        <CippPage title="Edit Dialplan">
+       <CippPage title="Edit Dialplan">
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
               // initialValues={{ ...initialState }}
@@ -76,11 +73,7 @@ const EditSetup = () => {
             />
           </CippContentCard>
         </CippPage>
-   {/* ) : 
-       (
-         <CippPage title="Edit Dialplan"> </CippPage>
-       )
-     } */}
+
     </>
   )
 }
