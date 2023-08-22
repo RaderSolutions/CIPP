@@ -5,7 +5,6 @@ import useQuery from 'src/hooks/useQuery'
 import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { RFFCFormInput, RFFCFormSelect, RFFCFormTextarea } from 'src/components/forms'
-import { CippCodeBlock, ModalService } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
@@ -21,29 +20,6 @@ export const EditSetup = () => {
   const description = query.get('description')
   const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
-  function twoSum(nums, target) {
-    const numToIndex = {};  // Maps numbers to their indices
-    
-    for (let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        const complement = target - num;
-        
-        if (complement in numToIndex) {
-            return [numToIndex[complement], i];
-        }
-        
-        numToIndex[num] = i;
-    }
-    
-    return null;  // No solution found
-}
-
-// Example usage
-const nums = [2, 7, 11, 15];
-const target = 9;
-const result = twoSum(nums, target);
-console.log(result);  // Output: [0, 1]
-
 
   // const initialState = {
   //   dialplan: dialplan,
