@@ -152,6 +152,19 @@ export const EditEntry = () => {
                           //disabled={formDIsabled}
                         />
                       </CCol>
+                      {/* <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                name="isFromFOP"
+                label="Is From FOP"
+                placeholder={'Select Option'}
+                values={[
+                  { value: null, label: 'None' },
+                  { value: true, label: 'true' },
+                  { value: false, label: 'false' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol> */}
                     </CRow>
                     <CRow className="mb-3">
                       <CCol md={6}>
