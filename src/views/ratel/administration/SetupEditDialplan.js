@@ -59,7 +59,7 @@ export const EditSetup = () => {
                         <RFFCFormInput type="text" name="description" label="Description" placeholder={description} />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan"  defaultValue={dialplan} />
+                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" placeholder={dialplan}  defaultValue={dialplan} />
                      </CCol>
                     </CRow>
                     <CRow className="mb-3">
