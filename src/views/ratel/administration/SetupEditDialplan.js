@@ -42,7 +42,7 @@ export const EditSetup = () => {
   // }
 
   return (
-    <>
+    
        <CippPage title="Edit Dialplan">
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
@@ -74,7 +74,7 @@ export const EditSetup = () => {
           </CippContentCard>
         </CippPage>
 
-    </>
+    
   )
 }
 
