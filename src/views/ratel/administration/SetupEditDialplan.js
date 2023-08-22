@@ -53,13 +53,13 @@ export const EditSetup = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="name" label="Name" />
+                        <RFFCFormInput type="text" name="name" label="Name" placeholder={name} />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="description" label="Description" />
+                        <RFFCFormInput type="text" name="description" label="Description" placeholder={description} />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" />
+                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" placeholder={dialplan} />
                      </CCol>
                     </CRow>
                     <CRow className="mb-3">
