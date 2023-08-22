@@ -187,6 +187,7 @@ export const RFFCFormTextarea = ({
   className = 'mb-3',
   validate,
   disabled = false,
+  defaultValue = null
 }) => {
   return (
     <Field name={name} value={value} validate={validate}>
@@ -201,6 +202,7 @@ export const RFFCFormTextarea = ({
               disabled={disabled}
               id={name}
               placeholder={placeholder}
+              defaultValue={defaultValue}
               //value={value}
             />
             <RFFCFormFeedback meta={meta} />
