@@ -39,7 +39,8 @@ const EditSetup = () => {
   return (
     <>
     {/* <div>test dialplan</div> */}
-      {dialplan && name && description && tenantDomain ? (
+      {/* {dialplan && name && description && tenantDomain ? */}
+      {/* ( */}
         <CippPage title="Edit Dialplan">
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
@@ -70,9 +71,11 @@ const EditSetup = () => {
             />
           </CippContentCard>
         </CippPage>
-      ) : (
-        <CippPage title="Edit Dialplan"> </CippPage>
-      )}
+   {/* ) : 
+       (
+         <CippPage title="Edit Dialplan"> </CippPage>
+       )
+     } */}
     </>
   )
 }
