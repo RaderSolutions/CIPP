@@ -37,9 +37,9 @@ export const EditEntry = () => {
     genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`, values: shippedValues })
   }
 
-  useEffect(() => {
-    console.log('postResults', postResults)
-  },[postResults])
+  // useEffect(() => {
+  //   console.log('postResults', postResults)
+  // },[postResults])
 
   return (
     <>
@@ -178,9 +178,10 @@ export const EditEntry = () => {
                     </CRow>
                     {postResults.isSuccess && postResults.data.Results !== "Something went wrong." && (
                       <CCallout color="success">
-                        {postResults.data.Results.map((message, idx) => {
+                        {/* {postResults.data.Results.map((message, idx) => {
                           return <li key={idx}>{message}</li>
-                        })}
+                        })} */}
+                        {postResults.data.Results}
                       </CCallout>
                     )}
                   </CForm>
