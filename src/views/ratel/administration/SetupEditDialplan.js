@@ -32,13 +32,13 @@ export const EditSetup = () => {
   // },[initialState])
 
   // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  // const onSubmit = (values) => {
-  //   window.alert(JSON.stringify(shippedValues))
-  //   console.log(values)
-  //   genericPostRequest({
-  //     path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
-  //   })
-  // }
+  const onSubmit = (values) => {
+    window.alert(JSON.stringify(shippedValues))
+    console.log(values)
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+    })
+  }
 
   return (
     
@@ -47,26 +47,20 @@ export const EditSetup = () => {
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
               // initialValues={{ ...initialState }}
-              // onSubmit={onSubmit}
+              onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="Name" label="Name" />
+                        <RFFCFormInput type="text" name="name" label="Name" />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="Description" label="Description" />
+                        <RFFCFormInput type="text" name="description" label="Description" />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="Dialplan" label="Dialplan" />
-                      {/* <CippContentCard title="Dialplan" icon={faEye}>
-                      <CippCodeBlock
-                      language='javascript'
-                      code={values.Dialplan}
-                      />
-                      </CippContentCard> */}
-                      </CCol>
+                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" />
+                     </CCol>
                     </CRow>
                     <CRow className="mb-3">
                       <CCol md={6}>
