@@ -44,6 +44,7 @@ export const EditSetup = () => {
   return (
     
        <CippPage title="Edit Dialplan">
+        <CCol>
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
               // initialValues={{ ...initialState }}
@@ -72,6 +73,7 @@ export const EditSetup = () => {
               }}
             />
           </CippContentCard>
+        </CCol>
         </CippPage>
 
     
