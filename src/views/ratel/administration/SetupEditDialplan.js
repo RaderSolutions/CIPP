@@ -27,6 +27,10 @@ const EditSetup = () => {
     description: description,
   }
 
+  useEffect(() =>{
+    console.log('initialState', initialState)
+  },[initialState])
+
   // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   // const onSubmit = (values) => {
   //   window.alert(JSON.stringify(shippedValues))
@@ -44,7 +48,7 @@ const EditSetup = () => {
         <CippPage title="Edit Dialplan">
           <CippContentCard title="Edit Dialplan" icon={faEdit}>
             <Form
-              initialValues={{ ...initialState }}
+              // initialValues={{ ...initialState }}
               onSubmit={onSubmit}
               render={({ handleSubmit, submitting, values }) => {
                 return (
