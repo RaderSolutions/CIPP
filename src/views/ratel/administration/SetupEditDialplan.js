@@ -13,19 +13,19 @@ import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
 
 const EditSetup = () => {
-  // const dispatch = useDispatch()
-  // let query = useQuery()
-  // const dialplan = query.get('dialplan')
-  // const name = query.get('name')
-  // const description = query.get('description')
-  // const tenantDomain = query.get('tenantDomain')
-  // const [queryError, setQueryError] = useState(false)
+  const dispatch = useDispatch()
+  let query = useQuery()
+  const dialplan = query.get('dialplan')
+  const name = query.get('name')
+  const description = query.get('description')
+  const tenantDomain = query.get('tenantDomain')
+  const [queryError, setQueryError] = useState(false)
 
-  // const initialState = {
-  //   dialplan: dialplan,
-  //   name: name,
-  //   description: description,
-  // }
+  const initialState = {
+    dialplan: dialplan,
+    name: name,
+    description: description,
+  }
 
   // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   // const onSubmit = (values) => {
@@ -61,7 +61,7 @@ const EditSetup = () => {
                     </CRow>
                     <CRow className="mb-3">
                       <CCol md={6}>
-                        <CButton type="submit">Edit Member</CButton>
+                        <CButton type="submit">Edit Dialplan</CButton>
                       </CCol>
                     </CRow>
                   </CForm>
