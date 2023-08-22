@@ -21,11 +21,11 @@ const EditSetup = () => {
   const tenantDomain = query.get('tenantDomain')
   const [queryError, setQueryError] = useState(false)
 
-  const initialState = {
-    dialplan: dialplan,
-    name: name,
-    description: description,
-  }
+  // const initialState = {
+  //   dialplan: dialplan,
+  //   name: name,
+  //   description: description,
+  // }
 
   useEffect(() =>{
     console.log('initialState', initialState)
