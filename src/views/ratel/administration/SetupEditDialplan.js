@@ -33,13 +33,13 @@ export const EditSetup = () => {
   // },[initialState])
 
   // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  // const onSubmit = (values) => {
-  //   window.alert(JSON.stringify(shippedValues))
-  //   console.log(values)
-  //   genericPostRequest({
-  //     path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
-  //   })
-  // }
+  const onSubmit = (values) => {
+    window.alert(JSON.stringify(shippedValues))
+    console.log(values)
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+    })
+  }
 
   return (
     
