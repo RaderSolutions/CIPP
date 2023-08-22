@@ -15,7 +15,7 @@ export const EditEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const query = useQuery()
-  // const customerID = query.get('customerID')
+  const ID = query.get('ID')
 
   const onSubmit = (values) => {
     const shippedValues = {
@@ -31,7 +31,7 @@ export const EditEntry = () => {
       JobTitle: values.jobTitle,
       Location: values.location,
       Notes: values.notes,
-      ID: values.customerID,
+      ID: ID,
     }
 
     genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`, values: shippedValues })
@@ -53,9 +53,9 @@ export const EditEntry = () => {
                 return (
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
-                      <CCol>
+                      {/* <CCol>
                         <RFFCFormInput type="text" name="customerID" label="ID" />
-                      </CCol>
+                      </CCol> */}
                       <CCol>
                         <RFFCFormInput type="text" name="dial" label="Dial" />
                       </CCol>
