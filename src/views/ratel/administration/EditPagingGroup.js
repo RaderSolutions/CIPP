@@ -27,60 +27,66 @@ const EditPageGroup = () => {
     })
 }
 return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Wizard">
-      <CippWizard.Page
-        title="Tenant Choice"
-        description="Choose the tenant to add a paging group to"
+    <>
+    
+      <CippPage
+     
       >
-        <center>
-          <h3 className="text-primary">Step 1</h3>
-          <h5 className="card-title mb-4">Choose a tenant</h5>
-        </center>
-        <hr className="my-4" />
-        <Field name="selectedTenants">{(props) => <TenantSelector />}</Field>
-        {/* <Error name="selectedTenants" /> */}
-        <hr className="my-4" />
-      </CippWizard.Page>
-      <CippWizard.Page
-        title="Paging Group Information"
-        description="Enter the paging group information"
-      >
-        <center>
-          <h3 className="text-primary">Step 2</h3>
-          <h5>Enter Paging Group Information</h5>
-        </center>
-        <hr className="my-4" />
-        <div className="mb-2">
-          <CRow>
-            {/* TODO: discuss w SW */}
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput name="DialExtension" label="Page Group Extension" />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormInput name="PageGroupName" label="Page Group Name" />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormSwitch name="HideFromPB" label="Hide From Phonebook" value={true} />
-            </CCol>
-          </CRow>
-        </div>
-        <hr className="my-4" />
-      </CippWizard.Page>
-      <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
-        <center>
-          <h3 className="text-primary">Step 3</h3>
-          <h5 className="mb-4">Confirm and apply</h5>
-          <hr className="my-4" />
-          {postResults.isFetching && (
-            <CCallout color="info">
-              <CSpinner>Loading</CSpinner>
-            </CCallout>
-          )}
-          {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
-        </center>
-        <hr className="my-4" />
-      </CippWizard.Page>
-    </CippWizard>
+     
+          <CCol>
+            <CippContentCard title="Member Details" icon={faEdit}>
+             
+                <Form
+                  // initialValues={{ ...initialState }}
+                  onSubmit={onSubmit}
+                  render={({ handleSubmit, submitting, values }) => {
+                    return (
+                      <CForm onSubmit={handleSubmit}>
+                        <CRow>
+                          <CCol>
+                            <RFFCFormInput type="text" name="Extension" label="Extension" />
+                          </CCol>
+                          <CCol>
+                            <RFFCFormInput type="text" name="Groups" label="Groups" />
+                          </CCol>
+                          <CCol>
+                            <RFFCFormInput type="text" name="Type" label="Type" />
+                          </CCol>
+                        </CRow>
+
+                        <CRow className="mb-3">
+                          <CCol md={6}>
+                            <CButton type="submit" disabled={submitting || formDisabled}>
+                              Edit Paging Group
+                            
+                                <FontAwesomeIcon
+                                  icon={faCircleNotch}
+                                  spin
+                                  className="ms-2"
+                                  size="1x"
+                                />
+                            
+                            </CButton>
+                          </CCol>
+                        </CRow>
+                        {/* {postResults.isSuccess && (
+                          <CCallout color="success">
+                            {postResults.data.Results.map((message, idx) => {
+                              return <li key={idx}>{message}</li>
+                            })}
+                          </CCallout>
+                        )} */}
+                      </CForm>
+                    )
+                  }}
+                />
+            
+            </CippContentCard>
+          </CCol>
+    
+      </CippPage>
+
+  </>
   )
 }
 
