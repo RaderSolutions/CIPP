@@ -36,15 +36,15 @@ const AddPagingGroupMember = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
   const handleSubmit = async (values) => {
-    const shippedValues = {
-      TenantFilter: tenantDomain,
-      PageGroupExtension: values.PagegroupExt,
-      DeviceExtension: values.DeviceExt,
-    }
+    // const shippedValues = {
+    //   TenantFilter: tenantDomain,
+    //   PageGroupExtension: values.PagegroupExt,
+    //   DeviceExtension: values.DeviceExt,
+    // }
 
     alert(JSON.stringify(values, null, 2))
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=pagegroup_ext|Value=${values.PageGroupExtension},Key=device_ext|Value=${values.DeviceExtension}&RatelScript=true&ScriptId=7411`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=pagegroup_ext|Value=${values.PagegroupExt},Key=device_ext|Value=${values.DeviceExt}&RatelScript=true&ScriptId=7411`,
     })
   }
 
