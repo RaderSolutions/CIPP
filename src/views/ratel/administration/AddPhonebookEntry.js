@@ -54,7 +54,7 @@ const AddPhonebookEntry = () => {
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPhonebookEntry', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPhonebookEntry', values: shippedValues })
   }
 
   return (
