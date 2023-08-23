@@ -44,7 +44,7 @@ const AddPagingGroupMember = () => {
 
     alert(JSON.stringify(values, null, 2))
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=pagegroup_ext|Value=${values.PagegroupExt},Key=device_ext|Value=${values.DeviceExt}&RatelScript=true&ScriptId=7411`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=function|Value=add,Key=pagegroup_ext|Value=${values.PagegroupExt},Key=device_ext|Value=${values.DeviceExt}&RatelScript=true&ScriptId=7411`,
     })
   }
 
