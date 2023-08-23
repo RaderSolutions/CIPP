@@ -11,6 +11,7 @@ const lazyRetry = function(componentImport) {
       componentImport().then((component) => {
           window.sessionStorage.setItem('retry-lazy-refreshed', 'false'); // success so reset the refresh
           resolve(component);
+          return component;
       }).catch((error) => {
           if (!hasRefreshed) { // not been refreshed yet
               window.sessionStorage.setItem('retry-lazy-refreshed', 'true'); // we are now going to refresh
@@ -56,10 +57,10 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 //ratel stuff
 const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
 const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
-const SetupEditDialplan = React.lazy(() =>
-  import('src/views/ratel/administration/SetupEditDialplan'),
-)
-lazyRetry(SetupEditDialplan)
+// const SetupEditDialplan = React.lazy(() =>
+//   import('src/views/ratel/administration/SetupEditDialplan'),
+// )
+lazyRetry(React.lazy(() => import('src/views/ratel/administration/SetupEditDialplan')))
 const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditPickupGroupMember = React.lazy(() =>
