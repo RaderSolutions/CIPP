@@ -56,6 +56,7 @@ const EditPhonebookEntry = React.lazy(() =>
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
 )
+const EditPagingGroup = React.lazy(() => import('src/views/ratel/administration/EditPagingGroup'))
 const AddPagingGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPagingGroupMember'),
 )
@@ -385,6 +386,11 @@ const routes = [
     path: '/ratel/administration/pickupgroups/addMember',
     name: 'Add Pickup Group Member',
     component: AddPickupGroupMember,
+  },
+  {
+    path: '/ratel/administration/paginggroups/edit',
+    name: 'Edit Paging Group',
+    component: EditPagingGroup,
   },
   {
     path: '/ratel/administration/paginggroups/addMember',
