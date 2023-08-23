@@ -1,27 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 
-const lazyRetry = function(componentImport) {
-  return new Promise((resolve, reject) => {
-      // check if the window has already been refreshed
-      const hasRefreshed = JSON.parse(
-          window.sessionStorage.getItem('retry-lazy-refreshed') || 'false'
-      );
-      // try to import the component
-      componentImport().then((component) => {
-          window.sessionStorage.setItem('retry-lazy-refreshed', 'false'); // success so reset the refresh
-          resolve(component);
-          return component;
-      }).catch((error) => {
-          if (!hasRefreshed) { // not been refreshed yet
-              window.sessionStorage.setItem('retry-lazy-refreshed', 'true'); // we are now going to refresh
-              return window.location.reload(); // refresh the page
-          }
-          reject(error); // Default error behaviour as already tried refresh
-      });
-  });
-};
-
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
 const Users = React.lazy(() => import('src/views/identity/administration/Users'))
@@ -57,10 +36,9 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 //ratel stuff
 const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
 const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
-// const SetupEditDialplan = React.lazy(() =>
-//   import('src/views/ratel/administration/SetupEditDialplan'),
-// )
-lazyRetry(React.lazy(() => import('src/views/ratel/administration/SetupEditDialplan')))
+const SetupEditDialplan = React.lazy(() =>
+  import('src/views/ratel/administration/SetupEditDialplan'),
+)
 const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditPickupGroupMember = React.lazy(() =>
@@ -367,7 +345,7 @@ const routes = [
   { path: '/ratel/administration/devices', name: 'RATEL Devices', component: RatelDevices },
   { path: '/ratel/administration/setup', name: 'RATEL Setup', component: RatelSetup },
   {
-    path: '/ratel/administration/setup/setupEditDialplan',
+    path: '/ratel/administration/setup/editDialplan',
     name: 'Setup Edit Dialplan',
     component: SetupEditDialplan,
   },
