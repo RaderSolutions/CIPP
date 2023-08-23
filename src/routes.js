@@ -1,4 +1,5 @@
 import React from 'react'
+import EditEntry from 'src/views/ratel/administration/EditPhonebookEntry'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -48,9 +49,7 @@ const PhonebookEditor = React.lazy(() => import('src/views/ratel/administration/
 const AddPhonebookEntry = React.lazy(() =>
   import('src/views/ratel/administration/AddPhonebookEntry'),
 )
-const EditPhonebookEntry = React.lazy(() =>
-  import('src/views/ratel/administration/EditPhonebookEntry'),
-)
+const EditPhonebookEntry = EditEntry
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
 )
