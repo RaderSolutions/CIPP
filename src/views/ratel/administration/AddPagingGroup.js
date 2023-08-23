@@ -76,7 +76,7 @@ const AddPagingGroup = () => {
               <RFFCFormInput name="PageGroupName" label="Page Group Name" />
             </CCol>
             <CCol lg={6} xs={12}>
-              <RFFCFormSwitch name="HideFromPB" label="Hide From Phonebook" />
+              <RFFCFormSwitch name="HideFromPB" label="Hide From Phonebook" value={true} />
             </CCol>
           </CRow>
         </div>
