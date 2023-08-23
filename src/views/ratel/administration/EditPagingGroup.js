@@ -56,7 +56,9 @@ return (
 
                         <CRow className="mb-3">
                           <CCol md={6}>
-                            <CButton type="submit" disabled={submitting || formDisabled}>
+                            <CButton type="submit" 
+                            // disabled={submitting || formDisabled}
+                            >
                               Edit Paging Group
                             
                                 <FontAwesomeIcon
