@@ -364,7 +364,7 @@ const routes = [
     component: AddPhonebookEntry,
   },
   {
-    path: '/ratel/administration/phonebookEditor/editEntry',
+    path: '/ratel/administration/editEntry',
     name: 'RATEL Paging Groups',
     component: EditPhonebookEntry,
   },
