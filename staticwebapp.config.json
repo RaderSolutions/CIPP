@@ -79,7 +79,7 @@
       "allowedRoles": ["admin", "editor", "readonly", "reader", "authenticated", "anonymous"]
     },
     {
-      "route": "/ratel/",
+      "route": "/ratel/adminstration/*",
       "allowedRoles": ["admin", "editor", "readonly", "reader", "authenticated"],
       "headers": {
         "cache-control": "max-age=15770000, must-revalidate"
