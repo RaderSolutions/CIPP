@@ -10,6 +10,11 @@ import RatelPickupGroups from 'src/views/ratel/administration/PickupGroups'
 import EditPickupGroupMember from 'src/views/ratel/administration/EditPickupGroupMember'
 import EditDevice from 'src/views/ratel/administration/EditDevice'
 import EditPagingGroup from 'src/views/ratel/administration/EditPagingGroup'
+import PhonebookEditor from 'src/views/ratel/administration/PhonebookEditor'
+import RatelAddDevice from 'src/views/ratel/administration/RatelAddDevice'
+import AddPhonebookEntry from 'src/views/ratel/administration/AddPhonebookEntry'
+import EditPhonebookEntry from 'src/views/ratel/administration/EditPhonebookEntry'
+
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -54,14 +59,14 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 // const EditPickupGroupMember = React.lazy(() =>
   // import('src/views/ratel/administration/EditPickupGroupMember'),
 // )
-const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
-const PhonebookEditor = React.lazy(() => import('src/views/ratel/administration/PhonebookEditor'))
-const AddPhonebookEntry = React.lazy(() =>
-  import('src/views/ratel/administration/AddPhonebookEntry'),
-)
-const EditPhonebookEntry = React.lazy(() =>
-  import('src/views/ratel/administration/EditPhonebookEntry'),
-)
+// const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
+// const PhonebookEditor = React.lazy(() => import('src/views/ratel/administration/PhonebookEditor'))
+// const AddPhonebookEntry = React.lazy(() =>
+//   import('src/views/ratel/administration/AddPhonebookEntry'),
+// )
+// const EditPhonebookEntry = React.lazy(() =>
+//   import('src/views/ratel/administration/EditPhonebookEntry'),
+// )
 
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
