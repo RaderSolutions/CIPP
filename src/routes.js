@@ -15,6 +15,7 @@ import RatelAddDevice from 'src/views/ratel/administration/RatelAddDevice'
 import AddPhonebookEntry from 'src/views/ratel/administration/AddPhonebookEntry'
 import EditPhonebookEntry from 'src/views/ratel/administration/EditPhonebookEntry'
 import RatelCallBlocking from 'src/views/ratel/administration/CallBlocking'
+import AddPagingGroup from 'src/views/ratel/administration/AddPagingGroup'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -76,7 +77,7 @@ const AddPagingGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPagingGroupMember'),
 )
 
-const AddPagingGroup = React.lazy(() => import('src/views/ratel/administration/AddPagingGroup'))
+// const AddPagingGroup = React.lazy(() => import('src/views/ratel/administration/AddPagingGroup'))
 const SetupVoiceRecording = React.lazy(() =>
   import('src/views/ratel/administration/SetupVoiceRecording'),
 )
