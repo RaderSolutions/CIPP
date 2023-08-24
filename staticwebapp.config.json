@@ -82,16 +82,10 @@
       "route": "/ratel/",
       "allowedRoles": ["admin", "editor", "readonly", "reader", "authenticated"],
       "headers": {
-        "cache-control": "no-store"
-      }
-    },
-    {
-      "route": "*",
-      "allowedRoles": ["admin", "editor", "readonly", "reader"],
-      "headers": {
-        "cache-control": "no-store"
+        "cache-control": "max-age=15770000, must-revalidate"
       }
     }
+
   
   ],
   "navigationFallback": {
