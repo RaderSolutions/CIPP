@@ -90,6 +90,9 @@ const AddPagingGroup = () => {
                     dialExtensionKey = valuesArray.find((item) => item.key === 'DialExtension');
                     let pageGroupNameKey;
                     pageGroupNameKey = valuesArray.find((item) => item.key === 'PageGroupName');
+                    let hideFromPBKey;
+                    hideFromPBKey = valuesArray.find((item) => item.key === 'HideFromPB');
+                    console.log('dialExtensionKey', dialExtensionKey)
                     return <CListGroup>
                       {
                         dialExtensionKey && <CListGroupItem>
@@ -99,6 +102,11 @@ const AddPagingGroup = () => {
                       {
                         pageGroupNameKey && <CListGroupItem>
                           {`Page Group Name: ${pageGroupNameKey.value}`}
+                        </CListGroupItem>
+                      }
+                      {
+                        hideFromPBKey && <CListGroupItem>
+                          {`Hide From Phonebook: ${hideFromPBKey.value}`}
                         </CListGroupItem>
                       }
                     </CListGroup>
