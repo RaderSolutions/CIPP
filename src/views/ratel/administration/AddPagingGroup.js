@@ -75,7 +75,7 @@ const AddPagingGroup = () => {
             </CCallout>
           )}
           {
-            !postResults.isFetching && postResults.isSuccess && (
+            !postResults.isFetching && !postResults.isSuccess && (
               <FormSpy subscription={{ values: true, labels: true }}>
                 {
                   (props) => {
@@ -85,7 +85,7 @@ const AddPagingGroup = () => {
                       key: key,
                       value: values[key]
                     }));
-                    
+
                     console.log('valuesArray', valuesArray) 
                     let dialExtensionKey;
                     dialExtensionKey = valuesArray.find((item) => item.key === 'DialExtension');
