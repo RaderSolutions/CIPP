@@ -4,6 +4,10 @@ import SetupEditDialplan from './views/ratel/administration/SetupEditDialplan'
 import RatelVariables from 'src/views/ratel/administration/variables'
 import RatelDevices from 'src/views/ratel/administration/devices'
 import RatelSetup from 'src/views/ratel/administration/setup'
+import RatelMailboxes from 'src/views/ratel/administration/mailboxes'
+import RatelPagingGroups from 'src/views/ratel/administration/PagingGroups'
+import RatelPickupGroups from 'src/views/ratel/administration/PickupGroups'
+
 
 
 const Home = React.lazy(() => import('src/views/home/Home'))
@@ -44,7 +48,7 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 // const SetupEditDialplan = React.lazy(() =>
 //   import('src/views/ratel/administration/SetupEditDialplan'),
 // )
-const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
+// const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/EditPickupGroupMember'),
@@ -83,8 +87,8 @@ const RatelAddVariable = React.lazy(() => import('src/views/ratel/administration
 const RatelTroubleshooting = React.lazy(() =>
   import('src/views/ratel/administration/troubleshooting'),
 )
-const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
-const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
+// const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
+// const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
 
 const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
 
