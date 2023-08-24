@@ -30,10 +30,8 @@ return (
     <>
     
       <CippPage
-     
-      >
-     
-          <CCol>
+       >
+         <CCol>
             <CippContentCard title="Member Details" icon={faEdit}>
              
                 <Form
@@ -44,13 +42,17 @@ return (
                       <CForm onSubmit={handleSubmit}>
                         <CRow>
                           <CCol>
-                            <RFFCFormInput type="text" name="Extension" label="Extension" />
+                            <RFFCFormInput type="text" name="DialExtension" label="Dial Extension" />
                           </CCol>
                           <CCol>
-                            <RFFCFormInput type="text" name="Groups" label="Groups" />
+                            <RFFCFormInput type="text" name="PageGroupName" label="Groups" />
                           </CCol>
                           <CCol>
-                            <RFFCFormInput type="text" name="Type" label="Type" />
+                          <RFFCFormSwitch
+                            value={true}
+                            name="HideFromPB"
+                            label="Hide From Phonebook"
+                          />
                           </CCol>
                         </CRow>
 
