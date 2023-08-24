@@ -32,7 +32,7 @@ return (
       <CippPage
        >
          <CCol>
-            <CippContentCard title="Member Details" icon={faEdit}>
+            <CippContentCard title="Edit Page Group Details" icon={faEdit}>
              
                 <Form
                   // initialValues={{ ...initialState }}
