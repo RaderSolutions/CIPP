@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field } from 'react-final-form'
+import { Field, FormSpy, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -11,24 +11,6 @@ import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useSelector } from 'react-redux'
 
-// const Error = ({ name }) => (
-//   <Field
-//     name={name}
-//     subscription={{ touched: true, error: true }}
-//     render={({ meta: { touched, error } }) =>
-//       touched && error ? (
-//         <CCallout color="danger">
-//           <FontAwesomeIcon icon={faExclamationTriangle} color="danger" />
-//           {error}
-//         </CCallout>
-//       ) : null
-//     }
-//   />
-// )
-
-// Error.propTypes = {
-//   name: PropTypes.string.isRequired,
-// }
 
 const AddPagingGroup = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
@@ -92,6 +74,23 @@ const AddPagingGroup = () => {
               <CSpinner>Loading</CSpinner>
             </CCallout>
           )}
+          {
+            !postResults.isFetching && postResults.isSuccess && (
+              <FormSpy subscription={{ values: true, labels: true }}>
+                {
+                  (props) => {
+                    const formState = useFormState()
+                    const {values} = props;
+                    const valuesArray = Object.keys(formState.values)?.map((key) => ({
+                      key: key,
+                      value: values[key]
+                    }));
+                    console.log('valuesArray', valuesArray)
+                  }
+                }
+                </FormSpy>
+            )
+          }
           {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
         </center>
         <hr className="my-4" />
