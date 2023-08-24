@@ -125,7 +125,7 @@ const AddPagingGroup = () => {
             <CSpinner>Loading</CSpinner>
           </CCallout>
         )}
-        {postResults.isSuccess && <CCallout color="success">{postResults?.data?.Results}</CCallout>}
+        {postResults.isSuccess && <CCallout color="success">{postResults?.data?.Data?.Results}</CCallout>}
         <hr className="my-4" />
         </center>
        
