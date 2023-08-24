@@ -85,7 +85,12 @@ const AddPagingGroup = () => {
                       key: key,
                       value: values[key]
                     }));
-                    console.log('valuesArray', valuesArray)
+                    console.log('valuesArray', valuesArray) 
+                    let dialExtensionKey;
+                    dialExtensionKey = valuesArray.find((item) => item.key === 'DialExtension');
+                    return <CListGroup>
+
+                    </CListGroup>
                   }
                 }
                 </FormSpy>
