@@ -79,17 +79,17 @@
       "allowedRoles": ["admin", "editor", "readonly", "reader", "authenticated", "anonymous"]
     },
     {
-      "route": "*",
-      "allowedRoles": ["admin", "editor", "readonly", "reader"]
-    },
-    {
       "route": "/ratel/",
       "allowedRoles": ["admin", "editor", "readonly", "reader", "authenticated"],
       "headers": {
         "cache-control": "must-revalidate, max-age=15770000"
       }
-      
+    },
+    {
+      "route": "*",
+      "allowedRoles": ["admin", "editor", "readonly", "reader"]
     }
+  
   ],
   "navigationFallback": {
     "rewrite": "index.html",
