@@ -7,8 +7,9 @@ import RatelSetup from 'src/views/ratel/administration/setup'
 import RatelMailboxes from 'src/views/ratel/administration/mailboxes'
 import RatelPagingGroups from 'src/views/ratel/administration/PagingGroups'
 import RatelPickupGroups from 'src/views/ratel/administration/PickupGroups'
-
-
+import EditPickupGroupMember from 'src/views/ratel/administration/EditPickupGroupMember'
+import EditDevice from 'src/views/ratel/administration/EditDevice'
+import EditPagingGroup from 'src/views/ratel/administration/EditPagingGroup'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -49,10 +50,10 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 //   import('src/views/ratel/administration/SetupEditDialplan'),
 // )
 // const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
-const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
-const EditPickupGroupMember = React.lazy(() =>
-  import('src/views/ratel/administration/EditPickupGroupMember'),
-)
+// const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
+// const EditPickupGroupMember = React.lazy(() =>
+  // import('src/views/ratel/administration/EditPickupGroupMember'),
+// )
 const RatelAddDevice = React.lazy(() => import('src/views/ratel/administration/RatelAddDevice'))
 const PhonebookEditor = React.lazy(() => import('src/views/ratel/administration/PhonebookEditor'))
 const AddPhonebookEntry = React.lazy(() =>
@@ -65,7 +66,7 @@ const EditPhonebookEntry = React.lazy(() =>
 const AddPickupGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPickupGroupMember'),
 )
-const EditPagingGroup = React.lazy(() => import('src/views/ratel/administration/EditPagingGroup'))
+// const EditPagingGroup = React.lazy(() => import('src/views/ratel/administration/EditPagingGroup'))
 const AddPagingGroupMember = React.lazy(() =>
   import('src/views/ratel/administration/AddPagingGroupMember'),
 )
