@@ -88,10 +88,17 @@ const AddPagingGroup = () => {
                     console.log('valuesArray', valuesArray) 
                     let dialExtensionKey;
                     dialExtensionKey = valuesArray.find((item) => item.key === 'DialExtension');
+                    let pageGroupNameKey;
+                    pageGroupNameKey = valuesArray.find((item) => item.key === 'PageGroupName');
                     return <CListGroup>
                       {
                         dialExtensionKey && <CListGroupItem>
                           {`Dial Extension: ${dialExtensionKey.value}`}
+                        </CListGroupItem>
+                      }
+                      {
+                        pageGroupNameKey && <CListGroupItem>
+                          {`Page Group Name: ${pageGroupNameKey.value}`}
                         </CListGroupItem>
                       }
                     </CListGroup>
