@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
+import SetupEditDialplan from './views/ratel/administration/SetupEditDialplan'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -36,9 +37,9 @@ const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/G
 //ratel stuff
 const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
 const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
-const SetupEditDialplan = React.lazy(() =>
-  import('src/views/ratel/administration/SetupEditDialplan'),
-)
+// const SetupEditDialplan = React.lazy(() =>
+//   import('src/views/ratel/administration/SetupEditDialplan'),
+// )
 const RatelPickupGroups = React.lazy(() => import('src/views/ratel/administration/PickupGroups'))
 const EditDevice = React.lazy(() => import('src/views/ratel/administration/EditDevice'))
 const EditPickupGroupMember = React.lazy(() =>
