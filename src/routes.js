@@ -1,6 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import SetupEditDialplan from './views/ratel/administration/SetupEditDialplan'
+import RatelVariables from 'src/views/ratel/administration/variables'
+import RatelDevices from 'src/views/ratel/administration/devices'
+import RatelSetup from 'src/views/ratel/administration/setup'
+
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -35,8 +39,8 @@ const AlertsQueue = React.lazy(() => import('src/views/tenant/administration/Lis
 const GraphExplorer = React.lazy(() => import('src/views/tenant/administration/GraphExplorer'))
 
 //ratel stuff
-const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
-const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
+// const RatelDevices = React.lazy(() => import('src/views/ratel/administration/devices'))
+// const RatelSetup = React.lazy(() => import('src/views/ratel/administration/setup'))
 // const SetupEditDialplan = React.lazy(() =>
 //   import('src/views/ratel/administration/SetupEditDialplan'),
 // )
@@ -73,7 +77,7 @@ const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administratio
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
 const DIDsEditDialplan = React.lazy(() => import('src/views/ratel/administration/DIDsEditDialplan'))
 const RatelAddDid = React.lazy(() => import('src/views/ratel/administration/RatelAddDid'))
-const RatelVariables = React.lazy(() => import('src/views/ratel/administration/variables'))
+// const RatelVariables = React.lazy(() => import('src/views/ratel/administration/variables'))
 const EditVariable = React.lazy(() => import('src/views/ratel/administration/EditVariable'))
 const RatelAddVariable = React.lazy(() => import('src/views/ratel/administration/RatelAddVariable'))
 const RatelTroubleshooting = React.lazy(() =>
