@@ -24,6 +24,10 @@ const AddPagingGroup = () => {
     })
   }
 
+  useEffect(()=>{
+    console.log('postResults', postResults)
+  }, [postResults])
+
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Wizard">
       <CippWizard.Page
@@ -69,11 +73,11 @@ const AddPagingGroup = () => {
           <h3 className="text-primary">Step 3</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
-          {postResults.isFetching && (
+          {/* {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
             </CCallout>
-          )}
+          )} */}
           {
             !postResults.isFetching && !postResults.isSuccess && (
               <FormSpy subscription={{ values: true, labels: true }}>
