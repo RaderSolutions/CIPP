@@ -14,7 +14,7 @@ import PhonebookEditor from 'src/views/ratel/administration/PhonebookEditor'
 import RatelAddDevice from 'src/views/ratel/administration/RatelAddDevice'
 import AddPhonebookEntry from 'src/views/ratel/administration/AddPhonebookEntry'
 import EditPhonebookEntry from 'src/views/ratel/administration/EditPhonebookEntry'
-
+import RatelCallBlocking from 'src/views/ratel/administration/CallBlocking'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -96,7 +96,7 @@ const RatelTroubleshooting = React.lazy(() =>
 // const RatelMailboxes = React.lazy(() => import('src/views/ratel/administration/mailboxes'))
 // const RatelPagingGroups = React.lazy(() => import('src/views/ratel/administration/PagingGroups'))
 
-const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
+// const RatelCallBlocking = React.lazy(() => import('src/views/ratel/administration/CallBlocking'))
 
 //passworder
 const GeneratePasswords = React.lazy(() => import('src/views/passworder/GeneratePasswords'))
