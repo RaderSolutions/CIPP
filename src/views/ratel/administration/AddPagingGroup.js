@@ -116,9 +116,15 @@ const AddPagingGroup = () => {
                 </FormSpy>
             )
           }
-          {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
-        </center>
+ {postResults.isFetching && (
+          <CCallout color="info">
+            <CSpinner>Loading</CSpinner>
+          </CCallout>
+        )}
+        {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
         <hr className="my-4" />
+        </center>
+       
       </CippWizard.Page>
     </CippWizard>
   )
