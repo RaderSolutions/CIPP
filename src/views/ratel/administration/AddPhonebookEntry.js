@@ -49,8 +49,8 @@ const AddPhonebookEntry = () => {
       JobTitle: values.jobTitle,
       Location: values.location,
       Notes: values.notes,
-      ContactType: values.ContactType,
-      IsFromFOP: values.IsFromFOP
+      // ContactType: values.ContactType,
+      // IsFromFOP: values.IsFromFOP
     }
 
     alert(JSON.stringify(values, null, 2))
@@ -187,15 +187,15 @@ const AddPhonebookEntry = () => {
                 //disabled={formDIsabled}
               />
             </CCol>
-            <CCol lg={6} xs={12}>
+            {/* <CCol lg={6} xs={12}>
               <RFFCFormInput
                 type="text"
                 name="contactType"
                 label="Contact Type"
                 //disabled={formDIsabled}
               />
-            </CCol>
-            <CCol lg={6} xs={12}>
+            </CCol> */}
+            {/* <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 name="select"
                 label="Is From FOP"
@@ -207,7 +207,7 @@ const AddPhonebookEntry = () => {
                 ]}
                 //disabled={formDIsabled}
               />
-            </CCol>
+            </CCol> */}
           </CRow>
         </div>
         <hr className="my-4" />
@@ -254,8 +254,8 @@ const AddPhonebookEntry = () => {
                   notesKey = valuesArray.find((item) => item.key === 'notes')
                   let contactTypeKey
                   contactTypeKey = valuesArray.find((item) => item.key === 'contactType')
-                  let isFromFOPKey
-                  isFromFOPKey = valuesArray.find((item) => item.key === 'select')
+                  // let isFromFOPKey
+                  // isFromFOPKey = valuesArray.find((item) => item.key === 'select')
                   
                   
                   console.log('dialKey', dialKey)
@@ -322,11 +322,11 @@ const AddPhonebookEntry = () => {
                         {`Contact Type: ${contactTypeKey.value}`}
                         </CListGroupItem>
                     }
-                    {
+                    {/* {
                       isFromFOPKey && <CListGroupItem>
                         {`Is From FOP: ${isFromFOPKey.value}`}
                         </CListGroupItem>
-                    }
+                    } */}
 
                     </CListGroup>
                
