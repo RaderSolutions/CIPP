@@ -26,6 +26,7 @@ const AddPagingGroup = () => {
 
   useEffect(()=>{
     console.log('postResults', postResults)
+    console.log('prdata', postResults?.data?.Data?.Results)
   }, [postResults])
 
   return (
