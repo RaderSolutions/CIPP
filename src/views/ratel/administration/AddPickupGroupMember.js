@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { CCallout, CCol, CRow, CSpinner } from '@coreui/react'
-import { Field } from 'react-final-form'
+import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem } from '@coreui/react'
+import { Field, FormSpy, useFormState } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -111,6 +111,42 @@ const AddPickupGroupMember = () => {
           <h3 className="text-primary">Step 3</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
+          {!postResults.isFetching && !postResults.isSuccess && (
+            <FormSpy subscription={{ values: true, labels: true }}>
+              {
+                (props) => {
+                  const formState = useFormState()
+                  const valuesArray = Object.keys(formState.values)?.map((key) => {
+                    return { key, value: formState.values[key] }
+                  })
+                  let extensionKey 
+                   extensionKey = valuesArray.find((item) => item.key === 'Extension')
+                  let groupsKey 
+                  groupsKey= valuesArray.find((item) => item.key === 'Groups')
+                  let typeKey 
+                  typeKey = valuesArray.find((item) => item.key === 'Type')
+
+                 return <CListGroup>
+                  {
+                    extensionKey && <CListGroupItem>
+                      {`Extension: ${extensionKey.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    groupsKey && <CListGroupItem>
+                      {`Groups: ${groupsKey.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    typeKey && <CListGroupItem>
+                      {`Type: ${typeKey.value}`}
+                    </CListGroupItem>
+                  }
+                 </CListGroup>
+                }
+              }
+            </FormSpy>
+          )}
           {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
