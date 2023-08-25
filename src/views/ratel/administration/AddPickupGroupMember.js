@@ -39,12 +39,12 @@ const AddPickupGroupMember = () => {
     const shippedValues = {
       TenantFilter: tenantDomain,
       Extension: values.Extension,
-      Groups: values.Groups,
       Type: values.Type,
+      Groups: values.Groups,
     }
 
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: '/api/LtAddRatelPickupGroupMember', values: shippedValues })
+    genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
   }
 
   return (
