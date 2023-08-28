@@ -20,7 +20,7 @@ const AddPagingGroup = () => {
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2))
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=dial_ext|Value=${values.DialExtension},Key=pagegroup_name|Value=${values.PageGroupName},Key=hide_from_pb|Values=${values.HideFromPB},Key=is_deletion|Values=0&RatelScript=true&ScriptId=7410`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=dial_ext|Value=${values.DialExtension},Key=pagegroup_name|Value=${values.PageGroupName},Key=hide_from_pb|Value=${values.HideFromPB},Key=is_deletion|Value=0&RatelScript=true&ScriptId=7410`,
     })
   }
 

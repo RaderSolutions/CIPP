@@ -26,7 +26,11 @@ export const EditSetup = () => {
   //   name: name,
   //   description: description,
   // }
-
+const shippedValues = {
+  dialplan: dialplan,
+  name: name,
+  description: description,
+}
   // useEffect(() =>{
   //   console.log('initialState', initialState)
   // },[initialState])
