@@ -92,7 +92,7 @@ const AddPagingGroupMember = () => {
           <hr className="my-4" />
           {
             !postResults.isSuccess && (
-              <FormSpy subscription={{ values: true }}>
+              <FormSpy subscription={{ values: true, labels: true }}>
                 {
                   (props) => {
                     const { values } = props
