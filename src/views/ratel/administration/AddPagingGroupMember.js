@@ -97,7 +97,7 @@ const AddPagingGroupMember = () => {
                   (props) => {
                     const { values } = props
                     console.log("VALUES ADD PAGING GROUP MEMBER: ", values)
-                    const valuesArray = Object.values(values).map((key) => ({
+                    const valuesArray = Object.keys(values).map((key) => ({
                       key: key,
                       value: values[key],
                     }))
