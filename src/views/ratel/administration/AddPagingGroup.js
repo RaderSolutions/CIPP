@@ -27,8 +27,8 @@ const AddPagingGroup = () => {
   useEffect(()=>{
     console.log('postResults', postResults)
     console.log('prdata', postResults?.data?.Data?.Results)
-    console.log('values', values)
-  }, [postResults, values])
+    
+  }, [postResults])
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Wizard">
