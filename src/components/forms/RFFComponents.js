@@ -93,6 +93,7 @@ export const RFFCFormSwitch = ({ name, label, className = 'mb-3', validate, disa
             disabled={disabled}
             id={name}
             label={label}
+            defaultChecked
           />
           {input.value && <RFFCFormFeedback meta={meta} />}
         </div>
