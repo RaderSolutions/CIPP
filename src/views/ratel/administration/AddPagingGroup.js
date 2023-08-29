@@ -16,6 +16,11 @@ const AddPagingGroup = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const initialFormValues = {
+    DialExtension: '',         // Set the default value for DialExtension
+    PageGroupName: '',        // Set the default value for PageGroupName
+    HideFromPB: true,         // Set the default value for HideFromPB
+  };
 
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2))
@@ -31,7 +36,7 @@ const AddPagingGroup = () => {
   }, [postResults])
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Wizard">
+    <CippWizard onSubmit={handleSubmit}initialValues={initialFormValues} wizardTitle="Add Ratel Paging Group Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a paging group to"
