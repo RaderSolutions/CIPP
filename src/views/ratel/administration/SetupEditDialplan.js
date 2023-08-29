@@ -57,13 +57,13 @@ const shippedValues = {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="name" label="Name" placeholder={name} />
+                        <RFFCFormInput type="text" name="name" label="Name" value={name} placeholder={name} />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="description" label="Description" placeholder={description} />
+                        <RFFCFormInput type="text" name="description" label="Description" value={description} placeholder={description} />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" placeholder={dialplan}  defaultValue={dialplan} />
+                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" value={dialplan} placeholder={dialplan}  defaultValue={dialplan} />
                      </CCol>
                     </CRow>
                     <CRow className="mb-3">
