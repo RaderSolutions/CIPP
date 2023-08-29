@@ -27,7 +27,8 @@ const AddPagingGroup = () => {
   useEffect(()=>{
     console.log('postResults', postResults)
     console.log('prdata', postResults?.data?.Data?.Results)
-  }, [postResults])
+    console.log('values', values)
+  }, [postResults, values])
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Add Ratel Paging Group Wizard">
@@ -55,7 +56,6 @@ const AddPagingGroup = () => {
         <hr className="my-4" />
         <div className="mb-2">
           <CRow>
-            {/* TODO: discuss w SW */}
             <CCol lg={6} xs={12}>
               <RFFCFormInput name="DialExtension" label="Page Group Extension" />
             </CCol>
