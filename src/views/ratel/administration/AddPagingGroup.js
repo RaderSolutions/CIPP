@@ -36,7 +36,7 @@ const AddPagingGroup = () => {
   }, [postResults])
 
   return (
-    <CippWizard onSubmit={handleSubmit}initialValues={initialFormValues} wizardTitle="Add Ratel Paging Group Wizard">
+    <CippWizard onSubmit={handleSubmit} initialValues={{initialFormValues}} wizardTitle="Add Ratel Paging Group Wizard">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a paging group to"

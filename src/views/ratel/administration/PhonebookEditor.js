@@ -58,7 +58,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             label: 'Delete Page Group',
             color: 'info',
             modal: true,
-            modalUrl: `TODO`,
+            modalUrl: ``,
             modalMessage: 'Are you sure you want to delete this phonebook entry?',
           },
         ]}
