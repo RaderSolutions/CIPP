@@ -20,6 +20,7 @@ const ChangeLabel = () => {
   const handleSubmit = () => {
     
   }
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 return (
   <CippWizard
     onSubmit={handleSubmit}
@@ -34,7 +35,7 @@ return (
            <h5 className="card-title mb-4">Choose a tenant</h5>
          </center>
          <hr className="my-4" />
-         <Field name="selectedTenants">{(props) => <TenantSelector />}</Field>
+         {/* <Field name="selectedTenants">{(props) => <TenantSelector />}</Field> */}
          <Error name="selectedTenants" />
          <hr className="my-4" />
              </CippWizard.Page>
