@@ -2,12 +2,11 @@
 import React, { useState } from 'react'
 import { CButton, CCallout, CCol, CForm, CRow } from '@coreui/react'
 import { useSelector } from 'react-redux'
-import { Form, FormSpy, useFormState } from 'react-final-form'
+import { Form, FormSpy, Field, useFormState } from 'react-final-form'
 import {
   RFFCFormInput,
   RFFCFormSwitch,
   RFFCFormSelect,
-  Field,
   Condition,
 } from 'src/components/forms'
 import useQuery from 'src/hooks/useQuery'
