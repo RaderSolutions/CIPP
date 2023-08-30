@@ -16,6 +16,7 @@ import AddPhonebookEntry from 'src/views/ratel/administration/AddPhonebookEntry'
 import EditPhonebookEntry from 'src/views/ratel/administration/EditPhonebookEntry'
 import RatelCallBlocking from 'src/views/ratel/administration/CallBlocking'
 import AddPagingGroup from 'src/views/ratel/administration/AddPagingGroup'
+import ChangeDeviceLabel from './views/ratel/administration/ChangeLabel'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -84,7 +85,7 @@ const SetupVoiceRecording = React.lazy(() =>
 const CreateGreetingWithText = React.lazy(() =>
   import('src/views/ratel/administration/CreateGreetingWithText'),
 )
-const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
+// const ChangeDeviceLabel = React.lazy(() => import('src/views/ratel/administration/ChangeLabel'))
 const RatelDIDs = React.lazy(() => import('src/views/ratel/administration/dids'))
 const DIDsEditDialplan = React.lazy(() => import('src/views/ratel/administration/DIDsEditDialplan'))
 const RatelAddDid = React.lazy(() => import('src/views/ratel/administration/RatelAddDid'))
