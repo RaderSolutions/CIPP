@@ -35,11 +35,13 @@ const ChangeLabel = () => {
   Error.propTypes = {
     name: PropTypes.string.isRequired,
   }
-  const handleSubmit = () => {
+  const handleSubmit = (values) => {
     
   }
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-return (
+  const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+
+  return (
   <CippWizard
     onSubmit={handleSubmit}
      wizardTitle="Change Device Label"
@@ -58,29 +60,30 @@ return (
          <hr className="my-4" />
              </CippWizard.Page>
              <CippWizard.Page
-            title="Select Change Value(s)"
-            description="Choose which combination of changes to make"
-            >
-                <center>
-          <h3 className="text-primary">Step 2</h3>
-          <h5>Choose Value(s) to Change</h5>
-        </center>
-        <hr className="my-4" />
-        <div className="mb-2"></div>
-         <br></br>
-         <CRow>
-             <CCol lg={6} xs={12}>
-                 <RFFCFormSelect 
-                name="ChangeValue"
-                 label="Change Value"
-                 values={[
-                     { value: "Label Change", label: "Label Change" },
-                     { value: "Label and Email Change", label: "Label and Email Change" },
-                     { value: "LTID Change", label: "LTID Change" },
-                 ]}
-                 />
-             </CCol>
-         </CRow>
+                  title="Select Change Value(s)"
+                  description="Choose which combination of changes to make"
+                    >
+                        <center>
+                  <h3 className="text-primary">Step 2</h3>
+                  <h5>Choose Value(s) to Change</h5>
+                </center>
+                <hr className="my-4" />
+                <div className="mb-2"></div>
+                <br></br>
+                <CRow>
+                    <CCol lg={6} xs={12}>
+                        <RFFCFormSelect 
+                        name="ChangeValue"
+                        label="Change Value"
+                        values={[
+                            { value: "Label Change", label: "Label Change" },
+                            { value: "Label and Email Change", label: "Label and Email Change" },
+                            { value: "LTID Change", label: "LTID Change" },
+                        ]}
+                        placeholder='Select Change Value'
+                        />
+                      </CCol>
+                  </CRow>
         </CippWizard.Page>
         <CippWizard.Page>
          <center>
@@ -90,7 +93,7 @@ return (
          <hr className="my-4" />
          <div className="mb-2"></div>
          <br></br>
-        <Condition when="ChangeValue" is="Label Change">
+         <Condition when="ChangeValue" is="Label Change">
          <CRow>
              <CCol lg={6} xs={12}>
                  <RFFCFormInput
