@@ -47,101 +47,101 @@ const ChangeLabel = () => {
     queryError === true 
 
   return (
-    <CippWizard
-    // initialValues={{
-    //   ...formValues
-    // }}
-    onSubmit={handleSubmit}
-    wizardTitle="Change Device Label"
-    >
-      <CippWizard.Page
-      title="Tenant Choice"
-      description="Choose the tenant containing the device you wish to change"
-         >
-        <center>
-          <h3 className="text-primary">Step 1</h3>
-          <h5 className="card-title mb-4">Choose a tenant</h5>
-        </center>
-        <hr className="my-4" />
-        <Field name="selectedTenants">{(props) => <TenantSelector />}</Field>
-        <Error name="selectedTenants" />
-        <hr className="my-4" />
-            </CippWizard.Page>
-            <CippWizard.Page
-            title="Select Change Value(s)"
-            description="Choose which combination of changes to make"
-            >
-                <center>
-          <h3 className="text-primary">Step 2</h3>
-          <h5>Choose Value(s) to Change</h5>
-        </center>
-        <hr className="my-4" />
-        <div className="mb-2"></div>
-        <br></br>
-        <CRow>
-            <CCol lg={6} xs={12}>
-                <RFFCFormSelect
-                name="ChangeValue"
-                label="Change Value"
-                values={[
-                    { value: "Label Change", label: "Label Change" },
-                    { value: "Label and Email Change", label: "Label and Email Change" },
-                    { value: "LTID Change", label: "LTID Change" },
-                ]}
-                />
-            </CCol>
-        </CRow>
-       </CippWizard.Page>
-       <CippWizard.Page>
-        <center>
-          <h3 className="text-primary">Step 3</h3>
-          <h5>Enter New Value(s)</h5>
-        </center>
-        <hr className="my-4" />
-        <div className="mb-2"></div>
-        <br></br>
-        <Condition when="ChangeValue" is="Label Change">
-        <CRow>
-            <CCol lg={6} xs={12}>
-                <RFFCFormInput
-                type="text"
-                name="Label"
-                label="Edit Device Label"
-                />
-            </CCol>
-        </CRow>
-        </Condition>
-        <Condition when="ChangeValue" is="Label and Email Change">
-        <CRow>
-            <CCol lg={6} xs={12}>
-                <RFFCFormInput
-                type="text"
-                name="Label"
-                label="Edit Device Label"
-                />
-            </CCol>
-            <CCol lg={6} xs={12}>
-                <RFFCFormInput
-                type="text"
-                name="Email"
-                label="Edit Device Email"
-                />
+    // <CippWizard
+    // // initialValues={{
+    // //   ...formValues
+    // // }}
+    // onSubmit={handleSubmit}
+    // wizardTitle="Change Device Label"
+    // >
+    //   <CippWizard.Page
+    //   title="Tenant Choice"
+    //   description="Choose the tenant containing the device you wish to change"
+    //      >
+    //     <center>
+    //       <h3 className="text-primary">Step 1</h3>
+    //       <h5 className="card-title mb-4">Choose a tenant</h5>
+    //     </center>
+    //     <hr className="my-4" />
+    //     <Field name="selectedTenants">{(props) => <TenantSelector />}</Field>
+    //     <Error name="selectedTenants" />
+    //     <hr className="my-4" />
+    //         </CippWizard.Page>
+    //         <CippWizard.Page
+    //         title="Select Change Value(s)"
+    //         description="Choose which combination of changes to make"
+    //         >
+    //             <center>
+    //       <h3 className="text-primary">Step 2</h3>
+    //       <h5>Choose Value(s) to Change</h5>
+    //     </center>
+    //     <hr className="my-4" />
+    //     <div className="mb-2"></div>
+    //     <br></br>
+    //     <CRow>
+    //         <CCol lg={6} xs={12}>
+    //             <RFFCFormSelect
+    //             name="ChangeValue"
+    //             label="Change Value"
+    //             values={[
+    //                 { value: "Label Change", label: "Label Change" },
+    //                 { value: "Label and Email Change", label: "Label and Email Change" },
+    //                 { value: "LTID Change", label: "LTID Change" },
+    //             ]}
+    //             />
+    //         </CCol>
+    //     </CRow>
+    //    </CippWizard.Page>
+    //    <CippWizard.Page>
+    //     <center>
+    //       <h3 className="text-primary">Step 3</h3>
+    //       <h5>Enter New Value(s)</h5>
+    //     </center>
+    //     <hr className="my-4" />
+    //     <div className="mb-2"></div>
+    //     <br></br>
+    //     <Condition when="ChangeValue" is="Label Change">
+    //     <CRow>
+    //         <CCol lg={6} xs={12}>
+    //             <RFFCFormInput
+    //             type="text"
+    //             name="Label"
+    //             label="Edit Device Label"
+    //             />
+    //         </CCol>
+    //     </CRow>
+    //     </Condition>
+    //     <Condition when="ChangeValue" is="Label and Email Change">
+    //     <CRow>
+    //         <CCol lg={6} xs={12}>
+    //             <RFFCFormInput
+    //             type="text"
+    //             name="Label"
+    //             label="Edit Device Label"
+    //             />
+    //         </CCol>
+    //         <CCol lg={6} xs={12}>
+    //             <RFFCFormInput
+    //             type="text"
+    //             name="Email"
+    //             label="Edit Device Email"
+    //             />
 
-            </CCol>
-        </CRow>
-        </Condition>
-        <Condition when="ChangeValue" is="LTID Change">
-        <CRow>
-            <CCol lg={6} xs={12}>
-                <RFFCFormInput
-                type="text"
-                name="LTID"
-                label="Edit Device LTID"
-                />
-            </CCol>
-        </CRow>
-        </Condition>
-        </CippWizard.Page>
+    //         </CCol>
+    //     </CRow>
+    //     </Condition>
+    //     <Condition when="ChangeValue" is="LTID Change">
+    //     <CRow>
+    //         <CCol lg={6} xs={12}>
+    //             <RFFCFormInput
+    //             type="text"
+    //             name="LTID"
+    //             label="Edit Device LTID"
+    //             />
+    //         </CCol>
+    //     </CRow>
+    //     </Condition>
+    //     </CippWizard.Page>
        {/* <CippWizard.Page>
         <center>
           <h3 className="text-primary">Step 4</h3>
@@ -193,7 +193,7 @@ const ChangeLabel = () => {
                   
                      
        </CippWizard.Page> */}
-    </CippWizard>
+    // </CippWizard>
    
   )
 }
