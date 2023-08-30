@@ -149,13 +149,13 @@ const ChangeLabel = () => {
         </center>
         <hr className="my-4" />
         <hr className="my-4" />
-     {!postResults.isSuccess && (
-     <FormSpy subscription={{ values: true, labels: true }}>
-      {(props) => {
+        {!postResults.isSuccess && (
+        <FormSpy subscription={{ values: true, labels: true }}>
+          {(props) => {
         const formState = useFormState()
         const { values } = props
         console.log('FORM STATE IN CHANGE LABEL', formState)
-        const valuesArray = Object.keys(values)?.map((key) => ({
+        const valuesArray = Object.keys(formState.values)?.map((key) => ({
           key: key,
           value: values[key]
         })
@@ -186,21 +186,12 @@ const ChangeLabel = () => {
                   {`Change Device LTID to ${ltidKey?.value}`}
                 </CListGroupItem>
               }
-            </CListGroup>
-
-      }}
-      </FormSpy>  
-     )  
-    }
-        {postResults.isFetching && (
-            <CCallout color="info">
-              <CSpinner>Loading</CSpinner>
-            </CCallout>
-          )}
-          {postResults.isSuccess && <CCallout color="success">
-           test
-            </CCallout>}
-          <hr className="my-4" />
+                  </CListGroup>
+              }}
+              </FormSpy>  
+              )}  
+                  
+                     
        </CippWizard.Page>
     </CippWizard>
    
