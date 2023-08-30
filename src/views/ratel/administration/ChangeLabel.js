@@ -159,34 +159,34 @@ const ChangeDeviceLabel = () => {
           key: key,
           value: values[key]
         })
-      )
-      let labelKey
-      labelKey = valuesArray?.find((item) => item.key === 'Label')
-      let emailKey
-      emailKey = valuesArray?.find((item) => item.key === 'Email')
-      let ltidKey
-      ltidKey = valuesArray?.find((item) => item.key === 'LTID')
+        )
+          let labelKey
+          labelKey = valuesArray?.find((item) => item.key === 'Label')
+          let emailKey
+          emailKey = valuesArray?.find((item) => item.key === 'Email')
+          let ltidKey
+          ltidKey = valuesArray?.find((item) => item.key === 'LTID')
       
-      return <CListGroup>
-        {labelKey &&
-          <CListGroupItem>
-            {`Change Device Label to ${labelKey?.value}`}
-          </CListGroupItem>
+            return <CListGroup>
+              {labelKey &&
+                <CListGroupItem>
+                  {`Change Device Label to ${labelKey?.value}`}
+                </CListGroupItem>
 
-        }
-        {
-          emailKey &&
-          <CListGroupItem>
-            {`Change Device Email to ${emailKey?.value}`}
-          </CListGroupItem>
-        }
-        {
-          ltidKey &&
-          <CListGroupItem>
-            {`Change Device LTID to ${ltidKey?.value}`}
-          </CListGroupItem>
-        }
-      </CListGroup>
+              }
+              {
+                emailKey &&
+                <CListGroupItem>
+                  {`Change Device Email to ${emailKey?.value}`}
+                </CListGroupItem>
+              }
+              {
+                ltidKey &&
+                <CListGroupItem>
+                  {`Change Device LTID to ${ltidKey?.value}`}
+                </CListGroupItem>
+              }
+            </CListGroup>
 
       }}
       </FormSpy>  
