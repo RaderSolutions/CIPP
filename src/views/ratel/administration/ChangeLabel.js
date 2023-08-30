@@ -30,10 +30,10 @@ const ChangeLabel = () => {
     }
     //@todo: need to fix this in api so this hacky shit is no longer needed.
 
-    const shippedValues = {
-      Label: values.Label,
-      DeviceId: deviceId
-    }
+    // const shippedValues = {
+    //   Label: values.Label,
+    //   DeviceId: deviceId
+    // }
   //  TODO
     genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId},Key=newEmail|Value=0,Key=newLTID|Value=0&RatelScript=true&ScriptId=7853`})
   }
