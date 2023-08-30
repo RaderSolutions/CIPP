@@ -14,6 +14,7 @@ import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
+import { TenantSelector } from 'src/components/utilities'
 
 const ChangeDeviceLabel = () => {
   let query = useQuery()
@@ -197,7 +198,7 @@ const ChangeDeviceLabel = () => {
             </CCallout>
           )}
           {postResults.isSuccess && <CCallout color="success">
-            {/* {postResults.data.Results} */}
+           
             </CCallout>}
           <hr className="my-4" />
        </CippWizard.Page>
