@@ -38,9 +38,9 @@ const ChangeDeviceLabel = () => {
     genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId},Key=newEmail|Value=0,Key=newLTID|Value=0&RatelScript=true&ScriptId=7853`})
   }
 
-  const formValues = {
-    test: 'test'
-  }
+  // const formValues = {
+  //   test: 'test'
+  // }
 
   // this is dumb
   const formDisabled =
@@ -48,9 +48,9 @@ const ChangeDeviceLabel = () => {
 
   return (
     <CippWizard
-    initialValues={{
-      ...formValues
-    }}
+    // initialValues={{
+    //   ...formValues
+    // }}
     onSubmit={handleSubmit}
     wizardTitle="Change Device Label"
     >
