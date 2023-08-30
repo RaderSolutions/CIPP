@@ -1,4 +1,4 @@
-// /* eslint-disable prettier/prettier */
+ /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { CButton, CCallout, CCol, CForm, CRow } from '@coreui/react'
 import { useSelector } from 'react-redux'
