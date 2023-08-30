@@ -19,9 +19,6 @@ import { TenantSelector } from 'src/components/utilities'
 const ChangeLabel = () => {
 return (
   <CippWizard
-     initialValues={{
-       ...formValues
-    }}
     onSubmit={handleSubmit}
      wizardTitle="Change Device Label"
      >
