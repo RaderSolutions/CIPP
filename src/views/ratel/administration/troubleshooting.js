@@ -20,14 +20,16 @@ const columns = [
     },
 
 ]
-
+const handleClickTroubleshoot = () => {
+  
+}
 const TroubleshootingResultsList = () => {
     const tenant = useSelector((state) => state.app.currentTenant)
 
     return (
       <>
         <Link to={`api/LtRatelScheduleScript?RatelScript=true&ScriptId=7856`}>
-        <CButton size="sm" variant="ghost" color="warning">
+        <CButton onClick={handleClickTroubleshoot} size="sm" variant="ghost" color="warning">
           Run troubleshooting script
         </CButton>
         </Link>

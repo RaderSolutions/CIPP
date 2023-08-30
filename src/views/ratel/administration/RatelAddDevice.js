@@ -136,7 +136,6 @@ if (!formValues) {
       onSubmit={handleSubmit}
       wizardTitle="Add Ratel Device Wizard"
     >
-      
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a RATEL device to"
@@ -385,7 +384,7 @@ if (!formValues) {
       <CippWizard.Page title="Review and Confirm" description="Confirm the settings to apply">
         <center>
           <h3 className="text-primary">Step 4</h3>
-          <h5 className="mb-4">Confirm and apply</h5>
+          <h5 className="mb-4">Confirm and Apply</h5>
           <hr className="my-4" />
           {/* Need to take the previous form values and prefill appropriate inputs with those values as placeholders
         so that the user can review the information and make necessary changes before submitting */}

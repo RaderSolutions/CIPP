@@ -19,7 +19,7 @@ const AddPagingGroup = () => {
   const initialFormValues = {
     DialExtension: '',         // Set the default value for DialExtension
     PageGroupName: '',        // Set the default value for PageGroupName
-    HideFromPB: true,         // Set the default value for HideFromPB
+    HideFromPB: false,         // Set the default value for HideFromPB
   };
 
   const handleSubmit = async (values) => {
