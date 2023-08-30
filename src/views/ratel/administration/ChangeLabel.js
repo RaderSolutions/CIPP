@@ -17,6 +17,9 @@ import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
 
 const ChangeLabel = () => {
+  const handleSubmit = () => {
+    
+  }
 return (
   <CippWizard
     onSubmit={handleSubmit}
