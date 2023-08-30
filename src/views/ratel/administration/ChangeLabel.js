@@ -198,7 +198,7 @@ const ChangeDeviceLabel = () => {
             </CCallout>
           )}
           {postResults.isSuccess && <CCallout color="success">
-           
+           test
             </CCallout>}
           <hr className="my-4" />
        </CippWizard.Page>
