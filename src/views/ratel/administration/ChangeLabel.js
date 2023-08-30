@@ -16,7 +16,7 @@ import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
 
-const ChangeDeviceLabel = () => {
+const ChangeLabel = () => {
   let query = useQuery()
   const deviceId = query.get('deviceId')
 //   const tenantDomain = query.get('tenantDomain')
@@ -207,4 +207,4 @@ const ChangeDeviceLabel = () => {
   )
 }
 
-export default ChangeDeviceLabel
+export default ChangeLabel
