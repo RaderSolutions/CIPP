@@ -17,6 +17,24 @@ import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
 
 const ChangeLabel = () => {
+  const Error = ({ name }) => (
+    <Field
+      name={name}
+      subscription={{ touched: true, error: true }}
+      render={({ meta: { touched, error } }) =>
+        touched && error ? (
+          <CCallout color="danger">
+            <FontAwesomeIcon icon={faExclamationTriangle} color="danger" />
+            {error}
+          </CCallout>
+        ) : null
+      }
+    />
+  )
+  
+  Error.propTypes = {
+    name: PropTypes.string.isRequired,
+  }
   const handleSubmit = () => {
     
   }
@@ -119,9 +137,6 @@ return (
           <h5>Confirm and Apply</h5>
         </center>
         <hr className="my-4" />
-        <hr className="my-4" />
-   
-                     
        </CippWizard.Page> 
     </CippWizard>
 
