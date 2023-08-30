@@ -17,17 +17,17 @@ import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
 
 const ChangeLabel = () => {
-  let query = useQuery()
-  const deviceId = query.get('deviceId')
-//   const tenantDomain = query.get('tenantDomain')
-  const tenant = useSelector((state) => state.app.currentTenant)
-  const [queryError ] = useState(false)
-  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const handleSubmit = (values) => {
-    //@todo: need to fix copyfrom in api so this is no longer required
-    if (!values.CopyFrom) {
-      values.CopyFrom = ''
-    }
+//   let query = useQuery()
+//   const deviceId = query.get('deviceId')
+// //   const tenantDomain = query.get('tenantDomain')
+//   const tenant = useSelector((state) => state.app.currentTenant)
+//   const [queryError ] = useState(false)
+//   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+//   const handleSubmit = (values) => {
+//     //@todo: need to fix copyfrom in api so this is no longer required
+//     if (!values.CopyFrom) {
+//       values.CopyFrom = ''
+//     }
     //@todo: need to fix this in api so this hacky shit is no longer needed.
 
     // const shippedValues = {
@@ -35,8 +35,8 @@ const ChangeLabel = () => {
     //   DeviceId: deviceId
     // }
   //  TODO
-    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId},Key=newEmail|Value=0,Key=newLTID|Value=0&RatelScript=true&ScriptId=7853`})
-  }
+  //   genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=new_Label|Value=${shippedValues.Label},Key=Device_Id|Value=${shippedValues.DeviceId},Key=newEmail|Value=0,Key=newLTID|Value=0&RatelScript=true&ScriptId=7853`})
+  // }
 
   // const formValues = {
   //   test: 'test'
@@ -47,6 +47,11 @@ const ChangeLabel = () => {
     queryError === true 
 
   return (
+    <>
+    <div>
+      test
+    </div>
+    </>
     // <CippWizard
     // // initialValues={{
     // //   ...formValues
