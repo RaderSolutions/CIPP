@@ -142,7 +142,7 @@ const ChangeLabel = () => {
         </CRow>
         </Condition>
         </CippWizard.Page>
-       <CippWizard.Page>
+       {/* <CippWizard.Page>
         <center>
           <h3 className="text-primary">Step 4</h3>
           <h5>Confirm and Apply</h5>
@@ -192,7 +192,7 @@ const ChangeLabel = () => {
               )}  
                   
                      
-       </CippWizard.Page>
+       </CippWizard.Page> */}
     </CippWizard>
    
   )
