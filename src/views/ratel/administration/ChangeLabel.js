@@ -85,7 +85,8 @@ const ChangeLabel = () => {
                       </CCol>
                   </CRow>
         </CippWizard.Page>
-        <CippWizard.Page>
+        
+        <CippWizard.Page title="Enter New Values">
          <center>
            <h3 className="text-primary">Step 3</h3>
            <h5>Enter New Value(s)</h5>
