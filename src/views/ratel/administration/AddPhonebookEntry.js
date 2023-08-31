@@ -35,6 +35,22 @@ const AddPhonebookEntry = () => {
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
 
+  const initialFormValues = {
+    TenantFilter: tenantDomain,
+    Dial: '',
+    Salutation: '',
+    FirstName: '',
+    MiddleName: '',
+    LastName: '',
+    Suffix: '',
+    Email: '',
+    Organization: '',
+    JobTitle: '',
+    Location: '',
+    Notes: '',
+  };
+
+
   const handleSubmit = async (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
@@ -58,7 +74,7 @@ const AddPhonebookEntry = () => {
   }
 
   return (
-    <CippWizard onSubmit={handleSubmit} wizardTitle="Add Phonebook Entry">
+    <CippWizard onSubmit={handleSubmit} initialValues={initialFormValues} wizardTitle="Add Phonebook Entry">
       <CippWizard.Page
         title="Tenant Choice"
         description="Choose the tenant to add a phonebook entry to"
