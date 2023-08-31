@@ -52,6 +52,7 @@ const AddPhonebookEntry = () => {
 
 
   const handleSubmit = async (values) => {
+    console.log('tenantDomain', tenantDomain)
     const shippedValues = {
       TenantFilter: tenantDomain,
       Dial: values.dial,
