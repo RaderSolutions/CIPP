@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { baseApi } from 'src/store/api/baseApi'
 
-export const devicesApi = baseApi.injectEndpoints({
+export const ratelDevicesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     editDevice: builder.mutation({
       query: (device) => ({
