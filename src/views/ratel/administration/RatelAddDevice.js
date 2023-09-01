@@ -23,6 +23,7 @@ import {
   useListDeviceModelsQuery,
 } from 'src/store/api/ratelDevices'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
+import { useListDialplansQuery } from 'src/store/api/ratelDialplans'
 import { useSelector } from 'react-redux'
 
 // import { ConfirmDevice } from './ConfirmDevice'
@@ -53,6 +54,11 @@ const AddRatelDevice = ({ children }) => {
   // const [confirmFormState, setConfirmFormState] = useState([])
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const {
+    data: dialplans = [],
+    isFetching: dialplansAreFetching,
+    error: dialplansError,
+  } = useListDialplansQuery({ tenantDomain })
   const {
     data: deviceLocations = [],
     isFetching: deviceLocationsAreFetching,
@@ -116,6 +122,10 @@ const [newValues, setNewValues] = useState([])
 useEffect(()=>{
   console.log("NEW VALUES USE EFFECT", newValues)
 }, [newValues])
+
+useEffect(()=>{
+  console.log("dialplans", dialplans)
+},[dialplans])
 
 
 if (!formValues) {
@@ -335,7 +345,16 @@ if (!formValues) {
           </Condition>
           <Condition when="DialplanType" is={'Custom'}>
             <CRow>
-              <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" />
+              {/* <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" /> */}
+              <RFFCFormSelect 
+                 name="Dialplan"
+                 label="Choose Custom Dialplan"
+                 placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
+                 values={deviceDids && deviceDids?.map((deviceDid) => ({
+                   label: deviceDid.Number,
+                   value: deviceDid.Number,
+                 }))}
+              />
             </CRow>
           </Condition>
           <Condition when="CallerIDType" is={'Custom'}>
