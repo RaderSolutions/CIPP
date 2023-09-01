@@ -13,7 +13,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/phonebookEditor/editEntry?tenantDomain=${tenant.customerId}&ID=${row.ID}`
-  //console.log(row)
+  
   return (
     <>
       <Link to={editLink}>
