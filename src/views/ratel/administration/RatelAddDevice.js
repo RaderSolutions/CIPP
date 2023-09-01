@@ -346,7 +346,7 @@ if (!formValues) {
           <Condition when="DialplanType" is={'Custom'}>
             <CRow>
               {/* <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" /> */}
-              <RFFCFormSelect 
+              {/* <RFFCFormSelect 
                  name="Dialplan"
                  label="Choose Custom Dialplan"
                  placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
@@ -354,7 +354,7 @@ if (!formValues) {
                    label: deviceDid.Number,
                    value: deviceDid.Number,
                  }))}
-              />
+              /> */}
             </CRow>
           </Condition>
           <Condition when="CallerIDType" is={'Custom'}>
