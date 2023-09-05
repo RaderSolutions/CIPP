@@ -76,21 +76,21 @@
 // scss-docs-end colors-map
 
 // fusv-disable
-// $primary-dark: rgb(226, 92, 9) !default;
-// $primary-base: rgba(247, 127, 0) !default;
-// $primary-50: rgba(247, 128, 0, 0.514) !default;
-// $primary-25: rgba(247, 128, 0, 0.219) !default;
+$primary-dark: #e25c09 !default;
+$primary-base: #f77f00 !default;
+$primary-50: rgba(247, 128, 0, 0.514) !default;
+$primary-25: rgba(247, 128, 0, 0.219) !default;
 
-// $secondary-dark: rgb(1, 42, 65) !default;
-// $secondary-base: rgba(0, 48, 73) !default;
-// $secondary-50: rgba(0, 47, 73, 0.479) !default;
-// $secondary-25: rgba(0, 47, 73, 0.205) !default;
+$secondary-dark: #012a41 !default;
+$secondary-base: #003049 !default;
+$secondary-50: rgba(0, 47, 73, 0.479) !default;
+$secondary-25: rgba(0, 47, 73, 0.205) !default;
 
-// $link-color: rgb(226, 92, 9) !default;
-// $link-decoration: underline !default;
-// $link-shade-percentage: 20% !default;
-// $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
-// $link-hover-decoration: null !default;
+$link-color: #e25c09 !default;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-decoration: null !default;
 
 $search-bg-color: #ffffff;
 $search-border-color: #eeeeee;
