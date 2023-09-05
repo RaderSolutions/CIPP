@@ -66,4 +66,5 @@ export const {
   useListDeviceContactQuery,
   useListDeviceModelsQuery
 } = devicesApi
+
 export default devicesApi
