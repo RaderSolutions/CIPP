@@ -39,4 +39,3 @@ export const {
   useListVariableQuery,
   useAddVariableMutation,
 } = variablesApi
-export default variablesApi

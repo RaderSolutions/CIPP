@@ -45,5 +45,4 @@ export const {
   useListDidQuery,
   useAddDidMutation,
   useListSampleDialplansQuery
-} = didsApi
-export default didsApi
+} = didsApi 
