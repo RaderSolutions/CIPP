@@ -28,6 +28,7 @@
     "coreui_library_short_version": "4.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
     "@coreui/chartjs": "^3.0.0",
     "@coreui/coreui": "^4.1.0",
     "@coreui/react": "^4.1.0",
