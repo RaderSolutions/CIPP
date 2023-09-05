@@ -22,6 +22,7 @@ import {
   faUserShield,
   faEnvelope,
   faToolbox,
+  faCog,
 } from '@fortawesome/free-solid-svg-icons'
 
 const _nav = [
