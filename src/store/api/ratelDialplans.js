@@ -5,7 +5,7 @@ export const dialplanApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
       listDialplans: builder.query({
             query: ({ tenantDomain }) => ({
-                path: '/api/LtRatelCustomDialplans',
+                path: '/api/LtListRatelCustomDialplans',
                 params: {
                     TenantFilter: tenantDomain,
                 },
