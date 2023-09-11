@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { baseApi } from 'src/store/api/baseApi'
 
-export const ratelDidsApi = baseApi.injectEndpoints({
+export const dialplanApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
       listDialplans: builder.query({
             query: ({ tenantDomain }) => ({
-                path: '/api/LtRatelCustomDialplans',
+                path: '/api/LtListRatelCustomDialplans',
                 params: {
                     TenantFilter: tenantDomain,
                 },
@@ -13,7 +13,4 @@ export const ratelDidsApi = baseApi.injectEndpoints({
         }),})
     })
 
-    export const {
-        useListDialplansQuery,
-    } = dialplanApi
-    export default dialplanApi
+export const {  useListDialplansQuery } = dialplanApi
