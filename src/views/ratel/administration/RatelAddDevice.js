@@ -346,15 +346,17 @@ if (!formValues) {
           <Condition when="DialplanType" is={'Custom'}>
             <CRow>
               {/* <RFFCFormTextarea name="Dialplan" label="Edit Dialplan" /> */}
-              {/* <RFFCFormSelect 
+              {dialplansAreFetching && <CSpinner />}
+              {!dialplansAreFetching && dialplans &&
+                <RFFCFormSelect 
                  name="Dialplan"
                  label="Choose Custom Dialplan"
-                 placeholder={!deviceDidsAreFetching ? 'Select Caller ID' : 'Loading...'}
-                 values={deviceDids && deviceDids?.map((deviceDid) => ({
-                   label: deviceDid.Number,
-                   value: deviceDid.Number,
+                 placeholder={!dialplansAreFetching ? 'Select Custom Dialplan' : 'Loading...'}
+                 values={dialplans && dialplans?.map((dialplan) => ({
+                   label: dialplan.description,
+                   value: dialplan.dialplan_name,
                  }))}
-              /> */}
+              />}
             </CRow>
           </Condition>
           <Condition when="CallerIDType" is={'Custom'}>
