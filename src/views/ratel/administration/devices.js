@@ -184,19 +184,19 @@ const DevicesList = () => {
   const addUserDeviceButton = (
     <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
   )
-
-  return (
+return (
     <>
       <Link to={`api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
         <CButton size="sm" variant="ghost" color="warning">
           Reconfigure All Phones
         </CButton>
-      </Link>
-      {/* <Link>
-        <CButton size="sm" variant="ghost" color="warning">
-          Run Script to Process Pending Device Updates
+       </Link>
+       <Link>
+        <CButton to={`TODO: add script endpoint`} size="sm" variant="ghost" color="warning">
+            Run Script to Process Pending Device Updates
         </CButton>
-        </Link> */}
+       </Link>
+ 
       <br />
       <br />
 
