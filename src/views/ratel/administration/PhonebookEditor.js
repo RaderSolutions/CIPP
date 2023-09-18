@@ -59,7 +59,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             color: 'info',
             modal: true,
             // todo: add delete action; make sure params passed first
-            modalUrl:  `/api/LtPhonebookEntry?TenantFilter=${tenant.customerId}&Parameters=Key=ID|Value=${row.ID}&Action=Delete`,
+            modalUrl:  `/api/LtRatelPhoneBookEntry?TenantFilter=${tenant.customerId}&Parameters=Key=ID|Value=${row.ID}&Action=Delete`,
             modalMessage: 'Are you sure you want to delete this phonebook entry?',
           },
         ]}
