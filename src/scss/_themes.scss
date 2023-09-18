@@ -66,14 +66,14 @@
   --cui-danger-rgb: var(--cyberdrain-danger-rgb);
   --cui-light-rgb: var(--cyberdrain-light-rgb);
   --cui-dark-rgb: var(--cyberdrain-dark-rgb);
-  --cui-white-rgb: rgb(255 255 255);
-  --cui-black-rgb: rgb(0 0 0);
+  --cui-white-rgb: #ffffff;
+  --cui-black-rgb: #000000;
   --cui-font-sans-serif: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial,
     'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --cui-font-monospace: sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New',
     monospace;
-  --cui-gradient: linear-gradient(180deg, rgb(255 255 255 / 15%), rgb(255 255 255 / 0%));
+  --cui-gradient: linear-gradient(180deg, #ffffff26, #ffffff00);
   --cui-body-font-family: var(--cui-font-sans-serif);
   --cui-body-font-size: 1rem;
   --cui-body-font-weight: 400;
@@ -86,7 +86,7 @@
   --cipp-offcanvas-header-hover-color: var(--cyberdrain-lighter);
   --cipp-search-selected-option-color: var(--cyberdrain-light);
   --cipp-search-selected-option-bg: var(--cyberdrain-accent-green);
-  --cipp-search-selected-option-highlight: rgb(0 92 99 / 10%);
+  --cipp-search-selected-option-highlight: #005c631a;
   --cipp-search-header-bg: var(--cyberdrain-accent-blue);
   --cipp-search-header-color: var(--cyberdrain-light);
 
@@ -105,7 +105,7 @@
     --cui-btn-active-border-color: #43bf6c;
     --cui-btn-active-color: var(--cyberdrain-darker);
     --cui-btn-disabled-color: #2eb85c;
-    --cui-btn-shadow: rgb(46 184 92 / 50%);
+    --cui-btn-shadow: #2eb85c80;
   }
 
   .btn-ghost-info {
@@ -117,7 +117,7 @@
     --cui-btn-active-border-color: #47a3ff;
     --cui-btn-active-color: var(--cyberdrain-darker);
     --cui-btn-disabled-color: #39f;
-    --cui-btn-shadow: rgb(51 153 255 / 50%);
+    --cui-btn-shadow: #3399ff80;
   }
 
   .btn-ghost-warning {
@@ -129,7 +129,7 @@
     --cui-btn-active-border-color: #bb8510;
     --cui-btn-active-color: var(--cyberdrain-darker);
     --cui-btn-disabled-color: #f9b115;
-    --cui-btn-shadow: rgb(249 177 21 / 50%);
+    --cui-btn-shadow: #f9b11580;
   }
 
   .btn-ghost-danger {
@@ -141,7 +141,7 @@
     --cui-btn-active-border-color: #e86464;
     --cui-btn-active-color: var(--cyberdrain-darker);
     --cui-btn-disabled-color: #e55353;
-    --cui-btn-shadow: rgb(229 83 83 / 50%);
+    --cui-btn-shadow: #e5535380;
   }
 
   .list-group-item-primary {
@@ -219,18 +219,18 @@
 
 [data-theme='cyberdrain'] {
   // Custom Ian Color
-  --cui-color-gray: rgb(240, 240, 240);
-  --cui-color-gray1: rgb(245, 245, 245);
-  --cui-color-gray2: rgb(250, 250, 250);
+  --cui-color-gray: #f0f0f0;
+  --cui-color-gray1: #f5f5f5;
+  --cui-color-gray2: #fafafa;
   --cui-color-gray-hover: rgba(210, 210, 210, 0.8);
-  --cui-color-black: rgb(0, 0, 0);
-  --cui-color-white: rgb(255, 255, 255);
-  --cui-bgcolor-table-header: rgba(105, 105, 105, 0.973);
+  --cui-color-black: #000000;
+  --cui-color-white: #ffffff;
+  --cui-bgcolor-table-header: #696969f8;
   --cui-color-orange: #f77f00;
-  --cui-color-header-bar: rgba(210, 210, 210, 0.8);
-  --cui-color-table-border: rgba(210, 210, 210, 0.8);
-  --cui-color-table-border: rgba(210, 210, 210, 0.8);
-  --cui-color-card-shadow: rgba(22, 22, 22, 0.2);
+  --cui-color-header-bar: #d2d2d2cc;
+  --cui-color-table-border: #d2d2d2cc;
+  --cui-color-table-border: #d2d2d2cc;
+  --cui-color-card-shadow: #16161633;
 
   // Core UI CyberDrain theme variables.
   --cui-body-bg: var(--cyberdrain-light);
@@ -310,8 +310,8 @@
   --cipp-table-primary-colour: var(--cyberdrain-dark);
   --cipp-table-secondary-colour: var(--cyberdrain-secondary);
   --cipp-table-sort-focus-bg: var(--cyberdrain-secondary);
-  --cipp-table-highlight-on-hover-bg: rgb(150, 150, 150);
-  --cipp-table-highlight-on-hover-color: rgb(150, 150, 150);
+  --cipp-table-highlight-on-hover-bg: #969696;
+  --cipp-table-highlight-on-hover-color: #969696;
   --cipp-table-striped-bg: var(--cyberdrain-light-striped);
   --cipp-table-striped-colour: var(--cyberdrain-dark-striped);
   --cipp-offcanvas-header-bg: var(--cui-color-white);
@@ -398,17 +398,17 @@
 
 [data-theme='impact'] {
   // Custom Ian Color
-  --cui-color-gray: rgb(46, 54, 58);
+  --cui-color-gray: #2e363a;
   // --cui-color-gray1: rgb(15,15,15);
   // --cui-color-gray2: rgb(10, 10, 10);
-  --cui-color-header-bar: rgba(40, 40, 40, 0.8);
-  --cui-color-gray-hover: rgba(46, 54, 58, 0.8);
-  --cui-color-black: rgb(255, 255, 255);
-  --cui-bgcolor-table-header: rgba(105, 105, 105, 0.973);
+  --cui-color-header-bar: #282828cc;
+  --cui-color-gray-hover: #2e363acc;
+  --cui-color-black: #ffffff;
+  --cui-bgcolor-table-header: #696969f8;
   --cui-color-orange: #f77f00;
-  --cui-color-table-border: rgba(146, 154, 158, 0.8);
-  --cui-color-card-shadow: rgba(207, 192, 192, 0.2);
-  --text-medium-emphasis: rgba(255, 255, 255, 0.6);
+  --cui-color-table-border: #929a9ecc;
+  --cui-color-card-shadow: #cfc0c033;
+  --text-medium-emphasis: #ffffff99;
   // Core UI Impact theme variables.
   --cui-header-hover-color: var(--cyberdrain-light);
   --cui-header-active-color: var(--cyberdrain-accent-blue);
@@ -492,8 +492,8 @@
   --cipp-table-primary-colour: var(--cyberdrain-light);
   --cipp-table-secondary-colour: var(--cui-gray-100);
   --cipp-table-sort-focus-bg: var(--cyberdrain-secondary);
-  --cipp-table-highlight-on-hover-bg: rgb(138, 136, 136);
-  --cipp-table-highlight-on-hover-color: rgb(138, 136, 136);
+  --cipp-table-highlight-on-hover-bg: #8a8888;
+  --cipp-table-highlight-on-hover-color: #8a8888;
   --cipp-table-striped-bg: var(--cyberdrain-dark-striped);
   --cipp-table-striped-colour: var(--cyberdrain-light-striped);
   --cipp-offcanvas-header-bg: var(--cyberdrain-dark);
@@ -556,7 +556,7 @@
     --cui-btn-active-border-color: var(--cyberdrain-lighter);
     --cui-btn-active-color: var(--cyberdrain-darker);
     --cui-btn-disabled-color: #e55353;
-    --cui-btn-shadow: rgb(229 83 83 / 50%);
+    --cui-btn-shadow: #e5535380;
   }
 
   .list-group-content-card {
