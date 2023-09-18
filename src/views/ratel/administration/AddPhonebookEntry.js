@@ -54,7 +54,7 @@ const AddPhonebookEntry = () => {
   const handleSubmit = async (values) => {
     console.log('tenantDomain', tenantDomain)
     const shippedValues = {
-      TenantFilter: tenantDomain,
+      TenantFilter: values.TenantFilter,
       Dial: values.dial,
       Salutation: values.salutation,
       FirstName: values.firstName,
