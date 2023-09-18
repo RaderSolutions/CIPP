@@ -357,6 +357,9 @@ if (!formValues) {
                    value: dialplan.dialplan_name,
                  }))}
               />}
+              {
+                !dialplansAreFetching && dialplans.length <= 0 && <text>No custom dialplans available for this customer.</text>
+              }
             </CRow>
           </Condition>
           <Condition when="CallerIDType" is={'Custom'}>
