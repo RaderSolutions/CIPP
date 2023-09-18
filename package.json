@@ -112,5 +112,11 @@
   "engines": {
     "node": "18",
     "npm": ">=7"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": ["**/@coreui/**", "**/@coreui/**/**", "**/@coreui/**/**/**"]
   }
 }
