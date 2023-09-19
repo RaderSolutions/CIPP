@@ -105,8 +105,7 @@ const AddRatelDevice = ({ children }) => {
       DialplanType: values.dialplanType,
       CallerIDType: values.callerIDType,
     }
-
-    // alert(JSON.stringify(values, null, 2))
+   // alert(JSON.stringify(values, null, 2))
     genericPostRequest({
       path: '/api/LtAddRatelDevice',
       values: shippedValues,
