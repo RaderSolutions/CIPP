@@ -28,6 +28,7 @@
     "coreui_library_short_version": "4.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
     "@coreui/chartjs": "^3.0.0",
     "@coreui/coreui": "^4.1.0",
     "@coreui/react": "^4.1.0",
@@ -47,6 +48,7 @@
     "@rjsf/validator-ajv8": "^5.12.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "axios": "^0.24.0",
+    "azurite": "^3.21.0",
     "buffer": "^6.0.3",
     "chart.js": "^3.5.1",
     "classnames": "^2.3.1",
@@ -57,8 +59,11 @@
     "javascript-time-ago": "^2.5.9",
     "jspdf": "^2.4.0",
     "jspdf-autotable": "^3.5.23",
+    "jquery": "^3.7.1",
     "moment": "^2.29.1",
+    "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
+    "random-words": "^1.2.1",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
     "react-bootstrap": "^1.6.5",
@@ -68,6 +73,7 @@
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.7",
     "react-final-form-listeners": "^1.0.3",
+    "react-form-builder2": "^0.14.2",
     "react-helmet": "^6.1.0",
     "react-hotkeys-hook": "^3.4.4",
     "react-loading-skeleton": "^3.1.0",
@@ -106,5 +112,11 @@
   "engines": {
     "node": "18",
     "npm": ">=7"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": ["**/@coreui/**", "**/@coreui/**/**", "**/@coreui/**/**/**"]
   }
 }
