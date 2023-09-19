@@ -101,9 +101,9 @@ const AddRatelDevice = ({ children }) => {
       FopGroup: values.FopGroup,
       HideFromPhonebook: values.HideFromPhonebook,
       tenantID: tenantDomain,
-      DeviceType: values.deviceType,
-      DialplanType: values.dialplanType,
-      CallerIDType: values.callerIDType,
+      DeviceType: values.DeviceType,
+      DialplanType: values.DialplanType,
+      CallerIDType: values.CallerIDType,
     }
    // alert(JSON.stringify(values, null, 2))
     genericPostRequest({
