@@ -101,9 +101,9 @@ const AddRatelDevice = ({ children }) => {
       FopGroup: values.FopGroup,
       HideFromPhonebook: values.HideFromPhonebook,
       tenantID: tenantDomain,
-      deviceType: values.deviceType,
-      dialplanType: values.dialplanType,
-      callerIDType: values.callerIDType,
+      DeviceType: values.deviceType,
+      DialplanType: values.dialplanType,
+      CallerIDType: values.callerIDType,
     }
 
     // alert(JSON.stringify(values, null, 2))
@@ -358,7 +358,10 @@ if (!formValues) {
                  }))}
               />}
               {
-                !dialplansAreFetching && dialplans.length <= 0 && <text>No custom dialplans available for this customer.</text>
+                !dialplansAreFetching && dialplans.length <= 0 &&
+                <div className='my-2'>
+                <span>No custom dialplans available for this customer.</span>
+                </div>
               }
             </CRow>
           </Condition>
@@ -372,7 +375,6 @@ if (!formValues) {
               <CRow>
                 <CCol lg={6} xs={12}>
                   {deviceDidsAreFetching && <CSpinner />}
-                  
                   {!deviceDidsAreFetching && deviceDids && (
                     <RFFCFormSelect
                       name="CallerID"
