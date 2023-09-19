@@ -101,9 +101,9 @@ const AddRatelDevice = ({ children }) => {
       FopGroup: values.FopGroup,
       HideFromPhonebook: values.HideFromPhonebook,
       tenantID: tenantDomain,
-      DeviceType: values.deviceType,
-      DialplanType: values.dialplanType,
-      CallerIDType: values.callerIDType,
+      DeviceType: values.DeviceType,
+      DialplanType: values.DialplanType,
+      CallerIDType: values.CallerIDType,
     }
    // alert(JSON.stringify(values, null, 2))
     genericPostRequest({
@@ -118,9 +118,9 @@ const AddRatelDevice = ({ children }) => {
     },
   ]
 const [newValues, setNewValues] = useState([])
-// useEffect(()=>{
-//   console.log("NEW VALUES USE EFFECT", newValues)
-// }, [newValues])
+useEffect(()=>{
+  console.log("NEW VALUES USE EFFECT", newValues)
+}, [newValues])
 
 useEffect(()=>{
   console.log("dialplans", dialplans)
@@ -129,7 +129,6 @@ useEffect(()=>{
 
 if (!formValues) {
   return (
-    
     <>
     <CSpinner />
     <div>
