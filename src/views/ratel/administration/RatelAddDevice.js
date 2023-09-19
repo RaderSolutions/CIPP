@@ -118,9 +118,9 @@ const AddRatelDevice = ({ children }) => {
     },
   ]
 const [newValues, setNewValues] = useState([])
-useEffect(()=>{
-  console.log("NEW VALUES USE EFFECT", newValues)
-}, [newValues])
+// useEffect(()=>{
+//   console.log("NEW VALUES USE EFFECT", newValues)
+// }, [newValues])
 
 useEffect(()=>{
   console.log("dialplans", dialplans)
