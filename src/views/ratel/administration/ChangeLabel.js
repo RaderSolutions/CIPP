@@ -155,7 +155,7 @@ const ChangeLabel = () => {
                     !deviceContactsAreFetching &&
                     deviceContacts.map((contact) => ({
                       value: contact.ContactID,
-                      label: contact.ContactName,
+                      label: contact.Name,
                     }))
                   }
                   />
