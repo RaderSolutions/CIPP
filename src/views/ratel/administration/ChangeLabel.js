@@ -16,6 +16,7 @@ import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
 import { useListDeviceContactsQuery } from 'src/store/api/ratelDevices'
+import { post } from 'jquery'
 
 
 const ChangeLabel = () => {
@@ -169,6 +170,40 @@ const ChangeLabel = () => {
           <h5>Confirm and Apply</h5>
         </center>
         <hr className="my-4" />
+        {!postResults.isSuccess && (
+          <FormSpy subscription={{ values: true, labels: true }}>
+            {
+              (props) => {
+                const formState = useFormState()
+                const { values } = props
+                let labelKey
+                labelKey = values.find(value => Object.values(values).includes('Label'))
+                let emailKey
+                emailKey = values.find(value => Object.values(values).includes('Email'))
+                let ltidKey
+                ltidKey = values.find(value => Object.values(values).includes('ContactId'))
+                
+                return <CListGroup>
+                  {
+                    labelKey && <CListGroupItem>
+                      {`Label Key : ${labelKey.value}`}
+                      </CListGroupItem>
+                  }
+                  {
+                    emailKey && <CListGroupItem>
+                      {`Email Key : ${emailKey.value}`}
+                      </CListGroupItem>
+                  }
+                  {
+                    ltidKey && <CListGroupItem>
+                      {`LTID Key : ${ltidKey.value}`}
+                      </CListGroupItem>
+                  }
+                </CListGroup>
+              }
+            }
+            </FormSpy>
+        )}
        </CippWizard.Page> 
     </CippWizard>
 
