@@ -9,7 +9,6 @@ import {
   RFFCFormSelect,
   Condition,
 } from 'src/components/forms'
-import useQuery from 'src/hooks/useQuery'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
