@@ -176,14 +176,18 @@ const ChangeLabel = () => {
               (props) => {
                 const formState = useFormState()
                 const { values } = props
+                const valuesArray = Object.keys(values)?.map((key) => ({
+                  key: key,
+                  value: values[key]
+                }));
                 console.log('values in form spy', values)
                 let labelKey
-                labelKey = values.find(value => Object.keys(value).includes('Label'))
+                labelKey = valuesArray.find(value => Object.keys(value).includes('Label'))
                 console.log('label key', labelKey)
                 let emailKey
-                emailKey = values.find(value => Object.keys(value).includes('Email'))
+                emailKey = valuesArray.find(value => Object.keys(value).includes('Email'))
                 let ltidKey
-                ltidKey = values.find(value => Object.keys(value).includes('ContactId'))
+                ltidKey = valuesArray.find(value => Object.keys(value).includes('ContactId'))
                 
                 return <CListGroup>
                   {
