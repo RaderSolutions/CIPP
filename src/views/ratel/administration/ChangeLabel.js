@@ -178,11 +178,11 @@ const ChangeLabel = () => {
                 const { values } = props
                 console.log('values in form spy', values)
                 let labelKey
-                labelKey = values.find(value => Object.values(values).includes('Label'))
+                labelKey = values.find(value => Object.keys(values).includes('Label'))
                 let emailKey
-                emailKey = values.find(value => Object.values(values).includes('Email'))
+                emailKey = values.find(value => Object.keys(values).includes('Email'))
                 let ltidKey
-                ltidKey = values.find(value => Object.values(values).includes('ContactId'))
+                ltidKey = values.find(value => Object.keys(values).includes('ContactId'))
                 
                 return <CListGroup>
                   {
