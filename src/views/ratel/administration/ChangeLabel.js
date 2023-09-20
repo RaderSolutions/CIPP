@@ -9,12 +9,13 @@ import {
   RFFCFormSelect,
   Condition,
 } from 'src/components/forms'
+import useQuery from 'src/hooks/useQuery'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
-import { useQuery } from '../../../hooks/useQuery'
+
 
 const ChangeLabel = () => {
   // const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
