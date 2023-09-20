@@ -15,7 +15,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   const deviceType = row.ContactID ? 'User' : 'Generic'
   const editLink = `/ratel/administration/devices/edit?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`
   const changeLabelLink = `/ratel/administration/devices/changeLabel?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`
-  
+  console.log('tenant customer id', tenant.customerId)
   return (
     <>
       <Link to={editLink}>
