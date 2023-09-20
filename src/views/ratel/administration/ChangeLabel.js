@@ -52,7 +52,7 @@ const ChangeLabel = () => {
   const handleSubmit = (values) => {
     alert(JSON.stringify(values, null, 2))
     console.log('submit values', values)
-    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=new_Label|Value=${values.Label},Key=new_Email|Value=${values.Email},Key=new_LTID|Value=${values.ContactId}Key=Device_Id|Value=${deviceId}&RatelScript=true&ScriptId=7853`})
+    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=new_Label|Value=${values.Label},Key=new_Email|Value=${values.Email},Key=new_LTID|Value=${values.ContactId},Key=Device_Id|Value=${deviceId}&RatelScript=true&ScriptId=7853`})
   }
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
