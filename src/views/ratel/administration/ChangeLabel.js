@@ -18,6 +18,7 @@ import { useQuery } from '../../../hooks/useQuery'
 
 const ChangeLabel = () => {
   // const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  let query = useQuery()
   const tenantDomain = query.get('tenantDomain')
 
   const Error = ({ name }) => (
