@@ -15,8 +15,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
+import { useQuery } from '../../../hooks/useQuery'
 
 const ChangeLabel = () => {
+  // const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const tenantDomain = query.get('tenantDomain')
+
   const Error = ({ name }) => (
     <Field
       name={name}
@@ -36,10 +40,11 @@ const ChangeLabel = () => {
     name: PropTypes.string.isRequired,
   }
   const handleSubmit = (values) => {
-    
+    alert(JSON.stringify(values, null, 2))
+    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=new_Label|Value=${values.Label},Key=Device_Id|Value=${values.DeviceId}&RatelScript=true&ScriptId=7853`})
   }
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  
 
   return (
   <CippWizard
