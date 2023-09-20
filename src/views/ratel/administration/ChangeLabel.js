@@ -192,17 +192,17 @@ const ChangeLabel = () => {
                 return <CListGroup>
                   {
                     labelKey && <CListGroupItem>
-                      {`Label Key : ${labelKey.value}`}
+                      {`Label : ${labelKey.value}`}
                       </CListGroupItem>
                   }
                   {
                     emailKey && <CListGroupItem>
-                      {`Email Key : ${emailKey.value}`}
+                      {`Email : ${emailKey.value}`}
                       </CListGroupItem>
                   }
                   {
                     ltidKey && <CListGroupItem>
-                      {`LTID Key : ${ltidKey.value}`}
+                      {`LTID : ${ltidKey.value}`}
                       </CListGroupItem>
                   }
                 </CListGroup>
