@@ -15,12 +15,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage, CippWizard } from 'src/components/layout'
 import { TenantSelector } from 'src/components/utilities'
+import { useListDeviceContactsQuery } from 'src/store/api/ratelDevices'
 
 
 const ChangeLabel = () => {
   // const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   let query = useQuery()
   const tenantDomain = query.get('tenantDomain')
+
+  const {
+    data: deviceContacts = [],
+    isFetching: deviceContactsAreFetching,
+    error: deviceContactsError,
+  } = useListDeviceContactsQuery({ tenantDomain })
 
   const Error = ({ name }) => (
     <Field
@@ -42,8 +49,10 @@ const ChangeLabel = () => {
   }
   const handleSubmit = (values) => {
     alert(JSON.stringify(values, null, 2))
-    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=new_Label|Value=${values.Label},Key=Device_Id|Value=${values.DeviceId}&RatelScript=true&ScriptId=7853`})
+    console.log('submit values', values)
+    // genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=new_Label|Value=${values.Label},Key=new_Email|Value=${values.Email},Key=new_LTID|Value=${values.ContactId}Key=Device_Id|Value=${values.DeviceId}&RatelScript=true&ScriptId=7853`})
   }
+
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   
 
@@ -132,11 +141,24 @@ const ChangeLabel = () => {
         <Condition when="ChangeValue" is="LTID Change">
       <CRow>
          <CCol lg={6} xs={12}>
-                 <RFFCFormInput
+                 {/* <RFFCFormInput
                  type="text"
                  name="LTID"
                  label="Edit Device LTID"
-                 />
+                 /> */}
+                 <RFFCFormSelect
+                  name="ContactId"
+                  label="Select Contact"
+                  placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
+                  values={
+                    deviceContacts &&
+                    !deviceContactsAreFetching &&
+                    deviceContacts.map((contact) => ({
+                      value: contact.ContactID,
+                      label: contact.ContactName,
+                    }))
+                  }
+                  />
              </CCol>
          </CRow>
          </Condition>
