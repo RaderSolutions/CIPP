@@ -179,6 +179,7 @@ const ChangeLabel = () => {
                 console.log('values in form spy', values)
                 let labelKey
                 labelKey = values.find(value => Object.keys(values).includes('Label'))
+                console.log('label key', labelKey)
                 let emailKey
                 emailKey = values.find(value => Object.keys(values).includes('Email'))
                 let ltidKey
