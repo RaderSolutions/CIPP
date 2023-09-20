@@ -182,12 +182,12 @@ const ChangeLabel = () => {
                 }));
                 console.log('values in form spy', values)
                 let labelKey
-                labelKey = valuesArray.find(value => Object.keys(value).includes('Label'))
+                labelKey = valuesArray.find(value => Object.values(value).includes('Label'))
                 console.log('label key', labelKey)
                 let emailKey
-                emailKey = valuesArray.find(value => Object.keys(value).includes('Email'))
+                emailKey = valuesArray.find(value => Object.values(value).includes('Email'))
                 let ltidKey
-                ltidKey = valuesArray.find(value => Object.keys(value).includes('ContactId'))
+                ltidKey = valuesArray.find(value => Object.values(value).includes('ContactId'))
                 
                 return <CListGroup>
                   {
