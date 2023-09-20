@@ -176,6 +176,7 @@ const ChangeLabel = () => {
               (props) => {
                 const formState = useFormState()
                 const { values } = props
+                console.log('values in form spy', values)
                 let labelKey
                 labelKey = values.find(value => Object.values(values).includes('Label'))
                 let emailKey
