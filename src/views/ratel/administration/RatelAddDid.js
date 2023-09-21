@@ -98,9 +98,8 @@ return (
           </CRow>
         </center>
         <hr className="my-4" />
-      </CippWizard.Page>
-      <CippWizard.Page>
-      <Condition when="DidType" is={"Device"}>
+     
+        <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
         <CCol lg={6} xs={12}>
           <RFFCFormInput
@@ -134,12 +133,12 @@ return (
               <RFFCFormSwitch name="SetCallerId" label="Set Caller ID" />
           </CCol>
                     
-      </Condition>
-      <Condition when="DidType" is={"IncomingDialplan"}>
+         </Condition>
+         <Condition when="DidType" is={"IncomingDialplan"}>
         {/* did, name of dialplan (text), dialplan (textarea) */}
         </Condition>
         <Condition when="DidType" is={"ConferenceBridge"}>
-{/* did, extension (txt inputs) */}
+               {/* did, extension (txt inputs) */}
         </Condition>
         </CippWizard.Page>
         <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
