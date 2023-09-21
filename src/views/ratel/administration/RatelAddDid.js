@@ -11,6 +11,8 @@ import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useSelector } from 'react-redux'
+import { useListDevicesQuery, useListDeviceContactsQuery } from 'src/store/api/ratelDevices'
+import { useSelector } from 'react-redux'
 
 const Error = ({ name }) => (
     <Field
@@ -36,6 +38,14 @@ const Error = ({ name }) => (
   }
 
 const AddRatelDid = ({ children }) => {
+  const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const {
+    data: deviceContacts = [],
+    isFetching: deviceContactsAreFetching,
+    error: deviceContactsError,
+  } = useListDeviceContactsQuery({ tenantDomain })
+
+
 return (
   
     <CippWizard
@@ -87,19 +97,37 @@ return (
       <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
         <CCol lg={6} xs={12}>
-
-              {/* <RFFCFormSelect
-                name="DialplanType"
-                label="Select Dialplan Type:"
-                placeholder="Select an option"
-                values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
-                ]}
-                //disabled={formDIsabled}
-              /> */}
+          <RFFCFormInput
+            name="Did"
+            label="Did:"
+            placeholder="Enter the DID"
+            type="text"
+            required
+          />
             </CCol>
-           
+            <CCol lg={6} xs={12}>
+            {deviceContactsAreFetching && <CSpinner />}
+              {!deviceContactsAreFetching && (
+                <RFFCFormSelect
+                  name="ContactID"
+                  label="Device Contact"
+                  placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
+                  values={
+                    deviceContacts &&
+                    deviceContacts?.map((deviceContact) => ({
+                      value: deviceContact.ContactID,
+                      label: deviceContact.Name,
+                    }))
+                  }
+                  //disabled={formDIsabled}
+                />
+              )}
+
+          </CCol>
+          <CCol lg={6} xs={12}>
+              <RFFCFormSwitch name="SetCallerId" label="Set Caller ID" />
+          </CCol>
+                    
       </Condition>
       <Condition when="DidType" is={"IncomingDialplan"}>
         {/* did, name of dialplan (text), dialplan (textarea) */}
