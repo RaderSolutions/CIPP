@@ -125,7 +125,7 @@ const columns = [
 
 const DIDsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addDidButton = (<TitleButton href="ratel/administration/dids/add" title="Add DID Number to Device" />)
+  const addDidButton = (<TitleButton href="/ratel/administration/dids/add" title="Add DID Number to Device" />)
   return (
     <>
     {/* TODO: discuss api endpoint w/ SW */}
