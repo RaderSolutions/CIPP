@@ -38,6 +38,13 @@ const Error = ({ name }) => (
 
 const AddRatelDid = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  initialValues = {
+    DidType: '',
+    Did: '',
+    ContactID: '',
+    SetCallerId: false,
+
+  }
   const {
     data: deviceContacts = [],
     isFetching: deviceContactsAreFetching,
@@ -48,8 +55,7 @@ const AddRatelDid = ({ children }) => {
 return (
   
     <CippWizard
-    // initialValues={{
-    //     ...formValues }}
+    initialValues={{initialValues}}
     onSubmit={onSubmit}
     wizardTitle="Add Ratel DID Wizard"
     >
