@@ -78,7 +78,7 @@ return (
                 label="Select Did Type:"
               />
             </CCol>
-            <CCol lg={6} xs={12}>
+            {/* <CCol lg={6} xs={12}>
               <RFFCFormSelect
                 name="DialplanType"
                 label="Select Dialplan Type:"
@@ -101,7 +101,7 @@ return (
                 ]}
                 //disabled={formDIsabled}
               />
-            </CCol>
+            </CCol> */}
           </CRow>
         </center>
         <hr className="my-4" />
