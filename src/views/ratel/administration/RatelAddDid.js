@@ -100,6 +100,10 @@ return (
         <hr className="my-4" />
      </CippWizard.Page>
      <CippWizard.Page title="Enter DID Information" description="Enter the DID information">
+        <center>
+          <h3 className="text-primary">Step 3</h3>
+          <h5>Enter DID Information</h5>
+        </center>
         <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
         <CCol lg={6} xs={12}>
@@ -137,14 +141,26 @@ return (
          </Condition>
          <Condition when="DidType" is={"IncomingDialplan"}>
         {/* did, name of dialplan (text), dialplan (textarea) */}
+        <RFFCFormInput
+            name="Did"
+            label="Did:"
+            placeholder="Enter the DID"
+            type="text"
+            />
         </Condition>
         <Condition when="DidType" is={"ConferenceBridge"}>
                {/* did, extension (txt inputs) */}
+               <RFFCFormInput
+            name="Did"
+            label="Did:"
+            placeholder="Enter the DID"
+            type="text"
+            />
         </Condition>
         </CippWizard.Page>
         <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
         <center>
-          <h3 className="text-primary">Step 3</h3>
+          <h3 className="text-primary">Step 4</h3>
           <h5>Confirm And Apply</h5>
         </center>
         <FormSpy subscription={{ values: true, labels: true }}>
@@ -154,6 +170,11 @@ return (
               console.log('values in did wizard', values)
               return (
                 <>
+                <div>
+                  <span>
+                    test
+                  </span>
+                </div>
                 </>
               )
             }
