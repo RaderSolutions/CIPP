@@ -99,6 +99,7 @@ return (
         </center>
         <hr className="my-4" />
       </CippWizard.Page>
+      <CippWizard.Page>
       <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
         <CCol lg={6} xs={12}>
@@ -140,7 +141,8 @@ return (
         <Condition when="DidType" is={"ConferenceBridge"}>
 {/* did, extension (txt inputs) */}
         </Condition>
-        <CippWizard.Page title="Select Device Type" description="Choose the type of DID to add">
+        </CippWizard.Page>
+        <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
         <center>
           <h3 className="text-primary">Step 3</h3>
           <h5>Confirm And Apply</h5>
