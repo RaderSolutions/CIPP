@@ -34,8 +34,8 @@ const Error = ({ name }) => (
 const AddRatelDid = ({ children }) => {
 return (
     <CippWizard
-    initialValues={{
-        ...formValues }}
+    // initialValues={{
+    //     ...formValues }}
     onSubmit={onSubmit}
     wizardTitle="Add Ratel DID Wizard"
     >
