@@ -31,6 +31,10 @@ const Error = ({ name }) => (
     name: PropTypes.string.isRequired,
   }
 
+  const onSubmit = async (values) => {
+    console.log('values', values)
+  }
+
 const AddRatelDid = ({ children }) => {
 return (
     <CippWizard
