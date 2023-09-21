@@ -38,7 +38,7 @@ const Error = ({ name }) => (
 
 const AddRatelDid = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-  initialValues = {
+  const initialValues = {
     DidType: '',
     Did: '',
     ContactID: '',
