@@ -134,6 +134,24 @@ return (
         <Condition when="DidType" is={"ConferenceBridge"}>
 {/* did, extension (txt inputs) */}
         </Condition>
+        <CippWizard.Page title="Select Device Type" description="Choose the type of DID to add">
+        <center>
+          <h3 className="text-primary">Step 3</h3>
+          <h5>Confirm And Apply</h5>
+        </center>
+        <FormSpy subscription={{ values: true, labels: true }}>
+          {
+            (props) => {
+              const { values } = props
+              console.log('values in did wizard', values)
+              return (
+                <>
+                </>
+              )
+            }
+          }
+          </FormSpy>
+        </CippWizard.Page>
     </CippWizard>
 )
 }
