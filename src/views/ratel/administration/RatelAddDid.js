@@ -72,7 +72,7 @@ return (
         <Error name="selectedTenants" />
         <hr className="my-4" />
     </CippWizard.Page>
-    <CippWizard.Page title="Select Device Type" description="Choose the type of DID to add">
+    <CippWizard.Page title="Select DID Type" description="Choose the type of DID to add">
         <center>
           <h3 className="text-primary">Step 2</h3>
           <h5>Choose Did Type</h5>
@@ -98,7 +98,8 @@ return (
           </CRow>
         </center>
         <hr className="my-4" />
-     
+     </CippWizard.Page>
+     <CippWizard.Page title="Enter DID Information" description="Enter the DID information">
         <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
         <CCol lg={6} xs={12}>
