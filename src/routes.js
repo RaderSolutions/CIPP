@@ -450,7 +450,7 @@ const routes = [
     name: 'Edit DID',
     component: DIDsEditDialplan,
   },
-  { path: '/rate/administration/dids/add', name: 'Add RATEL DID', component: RatelAddDid },
+  { path: '/ratel/administration/dids/add', name: 'Add RATEL DID', component: RatelAddDid },
   { path: '/ratel/administration/variables', name: 'RATEL Variables', component: RatelVariables },
   { path: '/ratel/administration/variables/edit', name: 'Edit Variable', component: EditVariable },
   {
