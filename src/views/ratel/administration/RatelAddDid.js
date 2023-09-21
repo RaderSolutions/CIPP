@@ -55,7 +55,7 @@ const AddRatelDid = ({ children }) => {
 return (
   
     <CippWizard
-    initialValues={{initialValues}}
+    // initialValues={{initialValues}}
     onSubmit={onSubmit}
     wizardTitle="Add Ratel DID Wizard"
     >
@@ -157,29 +157,29 @@ return (
             type="text"
             />
         </Condition>
-        </CippWizard.Page>
-        <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
-        <center>
-          <h3 className="text-primary">Step 4</h3>
-          <h5>Confirm And Apply</h5>
-        </center>
-        <FormSpy subscription={{ values: true, labels: true }}>
-          {
-            (props) => {
-              const { values } = props
-              console.log('values in did wizard', values)
-              return (
-                <>
-                <div>
-                  <span>
-                    test
-                  </span>
-                </div>
-                </>
-              )
+      </CippWizard.Page>
+      <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
+          <center>
+            <h3 className="text-primary">Step 4</h3>
+            <h5>Confirm And Apply</h5>
+          </center>
+          <FormSpy subscription={{ values: true, labels: true }}>
+            {
+              (props) => {
+                const { values } = props
+                console.log('values in did wizard', values)
+                return (
+                  <>
+                  <div>
+                    <span>
+                      test
+                    </span>
+                  </div>
+                  </>
+                )
+              }
             }
-          }
-          </FormSpy>
+            </FormSpy>
         </CippWizard.Page>
     </CippWizard>
 )
