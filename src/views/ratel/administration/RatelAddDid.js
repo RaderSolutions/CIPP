@@ -10,7 +10,6 @@ import { RFFCFormInput, RFFCFormSelect, RFFCFormSwitch, Condition } from 'src/co
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
-import { useSelector } from 'react-redux'
 import { useListDevicesQuery, useListDeviceContactsQuery } from 'src/store/api/ratelDevices'
 import { useSelector } from 'react-redux'
 
