@@ -75,7 +75,7 @@ return (
     <CippWizard.Page title="Select DID Type" description="Choose the type of DID to add">
         <center>
           <h3 className="text-primary">Step 2</h3>
-          <h5>Choose Did Type</h5>
+          <h5>Choose DID Type</h5>
         </center>
         <hr className="my-4" />
         <div className="mb-2"></div>
@@ -106,6 +106,9 @@ return (
         </center>
         <Condition when="DidType" is={"Device"}>
         {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
+       <h5>
+          Device
+       </h5>
         <CCol lg={6} xs={12}>
           <RFFCFormInput
             name="Did"
@@ -140,22 +143,40 @@ return (
                     
          </Condition>
          <Condition when="DidType" is={"IncomingDialplan"}>
-        {/* did, name of dialplan (text), dialplan (textarea) */}
-        <RFFCFormInput
-            name="Did"
-            label="Did:"
-            placeholder="Enter the DID"
-            type="text"
-            />
+            {/* did, name of dialplan (text), dialplan (textarea) */}
+            <h5>
+              Incoming Dialplan
+            </h5>
+            <RFFCFormInput
+                name="Did"
+                label="Did:"
+                placeholder="Enter the DID"
+                type="text"
+                />
+                <RFFCFormInput
+                name="Dialplan"
+                label="Dialplan"
+                placeholder="Enter the Dialplan"
+                type="textarea"
+                />
         </Condition>
         <Condition when="DidType" is={"ConferenceBridge"}>
                {/* did, extension (txt inputs) */}
+               <h5>
+                  Conference Bridge
+               </h5>
                <RFFCFormInput
-            name="Did"
-            label="Did:"
-            placeholder="Enter the DID"
-            type="text"
-            />
+                name="Did"
+                label="Did:"
+                placeholder="Enter the DID"
+                type="text"
+                />
+                <RFFCFormInput
+                name="Extension"
+                label="Extension:"
+                placeholder="Enter the Extension"
+                type="text"
+                />
         </Condition>
       </CippWizard.Page>
       <CippWizard.Page title="Confirm And Apply" description="Review Information And Apply Or Revise">
