@@ -27,7 +27,6 @@ import { useListDialplansQuery } from 'src/store/api/ratelDialplans'
 import { useSelector } from 'react-redux'
 
 // import { ConfirmDevice } from './ConfirmDevice'
-
 const Error = ({ name }) => (
   <Field
     name={name}

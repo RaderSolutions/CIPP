@@ -37,6 +37,7 @@ const Error = ({ name }) => (
 
 const AddRatelDid = ({ children }) => {
 return (
+  
     <CippWizard
     // initialValues={{
     //     ...formValues }}
@@ -56,7 +57,7 @@ return (
         <Error name="selectedTenants" />
         <hr className="my-4" />
     </CippWizard.Page>
-    <CippWizard.Page title="Select Device Type" description="Choose the type of device to add">
+    <CippWizard.Page title="Select Device Type" description="Choose the type of DID to add">
         <center>
           <h3 className="text-primary">Step 2</h3>
           <h5>Choose Did Type</h5>
@@ -78,8 +79,16 @@ return (
                 label="Select Did Type:"
               />
             </CCol>
-            {/* <CCol lg={6} xs={12}>
-              <RFFCFormSelect
+    
+          </CRow>
+        </center>
+        <hr className="my-4" />
+      </CippWizard.Page>
+      <Condition when="DidType" is={"Device"}>
+        {/* did (txt), deviceid (dropdown with devices for client), setcallerid(bool) */}
+        <CCol lg={6} xs={12}>
+
+              {/* <RFFCFormSelect
                 name="DialplanType"
                 label="Select Dialplan Type:"
                 placeholder="Select an option"
@@ -88,24 +97,16 @@ return (
                   { value: 'Custom', label: 'Custom' },
                 ]}
                 //disabled={formDIsabled}
-              />
+              /> */}
             </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="CallerIDType"
-                label="Select CallerID Type:"
-                placeholder="Select an option"
-                values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
-                ]}
-                //disabled={formDIsabled}
-              />
-            </CCol> */}
-          </CRow>
-        </center>
-        <hr className="my-4" />
-      </CippWizard.Page>
+           
+      </Condition>
+      <Condition when="DidType" is={"IncomingDialplan"}>
+        {/* did, name of dialplan (text), dialplan (textarea) */}
+        </Condition>
+        <Condition when="DidType" is={"ConferenceBridge"}>
+{/* did, extension (txt inputs) */}
+        </Condition>
     </CippWizard>
 )
 }
