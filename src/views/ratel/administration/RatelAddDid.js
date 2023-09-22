@@ -33,18 +33,17 @@ const Error = ({ name }) => (
   }
 
   const onSubmit = async (values) => {
-    console.log('values', values)
+    console.log('values in add DID', values)
   }
 
 const AddRatelDid = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-  const initialValues = {
-    DidType: '',
-    Did: '',
-    ContactID: '',
-    SetCallerId: false,
-
-  }
+  // const initialValues = {
+  //   DidType: '',
+  //   Did: '',
+  //   ContactID: '',
+  //   SetCallerId: false,
+  // }
   const {
     data: deviceContacts = [],
     isFetching: deviceContactsAreFetching,
