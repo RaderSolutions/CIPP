@@ -32,17 +32,6 @@ const Error = ({ name }) => (
     name: PropTypes.string.isRequired,
   }
 
-  const onSubmit = async (values) => {
-    console.log('values in add DID', values)
-    if (DidType === 'Device') {
-      console.log('didtype device')
-    }
-    else if (DidType === 'IncomingDialplan') {
-        console.log('didtype incoming dialplan')
-    } else if (DidType === 'ConferenceBridge') {
-        console.log('didtype conference bridge')
-    }
-  }
 
 const AddRatelDid = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
@@ -58,6 +47,29 @@ const AddRatelDid = ({ children }) => {
     error: deviceContactsError,
   } = useListDeviceContactsQuery({ tenantDomain })
 
+  const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
+  const onSubmit = async (values) => {
+    console.log('values in add DID', values)
+    if (values.DidType === 'Device') {
+      console.log('didtype device')
+      const shippedValues = {
+        TenantFilter: tenantDomain,
+        DidNumber: values.Did,
+        DeviceId: values.ContactID,
+        IsDeviceCallerId: values.SetCallerId,
+      }
+      genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
+    }
+    else if (values.DidType === 'IncomingDialplan') {
+        console.log('didtype incoming dialplan')
+        // alert(JSON.stringify(values, null, 2))
+    // genericPostRequest({
+    //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
+    // })
+    } else if (values.DidType === 'ConferenceBridge') {
+        console.log('didtype conference bridge')
+    }
+  }
 
 return (
   
