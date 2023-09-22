@@ -34,6 +34,14 @@ const Error = ({ name }) => (
 
   const onSubmit = async (values) => {
     console.log('values in add DID', values)
+    if (DidType === 'Device') {
+      console.log('didtype device')
+    }
+    else if (DidType === 'IncomingDialplan') {
+        console.log('didtype incoming dialplan')
+    } else if (DidType === 'ConferenceBridge') {
+        console.log('didtype conference bridge')
+    }
   }
 
 const AddRatelDid = ({ children }) => {
