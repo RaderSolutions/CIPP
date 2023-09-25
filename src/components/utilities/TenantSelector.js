@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect } from 'react'
 import SelectSearch, { fuzzySearch } from 'react-select-search'
 import { useDispatch, useSelector } from 'react-redux'
