@@ -64,13 +64,13 @@ const AddRatelDid = ({ children }) => {
     else if (values.DidType === 'IncomingDialplan') {
         console.log('didtype incoming dialplan')
         // alert(JSON.stringify(values, null, 2))
-        const shippedValues = {
-          TenantFilter: tenantDomain,
-          DidNumber: values.Did,
-          Dialplan: values.Dialplan,
-          DidType: values.DidType,
-        }
-        genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
+        // const shippedValues = {
+        //   TenantFilter: tenantDomain,
+        //   DidNumber: values.Did,
+        //   Dialplan: values.Dialplan,
+        //   DidType: values.DidType,
+        // }
+        genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=DID|Value=${values.Did},Key=notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}Key=&RatelScript=true&ScriptId=7532` })
     // genericPostRequest({
     //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
     // })
@@ -182,6 +182,12 @@ return (
                 name="Did"
                 label="Did:"
                 placeholder="Enter the DID"
+                type="text"
+                />
+                <RFFCFormInput
+                name="DialplanName"
+                label="Dialplan Name:"
+                placeholder="Enter the Dialplan Name/Description"
                 type="text"
                 />
                 <RFFCFormTextarea
