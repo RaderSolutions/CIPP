@@ -55,7 +55,7 @@ const AddRatelDid = ({ children }) => {
       const shippedValues = {
         TenantFilter: tenantDomain,
         DidNumber: values.Did,
-        DeviceId: values.ContactID,
+        DeviceId: values.DeviceId,
         IsDeviceCallerId: values.SetCallerId,
         DidType: values.DidType,
       }
@@ -71,6 +71,10 @@ const AddRatelDid = ({ children }) => {
         console.log('didtype conference bridge')
     }
   }
+
+  useEffect(() =>{
+    console.log('devices', devices)
+  },[devices])
 
 return (
   
@@ -142,8 +146,8 @@ return (
             {devicesAreFetching && <CSpinner />}
               {!devicesAreFetching && (
                 <RFFCFormSelect
-                  name="ContactID"
-                  label="Device Contact"
+                  name="DeviceId"
+                  label="Device"
                   placeholder={!devicesAreFetching ? 'Select Contact' : 'Loading...'}
                   values={
                     devices &&
