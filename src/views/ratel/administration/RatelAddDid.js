@@ -57,6 +57,7 @@ const AddRatelDid = ({ children }) => {
         DidNumber: values.Did,
         DeviceId: values.ContactID,
         IsDeviceCallerId: values.SetCallerId,
+        DidType: values.DidType,
       }
       genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
     }
@@ -157,7 +158,7 @@ return (
 
           </CCol>
           <CCol lg={6} xs={12}>
-              <RFFCFormSwitch name="SetCallerId" label="Set Caller ID" />
+              <RFFCFormSwitch name="IsDeviceCallerId" label="Set Caller ID" value={false} />
           </CCol>
                     
          </Condition>
