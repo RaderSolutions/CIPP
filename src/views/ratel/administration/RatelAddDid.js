@@ -152,8 +152,8 @@ return (
                   values={
                     devices &&
                     devices?.map((device) => ({
-                      value: device.id,
-                      label: device.label,
+                      value: device.DeviceId,
+                      label: device.Label,
                     }))
                   }
                   //disabled={formDIsabled}
