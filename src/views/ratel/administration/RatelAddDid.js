@@ -158,7 +158,7 @@ return (
 
           </CCol>
           <CCol lg={6} xs={12}>
-              <RFFCFormSwitch name="IsDeviceCallerId" label="Set Caller ID" value={false} />
+              <RFFCFormSwitch name="IsDeviceCallerId" label="Set Caller ID" value={true} />
           </CCol>
                     
          </Condition>
