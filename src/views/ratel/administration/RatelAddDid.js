@@ -10,7 +10,7 @@ import { RFFCFormInput, RFFCFormSelect, RFFCFormSwitch, Condition } from 'src/co
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useListDidsQuery } from 'src/store/api/ratelDids'
-import { useListDevicesQuery, useListDeviceContactsQuery } from 'src/store/api/ratelDevices'
+import { useListDevicesQuery } from 'src/store/api/ratelDevices'
 import { useSelector } from 'react-redux'
 
 const Error = ({ name }) => (
@@ -42,10 +42,10 @@ const AddRatelDid = ({ children }) => {
   //   SetCallerId: false,
   // }
   const {
-    data: deviceContacts = [],
-    isFetching: deviceContactsAreFetching,
-    error: deviceContactsError,
-  } = useListDeviceContactsQuery({ tenantDomain })
+    data: devices = [],
+    isFetching: devicesAreFetching,
+    error: devicesError,
+  } = useListDevicesQuery({ tenantDomain })
 
   const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
   const onSubmit = async (values) => {
@@ -139,17 +139,17 @@ return (
           />
             </CCol>
             <CCol lg={6} xs={12}>
-            {deviceContactsAreFetching && <CSpinner />}
-              {!deviceContactsAreFetching && (
+            {devicesAreFetching && <CSpinner />}
+              {!devicesAreFetching && (
                 <RFFCFormSelect
                   name="ContactID"
                   label="Device Contact"
-                  placeholder={!deviceContactsAreFetching ? 'Select Contact' : 'Loading...'}
+                  placeholder={!devicesAreFetching ? 'Select Contact' : 'Loading...'}
                   values={
-                    deviceContacts &&
-                    deviceContacts?.map((deviceContact) => ({
-                      value: deviceContact.ContactID,
-                      label: deviceContact.Name,
+                    devices &&
+                    devices?.map((device) => ({
+                      value: device.ContactID,
+                      label: device.Name,
                     }))
                   }
                   //disabled={formDIsabled}
