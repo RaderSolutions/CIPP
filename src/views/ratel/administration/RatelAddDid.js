@@ -148,7 +148,7 @@ return (
                 <RFFCFormSelect
                   name="DeviceId"
                   label="Device"
-                  placeholder={!devicesAreFetching ? 'Select Contact' : 'Loading...'}
+                  placeholder={!devicesAreFetching ? 'Select Device' : 'Loading...'}
                   values={
                     devices &&
                     devices?.map((device) => ({
