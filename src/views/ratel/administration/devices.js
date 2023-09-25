@@ -192,7 +192,7 @@ return (
         </CButton>
        </Link>
        <Link>
-        <CButton to={`TODO: add script endpoint`} size="sm" variant="ghost" color="warning">
+        <CButton to={`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`} size="sm" variant="ghost" color="warning">
             Run Script to Process Pending Device Updates
         </CButton>
        </Link>
