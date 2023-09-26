@@ -35,12 +35,7 @@ const Error = ({ name }) => (
 
 const AddRatelDid = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-  // const initialValues = {
-  //   DidType: '',
-  //   Did: '',
-  //   ContactID: '',
-  //   SetCallerId: false,
-  // }
+
   const {
     data: devices = [],
     isFetching: devicesAreFetching,
