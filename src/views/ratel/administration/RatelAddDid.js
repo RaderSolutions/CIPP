@@ -239,7 +239,7 @@ return (
                   value: values[key]
                 }))
                 console.log('valuesArray', valuesArray)
-                let deviceTypeLabel = values?.Device?.label ? values?.Device?.label : ''
+                
                 console.log('deviceTypeLabel', deviceTypeLabel)
                 let didTypeKey
                 didTypeKey = valuesArray?.find(value => value.key === 'DidType')
@@ -253,7 +253,11 @@ return (
                 extensionKey = valuesArray?.find(value => value.key === 'Extension')
                 let dialplanNameKey
                 dialplanNameKey = valuesArray?.find(value => value.key === 'DialplanName')
-              
+                let deviceLabel
+                if (deviceKey) {
+                  deviceLabel = devices?.find(device => device.DeviceId === deviceKey?.value)?.Label
+                  console.log('device label found', deviceLabel)
+                }
                 return <CListGroup>
                   {
                     didTypeKey && <CListGroupItem>
