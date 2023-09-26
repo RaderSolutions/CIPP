@@ -253,7 +253,7 @@ return (
                 dialplanNameKey = valuesArray?.find(value => value.key === 'DialplanName')
                 let deviceLabel
                 if (deviceKey) {
-                  deviceLabel = devices?.find(device => device.DeviceId === deviceKey?.value)?.Label
+                  deviceLabel = devices?.find(device => device.DeviceId === parseInt(deviceKey?.value))?.Label
                   console.log('device label found', deviceLabel)
                 }
                 return <CListGroup>
