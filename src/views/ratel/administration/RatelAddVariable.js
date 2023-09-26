@@ -85,6 +85,7 @@ export const AddRatelVariable = ({ children }) => {
         <FormSpy subscription={{ values: true }}>
             {
                 (props) => {
+                    const { values } = props
                     const {
                         data: [],
                         isFetching: isFetchingVariable,
