@@ -89,13 +89,13 @@ const columns = [
 
 const VariablesList = () => {
     const tenant = useSelector((state) => state.app.currentTenant)
-    // const addVariableButton = <TitleButton href="/ratel/administration/variables/add" title="Add Variable" />
+    const addVariableButton = <TitleButton href="/ratel/administration/variables/add" title="Add Variable" />
 
     return (
       <>
       <CippPageList
         title="Variables"
-        // titleButton={addVariableButton}
+        titleButton={addVariableButton}
         datatable={{
           keyField: 'id',
           columns,
