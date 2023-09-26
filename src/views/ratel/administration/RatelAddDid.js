@@ -75,6 +75,13 @@ const AddRatelDid = ({ children }) => {
     //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
     // })
     } else if (values.DidType === 'ConferenceBridge') {
+      const shippedValues = {
+        TenantFilter: tenantDomain,
+        DidNumber: values.Did,
+        Extension: values.Extension,
+        DidType: values.DidType,
+      }
+      genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
         console.log('didtype conference bridge')
     }
   }
