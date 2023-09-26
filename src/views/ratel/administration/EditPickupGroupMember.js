@@ -106,7 +106,7 @@ export const EditMember = () => {
                               {/* {postResults.data.Results.map((message, idx) => {
                                 return <li key={idx}>{message}</li>
                               })} */}
-                              postResults.Results
+                              {postResults.Results}
                             </CCallout>
                           )}
                         </CForm>
