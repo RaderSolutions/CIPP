@@ -41,9 +41,10 @@ export const EditMember = () => {
   }, [members, pickupGroupMemberIsFetching, pickupGroupError])
 
   useEffect(() => {
+    console.log('postResults', postResults)
     console.log('members', members, 'errors', pickupGroupError)
     console.log(tenantDomain, extension, type)
-  }, [members, pickupGroupError])
+  }, [members, pickupGroupError, postResults])
 
   const onSubmit = (values) => {
     const shippedValues = {
