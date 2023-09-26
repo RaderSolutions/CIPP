@@ -236,16 +236,25 @@ return (
                   key: key,
                   value: values[key]
                 }))
+                let didTypeKey
+                didTypeKey = valuesArray?.find(value => value.key === 'DidType')
                 let deviceKey
                 deviceKey = valuesArray?.find(value => value.key === 'DeviceId')
                 let didNumberKey
-                didNumberKey = valuesArray?.find(value => value.key === 'DidNumber')
+                didNumberKey = valuesArray?.find(value => value.key === 'Did')
+                let isDeviceCallerIdKey
+                isDeviceCallerIdKey = valuesArray?.find(value => value.key === 'IsDeviceCallerId')
                 let extensionKey
                 extensionKey = valuesArray?.find(value => value.key === 'Extension')
                 let dialplanNameKey
                 dialplanNameKey = valuesArray?.find(value => value.key === 'DialplanName')
-
+                console.log('deviceKey', deviceKey)
                 return <CListGroup>
+                  {
+                    didTypeKey && <CListGroupItem>
+                      {`DID Type: ${didTypeKey?.value}`}
+                    </CListGroupItem>
+                  }
                   {
                     deviceKey && <CListGroupItem>
                       {`Device: ${deviceKey?.value}`}
@@ -254,6 +263,11 @@ return (
                   {
                     didNumberKey && <CListGroupItem>
                       {`DID: ${didNumberKey?.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    isDeviceCallerIdKey && <CListGroupItem>
+                      {`Is Caller ID: ${isDeviceCallerIdKey?.value}`}
                     </CListGroupItem>
                   }
                   {
