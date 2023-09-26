@@ -44,7 +44,7 @@ export const AddRatelVariable = ({ children }) => {
     
 useEffect(()=>{
     console.log('variables', variables)
-},[data])
+},[variables])
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
 
     const onSubmit = async (values) => {
