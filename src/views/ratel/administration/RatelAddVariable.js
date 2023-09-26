@@ -110,7 +110,7 @@ export const AddRatelVariable = ({ children }) => {
                    let valueKey
                        valueKey = valuesArray.find((item) => item.key === 'value')
                     return (
-                        <CListGroup>
+                        <CListGroup className="my-4">
                             {
                                 familyKey && <CListGroupItem>
                                     {`Family: ${familyKey.values}`}
