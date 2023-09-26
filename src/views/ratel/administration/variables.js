@@ -7,7 +7,7 @@ import { faEdit, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
-// import { TitleButton } from 'src/components/buttons'
+import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
     const tenant = useSelector((state) => state.app.currentTenant)

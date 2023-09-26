@@ -60,21 +60,12 @@ const AddRatelDid = ({ children }) => {
         DidType: values.DidType,
       }
       genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
-    }
+     }
     else if (values.DidType === 'IncomingDialplan') {
         console.log('didtype incoming dialplan')
         // alert(JSON.stringify(values, null, 2))
-        // const shippedValues = {
-        //   TenantFilter: tenantDomain,
-        //   DidNumber: values.Did,
-        //   Dialplan: values.Dialplan,
-        //   DidType: values.DidType,
-        // }
         genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352` })
-    // genericPostRequest({
-    //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
-    // })
-    } else if (values.DidType === 'ConferenceBridge') {
+  } else if (values.DidType === 'ConferenceBridge') {
       const shippedValues = {
         TenantFilter: tenantDomain,
         DidNumber: values.Did,
@@ -85,10 +76,6 @@ const AddRatelDid = ({ children }) => {
         console.log('didtype conference bridge')
     }
   }
-
-  useEffect(() =>{
-    console.log('devices', devices)
-  },[devices])
 
 return (
   
@@ -254,7 +241,6 @@ return (
                 let deviceLabel
                 if (deviceKey) {
                   deviceLabel = devices?.find(device => device.DeviceId === parseInt(deviceKey?.value))?.Label
-                  console.log('device label found', deviceLabel)
                 }
                 return <CListGroup>
                   {
