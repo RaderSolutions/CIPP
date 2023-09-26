@@ -264,7 +264,7 @@ return (
                   }
                   {
                     deviceKey && <CListGroupItem>
-                      {`Device: ${deviceKey?.value}`}
+                      {`Device: ${deviceLabel ? deviceLabel : deviceKey?.value}`}
                     </CListGroupItem>
                   }
                   {
