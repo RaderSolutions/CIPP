@@ -236,6 +236,7 @@ return (
                   key: key,
                   value: values[key]
                 }))
+                console.log('valuesArray', valuesArray)
                 let didTypeKey
                 didTypeKey = valuesArray?.find(value => value.key === 'DidType')
                 let deviceKey
@@ -248,7 +249,7 @@ return (
                 extensionKey = valuesArray?.find(value => value.key === 'Extension')
                 let dialplanNameKey
                 dialplanNameKey = valuesArray?.find(value => value.key === 'DialplanName')
-                console.log('deviceKey', deviceKey)
+              
                 return <CListGroup>
                   {
                     didTypeKey && <CListGroupItem>
