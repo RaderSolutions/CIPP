@@ -35,7 +35,12 @@ const Error = ({ name }) => (
 
 export const AddRatelVariable = ({ children }) => {
     const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-    
+    const values = useFormState().values
+    const {
+        data: [],
+        isFetching: isFetchingVariable,
+        error: variableError,
+    } = useListVariableQuery({ tenantDomain, family: values.family, key: values.key })
     
 
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
@@ -86,11 +91,7 @@ export const AddRatelVariable = ({ children }) => {
             {
                 (props) => {
                     const { values } = props
-                    const {
-                        data: [],
-                        isFetching: isFetchingVariable,
-                        error: variableError,
-                    } = useListVariableQuery({ tenantDomain, family: values.family, key: values.key })
+                   
                     return (
                         <div>
                             test
