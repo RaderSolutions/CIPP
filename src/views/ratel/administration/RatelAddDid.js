@@ -232,16 +232,41 @@ return (
             {
               (props) => {
                 const { values } = props
-                console.log('values in did wizard', values)
-                return (
-                  <>
-                  <div>
-                    <span>
-                      test
-                    </span>
-                  </div>
-                  </>
-                )
+                const valuesArray = Object.keys(values)?.map((key) => ({
+                  key: key,
+                  value: values[key]
+                }))
+                let deviceKey
+                deviceKey = valuesArray?.find(value => value.key === 'DeviceId')
+                let didNumberKey
+                didNumberKey = valuesArray?.find(value => value.key === 'DidNumber')
+                let extensionKey
+                extensionKey = valuesArray?.find(value => value.key === 'Extension')
+                let dialplanNameKey
+                dialplanNameKey = valuesArray?.find(value => value.key === 'DialplanName')
+
+                return <CListGroup>
+                  {
+                    deviceKey && <CListGroupItem>
+                      {`Device: ${deviceKey?.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    didNumberKey && <CListGroupItem>
+                      {`DID: ${didNumberKey?.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    extensionKey && <CListGroupItem>
+                      {`Extension: ${extensionKey?.value}`}
+                    </CListGroupItem>
+                  }
+                  {
+                    dialplanNameKey && <CListGroupItem>
+                      {`Dialplan Name: ${dialplanNameKey?.value}`}
+                    </CListGroupItem>
+                  }
+                </CListGroup>
               }
             }
             </FormSpy>
