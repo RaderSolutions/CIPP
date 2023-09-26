@@ -43,7 +43,7 @@ export const AddRatelVariable = ({ children }) => {
     } = useListVariablesQuery({ tenantDomain})
     
 useEffect(()=>{
-    console.log('data', data)
+    console.log('variables', variables)
 },[data])
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
 
