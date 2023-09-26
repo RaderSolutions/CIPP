@@ -101,11 +101,35 @@ export const AddRatelVariable = ({ children }) => {
                 
                 (props) => {
                     const { values } = props
-                   
+                    const valuesArray = Object.keys(values).map((key) => ({
+                        key: key,
+                        values: values[key],
+                    }));
+                   let familyKey
+                   familyKey = valuesArray.find((item) => item.key === 'family')
+                   let keyKey
+                     keyKey = valuesArray.find((item) => item.key === 'key')
+                   let valueKey
+                       valueKey = valuesArray.find((item) => item.key === 'value')
                     return (
-                        <div>
-                            test
-                        </div>
+                        <CListGroup>
+                            {
+                                familyKey && <CListGroupItem>
+                                    {`Family: ${familyKey.values}`}
+                                </CListGroupItem>
+                            }
+                            {
+                                keyKey && <CListGroupItem>
+                                    {`Key: ${keyKey.values}`}
+                                </CListGroupItem>
+                            }
+                            {
+                                valueKey && <CListGroupItem>
+                                    {`Value: ${valueKey.values}`}
+                                </CListGroupItem>
+                            }
+
+                        </CListGroup>
                     )
                 }
             }
