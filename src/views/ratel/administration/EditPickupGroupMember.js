@@ -47,6 +47,7 @@ export const EditMember = () => {
 
   const onSubmit = (values) => {
     const shippedValues = {
+      TenantFilter: tenantDomain,
       Extension: values.Extension,
       Groups: values.Groups,
       Type: values.Type,
