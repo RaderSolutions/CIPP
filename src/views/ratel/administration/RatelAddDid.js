@@ -232,6 +232,8 @@ return (
             {
               (props) => {
                 const { values } = props
+                const { labels } = props
+                console.log("labels", labels)
                 const valuesArray = Object.keys(values)?.map((key) => ({
                   key: key,
                   value: values[key]
