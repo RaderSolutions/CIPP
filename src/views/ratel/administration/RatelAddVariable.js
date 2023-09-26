@@ -54,7 +54,7 @@ export const AddRatelVariable = ({ children }) => {
     onSubmit={onSubmit}
     wizardTitle="Add Ratel Variable"
     >
-        <CippWizard.Page>
+        <CippWizard.Page title="Choose A Tenant">
         <center>
         <h3 className="text-primary">Step 1</h3>
         <h5 className="card-title mb-4">Choose a tenant</h5>
@@ -64,7 +64,7 @@ export const AddRatelVariable = ({ children }) => {
         <Error name="selectedTenants" />
         <hr className="my-4" />
         </CippWizard.Page> 
-        <CippWizard.Page title="Input Family" description="">
+        <CippWizard.Page title="Input New Variable Fields" description="">
         <center>
           <h3 className="text-primary">Step 2</h3>
           <h5>Input Family</h5>
@@ -93,7 +93,7 @@ export const AddRatelVariable = ({ children }) => {
                 </CCol>
         </CRow>
         </CippWizard.Page>
-        <CippWizard.Page title="Confirm">
+        <CippWizard.Page title="Confirm New Variable Values">
         <FormSpy subscription={{ values: true, labels: true }}>
             {
                 
