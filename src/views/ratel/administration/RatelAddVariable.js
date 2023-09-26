@@ -37,7 +37,7 @@ export const AddRatelVariable = ({ children }) => {
     const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
     // const values = useFormState().values
     const {
-        data: [],
+        data: variables = [],
         isFetching: isFetchingVariables,
         error: variablesError,
     } = useListVariablesQuery({ tenantDomain})
