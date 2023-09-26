@@ -239,8 +239,6 @@ return (
                   value: values[key]
                 }))
                 console.log('valuesArray', valuesArray)
-                
-                console.log('deviceTypeLabel', deviceTypeLabel)
                 let didTypeKey
                 didTypeKey = valuesArray?.find(value => value.key === 'DidType')
                 let deviceKey
