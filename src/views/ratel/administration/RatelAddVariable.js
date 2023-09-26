@@ -36,15 +36,15 @@ const Error = ({ name }) => (
 export const AddRatelVariable = ({ children }) => {
     const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
     // const values = useFormState().values
-    const {
-        data: variables = [],
-        isFetching: isFetchingVariables,
-        error: variablesError,
-    } = useListVariablesQuery({ tenantDomain})
+//     const {
+//         data: variables = [],
+//         isFetching: isFetchingVariables,
+//         error: variablesError,
+//     } = useListVariablesQuery({ tenantDomain})
     
-useEffect(()=>{
-    console.log('variables', variables)
-},[variables])
+// useEffect(()=>{
+//     console.log('variables', variables)
+// },[variables])
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
 
     const onSubmit = async (values) => {
@@ -86,10 +86,17 @@ useEffect(()=>{
                 placeholder="Input Key"
                 />
                 </CCol>
+                <CCol lg={6} xs={12}>
+                <RFFCFormInput
+                label="Value"
+                name="value"
+                placeholder="Input Value"
+                />
+                </CCol>
         </CRow>
         </CippWizard.Page>
-        <CippWizard.Page title="Values">
-        <FormSpy subscription={{ values: true }}>
+        <CippWizard.Page title="Confirm">
+        <FormSpy subscription={{ values: true, labels: true }}>
             {
                 
                 (props) => {
