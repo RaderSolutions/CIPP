@@ -66,7 +66,7 @@ export const AddRatelVariable = ({ children }) => {
         <Error name="selectedTenants" />
         <hr className="my-4" />
         </CippWizard.Page> 
-        <CippWizard.Page title="Input Family" description="Input Family To Fetch Avaialable Values">
+        <CippWizard.Page title="Input Family" description="">
         <center>
           <h3 className="text-primary">Step 2</h3>
           <h5>Input Family</h5>
