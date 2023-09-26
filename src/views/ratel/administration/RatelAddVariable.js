@@ -35,20 +35,18 @@ const Error = ({ name }) => (
 
 export const AddRatelVariable = ({ children }) => {
     const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-    // const values = useFormState().values
-//     const {
-//         data: variables = [],
-//         isFetching: isFetchingVariables,
-//         error: variablesError,
-//     } = useListVariablesQuery({ tenantDomain})
-    
-// useEffect(()=>{
-//     console.log('variables', variables)
-// },[variables])
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
 
     const onSubmit = async (values) => {
       console.log('values', values)
+        // const shippedValues = {
+        //     tenantDomain: tenantDomain,
+        //     Family: values.family,
+        //     Key: values.key,
+        //     Value: values.value
+        // }
+    //   genericPostRequest({ path: ``, values: shippedValues })
+    // genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355` })
     }
 
   return (
