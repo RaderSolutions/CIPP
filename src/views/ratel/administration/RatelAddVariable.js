@@ -35,14 +35,16 @@ const Error = ({ name }) => (
 
 export const AddRatelVariable = ({ children }) => {
     const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-    const values = useFormState().values
+    // const values = useFormState().values
     const {
         data: [],
-        isFetching: isFetchingVariable,
-        error: variableError,
-    } = useListVariableQuery({ tenantDomain, family: values.family, key: values.key })
+        isFetching: isFetchingVariables,
+        error: variablesError,
+    } = useListVariablesQuery({ tenantDomain})
     
-
+useEffect(()=>{
+    console.log('data', data)
+},[data])
     const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
 
     const onSubmit = async (values) => {
@@ -89,6 +91,7 @@ export const AddRatelVariable = ({ children }) => {
         <CippWizard.Page title="Values">
         <FormSpy subscription={{ values: true }}>
             {
+                
                 (props) => {
                     const { values } = props
                    
