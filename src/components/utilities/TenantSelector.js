@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect } from 'react'
 import SelectSearch, { fuzzySearch } from 'react-select-search'
 import { useDispatch, useSelector } from 'react-redux'
@@ -93,9 +92,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
                 placeholder
               )}
             </CDropdownToggle>
-            <CDropdownMenu 
-            // className="tenantDropdown"
-            >
+            <CDropdownMenu className="tenantDropdown">
               <SelectSearch
                 search
                 onChange={activated}
