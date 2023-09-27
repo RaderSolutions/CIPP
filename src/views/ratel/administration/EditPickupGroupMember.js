@@ -52,6 +52,8 @@ export const EditMember = () => {
       Extension: values.Extension,
       Groups: values.Groups,
       Type: values.Type,
+      Action: 'Edit',
+      ID: members.ID,
     }
 
     genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
