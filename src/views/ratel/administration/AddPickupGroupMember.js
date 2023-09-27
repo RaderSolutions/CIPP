@@ -86,7 +86,7 @@ const AddPickupGroupMember = () => {
               <RFFCFormInput
                 type="text"
                 name="Groups"
-                label="Groups"
+                label="Group Name"
                 //disabled={formDIsabled}
               />
             </CCol>

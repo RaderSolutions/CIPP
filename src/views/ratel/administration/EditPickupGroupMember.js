@@ -55,7 +55,6 @@ export const EditMember = () => {
       Action: 'Edit',
       ID: members.ID,
     }
-
     genericPostRequest({ path: '/api/LtRatelPickupGroups', values: shippedValues })
   }
 
@@ -83,7 +82,7 @@ export const EditMember = () => {
                               <RFFCFormInput type="text" name="Extension" label="Extension" />
                             </CCol>
                             <CCol>
-                              <RFFCFormInput type="text" name="Groups" label="Groups" />
+                              <RFFCFormInput type="text" name="Groups" label="Group Name" />
                             </CCol>
                             <CCol>
                               <RFFCFormInput type="text" name="Type" label="Type" />

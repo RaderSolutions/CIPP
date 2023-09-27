@@ -65,7 +65,7 @@ const columns = [
     exportSelector: 'Extension',
   },
   {
-    name: 'Groups',
+    name: 'Group Name',
     selector: (row) => row['Groups'],
     sortable: true,
     exportSelector: 'Groups',
