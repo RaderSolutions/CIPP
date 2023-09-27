@@ -44,8 +44,15 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             label: 'Remove Member from Pickup group',
             color: 'info',
             modal: true,
-            modalUrl: `api/LtRatelPickupGroups?TenantFilter=${tenant.customerId}&Action=Delete&Extension=${row.Extension}&Type=${row.Type}&Groups=${row.Groups}`
-            ,
+            modalUrl: `api/LtRatelPickupGroups`,
+            modalBody: {
+              TenantFilter: tenant.customerId,
+              Action: 'Delete',
+              Extension: row.Extension,
+              Type: row.Type,
+              Groups: row.Groups,
+            },
+            modalType:"POST",
             modalMessage: 'Are you sure you want to remove this member from the pickup group?',
           },
         ]}
