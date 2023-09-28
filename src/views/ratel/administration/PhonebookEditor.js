@@ -64,7 +64,6 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
               ID: row.ID,
             },
             modalType:"POST",
-            // todo: add delete action; make sure params passed first
             modalUrl:  `/api/LtRatelPhoneBookEntry?TenantFilter=${tenant.customerId}&Parameters=Key=ID|Value=${row.ID}&Action=Delete`,
             modalMessage: 'Are you sure you want to delete this phonebook entry?',
           },
