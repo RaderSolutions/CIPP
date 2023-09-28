@@ -49,13 +49,13 @@ export const AddRatelVariable = ({ children }) => {
     genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355` })
     
     }
-    useEffect(()=>{
-      console.log('postResults', postResults)
-      if (postResults.status === 'fulfilled') {
-        genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354` })
-        console.log('triggered sync')
-      }
-    },[postResults])
+    // useEffect(()=>{
+    //   console.log('postResults', postResults)
+    //   if (postResults.status === 'fulfilled') {
+    //     genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354` })
+    //     console.log('triggered sync')
+    //   }
+    // },[postResults])
 
   return (
     <CippWizard
