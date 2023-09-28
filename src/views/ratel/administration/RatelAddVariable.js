@@ -51,6 +51,10 @@ export const AddRatelVariable = ({ children }) => {
     }
     useEffect(()=>{
       console.log('postResults', postResults)
+      if (postResults.status === 'fulfilled') {
+        genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354` })
+        console.log('triggered sync')
+      }
     },[postResults])
 
   return (
