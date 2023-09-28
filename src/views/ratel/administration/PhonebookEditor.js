@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,6 +13,10 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/phonebookEditor/editEntry?tenantDomain=${tenant.customerId}&ID=${row.ID}`
+
+useEffect(()=>{
+  console.log('data',row)
+},[row])
   
   return (
     <>
