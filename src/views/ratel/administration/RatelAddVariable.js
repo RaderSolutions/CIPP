@@ -48,6 +48,7 @@ export const AddRatelVariable = ({ children }) => {
     //   genericPostRequest({ path: ``, values: shippedValues })
     let result = await genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355` }).unwrap()
      if (result.Data.Results.includes("Message=Success")) {
+      // TODO: This 'works', but need to discuss parameter with SW -Tripp
       let syncRes = await  genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354` }).unwrap();
       console.log('syncRes', syncRes)
    }
