@@ -46,9 +46,12 @@ export const AddRatelVariable = ({ children }) => {
         //     Value: values.value
         // }
     //   genericPostRequest({ path: ``, values: shippedValues })
-    genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355` })
-    
+    let result = await genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355` }).unwrap()
+   
+    console.log('result', result)
+
     }
+  
     // useEffect(()=>{
     //   console.log('postResults', postResults)
     //   if (postResults.status === 'fulfilled') {
