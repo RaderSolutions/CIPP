@@ -41,7 +41,7 @@ const Offcanvas = (row) => {
             label: 'Delete Dialplan',
             color: 'info',
             modal: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Name},Key=Notes|Value${row.Description},Key=Dialplan|Value=${row.Dialplan}&RatelScript=true&ScriptId=7387`,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Delete|Value=1,Key=Name|Value=${row.Name},Key=Notes|Value=${row.Description},Key=Dialplan|Value=${row.Dialplan}&RatelScript=true&ScriptId=7387`,
             modalInput: true,
             modalMessage: '',
           },
