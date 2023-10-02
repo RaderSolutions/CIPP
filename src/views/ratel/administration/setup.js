@@ -8,12 +8,18 @@ import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas, RatelSetupOffCanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
+import { useListFopLicenseKeyQuery } from 'src/store/api/ratelFOPLicense'
 // import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/setup/editDialplan?tenantDomain=${tenant.customerId}&name=${row.Name}&description=${row.Description}&dialplan=${row.Dialplan}`
+  const {
+    data: fopLicenseData = [],
+    isFetching: fopLicenseIsFetching,
+    error: fopLicenseError,
+  } = useListFopLicenseKeyQuery({ tenantDomain: tenant.customerId })
 
   return (
     <>
@@ -104,7 +110,9 @@ const DialplanList = () => {
             {/* <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}> */}
             <CCol style={{ display: 'flex', flexDirection: 'column' }}>
               <label for="test">FOP:</label>
-              <input style={{ maxWidth: '500px' }} type="text" name="fop" />
+              <input style={{ maxWidth: '500px' }} type="text" name="fop"
+              value={!fopLicenseIsFetching && !fopLicenseError && fopLicenseData?.data?.length > 0 ? fopLicenseData : 'No FOP License Key Found'}
+              />
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Apply FOP License
               </CButton>
