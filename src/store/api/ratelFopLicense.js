@@ -2,7 +2,7 @@ import { baseApi } from 'src/store/api/baseApi'
 
 export const ratelFopLicenseApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    listFopLicenseKeyQuery: builder.query({
+    listFopLicenseKey: builder.query({
       query: ({ tenantDomain }) => ({
         path: '/api/LtListRatelFopLicenseKey',
         params: { TenantFilter: tenantDomain },
