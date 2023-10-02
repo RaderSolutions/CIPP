@@ -108,11 +108,11 @@ const DialplanList = () => {
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Apply FOP License
               </CButton>
-              <Link to="/ratel/administration/setup/setupVoiceRecording">
+              {/* <Link to="/ratel/administration/setup/setupVoiceRecording">
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Setup Voice Recording Ext.
                 </CButton>
-              </Link>
+              </Link> */}
               {/* <Link to="/ratel/administration/setup/createGreetingWithText">
                 <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                   Create A Greeting Using Text-To-Speech
