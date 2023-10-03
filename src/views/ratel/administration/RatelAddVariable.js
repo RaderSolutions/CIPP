@@ -44,7 +44,7 @@ export const AddRatelVariable = ({ children }) => {
       }).unwrap()
       if (result.Data.Results.includes("Message=Success")) {
           let syncRes = await genericPostRequest({
-              path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354`
+              path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7368`
           }).unwrap();
           console.log('syncRes', syncRes)
       }

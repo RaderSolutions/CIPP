@@ -8,6 +8,7 @@ import { CippPageList } from 'src/components/layout'
 import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
     const tenant = useSelector((state) => state.app.currentTenant)
@@ -90,9 +91,25 @@ const columns = [
 const VariablesList = () => {
     const tenant = useSelector((state) => state.app.currentTenant)
     const addVariableButton = <TitleButton href="/ratel/administration/variables/add" title="Add Variable" />
-
+    const [genericPostRequest, postResults ] = useLazyGenericPostRequestQuery()
+   
+    const handleSyncASTDB = async () => {
+      genericPostRequest({
+        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354`
+    })
+  }
+  
     return (
       <>
+      <CCol
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+      l>
+        <CButton onClick={handleSyncASTDB} style={{ maxWidth: '500px' }} className="mb-3">
+          Sync Data From RATEL
+          </CButton>
       <CippPageList
         title="Variables"
         titleButton={addVariableButton}
@@ -104,6 +121,8 @@ const VariablesList = () => {
           params: { TenantFilter: tenant?.customerId },
         }}
       />
+      </CCol>
+   
       </>
     )
   }
