@@ -8,7 +8,7 @@ import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas, RatelSetupOffCanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
-import { useListFopLicenseKeyQuery, useListDpmaLicenseKey } from 'src/store/api/ratelLicenses'
+import { useListFopLicenseKeyQuery, useListDpmaLicenseKeyQuery } from 'src/store/api/ratelLicenses'
 
 const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -99,7 +99,7 @@ const DialplanList = () => {
     data: dpmaLicenseData = [],
     isFetching: dpmaLicenseIsFetching,
     error: dpmaLicenseError,
-  } = useListDpmaLicenseKey({ tenantDomain: tenant.customerId })
+  } = useListDpmaLicenseKeyQuery({ tenantDomain: tenant.customerId })
 
   return (
     <>
