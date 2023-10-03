@@ -8,7 +8,7 @@ import { CippContentCard, CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas, RatelSetupOffCanvas } from 'src/components/utilities'
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
-import { useListFopLicenseKeyQuery } from 'src/store/api/ratelFopLicense'
+import { useListFopLicenseKeyQuery, useListDpmaLicenseKey } from 'src/store/api/ratelLicenses'
 
 const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -95,6 +95,12 @@ const DialplanList = () => {
     error: fopLicenseError,
   } = useListFopLicenseKeyQuery({ tenantDomain: tenant.customerId })
 
+  const {
+    data: dpmaLicenseData = [],
+    isFetching: dpmaLicenseIsFetching,
+    error: dpmaLicenseError,
+  } = useListDpmaLicenseKey({ tenantDomain: tenant.customerId })
+
   return (
     <>
       {/* <CButton size="sm" variant="ghost" color="warning">
@@ -118,7 +124,7 @@ const DialplanList = () => {
               </CButton>
               <label for="test">DPMA:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              // value={!fopLicenseIsFetching && !fopLicenseError && fopLicenseData?.data?.length > 0 ? fopLicenseData : 'No FOP License Key Found'}
+              value={!dpmaLicenseIsFetching && !dpmaLicenseError && dpmaLicenseData?.data?.length > 0 ? dpmaLicenseData : 'No DPMA License Key Found'}
               />
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Save DPMA License Key
