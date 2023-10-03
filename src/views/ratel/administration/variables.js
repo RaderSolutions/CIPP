@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import { CButton } from '@coreui/react'
+import { CButton, CCol } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -98,7 +98,7 @@ const VariablesList = () => {
         path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7354`
     })
   }
-  
+
     return (
       <>
       <CCol
