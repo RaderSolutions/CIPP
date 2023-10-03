@@ -95,7 +95,7 @@ const VariablesList = () => {
    
     const handleSyncASTDB = async () => {
       genericPostRequest({
-        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain.customerId}&RatelScript=true&ScriptId=7354`
+        path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=7354`
     })
   }
 
