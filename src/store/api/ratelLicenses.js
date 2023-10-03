@@ -27,7 +27,6 @@ export const ratelLicensesApi = baseApi.injectEndpoints({
       },
     }),
   }),
-  
 })
 
 export const { useListFopLicenseKeyQuery, useListDpmaLicenseKey } = ratelLicensesApi
