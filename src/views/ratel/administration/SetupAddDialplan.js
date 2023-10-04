@@ -54,6 +54,12 @@ export const AddDialplanInternal = () => {
               }}
             />
           </CippContentCard>
+          {postResults.isFetching && (
+            <CCallout color="info">
+              <CSpinner>Loading</CSpinner>
+            </CCallout>
+          )}
+          {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
         </CCol>
         </CippPage>
   )
