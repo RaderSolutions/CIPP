@@ -148,7 +148,7 @@ const DialplanList = () => {
           <CippPageList
             title="Current Internal Dialplans"
             style={{ maxWidth: '50%', marginTop: '2em' }}
-            // titleButton={addNewDialplan}
+            titleButton={addNewDialplan}
             datatable={{
               // keyField: 'Extension',
               columns,
