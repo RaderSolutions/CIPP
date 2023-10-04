@@ -21,6 +21,7 @@ export const AddDialplanInternal = () => {
     await genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Value=${values.description},Key=Delete|Value=0&RatelScript=true&ScriptId=7387`,
     })
+    console.log(postResults)
   }
   
   return (
