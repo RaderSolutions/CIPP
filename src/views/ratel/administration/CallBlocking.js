@@ -80,9 +80,11 @@ const BlockedCallsList = () => {
   return (
     <>
     <CRow>
-      <CCol>
+      <CCol style={{
+        paddingVertical: '10px',
+      }}>
       <div>
-      <label for="test">Phone Number:</label>
+      <label for="test">Phone Number: </label>
       <input style={{ maxWidth: '500px' }} type="text" name="phoneNumber" onChange={handleChangePhonenumber} />
       </div>
       </CCol>
