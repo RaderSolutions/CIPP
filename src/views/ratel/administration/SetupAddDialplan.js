@@ -10,44 +10,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { CippCodeBlock } from 'src/components/utilities'
+import { useSelector } from 'react-redux'
 
-export const EditSetup = () => {
+export const AddDialplanInternal = () => {
+  const tenant = useSelector((state) => state.app.currentTenant)
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const dispatch = useDispatch()
-  let query = useQuery()
-  const dialplan = query.get('dialplan')
-  const name = query.get('name')
-  const description = query.get('description')
-  const tenantDomain = query.get('tenantDomain')
-  const [queryError, setQueryError] = useState(false)
-
-  // const initialState = {
-  //   dialplan: dialplan,
-  //   name: name,
-  //   description: description,
-  // }
-const shippedValues = {
-  dialplan: dialplan,
-  name: name,
-  description: description,
-}
-  // useEffect(() =>{
-  //   console.log('initialState', initialState)
-  // },[initialState])
-
-  // const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const onSubmit = (values) => {
-    window.alert(JSON.stringify(shippedValues))
+   
+  const onSubmit = async (values) => {
     console.log(values)
-    genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Value=${values.description},Key=Delete|Value=0&RatelScript=true&ScriptId=7387`,
+    await genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Value=${values.description},Key=Delete|Value=0&RatelScript=true&ScriptId=7387`,
     })
   }
-
+  
   return (
-     <CippPage title="Edit Dialplan">
+    <CippPage title="Add Internal Dialplan">
         <CCol>
-          <CippContentCard title="Edit Dialplan" icon={faEdit}>
+          <CippContentCard title="Add Internal Dialplan" icon={faEdit}>
             <Form
               // initialValues={{ ...initialState }}
               onSubmit={onSubmit}
@@ -77,7 +56,7 @@ const shippedValues = {
           </CippContentCard>
         </CCol>
         </CippPage>
-    )
+  )
 }
 
-export default EditSetup
+export default AddDialplanInternal

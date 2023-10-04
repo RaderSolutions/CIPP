@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import SetupEditDialplan from './views/ratel/administration/SetupEditDialplan'
+import SetupAddDialplan from './views/ratel/administration/SetupAddDialplan'
 import RatelVariables from 'src/views/ratel/administration/variables'
 import RatelDevices from 'src/views/ratel/administration/devices'
 import RatelSetup from 'src/views/ratel/administration/setup'
@@ -381,6 +382,11 @@ const routes = [
     path: '/ratel/administration/setup/editDialplan',
     name: 'Setup Edit Dialplan',
     component: SetupEditDialplan,
+  },
+  {
+    path: '/ratel/administration/setup/addDialplan',
+    name: 'Setup Add Dialplan',
+    component: SetupAddDialplan,
   },
   { path: '/ratel/administration/devices/edit', name: 'Edit Device', component: EditDevice },
 
