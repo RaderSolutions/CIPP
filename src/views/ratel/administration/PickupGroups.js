@@ -112,7 +112,7 @@ const PickupGroupsList = () => {
       }}
     >
      <CButton onClick={handleUpdateDevices} style={{ maxWidth: '500px' }} className="mb-3">
-          Process Pending Device Updates
+          Run Sync Script
           </CButton>
           <CippPageList
       title="Pickup Groups"
