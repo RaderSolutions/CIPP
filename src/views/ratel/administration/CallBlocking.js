@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import { CButton, CRow, CCol } from '@coreui/react'
+import { CButton, CRow, CCol, CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -55,19 +55,32 @@ const columns = [
 const BlockedCallsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addNumberButton = <TitleButton href="ratel/administration/callblocking/add" title="Add Blocked Number" />
+  
+  const handleCallBlocking = (e) => {
+    console.log(e.target.value)
+  }
+  
   return (
     <>
     <CRow>
       <CCol>
       <div>
-      <label for="test">Add Number To Call Blocking:</label>
+      <label for="test">Phone Number:</label>
       <input style={{ maxWidth: '500px' }} type="text" name="" />
       </div>
       </CCol>
       <CCol>
       <div>
-      <label for="test">Remove Number To Call Blocking:</label>
-      <input style={{ maxWidth: '500px' }} type="text" name="" />
+      <CButton size="sm" color="link" value={'add'} onClick={handleCallBlocking}>
+      Add Number To Call Blocking
+      </CButton>
+        {/* <FontAwesomeIcon icon={faEllipsisV} /> */}
+      </div>
+      <div>
+      <CButton size="sm" color="link" value={'remove'} onClick={handleCallBlocking}>
+      Remove Number From Call Blocking
+      </CButton>
+        {/* <FontAwesomeIcon icon={faEllipsisV} /> */}
       </div>
       </CCol>
     </CRow>
