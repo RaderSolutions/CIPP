@@ -8,6 +8,7 @@ import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { Link } from 'react-router-dom'
 import { TitleButton } from 'src/components/buttons'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -92,6 +93,7 @@ const columns = [
 
 const PickupGroupsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const addPickupGroupMemberButton = (
     <TitleButton
       href="/ratel/administration/pickupgroups/addMember"
@@ -99,7 +101,9 @@ const PickupGroupsList = () => {
     />
   )
   const handleUpdateDevices = async () => {
-
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`,
+    })
   }
   return (
     <>
@@ -123,6 +127,12 @@ const PickupGroupsList = () => {
         params: { TenantFilter: tenant?.customerId },
       }}
     />
+      {postResults.isFetching && (
+            <CCallout color="info">
+              <CSpinner>Loading</CSpinner>
+            </CCallout>
+          )}
+          {postResults.isSuccess && <CCallout color="success">Devices Updated Successfully</CCallout>}
     </CCol>
     </>
   
