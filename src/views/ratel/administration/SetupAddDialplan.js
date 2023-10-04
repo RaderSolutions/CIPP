@@ -46,7 +46,7 @@ export const AddDialplanInternal = () => {
                     </CRow>
                     <CRow className="mb-3">
                       <CCol md={6}>
-                        <CButton type="submit">Edit Dialplan</CButton>
+                        <CButton type="submit">Add Dialplan</CButton>
                       </CCol>
                     </CRow>
                   </CForm>
