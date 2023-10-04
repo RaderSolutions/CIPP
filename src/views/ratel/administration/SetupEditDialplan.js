@@ -40,7 +40,7 @@ const shippedValues = {
     window.alert(JSON.stringify(shippedValues))
     console.log(values)
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&ScriptId=7387`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Name|Value=${values.name},Key=Dialplan|Value=${values.dialplan},Key=Notes|Values=${values.description}&RatelScript=true&Delete=0&ScriptId=7387`,
     })
   }
 
