@@ -35,13 +35,13 @@ export const AddDialplanInternal = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol>
-                        <RFFCFormInput type="text" name="name" label="Name" value={name} placeholder={name} />
+                        <RFFCFormInput type="text" name="name" label="Name" />
                       </CCol>
                       <CCol>
-                        <RFFCFormInput type="text" name="description" label="Description" value={description} placeholder={description} />
+                        <RFFCFormInput type="text" name="description" label="Description" />
                       </CCol>
                       <CCol>
-                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" value={dialplan} placeholder={dialplan}  defaultValue={dialplan} />
+                        <RFFCFormTextarea type="text" name="dialplan" label="Dialplan" />
                      </CCol>
                     </CRow>
                     <CRow className="mb-3">
