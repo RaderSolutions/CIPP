@@ -87,7 +87,7 @@ const columns = [
 
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
-  const addDialplanButton = <TitleButton href="/ratel/administration/setup/addDialplan" title="Add Dialplan" />
+  const addNewDialplan = <TitleButton href="/ratel/administration/setup/addDialplan" title="Add Dialplan" />
   // const addNewDialplan = (
   //   <TitleButton href="/ratel/administration/pickupgroups/addDialplan" title="Add Dialplan" />
   // )
