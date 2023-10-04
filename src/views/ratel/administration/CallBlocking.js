@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import { CButton } from '@coreui/react'
+import { CButton, CRow } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -56,6 +56,12 @@ const BlockedCallsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addNumberButton = <TitleButton href="ratel/administration/callblocking/add" title="Add Blocked Number" />
   return (
+    <>
+    <CRow>
+      <div>
+        test div
+      </div>
+    </CRow>
     <CippPageList
       title="Blocked Numbers"
       TitleButton={addNumberButton}
@@ -67,6 +73,7 @@ const BlockedCallsList = () => {
         params: { TenantFilter: tenant?.customerId },
       }}
     />
+    </>
   )
 }
 
