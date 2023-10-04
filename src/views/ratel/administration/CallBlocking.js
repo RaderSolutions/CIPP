@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import { CButton, CRow } from '@coreui/react'
+import { CButton, CRow, CCol } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -58,14 +58,18 @@ const BlockedCallsList = () => {
   return (
     <>
     <CRow>
+      <CCol>
       <div>
       <label for="test">Add Number To Call Blocking:</label>
       <input style={{ maxWidth: '500px' }} type="text" name="" />
       </div>
+      </CCol>
+      <CCol>
       <div>
       <label for="test">Remove Number To Call Blocking:</label>
       <input style={{ maxWidth: '500px' }} type="text" name="" />
       </div>
+      </CCol>
     </CRow>
     <CippPageList
       title="Blocked Numbers"
