@@ -101,9 +101,7 @@ const PickupGroupsList = () => {
     />
   )
   const handleUpdateDevices = async () => {
-    genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`,
-    })
+    // script from jeff
   }
   return (
     <>
@@ -127,12 +125,12 @@ const PickupGroupsList = () => {
         params: { TenantFilter: tenant?.customerId },
       }}
     />
-      {postResults.isFetching && (
+      {/* {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
             </CCallout>
           )}
-          {postResults.isSuccess && <CCallout color="success">Devices Updated Successfully</CCallout>}
+          {postResults.isSuccess && <CCallout color="success">Sync Script Run Successfully</CCallout>} */}
     </CCol>
     </>
   
