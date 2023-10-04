@@ -99,7 +99,7 @@ const BlockedCallsList = () => {
       <CButton size="sm" color="link" value={'remove'} onClick={handleCallBlocking}>
       Remove Number From Call Blocking
       </CButton>
-        {/* <FontAwesomeIcon icon={faEllipsisV} /> */}
+       
       </div>
       </CCol>
     </CRow>
