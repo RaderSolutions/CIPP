@@ -98,6 +98,9 @@ const PickupGroupsList = () => {
       title="Add Pickup Group Member"
     />
   )
+  const handleUpdateDevices = async () => {
+
+  }
   return (
     <>
     <CCol
@@ -106,8 +109,8 @@ const PickupGroupsList = () => {
         flexDirection: 'column',
       }}
     >
-     <CButton onClick={handleSyncASTDB} style={{ maxWidth: '500px' }} className="mb-3">
-          Sync Data From RATEL
+     <CButton onClick={handleUpdateDevices} style={{ maxWidth: '500px' }} className="mb-3">
+          Process Pending Device Updates
           </CButton>
           <CippPageList
       title="Pickup Groups"
