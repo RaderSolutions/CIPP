@@ -99,7 +99,17 @@ const PickupGroupsList = () => {
     />
   )
   return (
-    <CippPageList
+    <>
+    <CCol
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+     <CButton onClick={handleSyncASTDB} style={{ maxWidth: '500px' }} className="mb-3">
+          Sync Data From RATEL
+          </CButton>
+          <CippPageList
       title="Pickup Groups"
       titleButton={addPickupGroupMemberButton}
       datatable={{
@@ -110,6 +120,9 @@ const PickupGroupsList = () => {
         params: { TenantFilter: tenant?.customerId },
       }}
     />
+    </CCol>
+    </>
+  
   )
 }
 
