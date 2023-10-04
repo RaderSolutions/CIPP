@@ -7,6 +7,7 @@ import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -55,9 +56,25 @@ const columns = [
 const BlockedCallsList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addNumberButton = <TitleButton href="ratel/administration/callblocking/add" title="Add Blocked Number" />
-  
-  const handleCallBlocking = (e) => {
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  const handleChangePhonenumber = async (e) => {
     console.log(e.target.value)
+    setPhoneNumber(e.target.value)
+  }
+
+  const handleCallBlocking = async (e) => {
+   if (e.target.value === 'add') {
+      console.log('add')
+      await genericPostRequest({
+        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value=${phoneNumber},Key=astValue|Value=1&RatelScript=true&ScriptId=7355`
+      })
+    } else {
+      await genericPostRequest({
+        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value=${phoneNumber},Key=astValue|Value=1&RatelScript=true&ScriptId=7356`
+      })
+    }
   }
   
   return (
@@ -66,7 +83,7 @@ const BlockedCallsList = () => {
       <CCol>
       <div>
       <label for="test">Phone Number:</label>
-      <input style={{ maxWidth: '500px' }} type="text" name="" />
+      <input style={{ maxWidth: '500px' }} type="text" name="phoneNumber" onChange={handleChangePhonenumber} />
       </div>
       </CCol>
       <CCol>
