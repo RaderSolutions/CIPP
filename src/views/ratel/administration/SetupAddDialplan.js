@@ -60,6 +60,7 @@ export const AddDialplanInternal = () => {
             </CCallout>
           )}
           {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
+          {postResults.isSuccess && console.log(postResults)}
         </CCol>
         </CippPage>
   )
