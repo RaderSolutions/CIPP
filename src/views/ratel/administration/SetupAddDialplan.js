@@ -60,7 +60,7 @@ export const AddDialplanInternal = () => {
               <CSpinner>Loading</CSpinner>
             </CCallout>
           )}
-          {postResults.isSuccess || postResults.data.Data.Results.includes("Message=Success") && <CCallout color="success">Dialplan Added Successfully</CCallout>}
+          {postResults.isSuccess && <CCallout color="success">Dialplan Added Successfully</CCallout>}
           
         </CCol>
         </CippPage>
