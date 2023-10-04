@@ -59,7 +59,12 @@ const BlockedCallsList = () => {
     <>
     <CRow>
       <div>
-        test div
+      <label for="test">Add Number To Call Blocking:</label>
+      <input style={{ maxWidth: '500px' }} type="text" name="" />
+      </div>
+      <div>
+      <label for="test">Remove Number To Call Blocking:</label>
+      <input style={{ maxWidth: '500px' }} type="text" name="" />
       </div>
     </CRow>
     <CippPageList
