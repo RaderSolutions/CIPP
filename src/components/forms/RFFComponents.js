@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   CFormCheck,
   CFormFeedback,
@@ -12,10 +11,10 @@ import {
 } from '@coreui/react'
 import Select from 'react-select'
 import AsyncSelect from 'react-select/async'
-import { Field, useFormState } from 'react-final-form'
+import { Field } from 'react-final-form'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useEffect } from 'react'
+import { useRef } from 'react'
 
 /*
   wrapper classes for React Final Form with CoreUI
@@ -208,7 +207,6 @@ export const RFFCFormTextarea = ({
   className = 'mb-3',
   validate,
   disabled = false,
-  defaultValue = null
 }) => {
   return (
     <Field name={name} value={value} validate={validate}>
@@ -223,7 +221,6 @@ export const RFFCFormTextarea = ({
               disabled={disabled}
               id={name}
               placeholder={placeholder}
-              defaultValue={defaultValue}
               //value={value}
             />
             <RFFCFormFeedback meta={meta} />
@@ -238,83 +235,7 @@ RFFCFormTextarea.propTypes = {
   ...sharedPropTypes,
   placeholder: PropTypes.string,
 }
-// modified rffcformselect
-// export const RFFCFormSelect = ({
-//   name,
-//   label,
-//   values = [],
-//   placeholder,
-//   className = 'mb-3',
-//   validate,
-//   disabled = false,
-//   // onChange,
-//   setTypeState,
-// }) => {
-//   // handler for ignoring the first element ('the placeholder')
-//   const selectValidate = (value, allValues, meta) => {
-//     if (validate) {
-//       if (value !== placeholder) {
-//         return validate(value, allValues, meta)
-//       }
-//       return null
-//     }
-//   }
 
-
-//   let newValues;
-//   if (!Array.isArray(values) && Object.isObject(values)) {
-//     newValues = Object.entries(values)
-//   }
-//   // const handleChange = (e) => {
-//   //   console.log('event', e.target.value)
-//   //   // return e.target.value
-//   // }
-//   // const handleInputChange = (event) => {
-//   //   input.onChange(event)
-//   //   console.log(event.target.value)
-//   // }
-//   // const { values: currentValues } = useFormState()
-//   useEffect(() => {
-//     console.log('label', label)
-//     // setDeviceTypeLocal(currentValues.SelectDeviceType)
-//     // setDialplanTypeLocal(current.SelectDialplanType)
-//     // setCallerIdTypeLocal(current.SelectCal)
-//   }, [label])
-
-//   return (
-//     <Field name={name} validate={selectValidate}>
-//       {({ input, meta }) => (
-//         <div className={className}>
-//           {label && <CFormLabel>{label}</CFormLabel>}
-//           <CFormSelect
-//             {...input}
-//             valid={!meta.error && meta.touched}
-//             invalid={meta.error && meta.touched}
-//             disabled={disabled}
-//             onSelect={() => {
-//               console.log('select', input.label)
-//             }}
-//           >
-//             <option value={placeholder}>{placeholder}</option>
-//             {!newValues || newValues === null || Array.isArray(newValues) === false ? <option key={'test null'}>"test null" </option> : newValues.map(({ label, value }, idx) => (
-//               <option key={`${idx}-${value}`} value={value}>
-//                 {label}
-//               </option>
-//             ))}
-//           </CFormSelect>
-//           <RFFCFormFeedback meta={meta} />
-//         </div>
-//       )}
-//     </Field>
-//   )
-// }
-
-// RFFCFormSelect.propTypes = {
-//   ...sharedPropTypes,
-//   placeholder: PropTypes.string.isRequired,
-//   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
-// }
-// original rrfcformselect
 export const RFFCFormSelect = ({
   name,
   label,
@@ -364,93 +285,7 @@ RFFCFormSelect.propTypes = {
   placeholder: PropTypes.string.isRequired,
   values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
 }
-export const RFFCFormSelectObjectValue = ({
-  name,
-  label,
-  values = [],
-  placeholder,
-  className = 'mb-3',
-  validate,
-  disabled = false,
-  // onChange,
-  setTypeState,
-}) => {
-  // handler for ignoring the first element ('the placeholder')
-  const selectValidate = (value, allValues, meta) => {
-    if (validate) {
-      if (value !== placeholder) {
-        return validate(value, allValues, meta)
-      }
-      return null
-    }
-  }
-  
-  const { values: currentValues } = useFormState()
-  
-  useEffect(() => {
-    console.log('values in custom select', values)
-    // setDeviceTypeLocal(currentValues.SelectDeviceType)
-    // setDialplanTypeLocal(current.SelectDialplanType)
-    // setCallerIdTypeLocal(current.SelectCal)
-  }, [label])
 
-  return (
-    <Field name={name} validate={selectValidate}
-     format={(value) => (
-      value ? value.value : ''
-      )
-      } 
-    // format={
-    //   (value) => {
-    //     if (value){
-    //       return {
-    //         displayValue: displayValue,
-    //         value: value,
-    //         label: label
-    //       }
-    //     }
-    //   }
-    // }
-      parse={(value) => ({ value, label })} >
-      {({ input, meta }) => {
-        // this probably wont work
-        // const currentValue = JSON.parse(input.value);
-        const currentValue = input.label;
-        return (
-          <div className={className}>
-            {label && <CFormLabel>{label}</CFormLabel>}
-            <CFormSelect
-              {...input}
-              valid={!meta.error && meta.touched}
-              invalid={meta.error && meta.touched}
-              disabled={disabled}
-              onSelect={() => {
-                console.log('select', currentValue.label)
-              }}
-            >
-              <option value={placeholder}>{placeholder}</option>
-              {values.map(({ label, value }, idx) => (
-                <option key={`${idx}-${value}`} 
-                value={ JSON.stringify({ value, label })}
-                // value={{ value: value, label: label }}
-                >
-                  {label}
-                </option>
-              ))}
-            </CFormSelect>
-            <RFFCFormFeedback meta={meta} />
-          </div>
-        )
-      }}
-    </Field>
-  )
-}
-
-RFFCFormSelectObjectValue.propTypes = {
-  ...sharedPropTypes,
-  placeholder: PropTypes.string.isRequired,
-  values: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
-}
 export function Condition({ when, is, children, like, regex }) {
   return (
     <>
