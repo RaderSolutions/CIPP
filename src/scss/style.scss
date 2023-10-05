@@ -3,9 +3,6 @@
 @import 'variables';
 @import '~@coreui/coreui/scss/coreui';
 
-@import "bootstrap/scss/functions"; 
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
 // Import Chart.js custom tooltips styles
 @import '~@coreui/chartjs/scss/coreui-chartjs';
 
@@ -21,4 +18,3 @@ $enable-rtl: true;
 @import 'themes';
 @import 'tenantselector';
 @import 'custom';
-@import "bootstrap";
