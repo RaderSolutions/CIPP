@@ -109,7 +109,7 @@ const PickupGroupsList = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-      }}
+       }}
     >
      <CButton onClick={handleUpdateDevices} style={{ maxWidth: '500px' }} className="mb-3">
           Run Sync Script
