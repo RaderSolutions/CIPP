@@ -28,7 +28,6 @@
     "coreui_library_short_version": "4.1"
   },
   "dependencies": {
-    
     "@coreui/chartjs": "^3.0.0",
     "@coreui/coreui": "^4.1.0",
     "@coreui/react": "^4.1.0",
@@ -88,6 +87,7 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-helmet": "^6.1.5",
     "auto-changelog": "~2.3.0",
     "eslint": "^8.0.0",
