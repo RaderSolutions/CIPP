@@ -1,10 +1,10 @@
 // If you want to override variables do it here
 
 
+
+@import 'variables';
 $enable-ltr: true;
 $enable-rtl: true;
-@import 'variables';
-// @import "../node_modules/@coreui/chartjs/scss/coreui-chartjs";
 @import 'layout';
 
 // If you want to add custom CSS you can put it here.
