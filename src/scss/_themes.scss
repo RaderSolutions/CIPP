@@ -222,7 +222,7 @@
   --cui-color-gray: #f0f0f0;
   --cui-color-gray1: #f5f5f5;
   --cui-color-gray2: #fafafa;
-  --cui-color-gray-hover: rgba(210, 210, 210, 0.8);
+  --cui-color-gray-hover: #d2d2d2cc;
   --cui-color-black: #000000;
   --cui-color-white: #ffffff;
   --cui-bgcolor-table-header: #696969f8;
@@ -373,7 +373,7 @@
     --cui-btn-active-border-color: var(--cyberdrain-darker);
     --cui-btn-active-color: var(--cyberdrain-lighter);
     --cui-btn-disabled-color: #e55353;
-    --cui-btn-shadow: rgb(229 83 83 / 50%);
+    --cui-btn-shadow: #e5535380;
   }
 
   .list-group-content-card {
