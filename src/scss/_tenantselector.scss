@@ -43,7 +43,7 @@
     background: var(--cipp-search-bg);
     border: 1px solid var(--cipp-search-border-color);
     border-radius: var(--cipp-border-radius);
-    box-shadow: 0 0.0625rem 0.125rem #00000026;
+    box-shadow: 0 0.0625rem 0.125rem rgb(0 0 0 / 15%);
     color: var(--cipp-search-color);
     display: block;
     font-family: 'Noto Sans', sans-serif;
@@ -115,7 +115,7 @@
   &__select {
     background: var(--cipp-search-bg);
     border: 1px solid var(--cipp-search-border-color);
-    box-shadow: 0.25rem 0.25rem 0.125rem #00000080;
+    box-shadow: 0.25rem 0.25rem 0.125rem rgb(0 0 0 / 50%);
     color: var(--cipp-search-color);
   }
 
@@ -207,7 +207,3 @@
 .tenantDropdown {
   min-width: 25rem;
 }
-
-// .tenantDropdown.collapse.in {        
-//   display: block;       
-// }
