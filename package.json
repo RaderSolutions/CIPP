@@ -60,6 +60,7 @@
     "jspdf-autotable": "^3.5.23",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
+    "random-words": "^2.0.0",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
     "react-bootstrap": "^1.6.5",
