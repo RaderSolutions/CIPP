@@ -84,7 +84,9 @@ const BlockedCallsList = () => {
         paddingVertical: '10px',
       }}>
       <div>
-      <label for="test">Phone Number: </label>
+      <label style={{
+        paddingRight: '10px',
+       }} for="test">Phone Number:</label>
       <input style={{ maxWidth: '500px' }} type="text" name="phoneNumber" onChange={handleChangePhonenumber} />
       </div>
       </CCol>
