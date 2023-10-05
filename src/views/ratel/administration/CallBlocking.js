@@ -68,11 +68,11 @@ const BlockedCallsList = () => {
    if (e.target.value === 'add') {
       console.log('add')
       await genericPostRequest({
-        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value=${phoneNumber},Key=astValue|Value=1&RatelScript=true&ScriptId=7355`
+        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value='${phoneNumber}',Key=astValue|Value='1'&RatelScript=true&ScriptId=7355`
       })
     } else {
       await genericPostRequest({
-        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value=${phoneNumber},Key=astValue|Value=1&RatelScript=true&ScriptId=7356`
+        path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value='${phoneNumber}',Key=astValue|Value='1'&RatelScript=true&ScriptId=7356`
       })
     }
   }
