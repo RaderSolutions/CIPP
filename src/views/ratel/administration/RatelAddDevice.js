@@ -85,6 +85,7 @@ const AddRatelDevice = ({ children }) => {
   console.log("DEVICE DIDS", deviceDids)
   console.log("DEVICE LOCATIONS", deviceLocations)
   console.log("DEVICE CONTACTS", deviceContacts)
+  console.log('Devices', deviceModels)
 
   const handleSubmit = async (values) => {
     const shippedValues = {
