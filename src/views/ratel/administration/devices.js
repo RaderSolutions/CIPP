@@ -48,6 +48,12 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         actions={[
           {
             icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
+            label:"Replace Device",
+            link: `/ratel/administration/devices/replace?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`,
+            color: 'info',
+          },
+          {
+            icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
             label: 'Edit Device',
             link: editLink,
             color: 'info',

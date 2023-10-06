@@ -15,7 +15,7 @@ const Offcanvas = (row) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/setup/editDialplan?tenantDomain=${tenant.customerId}&name=${row.Name}&description=${row.Description}&dialplan=${row.Dialplan}`
-
+  
   return (
     <>
       <CButton size="sm" color="link" onClick={() => setOCVisible(true)}>
