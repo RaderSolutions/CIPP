@@ -27,7 +27,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             label: 'Remove Blocked Number',
             color: 'info',
             modal: true,
-            modalUrl: `TODO`,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value='${phoneNumber}',Key=astValue|Value='1'&RatelScript=true&ScriptId=7356`,
             modalMessage: 'Are you sure you want to remove this number from the block list?',
           },
         ]}
@@ -66,7 +66,6 @@ const BlockedCallsList = () => {
 
   const handleCallBlocking = async (e) => {
    if (e.target.value === 'add') {
-      console.log('add')
       await genericPostRequest({
         path:`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value='blockcaller',Key=astKey|Value='${phoneNumber}',Key=astValue|Value='1'&RatelScript=true&ScriptId=7355`
       })
