@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -255,11 +256,14 @@ export default function CippActionsOffcanvas(props) {
       )}
       {postResults.isSuccess && <CCallout color="info">{postResults.data?.Results}</CCallout>}
       {postResults.isError && (
-        <CCallout color="danger">Could not connect to API: {postResults.error.message}</CCallout>
+        <CCallout color="danger">Could not connect to API: {postResults.error.message}
+        Action Successful
+        </CCallout>
       )}
       {getResults.isSuccess && (
         <CCallout color={getResults.data?.colour ? getResults.data?.colour : 'info'}>
           {getResults.data?.Results}
+          Action Successful
         </CCallout>
       )}
       {getResults.isError && (
