@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem } from '@coreui/react'
 import { CippContentCard, CippPage } from 'src/components/layout'
-import { Field, FormSpy, useForm, useFormState } from 'react-final-form'
+import { Field, FormSpy, useForm, useFormState, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { CippWizard } from 'src/components/layout'
@@ -22,11 +22,9 @@ import { useListVariablesQuery, useListVariableQuery } from 'src/store/api/ratel
 import { useSelector } from 'react-redux'
 
 const ReplaceRatelDevice = ({ children }) => {
-    const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
-    const onSubmit = async (values) => {
-
-    }
+  const onSubmit = async (values) => {}
 
   return (
     <CippPage title="Replace Device">
@@ -34,37 +32,34 @@ const ReplaceRatelDevice = ({ children }) => {
         <CippContentCard title="Replace Device">
           <Form
             // initialValues={{ ...initialState }}
+
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
-                <CForm onSubmit={handleSubmit}>
-                  <CRow>
-                    <CCol>
-                      <RFFCFormInput
-                        type="text"
-                        name="mac"
-                        label="MAC Address"
-                        // value={}
-                        // placeholder={}
-                      />
-                    </CCol>
-                    <CCol>
-                      <RFFCFormInput
-                        type="text"
-                        name="productID"
-                        label="Product ID"
-                        // value={}
-                        // placeholder={}
-                      />
-                    </CCol>
-                   
-                  </CRow>
-                  <CRow className="mb-3">
-                    <CCol md={6}>
-                      <CButton type="submit">Replace Dialplan</CButton>
-                    </CCol>
-                  </CRow>
-                </CForm>
+                <CRow>
+                  <CCol>
+                    <RFFCFormInput
+                      type="text"
+                      name="mac"
+                      label="MAC Address"
+                      // value={}
+                      // placeholder={}
+                    />
+                  </CCol>
+                  <CCol>
+                    <RFFCFormInput
+                      type="text"
+                      name="productID"
+                      label="Product ID"
+                      // value={}
+                      // placeholder={}
+                    />
+                  </CCol>
+
+                  <CCol md={6}>
+                    <CButton type="submit">Replace Dialplan</CButton>
+                  </CCol>
+                </CRow>
               )
             }}
           />
