@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem, CButton } from '@coreui/react'
+import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem, CButton, CForm } from '@coreui/react'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { Field, FormSpy, useForm, useFormState, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,7 +27,7 @@ const ReplaceRatelDevice = ({ children }) => {
   const query = useQuery()
   const deviceId = query.get('deviceId')
 
-  const handleSubmit = async (values) => {
+  const onSubmit = async (values) => {
     console.log('replace device values', values)
     genericPostRequest({
         path: `LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Delete|Value=1,Key=deviceId|Value='${deviceId}',Key=productId|Value=${values.productId},Key=macAddress|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
@@ -40,9 +40,10 @@ const ReplaceRatelDevice = ({ children }) => {
         <CippContentCard title="Replace Device">
           <Form
             // initialValues={{ ...initialState }}
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
+                <CForm onSubmit={handleSubmit}>
                 <CRow>
                   <CCol>
                     <RFFCFormInput
@@ -62,10 +63,13 @@ const ReplaceRatelDevice = ({ children }) => {
                       // placeholder={}
                     />
                   </CCol>
-                  <CCol>
+                  <CCol style={{
+                    paddingTop: '2rem',
+                  }}>
                     <CButton type="submit">Replace Device</CButton>
                   </CCol>
                 </CRow>
+                </CForm>
               )
             }}
           />
