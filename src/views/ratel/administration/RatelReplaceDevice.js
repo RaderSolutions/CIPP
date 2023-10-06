@@ -23,14 +23,15 @@ import { useSelector } from 'react-redux'
 
 const ReplaceRatelDevice = ({ children }) => {
     const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-    const handleSubmit = async (values) => {
-        
+
+    const onSubmit = async (values) => {
+
     }
 
   return (
-    <CippPage title="Edit Dialplan">
+    <CippPage title="Replace Device">
       <CCol>
-        <CippContentCard title="Edit Dialplan" icon={faEdit}>
+        <CippContentCard title="Replace Device">
           <Form
             // initialValues={{ ...initialState }}
             onSubmit={onSubmit}
@@ -41,35 +42,26 @@ const ReplaceRatelDevice = ({ children }) => {
                     <CCol>
                       <RFFCFormInput
                         type="text"
-                        name="name"
-                        label="Name"
-                        value={name}
-                        placeholder={name}
+                        name="mac"
+                        label="MAC Address"
+                        // value={}
+                        // placeholder={}
                       />
                     </CCol>
                     <CCol>
                       <RFFCFormInput
                         type="text"
-                        name="description"
-                        label="Description"
-                        value={description}
-                        placeholder={description}
+                        name="productID"
+                        label="Product ID"
+                        // value={}
+                        // placeholder={}
                       />
                     </CCol>
-                    <CCol>
-                      <RFFCFormTextarea
-                        type="text"
-                        name="dialplan"
-                        label="Dialplan"
-                        value={dialplan}
-                        placeholder={dialplan}
-                        defaultValue={dialplan}
-                      />
-                    </CCol>
+                   
                   </CRow>
                   <CRow className="mb-3">
                     <CCol md={6}>
-                      <CButton type="submit">Edit Dialplan</CButton>
+                      <CButton type="submit">Replace Dialplan</CButton>
                     </CCol>
                   </CRow>
                 </CForm>
