@@ -100,7 +100,7 @@ const ReplaceRatelDevice = ({ children }) => {
                       </CCallout>
                     )}
                     {postResults.isSuccess && (
-                      <CCallout color="success">{postResults.data.Results}</CCallout>
+                      <CCallout color="success">Replace Device Script Succesfully Invoked</CCallout>
                     )}
                   </CRow>
                 </CForm>
