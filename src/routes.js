@@ -18,6 +18,7 @@ import EditPhonebookEntry from 'src/views/ratel/administration/EditPhonebookEntr
 import RatelCallBlocking from 'src/views/ratel/administration/CallBlocking'
 import AddPagingGroup from 'src/views/ratel/administration/AddPagingGroup'
 import ChangeDeviceLabel from './views/ratel/administration/ChangeLabel'
+import ReplaceRatelDevice from './views/ratel/administration/RatelReplaceDevice'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -389,7 +390,11 @@ const routes = [
     component: SetupAddDialplan,
   },
   { path: '/ratel/administration/devices/edit', name: 'Edit Device', component: EditDevice },
-
+  {
+    path: '/ratel/administration/devices/replace',
+    name: 'Replace Device',
+    component: ReplaceRatelDevice,
+  },
   {
     path: '/ratel/administration/devices/add',
     name: 'Add RATEL Device',
