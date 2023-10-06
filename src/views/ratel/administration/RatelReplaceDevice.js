@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem } from '@coreui/react'
+import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem, CButton } from '@coreui/react'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { Field, FormSpy, useForm, useFormState, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,7 +32,6 @@ const ReplaceRatelDevice = ({ children }) => {
         <CippContentCard title="Replace Device">
           <Form
             // initialValues={{ ...initialState }}
-
             onSubmit={onSubmit}
             render={({ handleSubmit, submitting, values }) => {
               return (
