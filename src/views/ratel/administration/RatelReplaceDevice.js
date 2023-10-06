@@ -20,7 +20,6 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useListDevicesQuery } from 'src/store/api/ratelDevices'
 import { useListVariablesQuery, useListVariableQuery } from 'src/store/api/ratelVariables'
 import { useSelector } from 'react-redux'
-import { query } from 'src/store/api/ratelDids/apiSlice'
 import useQuery from 'src/hooks/useQuery'
 
 const ReplaceRatelDevice = ({ children }) => {
