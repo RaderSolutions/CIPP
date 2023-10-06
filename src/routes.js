@@ -19,6 +19,7 @@ import RatelCallBlocking from 'src/views/ratel/administration/CallBlocking'
 import AddPagingGroup from 'src/views/ratel/administration/AddPagingGroup'
 import ChangeDeviceLabel from './views/ratel/administration/ChangeLabel'
 import ReplaceRatelDevice from './views/ratel/administration/RatelReplaceDevice'
+import HidePhonebookEntry from './views/ratel/administration/HidePhonebookEntry'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -414,6 +415,11 @@ const routes = [
     path: '/ratel/administration/phonebookEditor/editEntry',
     name: 'RATEL Paging Groups',
     component: EditPhonebookEntry,
+  },
+  {
+    path: '/ratel/administration/phonebookEditor/hideEntry',
+    name: 'Hide Phonebook Entry',
+    component: HidePhonebookEntry,
   },
   {
     path: '/ratel/administration/setup/setupVoiceRecording',
