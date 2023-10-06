@@ -63,7 +63,7 @@ const ReplaceRatelDevice = ({ children }) => {
                     />
                   </CCol>
                   <CCol>
-                    <CButton type="submit">Replace Dialplan</CButton>
+                    <CButton type="submit">Replace Device</CButton>
                   </CCol>
                 </CRow>
               )
