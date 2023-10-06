@@ -1,6 +1,15 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
-import { CCallout, CCol, CRow, CSpinner, CListGroup, CListGroupItem, CButton, CForm } from '@coreui/react'
+import {
+  CCallout,
+  CCol,
+  CRow,
+  CSpinner,
+  CListGroup,
+  CListGroupItem,
+  CButton,
+  CForm,
+} from '@coreui/react'
 import { CippContentCard, CippPage } from 'src/components/layout'
 import { Field, FormSpy, useForm, useFormState, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,7 +44,7 @@ const ReplaceRatelDevice = ({ children }) => {
   const onSubmit = async (values) => {
     console.log('replace device values', values)
     genericPostRequest({
-        path: `LtScheduleScript?TenantFilter=${tenant}&Parameters=Key=Delete|Value=1,Key=deviceId|Value='${deviceId}',Key=productId|Value=${values.productId},Key=macAddress|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
+      path: `LtScheduleScript?TenantFilter=${tenant}&Parameters=Key=Delete|Value=1,Key=deviceId|Value='${deviceId}',Key=productId|Value=${values.productId},Key=macAddress|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
     })
   }
 
@@ -49,38 +58,51 @@ const ReplaceRatelDevice = ({ children }) => {
             render={({ handleSubmit, submitting, values }) => {
               return (
                 <CForm onSubmit={handleSubmit}>
-                <CRow>
-                  <CCol>
-                    <RFFCFormInput
-                      type="text"
-                      name="macAddress"
-                      label="MAC Address"
-                      // value={}
-                      // placeholder={}
-                    />
-                  </CCol>
-                  <CCol>
-                  {deviceModelsAreFetching && <CSpinner />}
-                  {!deviceModelsAreFetching && (<RFFCFormSelect
-                      type="text"
-                      name="productId"
-                      label="Product ID"
-                      placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
-                      values={
-                        deviceModels &&
-                        deviceModels?.map((deviceModel) => ({
-                            value: deviceModel.modelId,
-                            label: deviceModel.Name,
-                        }))
-                      }
-                      />)}
-                  </CCol>
-                  <CCol style={{
-                    paddingTop: '2rem',
-                  }}>
-                    <CButton type="submit">Replace Device</CButton>
-                  </CCol>
-                </CRow>
+                  <CRow>
+                    <CCol>
+                      <RFFCFormInput
+                        type="text"
+                        name="macAddress"
+                        label="MAC Address"
+                        // value={}
+                        // placeholder={}
+                      />
+                    </CCol>
+                    <CCol>
+                      {deviceModelsAreFetching && <CSpinner />}
+                      {!deviceModelsAreFetching && (
+                        <RFFCFormSelect
+                          type="text"
+                          name="productId"
+                          label="Product ID"
+                          placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
+                          values={
+                            deviceModels &&
+                            deviceModels?.map((deviceModel) => ({
+                              value: deviceModel.modelId,
+                              label: deviceModel.Name,
+                            }))
+                          }
+                        />
+                      )}
+                    </CCol>
+                    <CCol
+                      style={{
+                        paddingTop: '2rem',
+                      }}
+                    >
+                      <CButton type="submit">Replace Device</CButton>
+                    </CCol>
+
+                    {postResults.isFetching && (
+                      <CCallout color="info">
+                        <CSpinner>Loading</CSpinner>
+                      </CCallout>
+                    )}
+                    {postResults.isSuccess && (
+                      <CCallout color="success">{postResults.data.Results}</CCallout>
+                    )}
+                  </CRow>
                 </CForm>
               )
             }}
