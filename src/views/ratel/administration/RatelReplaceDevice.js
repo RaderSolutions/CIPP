@@ -20,11 +20,20 @@ import { useListDidsQuery } from 'src/store/api/ratelDids'
 import { useListDevicesQuery } from 'src/store/api/ratelDevices'
 import { useListVariablesQuery, useListVariableQuery } from 'src/store/api/ratelVariables'
 import { useSelector } from 'react-redux'
+import { query } from 'src/store/api/ratelDids/apiSlice'
+import useQuery from 'src/hooks/useQuery'
 
 const ReplaceRatelDevice = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const query = useQuery()
+  const deviceId = query.get('deviceId')
 
-  const onSubmit = async (values) => {}
+  const onSubmit = async (values) => {
+    console.log('replace device values', values)
+    genericPostRequest({
+        path: `LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=Delete|Value=1,Key=deviceId|Value='${deviceId}',Key=productId|Value=${values.productId},Key=macAddress|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
+    })
+  }
 
   return (
     <CippPage title="Replace Device">
@@ -39,7 +48,7 @@ const ReplaceRatelDevice = ({ children }) => {
                   <CCol>
                     <RFFCFormInput
                       type="text"
-                      name="mac"
+                      name="macAddress"
                       label="MAC Address"
                       // value={}
                       // placeholder={}
@@ -48,14 +57,13 @@ const ReplaceRatelDevice = ({ children }) => {
                   <CCol>
                     <RFFCFormInput
                       type="text"
-                      name="productID"
+                      name="productId"
                       label="Product ID"
                       // value={}
                       // placeholder={}
                     />
                   </CCol>
-
-                  <CCol md={6}>
+                  <CCol>
                     <CButton type="submit">Replace Dialplan</CButton>
                   </CCol>
                 </CRow>
