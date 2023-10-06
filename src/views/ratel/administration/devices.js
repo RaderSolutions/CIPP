@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
-import { on } from 'nodemon'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -199,7 +198,7 @@ const DevicesList = () => {
       path: `/api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`,
     })
   }
-  
+
 return (
     <>
       
