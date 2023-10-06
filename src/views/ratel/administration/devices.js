@@ -193,7 +193,7 @@ const DevicesList = () => {
     <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
   )
 
-  onClickReconfigAll = async () => {
+  const onClickReconfigAll = async () => {
     genericPostRequest({
       path: `/api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`,
     })
