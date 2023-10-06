@@ -16,9 +16,7 @@ import {
 } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
-import { useListDidsQuery } from 'src/store/api/ratelDids'
-import { useListDevicesQuery } from 'src/store/api/ratelDevices'
-import { useListVariablesQuery, useListVariableQuery } from 'src/store/api/ratelVariables'
+import { useListDeviceModelsQuery } from 'src/store/api/ratelDevices'
 import { useSelector } from 'react-redux'
 import useQuery from 'src/hooks/useQuery'
 
@@ -27,6 +25,12 @@ const ReplaceRatelDevice = ({ children }) => {
   const query = useQuery()
   const deviceId = query.get('deviceId')
   const tenant = query.get('tenantDomain')
+
+  const {
+    data: deviceModels = [],
+    isFetching: deviceModelsAreFetching,
+    error: deviceModelsError,
+  } = useListDeviceModelsQuery()
 
   const onSubmit = async (values) => {
     console.log('replace device values', values)
@@ -56,13 +60,20 @@ const ReplaceRatelDevice = ({ children }) => {
                     />
                   </CCol>
                   <CCol>
-                    <RFFCFormInput
+                  {deviceModelsAreFetching && <CSpinner />}
+                  {!deviceModelsAreFetching && (<RFFCFormSelect
                       type="text"
                       name="productId"
                       label="Product ID"
-                      // value={}
-                      // placeholder={}
-                    />
+                      placeholder={!deviceModelsAreFetching ? 'Select Model' : 'Loading...'}
+                      values={
+                        deviceModels &&
+                        deviceModels?.map((deviceModel) => ({
+                            value: deviceModel.modelId,
+                            label: deviceModel.Name,
+                        }))
+                      }
+                      />)}
                   </CCol>
                   <CCol style={{
                     paddingTop: '2rem',
