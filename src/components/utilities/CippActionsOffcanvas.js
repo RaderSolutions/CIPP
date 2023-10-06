@@ -257,13 +257,13 @@ export default function CippActionsOffcanvas(props) {
       {postResults.isSuccess && <CCallout color="info">{postResults.data?.Results}</CCallout>}
       {postResults.isError && (
         <CCallout color="danger">Could not connect to API: {postResults.error.message}
-        Action Successful
+        {' '}Action Successful
         </CCallout>
       )}
       {getResults.isSuccess && (
         <CCallout color={getResults.data?.colour ? getResults.data?.colour : 'info'}>
           {getResults.data?.Results}
-          Action Successful
+         {' '}Action Successful
         </CCallout>
       )}
       {getResults.isError && (
