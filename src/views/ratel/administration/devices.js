@@ -8,6 +8,8 @@ import { CippPageList } from 'src/components/layout'
 import { Link } from 'react-router-dom'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { TitleButton } from 'src/components/buttons'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
+import { on } from 'nodemon'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -187,16 +189,26 @@ const columns = [
 
 const DevicesList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const addUserDeviceButton = (
     <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
   )
+
+  onClickReconfigAll = async () => {
+    genericPostRequest({
+      path: `/api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`,
+    })
+  }
+  
 return (
     <>
-      <Link to={`api/LtRatelReconfigurePhones?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
-        <CButton size="sm" variant="ghost" color="warning">
+      
+        <CButton size="sm" variant="ghost" color="warning"
+        onClick={onClickReconfigAll}
+        >
           Reconfigure All Phones
         </CButton>
-       </Link>
+      
        <Link>
         <CButton to={`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`} size="sm" variant="ghost" color="warning">
             Run Script to Process Pending Device Updates
