@@ -35,7 +35,7 @@ const TenantSelectorMultiple = React.forwardRef(
           label: [displayName] + [` (${defaultDomainName})`],
         }))}
         multiple
-        printOptions="on-focus"
+        printOptions="always"
         {...rest}
       />
     )
