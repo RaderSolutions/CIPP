@@ -1,7 +1,7 @@
 .select-search {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
-  position: relative;
+  // position: relative;
 
   * {
     box-sizing: inherit;
@@ -17,8 +17,8 @@
   }
 
   &__value {
-    position: relative;
-    z-index: 1;
+    // position: relative;
+    // z-index: 1;
 
     &::after {
       content: '';
