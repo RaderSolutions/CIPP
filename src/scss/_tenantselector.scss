@@ -67,9 +67,9 @@
       border: 1px solid var(--cipp-search-border-color);
     }
 
-    &:not([readonly]):focus {
-      cursor: initial;
-    }
+    // &:not([readonly]):focus {
+    //   cursor: initial;
+    // }
   }
 
   &:not(.is-disabled) {
@@ -204,8 +204,8 @@
   text-transform: uppercase;
 }
 
-.tenantDropdown {
-  min-width: 25rem;
+// .tenantDropdown {
+//   min-width: 25rem;
   
-}
+// }
 
