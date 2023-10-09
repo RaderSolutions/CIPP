@@ -101,9 +101,10 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             className="tenantDropdown"
             >
               <SelectSearch
+              style={{position: 'fixed'}}
                 search
                 onChange={activated}
-                filterOptions={CippfuzzySearch}
+                filterOptions={undefined}
                 placeholder={placeholder}
                 disabled={isLoading}
                 value={currentTenant && currentTenant.customerId}
