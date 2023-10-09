@@ -98,7 +98,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
               )}
             </CDropdownToggle>
             <CDropdownMenu 
-            // className="tenantDropdown"
+            className="tenantDropdown"
             >
               <SelectSearch
                 search
