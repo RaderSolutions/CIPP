@@ -101,7 +101,9 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             className="tenantDropdown"
             > */}
               <SelectSearch
-              // style={{position: 'fixed'}}
+              style={{
+                maxWidth: '500px',
+              }}
                 search
                 onChange={activated}
                 filterOptions={undefined}
