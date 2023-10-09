@@ -55,7 +55,7 @@ useEffect(()=>{
             label: 'Hide from Phonebook',
             color: 'info',
             modal: true,
-            link: `/ratel/administration/phonebookEditor/hideEntry?tenantDomain=${tenant.customerId}`,
+            link: `/ratel/administration/phonebookEditor/hideEntry?tenantDomain=${tenant.customerId}&deviceId=${row.ID}`,
             // modalMessage: 'Are you sure you want to hide/unhide this paging group?',
           },
           {
