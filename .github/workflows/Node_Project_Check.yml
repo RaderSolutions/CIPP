@@ -26,5 +26,6 @@ jobs:
         run: |
           npm install --legacy-peer-deps
           npm run build
+          sass --watch assets/scss assets/css
         env:
           CI: true
