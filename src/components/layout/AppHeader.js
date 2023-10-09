@@ -69,7 +69,7 @@ const AppHeader = () => {
           </Field>
           </Form> */}
           <TenantSelector 
-          // NavSelector={true}
+          NavSelector={true}
            />
           <CNavItem>
             <a

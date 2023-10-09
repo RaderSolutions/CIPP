@@ -78,7 +78,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
     <>
       {NavSelector && (
         <>
-          <CDropdown 
+          {/* <CDropdown 
           component="li" 
           variant="nav-item" 
           className="flex-grow-1 my-auto"
@@ -99,7 +99,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             </CDropdownToggle>
             <CDropdownMenu 
             className="tenantDropdown"
-            >
+            > */}
               <SelectSearch
               // style={{position: 'fixed'}}
                 search
@@ -113,8 +113,8 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
                   name: `${displayName} (${defaultDomainName})`,
                 }))}
               />
-            </CDropdownMenu>
-          </CDropdown>
+            {/* </CDropdownMenu>
+          </CDropdown> */}
         </>
       )}
       {!NavSelector && (
