@@ -1,7 +1,7 @@
 .select-search {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
-  // position: relative;
+  position: fixed;
 
   * {
     box-sizing: inherit;
@@ -17,14 +17,14 @@
   }
 
   &__value {
-    // position: relative;
-    // z-index: 1;
+    position: fixed;
+    z-index: 1;
 
     &::after {
       content: '';
       display: inline-block;
       height: 11px;
-      position: absolute;
+      position: fixed;
       right: 19px;
       top: calc(50% - 9px);
       width: 11px;
@@ -144,7 +144,7 @@
       border-top: 1px solid var(--cipp-search-border-color);
       max-height: 260px;
       overflow: auto;
-      position: relative;
+      position: fixed;
     }
   }
   /* stylelint-enable no-descending-specificity */
@@ -162,7 +162,7 @@
       left: 0;
       max-height: 360px;
       overflow: auto;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 44px;
       z-index: 2;
