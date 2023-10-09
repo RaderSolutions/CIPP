@@ -102,7 +102,8 @@ const DialplanList = () => {
     isFetching: dpmaLicenseIsFetching,
     error: dpmaLicenseError,
   } = useListDpmaLicenseKeyQuery({ tenantDomain: tenant.customerId })
-
+  console.log('fopLicenseData', fopLicenseData)
+  console.log('dpmaLicenseData', dpmaLicenseData)
   return (
     <>
       {/* <CButton size="sm" variant="ghost" color="warning">
