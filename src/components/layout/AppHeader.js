@@ -71,6 +71,9 @@ const AppHeader = () => {
           <CNavItem>
 
           <TenantSelector 
+          style={{
+            maxWidth: '500px',
+          }}
           NavSelector={true}
            />
            </CNavItem>
