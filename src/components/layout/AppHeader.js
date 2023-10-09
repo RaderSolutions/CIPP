@@ -68,9 +68,12 @@ const AppHeader = () => {
           {(props) => <TenantSelector />}
           </Field>
           </Form> */}
+          <CNavItem>
+
           <TenantSelector 
           NavSelector={true}
            />
+           </CNavItem>
           <CNavItem>
             <a
               target="_blank"
