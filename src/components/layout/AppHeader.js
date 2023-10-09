@@ -18,7 +18,7 @@ import { AppHeaderDropdown, AppHeaderSearch } from 'src/components/header'
 import { TenantSelector } from '../utilities'
 import cyberdrainlogolight from 'src/assets/images/CIPP.png'
 import cyberdrainlogodark from 'src/assets/images/CIPP_Dark.png'
-import { Field } from 'react-final-form'
+import { Field, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareLeft, faCaretSquareRight } from '@fortawesome/free-solid-svg-icons'
 import { toggleSidebarShow } from 'src/store/features/app'
@@ -63,9 +63,11 @@ const AppHeader = () => {
         </CSidebarBrand>
         <CHeaderNav className="p-md-2 flex-grow-1">
           <span>test</span>
+          <Form>
           <Field>
           {(props) => <TenantSelector />}
           </Field>
+          </Form>
           {/* <TenantSelector NavSelector={true} /> */}
           <CNavItem>
             <a
