@@ -120,7 +120,7 @@ const DialplanList = () => {
             <CCol style={{ display: 'flex', flexDirection: 'column' }}>
               <label for="test">FOP:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              value={!fopLicenseIsFetching && !fopLicenseError && fopLicenseData?.data?.length > 0 ? fopLicenseData : 'No FOP License Key Found'}
+              value={!fopLicenseIsFetching && !fopLicenseError && fopLicenseData?.data?.length > 0 ? fopLicenseData[0].value : 'No FOP License Key Found'}
               />
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Apply FOP License
