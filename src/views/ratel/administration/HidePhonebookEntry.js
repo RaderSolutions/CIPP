@@ -49,9 +49,72 @@ const PhonebookHideEntry = () => {
   }
 
   return (
-    <div>
-        test
-    </div>
+   <CippPage
+   title="Hide Phonebook Entry"
+   >
+    <CCol>
+      <CippContentCard title="Hide Phonebook Entry">
+        <Form
+          // initialValues={{ ...initialState }}
+          onSubmit={onSubmit}
+          render={({ handleSubmit, submitting, values }) => {
+            return (
+              <CForm onSubmit={handleSubmit}>
+                <CRow>
+                  <CCol>
+                 <RFFCFormInput
+                 type="text"
+                 name="labtechId"
+                  label="Labtech ID"
+                  // value={}
+                  // placeholder={}
+                />
+                  </CCol>
+                </CRow>
+                <CRow>
+                  <CCol>
+                  <RFFCFormInput
+                  type="text"
+                  name="hideInternalDeviceId"
+                  label="Hide Internal Device ID"
+                  />
+                    <CButton
+                      type="button"
+                      color="primary"
+                      disabled={submitting}
+                    >
+                      Hide
+                    </CButton>
+                  </CCol>
+                </CRow>
+                <CRow>
+                  <CCol>
+                    <RFFCFormInput
+                    type="text"
+                    name="hideExternalPhonebookId"
+                    label="Hide External Phonebook ID"
+                    />
+                      <CButton
+                      type="button"
+                      color="primary"
+                      disabled={submitting}
+                    >
+                      Hide
+                    </CButton>
+                  </CCol>
+                </CRow>
+                <CRow>
+                  {/* <CCol>
+                  
+                  </CCol> */}
+                </CRow>
+              </CForm>
+            )
+          }}
+        />
+        </CippContentCard>
+    </CCol>
+    </CippPage>
   )
 }
 
