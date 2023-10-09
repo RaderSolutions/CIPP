@@ -100,6 +100,11 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             <CDropdownMenu 
             className="tenantDropdown"
             > */}
+            <div
+            style={{
+              maxWidth: '500px',
+            }}
+            >
               <SelectSearch
               style={{
                 maxWidth: '500px',
@@ -115,6 +120,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
                   name: `${displayName} (${defaultDomainName})`,
                 }))}
               />
+              </div>
             {/* </CDropdownMenu>
           </CDropdown> */}
         </>
