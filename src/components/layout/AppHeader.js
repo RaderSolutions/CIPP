@@ -61,6 +61,7 @@ const AppHeader = () => {
           </CHeaderNav>
         </CSidebarBrand>
         <CHeaderNav className="p-md-2 flex-grow-1">
+          <span>test</span>
           <TenantSelector NavSelector={true} />
           <CNavItem>
             <a
