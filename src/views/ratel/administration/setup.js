@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { CButton, CCol, CInput, CRow } from '@coreui/react'
+import { CButton, CCol, CInput, CRow, CSpinner } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPageList } from 'src/components/layout'
@@ -118,6 +118,7 @@ const DialplanList = () => {
             {/* <h5>License Keys</h5> */}
             {/* <CRow style={{ paddingLeft: '2em', paddingRight: '2em' }}> */}
            <CCol style={{ display: 'flex', flexDirection: 'column' }}>
+            {fopLicenseIsFetching && <CSpinner/>}
            {!fopLicenseIsFetching && 
               (<>
               <label for="test">FOP:</label>
@@ -130,6 +131,7 @@ const DialplanList = () => {
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
                 Apply FOP License
               </CButton>
+              {dpmaLicenseIsFetching && <CSpinner />}
              {!dpmaLicenseIsFetching && (
              <>
              <label for="test">DPMA:</label>
