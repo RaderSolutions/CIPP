@@ -78,7 +78,11 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
     <>
       {NavSelector && (
         <>
-          <CDropdown component="li" variant="nav-item" className="flex-grow-1 my-auto">
+          <CDropdown 
+          // component="li" 
+          // variant="nav-item" 
+          // className="flex-grow-1 my-auto"
+          >
             <CDropdownToggle>
               {currentTenant?.customerId !== 'AllTenants' ? (
                 <CippTenantOffcanvas tenant={currentTenant} buildingIcon={true} />
