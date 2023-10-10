@@ -11,7 +11,7 @@ export default function TitleButton({ icon, title, href = null, onClick = null }
     return (
       <Link to={href}>
         <CButton size="sm" color="primary">
-          <FontAwesomeIcon icon={icon ?? faPlus} className="pe-1" />
+          <FontAwesomeIcon style={{color: 'white'}} icon={icon ?? faPlus} className="pe-1" />
           <font style={{ color: 'white' }}>{title}</font>
           {/* {title} */}
         </CButton>
@@ -20,7 +20,7 @@ export default function TitleButton({ icon, title, href = null, onClick = null }
   } else if (onClick) {
     return (
       <CButton size="sm" color="primary" onClick={onClick}>
-        <FontAwesomeIcon icon={icon ?? faPlus} className="pe-1" />
+        <FontAwesomeIcon style={{color: 'white'}} icon={icon ?? faPlus} className="pe-1" />
         <font style={{ color: 'white' }}>{title}</font>
         {/* {title} */}
       </CButton>
