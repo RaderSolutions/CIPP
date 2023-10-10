@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import { CButton } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,7 +18,9 @@ export default function TitleButton({ icon, title, href = null, onClick = null }
     )
   } else if (onClick) {
     return (
-      <CButton size="sm" color="primary" onClick={onClick}>
+      <CButton size="sm" color="primary" style={{
+        color: 'white',
+      }} onClick={onClick}>
         <FontAwesomeIcon icon={icon ?? faPlus} className="pe-1" />
         {title}
       </CButton>
