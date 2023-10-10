@@ -62,45 +62,36 @@ const AppHeader = () => {
           </CHeaderNav>
         </CSidebarBrand>
         <CHeaderNav
-           className="p-md-2 flex-grow-1"
-          // className="me-2 p-2 flex-row space-x-2"
+         className="p-md-2 flex-grow-1"
+        // className='p-md-2 flex-row space-x-2'
         >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}
-          >
-            <div>
-              <CNavItem className="min-w-full">
-                <TenantSelector
-                  style={{
-                    maxWidth: '1000px',
-                  }}
-                  NavSelector={true}
-                />
-              </CNavItem>
-            </div>
-            <div>
-              <CNavItem>
-                <a
-                  target="_blank"
-                  href={`https://docs.cipp.app/user-documentation${location.pathname}`}
-                >
-                  <CButton variant="ghost">
-                    <FontAwesomeIcon icon={'question'} size="lg" />
-                  </CButton>
-                </a>
-              </CNavItem>
-              <CNavItem>
-                <AppHeaderSearch />
-              </CNavItem>
-              <CNavItem>
-                <AppHeaderDropdown />
-              </CNavItem>
-            </div>
-          </div>
+         <CNavItem
+        className="min-w-full"
+         >
+           <TenantSelector 
+          style={{
+            maxWidth: '1000px',
+          }}
+          NavSelector={true}
+           />
+           </CNavItem>
+
+          <CNavItem>
+            <a
+              target="_blank"
+              href={`https://docs.cipp.app/user-documentation${location.pathname}`}
+            >
+              <CButton variant="ghost">
+                <FontAwesomeIcon icon={'question'} size="lg" />
+              </CButton>
+            </a>
+          </CNavItem>
+          <CNavItem>
+            <AppHeaderSearch />
+          </CNavItem>
+          <CNavItem>
+            <AppHeaderDropdown />
+          </CNavItem>
         </CHeaderNav>
       </CHeader>
 
