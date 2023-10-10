@@ -62,8 +62,8 @@ const AppHeader = () => {
           </CHeaderNav>
         </CSidebarBrand>
         <CHeaderNav
-          //  className="p-md-2 flex-grow-1"
-          className="me-2 p-2 flex-row space-x-2"
+           className="p-md-2 flex-grow-1"
+          // className="me-2 p-2 flex-row space-x-2"
         >
           <div
             style={{
