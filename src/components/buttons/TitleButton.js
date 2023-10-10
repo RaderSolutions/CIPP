@@ -10,7 +10,11 @@ export default function TitleButton({ icon, title, href = null, onClick = null }
   if (href) {
     return (
       <Link to={href}>
-        <CButton size="sm" color="primary">
+        <CButton size="sm" color="primary"
+        style={{
+          color: 'white',
+        }}
+        >
           <FontAwesomeIcon icon={icon ?? faPlus} className="pe-1" />
           {title}
         </CButton>
