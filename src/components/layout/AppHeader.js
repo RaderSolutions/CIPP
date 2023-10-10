@@ -61,22 +61,21 @@ const AppHeader = () => {
             </CHeaderToggler>
           </CHeaderNav>
         </CSidebarBrand>
-        <CHeaderNav className="p-md-2 flex-grow-1">
-          {/* <span>test</span>
-          <Form>
-          <Field>
-          {(props) => <TenantSelector />}
-          </Field>
-          </Form> */}
-          <CNavItem>
-
-          <TenantSelector 
+        <CHeaderNav
+         className="p-md-2 flex-grow-1"
+        // className='p-md-2 flex-row space-x-2'
+        >
+         <CNavItem
+        className="min-w-full"
+         >
+           <TenantSelector 
           style={{
             maxWidth: '1000px',
           }}
           NavSelector={true}
            />
            </CNavItem>
+
           <CNavItem>
             <a
               target="_blank"
