@@ -72,7 +72,7 @@ const AppHeader = () => {
 
           <TenantSelector 
           style={{
-            maxWidth: '500px',
+            maxWidth: '1000px',
           }}
           NavSelector={true}
            />

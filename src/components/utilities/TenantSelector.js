@@ -102,7 +102,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             > */}
             <div
             style={{
-              maxWidth: '500px',
+              maxWidth: '1000px',
             }}
             >
               <SelectSearch
