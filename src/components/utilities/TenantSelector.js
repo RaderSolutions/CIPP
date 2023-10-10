@@ -107,7 +107,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             >
               <SelectSearch
               style={{
-                maxWidth: '500px',
+                maxWidth: '1000px',
               }}
                 search
                 onChange={activated}
