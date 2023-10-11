@@ -111,7 +111,7 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
               }}
                 search
                 onChange={activated}
-                filterOptions={undefined}
+                filterOptions={CippfuzzySearch}
                 placeholder={placeholder}
                 disabled={isLoading}
                 value={currentTenant && currentTenant.customerId}
