@@ -52,7 +52,7 @@ const AppHeader = () => {
                 ? raderlogo
                 : raderlogo
             }
-            fluid
+            // fluid
             height={60}
             // width={200}
           />
