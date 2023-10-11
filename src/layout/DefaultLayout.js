@@ -61,7 +61,7 @@ const DefaultLayout = () => {
             </Suspense>
           </CContainer>
         </div>
-        <AppFooter />
+        {/* <AppFooter /> */}
       </div>
     </div>
   )
