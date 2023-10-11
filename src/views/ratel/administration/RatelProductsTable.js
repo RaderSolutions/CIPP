@@ -90,21 +90,28 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   }
 
 export const ProductsTable = () => {
+    const columns = []
     const {
         data: devices = [],
         isFetching: deviceModelsAreFetching,
         error: devicesModelsError
     } = useListDeviceModelsQuery()
+    console.log('devices', devices)
   return (
-    <CippPageList 
-    title="Products"
-    datatable={{
-        keyField:'id',
-        columns,
-        reportName: 'Products Table',
-        path:'/api/LtListRatelDevices'
-    }}
-    />
+    <>
+    <span>
+        hold
+    </span>
+    </>
+    // <CippPageList 
+    // title="Products"
+    // datatable={{
+    //     keyField:'id',
+    //     columns,
+    //     reportName: 'Products Table',
+    //     path:'/api/LtListRatelDeviceModels'
+    // }}
+    // />
   )
 }
 
