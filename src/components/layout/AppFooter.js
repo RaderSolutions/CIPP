@@ -9,7 +9,7 @@ import netfriends from 'src/assets/images/netfriends.png'
 const AppFooter = () => {
   return (
     <CFooter className="d-flex justify-content-between align-items-center" position="sticky">
-      <div className="sponsors">
+      {/* <div className="sponsors">
         <p>
           This application is sponsored by{' '}
           <CLink href="https://www.huntress.com/">
@@ -28,7 +28,7 @@ const AppFooter = () => {
       </div>
       <nav className="footer-nav">
         <Link to="/license">License</Link>
-      </nav>
+      </nav> */}
     </CFooter>
   )
 }
