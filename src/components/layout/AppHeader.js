@@ -47,7 +47,8 @@ const AppHeader = () => {
                 ? raderlogo
                 : raderlogo
             }
-            height={80}
+            height={60}
+            widht={500}
           />
           <CHeaderNav className="me-2 p-2">
             <CHeaderToggler
