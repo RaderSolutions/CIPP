@@ -3,12 +3,12 @@
   "short_name": "CIPP",
   "icons": [
     {
-      "src": "/raderfavicon.png",
+      "src": "/rader_favicon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/raderfavicon.png",
+      "src": "/rader_favicon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
