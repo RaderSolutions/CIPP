@@ -90,7 +90,44 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   }
 
 export const ProductsTable = () => {
-    const columns = []
+    const columns = [
+        {
+            name: "ID",
+            selector: (row) => row['id'],
+            sortable: true,
+            exportSelector: 'ID',
+        },
+        {
+            name: 'Manufacturer',
+            selector: (row) => row['manufacturer_name'],
+            sortable: true,
+            exportSelector: 'Manufacturer',
+        },
+        {
+            name: 'Model',
+            selector: (row) => row['model'],
+            sortable: true,
+            exportSelector: 'Model',
+        },
+        {
+            name: "BLF Page Size",
+            selector: (row) => row['blf_page_size'],
+            sortable: true,
+            exportSelector: 'BLFPageSize',
+        },
+        {
+            name: "BLF Page Count",
+            selector: (row) => row['blf_page_count'],
+            sortable: true,
+            exportSelector: 'BLFPageCount',
+        },
+        {
+            name: "Supports LLDP",
+            selector: (row) => row['supports_lldp'],
+            sortable: true,
+            exportSelector: 'SupportsLLDP',
+        }
+    ]
     const {
         data: devices = [],
         isFetching: deviceModelsAreFetching,
@@ -98,20 +135,21 @@ export const ProductsTable = () => {
     } = useListDeviceModelsQuery()
     console.log('devices', devices)
   return (
-    <>
-    <span>
-        hold
-    </span>
-    </>
-    // <CippPageList 
-    // title="Products"
-    // datatable={{
-    //     keyField:'id',
-    //     columns,
-    //     reportName: 'Products Table',
-    //     path:'/api/LtListRatelDeviceModels'
-    // }}
-    // />
+    // <>
+    // <span>
+    //     hold
+    // </span>
+    // </>
+    <CippPageList 
+    title="Products"
+    datatable={{
+        keyField:'id',
+        columns,
+        reportName: 'Products Table',
+        path:'/api/LtListRatelDeviceModels',
+        params: {isProductTable: true}
+    }}
+    />
   )
 }
 
