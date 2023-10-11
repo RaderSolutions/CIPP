@@ -131,11 +131,11 @@ const DIDsList = () => {
   return (
     <>
     {/* TODO: discuss api endpoint w/ SW */}
-      <Link to={`api/LtRatelRebuildPhonebookXML?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
+      {/* <Link to={`api/LtRatelRebuildPhonebookXML?TenantFilter=${tenant.customerId}&Reconfigure=ALL`}>
         <CButton size="sm" variant="ghost" color="warning">
           Rebuild Phonebook XML Script
         </CButton>
-      </Link>
+      </Link> */}
       <br />
       <br />
       <CippPageList

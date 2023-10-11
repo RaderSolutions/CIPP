@@ -3,36 +3,36 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { Link } from 'react-router-dom'
-import { CButton  } from '@coreui/react'
+import { CButton } from '@coreui/react'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
 const columns = [
-    {
-      name: 'Script Ran At',
-      selector: (row) => row['HistoryDate'],
-      sortable: true,
-      exportSelector: 'HistoryDate',
-    },
-    {
-      name: 'Results',
-      selector: (row) => row['Message'],
-      sortable: true,
-      exportSelector: 'Message',
-    },
-
+  {
+    name: 'Script Ran At',
+    selector: (row) => row['HistoryDate'],
+    sortable: true,
+    exportSelector: 'HistoryDate',
+  },
+  {
+    name: 'Results',
+    selector: (row) => row['Message'],
+    sortable: true,
+    exportSelector: 'Message',
+  },
 ]
-const handleClickTroubleshoot = () => {
-  
-}
-const TroubleshootingResultsList = () => {
-    const tenant = useSelector((state) => state.app.currentTenant)
 
-    return (
-      <>
-        <Link to={`api/LtRatelScheduleScript?RatelScript=true&ScriptId=7856`}>
-        <CButton onClick={handleClickTroubleshoot} size="sm" variant="ghost" color="warning">
-          Run troubleshooting script
-        </CButton>
-        </Link>
+const TroubleshootingResultsList = () => {
+  const tenant = useSelector((state) => state.app.currentTenant)
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const handleClickTroubleshoot = () => {
+    genericPostRequest({ path: `api/LtRatelScheduleScript?RatelScript=true&ScriptId=7856` })
+  }
+  return (
+    <>
+      <CButton onClick={handleClickTroubleshoot} size="sm" variant="ghost" color="warning">
+        Run troubleshooting script
+      </CButton>
+
       <CippPageList
         title="Troubleshooting History"
         datatable={{
@@ -43,9 +43,8 @@ const TroubleshootingResultsList = () => {
           params: { TenantFilter: tenant?.customerId },
         }}
       />
-      </>
-    )
-  }
-  
-  export default TroubleshootingResultsList
-  
+    </>
+  )
+}
+
+export default TroubleshootingResultsList

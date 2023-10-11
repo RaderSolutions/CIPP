@@ -8,7 +8,7 @@ import {
   RFFCFormInput,
   RFFCFormSelect,
 } from 'src/components/forms'
-import { useListDeviceQuery,useListDeviceLocationsQuery,useListDeviceContactsQuery, useListDeviceModelsQuery} from 'src/store/api/ratelDevices'
+import { useListDeviceQuery,useListDeviceLocationsQuery, useListDeviceContactsQuery, useListDeviceModelsQuery} from 'src/store/api/ratelDevices'
 import { CippCodeBlock, ModalService } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
