@@ -31,7 +31,7 @@ const App = () => {
     <BrowserRouter>
       <Suspense fallback={<FullScreenLoading />}>
         <Helmet>
-          <title>CIPP</title>
+          <title>Portal 3</title>
         </Helmet>
         <Routes>
           <Route exact path="/LogoutRedirect" name="LogoutRedirect" element={<PageLogOut />} />
@@ -60,7 +60,7 @@ const App = () => {
                     element={
                       <Suspense fallback={<Skeleton />}>
                         <Helmet>
-                          <title>CIPP - {route.name}</title>
+                          <title>Portal 3 - {route.name}</title>
                         </Helmet>
                         <ErrorBoundary key={route.name}>
                           <route.component />
