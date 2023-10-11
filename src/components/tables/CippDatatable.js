@@ -15,6 +15,7 @@ export default function CippDatatable({ path, params, ...rest }) {
     error,
   } = useListDatatableQuery({ path, params: { refreshGuid, $filter: graphFilter, ...params } })
  console.log('data in datatable', data)
+//  start here - need to make booleans string
   var defaultFilterText = ''
   if (params?.Parameters?.$filter) {
     defaultFilterText = 'Graph: ' + params?.Parameters?.$filter
