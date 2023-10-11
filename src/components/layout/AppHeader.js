@@ -40,7 +40,11 @@ const AppHeader = () => {
     <>
       <CHeader position="sticky">
         <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
-         <div>
+         <div
+         style={{
+          minWidth: '200px',
+         }}
+         >
          <CImage
             className="sidebar-brand-full me-2 p-4"
             src={
