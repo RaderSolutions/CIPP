@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import { useListDatatableQuery } from 'src/store/api/datatable'
 import PropTypes from 'prop-types'
@@ -13,7 +14,7 @@ export default function CippDatatable({ path, params, ...rest }) {
     isFetching,
     error,
   } = useListDatatableQuery({ path, params: { refreshGuid, $filter: graphFilter, ...params } })
-
+ console.log('data in datatable', data)
   var defaultFilterText = ''
   if (params?.Parameters?.$filter) {
     defaultFilterText = 'Graph: ' + params?.Parameters?.$filter

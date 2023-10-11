@@ -149,6 +149,7 @@ const PagingGroupsList = () => {
   const addPagingGroupButton = (
     <CButton href="/ratel/administration/paginggroups/addPagingGroup" title="Add Paging Group" />
   )
+  console.log('paging groups list', )
   return (
     <CippPageList
       title="Paging Groups"
