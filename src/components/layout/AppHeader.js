@@ -40,16 +40,20 @@ const AppHeader = () => {
     <>
       <CHeader position="sticky">
         <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
-          <CImage
+         <div>
+         <CImage
             className="sidebar-brand-full me-2 p-4"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
                 ? raderlogo
                 : raderlogo
             }
-            height={60}
-            width={200}
+            fluid
+            // height={60}
+            // width={200}
           />
+         </div>
+         
           <CHeaderNav className="me-2 p-2">
             <CHeaderToggler
               className="me-2"
