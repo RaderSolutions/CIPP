@@ -46,7 +46,7 @@ const AppHeader = () => {
          }}
          > */}
          <CImage
-            className="sidebar-brand-full me-2 p-4"
+            className="sidebar-brand-full me-2"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
                 ? raderlogo
