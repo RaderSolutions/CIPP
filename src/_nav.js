@@ -46,7 +46,7 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'RATEL Products Table',
+        name: 'Products Table',
         to: '/ratel/administration/products',
       },
       {
