@@ -79,13 +79,13 @@ const AppHeader = () => {
               </a>
             </div>
             <div
-            className='d-flex align-items-center align-self-center pt-2'
+            className='d-flex align-items-center align-self-center'
             style={{ margin: '0 10px' }}
             >
               <AppHeaderSearch />
             </div>
             <div
-            className='d-flex align-items-center align-self-center p-2'
+            className='d-flex align-items-center align-self-center'
             >
               <AppHeaderDropdown />
             </div>
