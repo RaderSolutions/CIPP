@@ -76,13 +76,13 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
 const ContactTable = () => {
   return (
     <CippPageList
-      title="Phonebook Editor"
-      titleButton={addPhonebookEntryButton}
+      title="LT Contacts"
+    //   titleButton={addPhonebookEntryButton}
       datatable={{
         keyField: 'ID',
         columns,
-        reportName: `${tenant.customerId}-RATEL-PhonebookEntries-List`,
-        path: '/api/LtListRatelPhonebookEntries',
+        reportName: `${tenant.customerId}-RATEL-PhonebookSort-List`,
+        path: '/api/LtListRatelPhonebookSort',
         params: { TenantFilter: tenant?.customerId },
       }}
     />
