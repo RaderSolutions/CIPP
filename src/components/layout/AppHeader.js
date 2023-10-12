@@ -54,7 +54,7 @@ const AppHeader = () => {
             }
             // fluid
             // height={60}
-            width={120}
+            width={160}
           />
          {/* </div> */}
          
