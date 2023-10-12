@@ -19,6 +19,7 @@ import { TenantSelector } from '../utilities'
 import cyberdrainlogolight from 'src/assets/images/CIPP.png'
 import cyberdrainlogodark from 'src/assets/images/CIPP_Dark.png'
 import raderlogo from 'src/assets/images/raderlogo_b.png'
+import raderlogolight from 'src/assets/images/raderlogolight.png'
 import { Field, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareLeft, faCaretSquareRight } from '@fortawesome/free-solid-svg-icons'
@@ -44,7 +45,7 @@ const AppHeader = () => {
             className="sidebar-brand-full me-2"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
-                ? raderlogo
+                ? raderlogolight
                 : raderlogo
             }
             width={160}
