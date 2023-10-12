@@ -69,7 +69,11 @@ const AppHeaderDropdown = () => {
 /* I Removed the item type on CDropdown - Tripp */
   return (
     <>
-      <CDropdown>
+      <CDropdown variant='nav-item'
+      style={{
+        listStyleType: 'none',
+      }}
+      >
         <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
           <CAvatar color="primary" textColor="white" size="md">
             {profile.clientPrincipal.userDetails[0].toUpperCase()}
