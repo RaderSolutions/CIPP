@@ -40,24 +40,15 @@ const AppHeader = () => {
     <>
       <CHeader position="sticky">
         <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
-         {/* <div
-         style={{
-          minWidth: '200px',
-         }}
-         > */}
-         <CImage
+          <CImage
             className="sidebar-brand-full me-2"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
                 ? raderlogo
                 : raderlogo
             }
-            // fluid
-            // height={60}
             width={160}
           />
-         {/* </div> */}
-         
           <CHeaderNav className="ms-2 ps-4">
             <CHeaderToggler
               className="me-2"
@@ -71,38 +62,29 @@ const AppHeader = () => {
             </CHeaderToggler>
           </CHeaderNav>
         </CSidebarBrand>
-        <CHeaderNav
-         className="p-md-2 flex-grow-1"
-        // className='p-md-2 flex-row space-x-2'
-        >
-         <CNavItem
-        className="min-w-full"
-         >
-           <TenantSelector 
-          style={{
-            maxWidth: '1000px',
-          }}
-          NavSelector={true}
-           />
-           </CNavItem>
-
-          <CNavItem>
-            <a
-              target="_blank"
-              href={`https://docs.cipp.app/user-documentation${location.pathname}`}
-            >
-              <CButton variant="ghost">
-                <FontAwesomeIcon icon={'question'} size="lg" />
-              </CButton>
-            </a>
-          </CNavItem>
-          <CNavItem>
-            <AppHeaderSearch />
-          </CNavItem>
-          <CNavItem>
-            <AppHeaderDropdown />
-          </CNavItem>
-        </CHeaderNav>
+        <div className="d-flex align-items-center justify-content-between flex-grow-1">
+          <div className="d-flex align-items-center">
+            <TenantSelector />
+          </div>
+          <div className="d-flex align-items-center">
+            <CNavItem>
+              <a
+                target="_blank"
+                href={`https://docs.cipp.app/user-documentation${location.pathname}`}
+              >
+                <CButton variant="ghost">
+                  <FontAwesomeIcon icon={'question'} size="lg" />
+                </CButton>
+              </a>
+            </CNavItem>
+            <CNavItem>
+              <AppHeaderSearch />
+            </CNavItem>
+            <CNavItem>
+              <AppHeaderDropdown />
+            </CNavItem>
+          </div>
+        </div>
       </CHeader>
 
       {dashboard &&
