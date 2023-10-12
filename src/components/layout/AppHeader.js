@@ -66,7 +66,7 @@ const AppHeader = () => {
           <div className="d-flex align-items-center">
             <TenantSelector />
           </div>
-          <div className="d-flex align-items-center align-self-center">
+          <div className="d-flex px-2 align-items-center align-self-center">
             <CNavItem>
               <a
                 target="_blank"
