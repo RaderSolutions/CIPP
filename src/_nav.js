@@ -71,6 +71,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'LT Contacts',
+        to: '/ratel/administration/contactTable',
+      },
+      {
+        component: CNavItem,
         name: 'Variables',
         to: '/ratel/administration/variables',
       },

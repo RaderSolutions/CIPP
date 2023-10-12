@@ -21,6 +21,7 @@ import ChangeDeviceLabel from './views/ratel/administration/ChangeLabel'
 import ReplaceRatelDevice from './views/ratel/administration/RatelReplaceDevice'
 import HidePhonebookEntry from './views/ratel/administration/HidePhonebookEntry'
 import RatelProductsTable from './views/ratel/administration/RatelProductsTable'
+import RatelContactTable from './views/ratel/administration/RatelContactTable'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -406,6 +407,11 @@ const routes = [
     path: '/ratel/administration/products',
     name:'RATEL Products Table',
     component: RatelProductsTable
+  },
+  {
+    path: '/ratel/administration/contactTable',
+    name:'RATEL Contact Table',
+    component: RatelContactTable
   },
   {
     path: '/ratel/administration/phonebookEditor',
