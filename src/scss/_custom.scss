@@ -455,14 +455,14 @@
   min-height: calc(100vh - 84px) !important;
   z-index: 2;
 
-  // .body.flex-grow-1.px-xl-3>.container-fluid>div>div{
-  //   background: var(--cui-color-white) !important;
-  //   padding: 20px 30px;
-  //   margin-bottom: 20px;
-  //   .nav-item> .nav-link {
-  //     padding: 30px 20px;
-  //   }
-  // }
+  .body.flex-grow-1.px-xl-3>.container-fluid>div>div{
+    background: var(--cui-color-white) !important;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    .nav-item> .nav-link {
+      padding: 30px 20px;
+    }
+  }
   .wrapper.d-flex.flex-column.min-vh-100 .card .card-body .cipp-tablewrapper {
     padding: 0;
   }
