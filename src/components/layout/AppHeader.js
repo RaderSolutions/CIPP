@@ -18,7 +18,7 @@ import { AppHeaderDropdown, AppHeaderSearch } from 'src/components/header'
 import { TenantSelector } from '../utilities'
 import cyberdrainlogolight from 'src/assets/images/CIPP.png'
 import cyberdrainlogodark from 'src/assets/images/CIPP_Dark.png'
-import raderlogo from 'src/assets/images/raderlogo_b.png'
+import raderlogo from 'src/assets/images/raderlogo.png'
 import { Field, Form } from 'react-final-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareLeft, faCaretSquareRight } from '@fortawesome/free-solid-svg-icons'
@@ -71,16 +71,21 @@ const AppHeader = () => {
               <a
                 target="_blank"
                 href={`https://docs.cipp.app/user-documentation${location.pathname}`}
+                className='d-flex align-items-center'
               >
                 <CButton variant="ghost">
                   <FontAwesomeIcon icon={'question'} size="lg" />
                 </CButton>
               </a>
             </CNavItem>
-            <CNavItem>
+            <CNavItem
+            className='d-flex align-items-center'
+            >
               <AppHeaderSearch />
             </CNavItem>
-            <CNavItem>
+            <CNavItem
+            className='d-flex align-items-center'
+            >
               <AppHeaderDropdown />
             </CNavItem>
           </div>
