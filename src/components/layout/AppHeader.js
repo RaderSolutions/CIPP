@@ -80,6 +80,7 @@ const AppHeader = () => {
             </CNavItem>
             <CNavItem
             className='d-flex align-items-center align-self-center'
+            style={{ margin: '0 10px' }}
             >
               <AppHeaderSearch />
             </CNavItem>
