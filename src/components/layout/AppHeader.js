@@ -45,8 +45,8 @@ const AppHeader = () => {
             className="sidebar-brand-full me-2"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
-                ? raderlogolight
-                : raderlogo
+                ? raderlogo
+                : raderlogolight
             }
             width={160}
           />
