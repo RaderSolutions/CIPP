@@ -74,6 +74,39 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   }
 
 const ContactTable = () => {
+
+    const columns = [
+        {
+            name: 'ID',
+            selector: (row) => row['id'],
+            sortable: true,
+            exportSelector: 'id',
+        },
+        {
+            name: 'LTContactID',
+            selector: (row) => row['LT ContactID'],
+            sortable: true,
+            exportSelector: 'LT ContactID',
+        },
+        {
+            name: 'Sorted Phonebook ID',
+            selector: (row) => row['Sort_PhonebookID'],
+            sortable: true,
+            exportSelector: 'Sort_PhonebookID',
+        },
+        {
+            name: 'Sorted Device ID',
+            selector: (row) => row['Sort_InternalDevice'],
+            sortable: true,
+            exportSelector: 'Sort_InternalDevice',
+        },
+        {
+            name: 'Sort Weight',
+            selector: (row) => row['Sort Weight'],
+            sortable: true,
+            exportSelector: 'Sort Weight',
+        }
+    ]
   return (
     <CippPageList
       title="LT Contacts"
