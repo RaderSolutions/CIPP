@@ -78,7 +78,7 @@ const ContactTable = () => {
     const columns = [
         {
             name: 'ID',
-            selector: (row) => row['id'],
+            selector: (row) => row['ID'],
             sortable: true,
             exportSelector: 'id',
         },
