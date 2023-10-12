@@ -85,7 +85,7 @@ const AppHeader = () => {
               <AppHeaderSearch />
             </div>
             <div
-            className='d-flex align-items-center align-self-center'
+            className='d-flex align-items-center align-self-center p-2'
             >
               <AppHeaderDropdown />
             </div>
