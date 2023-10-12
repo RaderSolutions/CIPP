@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react'
 import {
   CAvatar,
@@ -65,10 +66,10 @@ const AppHeaderDropdown = () => {
       ])
     }
   }, [cippQueueList])
-
+/* I Removed the item type on CDropdown - Tripp */
   return (
     <>
-      <CDropdown variant="nav-item">
+      <CDropdown>
         <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
           <CAvatar color="primary" textColor="white" size="md">
             {profile.clientPrincipal.userDetails[0].toUpperCase()}
