@@ -74,7 +74,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   }
 
 const ContactTable = () => {
-
+    const tenant = useSelector((state) => state.app.currentTenant)
     const columns = [
         {
             name: 'ID',
