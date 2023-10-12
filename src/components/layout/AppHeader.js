@@ -67,7 +67,7 @@ const AppHeader = () => {
             <TenantSelector />
           </div>
           <div className="d-flex align-items-center align-self-center">
-            <CNavItem>
+            <div>
               <a
                 target="_blank"
                 href={`https://docs.cipp.app/user-documentation${location.pathname}`}
@@ -77,18 +77,18 @@ const AppHeader = () => {
                   <FontAwesomeIcon icon={'question'} size="lg" />
                 </CButton>
               </a>
-            </CNavItem>
-            <CNavItem
+            </div>
+            <div
             className='d-flex align-items-center align-self-center pt-2'
             style={{ margin: '0 10px' }}
             >
               <AppHeaderSearch />
-            </CNavItem>
-            <CNavItem
+            </div>
+            <div
             className='d-flex align-items-center align-self-center'
             >
               <AppHeaderDropdown />
-            </CNavItem>
+            </div>
           </div>
         </div>
       </CHeader>
