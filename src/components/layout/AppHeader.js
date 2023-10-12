@@ -58,7 +58,7 @@ const AppHeader = () => {
           />
          {/* </div> */}
          
-          <CHeaderNav className="ms-2 p-2">
+          <CHeaderNav className="ms-2 p-4">
             <CHeaderToggler
               className="me-2"
               onClick={() => dispatch(toggleSidebarShow({ sidebarShow }))}
