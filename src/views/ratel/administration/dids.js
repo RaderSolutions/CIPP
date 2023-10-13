@@ -103,12 +103,14 @@ const columns = [
     selector: (row) => row['IsDeviceCallerId'],
     sortable: true,
     exportSelector: 'IsDeviceCallerId',
+    cell: (row) => row['IsDeviceCallerId'] === true ? 'true' : 'false'
   },
   {
     name: 'Needs Sync?',
     selector: (row) => row['NeedsSync'],
     sortable: true,
     exportSelector: 'NeedsSync',
+    cell: (row) => row['NeedsSync'] === true ? 'true' : 'false'
   },
   {
     name: 'Custom Dialplan',
