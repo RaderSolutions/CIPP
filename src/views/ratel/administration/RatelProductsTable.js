@@ -126,6 +126,7 @@ export const ProductsTable = () => {
             selector: (row) => row['supports_lldp'],
             sortable: true,
             exportSelector: 'SupportsLLDP',
+            Cell: (row) => row.value ? 'true' : 'false',
         }
     ]
     const {
