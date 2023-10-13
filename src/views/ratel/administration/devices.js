@@ -164,6 +164,9 @@ const columns = [
     selector: (row) => row['NeedsSync'],
     sortable: true,
     exportSelector: 'NeedsSync',
+    cell: (row) => {
+      row['NeedsSync'] === true ? 'true' : 'false'
+    }
   },
   {
     name: 'Last Sync',
