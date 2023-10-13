@@ -42,14 +42,14 @@ const AppHeader = () => {
       <CHeader position="sticky">
         <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
           <CImage
-            className="sidebar-brand-full me-2"
+            className="sidebar-brand-full me-2 py-4"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
                 ? raderlogo
                 : raderlogolight
             }
-            // width={180}
-            height={60}
+            width={180}
+            // height={60}
           />
           <CHeaderNav className="ms-2 ps-4">
             <CHeaderToggler
