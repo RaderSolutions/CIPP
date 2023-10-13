@@ -115,6 +115,7 @@ const columns = [
     selector: (row) => row['HideFromPB'],
     sortable: true,
     exportSelector: 'HideFromPB',
+    cell: (row) => row['HideFromPB'] === true ? 'true' : 'false'
   },
   {
     name: 'Actions',
