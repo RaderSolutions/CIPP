@@ -155,6 +155,9 @@ const columns = [
     selector: (row) => row['HideFromPhonebook'],
     sortable: true,
     exportSelector: 'HideFromPhonebook',
+    cell: (row) => {
+      row['HideFromPhonebook'] === true ? 'true' : 'false'
+    }
   },
   {
     name: 'Needs Sync',
