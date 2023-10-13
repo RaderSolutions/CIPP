@@ -42,7 +42,7 @@ const AppHeader = () => {
       <CHeader position="sticky">
         <CSidebarBrand className="me-auto pt-xs-2 p-md-2" to="/">
           <CImage
-            className="sidebar-brand-full me-2 py-2"
+            className="sidebar-brand-full me-2"
             src={
               currentTheme === 'cyberdrain' || preferredTheme === 'cyberdrain'
                 ? raderlogo
