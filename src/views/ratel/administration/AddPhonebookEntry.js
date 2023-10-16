@@ -11,24 +11,24 @@ import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { useSelector } from 'react-redux'
 
-// const Error = ({ name }) => (
-//   <Field
-//     name={name}
-//     subscription={{ touched: true, error: true }}
-//     render={({ meta: { touched, error } }) =>
-//       touched && error ? (
-//         <CCallout color="danger">
-//           <FontAwesomeIcon icon={faExclamationTriangle} color="danger" />
-//           {error}
-//         </CCallout>
-//       ) : null
-//     }
-//   />
-// )
+const Error = ({ name }) => (
+  <Field
+    name={name}
+    subscription={{ touched: true, error: true }}
+    render={({ meta: { touched, error } }) =>
+      touched && error ? (
+        <CCallout color="danger">
+          <FontAwesomeIcon icon={faExclamationTriangle} color="danger" />
+          {error}
+        </CCallout>
+      ) : null
+    }
+  />
+)
 
-// Error.propTypes = {
-//   name: PropTypes.string.isRequired,
-// }
+Error.propTypes = {
+  name: PropTypes.string.isRequired,
+}
 
 const AddPhonebookEntry = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
