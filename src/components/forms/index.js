@@ -9,6 +9,7 @@ import {
   RFFCFormSelect,
   // RFFCFormSelectObjectValue,
   RFFSelectSearch,
+  RFFCFormInputArray,
 } from 'src/components/forms/RFFComponents'
 
 export {
@@ -22,4 +23,5 @@ export {
   RFFCFormSelect,
   // RFFCFormSelectObjectValue,
   RFFSelectSearch,
+  RFFCFormInputArray,
 }
