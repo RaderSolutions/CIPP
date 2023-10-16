@@ -129,7 +129,7 @@ const AppHeader = () => {
             <div
             className='d-flex align-items-center align-self-center'
             >
-              <AppHeaderDropdown />
+              {/* <AppHeaderDropdown /> */}
             </div>
           </div>
         </div>
