@@ -56,6 +56,13 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=dial_ext|Value=${row.DialExtension},Key=pagegroup_name|Value=${row.PageGroupName},Key=hide_from_pb|Values='1',Key=is_deletion|Values=0&RatelScript=true&ScriptId=7410`,
             modalMessage: 'Are you sure you want to hide/unhide this paging group?',
           },
+          {
+            label: 'Remove Member from Page Group',
+            color: 'info',
+            modal: true,
+            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=pagegroup_ext|Value=${row.Extension},Key=device_ext|Value=${row.DeviceExt},Key=is_deletion|Values=1&RatelScript=true&ScriptId=7410`,
+            modalMessage: 'Are you sure you want to remove this member from the paging group?',
+          }
           // {
           //   label: 'Delete Page Group',
           //   color: 'info',
