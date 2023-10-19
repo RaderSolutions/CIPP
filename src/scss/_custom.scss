@@ -1,5 +1,18 @@
 
 @use 'sass:color';
+.custom-switch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.image-upload-container {
+  position: relative;
+  width: 100px; /* Adjusted to match the image */
+  height: 120px; /* Adjusted to match the image */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 // Custom.scss
 // Option A: Include all of CoreUI
