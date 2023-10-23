@@ -91,6 +91,7 @@ const DialplanList = () => {
   const addNewDialplan = <TitleButton href="/ratel/administration/setup/addDialplan" title="Add Dialplan" />
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const [dpmaValue, setDpmaValue] = useState('')
+  const [fopValue, setFopValue] = useState('')
   // const addNewDialplan = (
   //   <TitleButton href="/ratel/administration/pickupgroups/addDialplan" title="Add Dialplan" />
   // )
@@ -110,16 +111,30 @@ const DialplanList = () => {
 
   const handleApplyDPMA = () => {
     let license
-    if (dpmaLicenseData?.length > 0 && dpmaLicenseData[0].value) {
+    if (dpmaValue !== '') {
+      license = dpmaValue
+    } else if (dpmaLicenseData?.length > 0 && dpmaLicenseData[0].value) {
       license = dpmaLicenseData[0].value
     }
     console.log('license', license)
     console.log('dpmaValue', dpmaValue)
     genericPostRequest({
-      path: `api/LtRatelApplyDPMA`, values: {TenantFilter: tenant.customerId, LicenseKey: license ? license : dpmaValue}
+      path: `api/LtRatelApplyDPMA`, values: {TenantFilter: tenant.customerId, LicenseKey: license }
     })
   }
-
+  const handleApplyFOP = () => {
+    let license
+    if (fopValue !== '') {
+      license = fopValue
+    } else if (fopLicenseData?.length > 0 && fopLicenseData[0].value) {
+      license = fopLicenseData[0].value
+    }
+    console.log('license', license)
+    console.log('fopValue', fopValue)
+    genericPostRequest({
+      path: `api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=license_key|Value=${license}&RatelScript=true&ScriptId=7421`
+    })
+  }
 
   return (
     <>
@@ -139,7 +154,10 @@ const DialplanList = () => {
            {!fopLicenseIsFetching && 
               (<>
               <label for="test">FOP:</label>
-              <input style={{ maxWidth: '500px' }} type="text" name="fop" defaultValue={fopLicenseData?.length > 0 ? fopLicenseData[0].value : ''} />
+              <input style={{ maxWidth: '500px' }} type="text" name="fop"
+              onClick={handleApplyFOP}
+              onChange={(e) => setFopValue(e.target.value)}
+              defaultValue={fopLicenseData?.length > 0 ? fopLicenseData[0].value : ''} />
                 </>
               )
               }
