@@ -123,7 +123,7 @@ const DialplanList = () => {
               (<>
               <label for="test">FOP:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              value={fopLicenseData?.length > 0 ? fopLicenseData[0].value : 'No FOP License Key Found'}
+              value={fopLicenseData?.length > 0 && fopLicenseData[0].value}
               />
               </>
               )
@@ -136,7 +136,7 @@ const DialplanList = () => {
              <>
              <label for="test">DPMA:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              value={dpmaLicenseData?.length > 0 ? dpmaLicenseData : 'No DPMA License Key Found'}
+              value={dpmaLicenseData?.length > 0 && dpmaLicenseData[0].value}
               />
               </>
               )}

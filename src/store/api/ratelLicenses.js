@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { baseApi } from 'src/store/api/baseApi'
 
 export const ratelLicensesApi = baseApi.injectEndpoints({
