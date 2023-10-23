@@ -122,10 +122,8 @@ const DialplanList = () => {
            {!fopLicenseIsFetching && 
               (<>
               <label for="test">FOP:</label>
-              <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              value={fopLicenseData?.length > 0 && fopLicenseData[0].value}
-              />
-              </>
+              <input style={{ maxWidth: '500px' }} type="text" name="fop" value={fopLicenseData ? fopLicenseData[0].value : ''} />
+                </>
               )
               }
               <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
@@ -136,7 +134,7 @@ const DialplanList = () => {
              <>
              <label for="test">DPMA:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              value={dpmaLicenseData?.length > 0 && dpmaLicenseData[0].value}
+              value={dpmaLicenseData?.length > 0 ? dpmaLicenseData[0].value : ''}
               />
               </>
               )}
