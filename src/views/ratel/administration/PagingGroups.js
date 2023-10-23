@@ -53,8 +53,9 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             label: 'Hide from Phonebook',
             color: 'info',
             modal: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=dial_ext|Value=${row.DialExtension},Key=pagegroup_name|Value=${row.PageGroupName},Key=hide_from_pb|Values='1',Key=is_deletion|Values=0&RatelScript=true&ScriptId=7410`,
-            modalMessage: 'Are you sure you want to hide/unhide this paging group?',
+            modalType: 'POST',
+            modalUrl: `/api/LtRatelHidePagingGroupDevice?TenantFilter=${tenant.customerId}`,
+            modalMessage: 'Are you sure you want to hide this paging group device?',
           },
           {
             label: 'Remove Member from Page Group',
