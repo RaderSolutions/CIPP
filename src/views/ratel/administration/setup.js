@@ -9,6 +9,7 @@ import { CippActionsOffcanvas, RatelSetupOffCanvas } from 'src/components/utilit
 import { ActionContentCard } from 'src/components/contentcards'
 import { Link } from 'react-router-dom'
 import { useListFopLicenseKeyQuery, useListDpmaLicenseKeyQuery } from 'src/store/api/ratelLicenses'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row) => {
@@ -88,6 +89,8 @@ const columns = [
 const DialplanList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addNewDialplan = <TitleButton href="/ratel/administration/setup/addDialplan" title="Add Dialplan" />
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const [dpmaValue, setDpmaValue] = useState('')
   // const addNewDialplan = (
   //   <TitleButton href="/ratel/administration/pickupgroups/addDialplan" title="Add Dialplan" />
   // )
@@ -104,6 +107,20 @@ const DialplanList = () => {
   } = useListDpmaLicenseKeyQuery({ tenantDomain: tenant.customerId })
   console.log('fopLicenseData', fopLicenseData)
   console.log('dpmaLicenseData', dpmaLicenseData)
+
+  const handleApplyDPMA = () => {
+    let license
+    if (dpmaLicenseData?.length > 0 && dpmaLicenseData[0].value) {
+      license = dpmaLicenseData[0].value
+    }
+    console.log('license', license)
+    console.log('dpmaValue', dpmaValue)
+    genericPostRequest({
+      path: `api/LtRatelApplyDPMA`, values: {TenantFilter: tenant.customerId, LicenseKey: license ? license : dpmaValue}
+    })
+  }
+
+
   return (
     <>
       {/* <CButton size="sm" variant="ghost" color="warning">
@@ -134,11 +151,14 @@ const DialplanList = () => {
              <>
              <label for="test">DPMA:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
+              onChange={(e) => setDpmaValue(e.target.value)}
               defaultValue={dpmaLicenseData?.length > 0 ? dpmaLicenseData[0].value : ''}
               />
               </>
               )}
-              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning"
+              onClick={handleApplyDPMA}
+              >
                 Save DPMA License Key
               </CButton>
               {/* <Link to="/ratel/administration/setup/setupVoiceRecording">
