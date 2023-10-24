@@ -155,13 +155,14 @@ const DialplanList = () => {
               (<>
               <label for="test">FOP:</label>
               <input style={{ maxWidth: '500px' }} type="text" name="fop"
-              onClick={handleApplyFOP}
               onChange={(e) => setFopValue(e.target.value)}
               defaultValue={fopLicenseData?.length > 0 ? fopLicenseData[0].value : ''} />
                 </>
               )
               }
-              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning">
+              <CButton style={{ maxWidth: '500px' }} size="sm" variant="ghost" color="warning"
+              onClick={handleApplyFOP}
+              >
                 Apply FOP License
               </CButton>
               {dpmaLicenseIsFetching && <CSpinner />}
