@@ -215,7 +215,7 @@ const DevicesList = () => {
       </CButton>
 
       <Link>
-        <CButton to={onClickRunScript} size="sm" variant="ghost" color="warning">
+        <CButton onClick={onClickRunScript} size="sm" variant="ghost" color="warning">
           Run Script to Process Pending Device Updates
         </CButton>
       </Link>
