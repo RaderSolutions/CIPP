@@ -203,7 +203,7 @@ const DevicesList = () => {
 
   const onClickRunScript = async () => {
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=device_id|Value=0,Key=force_resync_all|Value=0&RatelScript=true&ScriptId=6886`,
     })
   }
 
