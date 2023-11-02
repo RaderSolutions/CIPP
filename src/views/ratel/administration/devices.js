@@ -219,7 +219,7 @@ const DevicesList = () => {
         </CButton>
         {
           postResults && postResults.isSuccess && (
-            <CCallout color="success">
+            <CCallout color="info">
               {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
               Script Successfully Scheduled
             </CCallout>
