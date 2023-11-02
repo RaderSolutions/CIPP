@@ -54,7 +54,11 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             color: 'info',
             modal: true,
             modalType: 'POST',
-            modalUrl: `/api/LtRatelHidePagingGroupDevice?TenantFilter=${tenant.customerId}`,
+            modalBody: {
+              TenantFilter: tenant.customerId,
+              HideFromPB: row.HideFromPB,
+            },
+            modalUrl: `/api/LtRatelHidePagingGroupDevice`,
             modalMessage: 'Are you sure you want to hide this paging group device?',
           },
           {
@@ -63,7 +67,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             modal: true,
             modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=pagegroup_ext|Value=${row.Extension},Key=device_ext|Value=${row.DeviceExt},Key=is_deletion|Values=1&RatelScript=true&ScriptId=7410`,
             modalMessage: 'Are you sure you want to remove this member from the paging group?',
-          }
+          },
           // {
           //   label: 'Delete Page Group',
           //   color: 'info',
@@ -123,7 +127,7 @@ const columns = [
     selector: (row) => row['HideFromPB'],
     sortable: true,
     exportSelector: 'HideFromPB',
-    cell: (row) => row['HideFromPB'] === true ? 'true' : 'false'
+    cell: (row) => (row['HideFromPB'] === true ? 'true' : 'false'),
   },
   {
     name: 'Actions',
@@ -141,7 +145,7 @@ const PagingGroupsList = () => {
   )
   const addPagingGroupTitleButtons = (
     <>
-      <div style={{display: "flex", justifyContent:"space-between"}}>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <TitleButton
           style={{ marginRight: '.5em' }}
           href="/ratel/administration/paginggroups/addMember"
@@ -158,7 +162,7 @@ const PagingGroupsList = () => {
   const addPagingGroupButton = (
     <CButton href="/ratel/administration/paginggroups/addPagingGroup" title="Add Paging Group" />
   )
-  console.log('paging groups list', )
+  console.log('paging groups list')
   return (
     <CippPageList
       title="Paging Groups"

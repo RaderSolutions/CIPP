@@ -49,7 +49,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         actions={[
           {
             icon: <FontAwesomeIcon icon={faEdit} className="me-2" />,
-            label:"Replace Device",
+            label: 'Replace Device',
             link: `/ratel/administration/devices/replace?tenantDomain=${tenant.customerId}&deviceId=${row.DeviceId}&deviceType=${deviceType}`,
             color: 'info',
           },
@@ -155,16 +155,14 @@ const columns = [
     selector: (row) => row['HideFromPhonebook'],
     sortable: true,
     exportSelector: 'HideFromPhonebook',
-    cell: (row) => row['HideFromPhonebook'] === true ? 'true' : 'false'
-    
+    cell: (row) => (row['HideFromPhonebook'] === true ? 'true' : 'false'),
   },
   {
     name: 'Needs Sync',
     selector: (row) => row['NeedsSync'],
     sortable: true,
     exportSelector: 'NeedsSync',
-    cell: (row) => row['NeedsSync'] === true ? 'true' : 'false'
-    
+    cell: (row) => (row['NeedsSync'] === true ? 'true' : 'false'),
   },
   {
     name: 'Last Sync',
@@ -203,21 +201,25 @@ const DevicesList = () => {
     })
   }
 
-return (
+  const onClickRunScript = async () => {
+    alert(JSON.stringify(values, null, 2))
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`,
+    })
+  }
+
+  return (
     <>
-      
-        <CButton size="sm" variant="ghost" color="warning"
-        onClick={onClickReconfigAll}
-        >
-          Reconfigure All Phones
+      <CButton size="sm" variant="ghost" color="warning" onClick={onClickReconfigAll}>
+        Reconfigure All Phones
+      </CButton>
+
+      <Link>
+        <CButton to={onClickRunScript} size="sm" variant="ghost" color="warning">
+          Run Script to Process Pending Device Updates
         </CButton>
-      
-       <Link>
-        <CButton to={`/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`} size="sm" variant="ghost" color="warning">
-            Run Script to Process Pending Device Updates
-        </CButton>
-       </Link>
- 
+      </Link>
+
       <br />
       <br />
 
