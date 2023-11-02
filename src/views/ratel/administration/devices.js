@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { CButton, CCol, CRow } from '@coreui/react'
+import { CButton, CCol, CRow, CCallout } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
@@ -217,6 +217,14 @@ const DevicesList = () => {
         <CButton onClick={onClickRunScript} size="sm" variant="ghost" color="warning">
           Run Script to Process Pending Device Updates
         </CButton>
+        {
+          postResults && postResults.isSuccess && (
+            <CCallout color="success">
+              {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
+              Script Successfully Scheduled
+            </CCallout>
+          )
+        }
       </Link>
 
       <br />
