@@ -202,7 +202,6 @@ const DevicesList = () => {
   }
 
   const onClickRunScript = async () => {
-    alert(JSON.stringify(values, null, 2))
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=6886`,
     })
