@@ -135,7 +135,12 @@ export const AddRatelVariable = ({ children }) => {
         </FormSpy>
         </CippWizard.Page>
 
-            
+            {postResults.isSuccess && (
+              <CCallout color="success">
+                {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
+                Variable Successfully Added
+              </CCallout>
+            )}
     </CippWizard>
   )
 }
