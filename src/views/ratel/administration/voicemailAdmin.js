@@ -118,6 +118,8 @@ const VoicemailBoxesList = () => {
 
     return (
       <>
+      <br />
+      <br />
       <CippPageList
         title="Voicemail Boxes"
         titleButton={addVoicemailButton}
