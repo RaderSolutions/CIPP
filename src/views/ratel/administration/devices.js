@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { CButton, CCol, CRow, CCallout } from '@coreui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -206,6 +206,9 @@ const DevicesList = () => {
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=device_id|Value=0,Key=force_resync_all|Value=0&RatelScript=true&ScriptId=6886`,
     })
   }
+  useEffect(() => {
+    console.log('post results', postResults)
+  }, [postResults])
 
   return (
     <>
@@ -217,14 +220,12 @@ const DevicesList = () => {
         <CButton onClick={onClickRunScript} size="sm" variant="ghost" color="warning">
           Run Script to Process Pending Device Updates
         </CButton>
-        {
-          postResults && postResults.isSuccess && (
-            <CCallout color="info">
-              {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
-              Script Successfully Scheduled
-            </CCallout>
-          )
-        }
+        {postResults && postResults.isSuccess && (
+          <CCallout color="info">
+            {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
+            Script Successfully Scheduled
+          </CCallout>
+        )}
       </Link>
 
       <br />
