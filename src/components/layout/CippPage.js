@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { CCard, CCardBody, CCardHeader, CCardTitle } from '@coreui/react'
@@ -48,7 +49,7 @@ export function CippPageList({
   capabilities = { allTenants: false },
 }) {
   const tenant = useSelector((state) => state.app.currentTenant)
-
+  console.log('title button in page component', titleButton)
   return (
     <>
       {!capabilities.allTenants && tenant.defaultDomainName === 'AllTenants' ? (
