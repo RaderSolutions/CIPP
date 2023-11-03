@@ -110,7 +110,10 @@ const columns = [
 
 const VoicemailBoxesList = () => {
     const tenant = useSelector((state) => state.app.currentTenant)
-    // const addQueueButton = <TitleButton href="/ratel/administration/queues/add" title="Add Queue" />
+    const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+    const addVoicemailButton = (
+    <TitleButton href="/ratel/administration/mailboxes/add" title="Add Voicemail" />
+  )
 
     return (
       <>
