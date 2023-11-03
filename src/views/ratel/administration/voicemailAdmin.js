@@ -119,7 +119,7 @@ const VoicemailBoxesList = () => {
       <>
       <CippPageList
         title="Voicemail Boxes"
-        // titleButton={addQueueButton}
+        titleButton={addVoicemailButton}
         datatable={{
           keyField: 'id',
           columns,
