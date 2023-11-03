@@ -272,6 +272,8 @@ return (
               }
             }
             </FormSpy>
+            {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
+            <hr className="my-4" />
         </CippWizard.Page>
     </CippWizard>
 )
