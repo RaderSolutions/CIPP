@@ -107,6 +107,7 @@ const AddPagingGroup = () => {
               {(props) => {
                 const formState = useFormState()
                 const { values } = props
+                console.log('values', values)
                 const valuesArray = Object.keys(formState.values)?.map((key) => ({
                   key: key,
                   value: values[key],
