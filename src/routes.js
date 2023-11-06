@@ -504,12 +504,12 @@ const routes = [
     component: RatelMailboxes,
   },
   {
-    path: '/ratel/administration/voicemailAdmin/add',
+    path: '/ratel/administration/mailboxes/add',
     name: 'Add RATEL Voicemail Box',
     component: RatelAddVoicemail,
   },
   {
-    path: '/ratel/administration/voicemailAdmin/edit',
+    path: '/ratel/administration/mailboxes/edit',
     name: 'Edit RATEL Voicemail Box',
     component: RatelEditVoicemail,
   },
