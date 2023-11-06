@@ -19,7 +19,7 @@ const AddPagingGroup = () => {
   const initialFormValues = {
     DialExtension: '',         // Set the default value for DialExtension
     PageGroupName: '',        // Set the default value for PageGroupName
-    HideFromPB: false,         // Set the default value for HideFromPB
+    HideFromPB: 0,         // Set the default value for HideFromPB
   };
 
   const handleSubmit = async (values) => {
@@ -68,7 +68,7 @@ const AddPagingGroup = () => {
               <RFFCFormInput name="PageGroupName" label="Page Group Name" />
             </CCol>
             <CCol lg={6} xs={12}>
-              <RFFCFormSwitch name="HideFromPB" label="Hide From Phonebook" value={true} />
+              <RFFCFormSwitch name="HideFromPB" label="Hide From Phonebook" value={1} />
             </CCol>
           </CRow>
         </div>
@@ -126,7 +126,7 @@ const AddPagingGroup = () => {
                 </FormSpy>
             )
           }
- {postResults.isFetching && (
+        {postResults.isFetching && (
           <CCallout color="info">
             <CSpinner>Loading</CSpinner>
           </CCallout>
