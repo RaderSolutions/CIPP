@@ -1,0 +1,176 @@
+/* eslint-disable prettier/prettier */
+import React, { useEffect, useState } from 'react'
+import { CButton, CCallout, CCol, CForm, CRow, CSpinner } from '@coreui/react'
+import useQuery from 'src/hooks/useQuery'
+import { useDispatch, useSelector } from 'react-redux'
+import { Form } from 'react-final-form'
+import { RFFCFormInput, RFFCFormSelect } from 'src/components/forms'
+import { CippCodeBlock, ModalService } from 'src/components/utilities'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
+import { CippContentCard, CippPage } from 'src/components/layout'
+
+export const EditVoicemail = () => {
+//   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+//   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+//   const query = useQuery()
+//   const ID = query.get('ID')
+
+//   const onSubmit = (values) => {
+//     const shippedValues = {
+//       TenantFilter: tenantDomain,
+//       Dial: values.dial,
+//       Salutation: values.salutation,
+//       FirstName: values.firstName,
+//       MiddleName: values.middleName,
+//       LastName: values.lastName,
+//       Suffix: values.suffix,
+//       Email: values.email,
+//       Organization: values.organization,
+//       JobTitle: values.jobTitle,
+//       Location: values.location,
+//       Notes: values.notes,
+//       ID: ID,
+//     }
+
+//     genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`, values: shippedValues })
+//   }
+
+  // useEffect(() => {
+  //   console.log('postResults', postResults)
+  // },[postResults])
+
+  return (
+    <>
+    <div>
+        test
+    </div>
+      {/* <CippPage>
+        <CCol>
+          <CippContentCard title="Member Details" icon={faEdit}>
+            <Form
+              // initialValues={{ ...initialState }}
+              onSubmit={onSubmit}
+              render={({ handleSubmit, submitting, values }) => {
+                return (
+                  <CForm onSubmit={handleSubmit}>
+                    <CRow>
+                      {/* <CCol>
+                        <RFFCFormInput type="text" name="customerID" label="ID" />
+                      </CCol> */}
+                      {/* <CCol>
+                        <RFFCFormInput type="text" name="dial" label="Dial" />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormSelect
+                          name="salutation"
+                          label="Salutation"
+                          values={[
+                            { value: '', label: 'None' },
+                            { value: 'Mr.', label: 'Mr.' },
+                            { value: 'Ms.', label: 'Ms.' },
+                            { value: 'Mrs.', label: 'Mrs.' },
+                            { value: 'Dr.', label: 'Dr.' },
+                          ]}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="firstName"
+                          label="First Name"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="middleName"
+                          label="Middle Name"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="lastName"
+                          label="Last Name"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol>
+                        <RFFCFormSelect
+                          name="suffix"
+                          label="Suffix"
+                          placeholder={'Select Suffix'}
+                          values={[
+                            { value: '', label: 'None' },
+                            { value: 'II', label: 'II' },
+                            { value: 'III', label: 'III' },
+                            { value: 'IV', label: 'IV' },
+                            { value: 'JR', label: 'JR' },
+                            { value: 'SR', label: 'SR' },
+                          ]}
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="email"
+                          label="Email"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="organization"
+                          label="Organization"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="jobTitle"
+                          label="Job Title"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="location"
+                          label="Location"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput
+                          type="text"
+                          name="notes"
+                          label="Notes"
+                          //disabled={formDIsabled}
+                        />
+                      </CCol> */}
+                      {/* <CCol lg={6} xs={12}>
+              <RFFCFormSelect
+                name="isFromFOP"
+                label="Is From FOP"
+                placeholder={'Select Option'}
+                values={[
+                  { value: null, label: 'None' },
+                  { value: true, label: 'true' },
+                  { value: false, label: 'false' },
+                ]}
+                //disabled={formDIsabled}
+              />
+            </CCol> */}
+                 
+    </>
+  )
+}
+
+export default EditVoicemail

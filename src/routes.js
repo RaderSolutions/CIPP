@@ -23,6 +23,7 @@ import HidePhonebookEntry from './views/ratel/administration/HidePhonebookEntry'
 import RatelProductsTable from './views/ratel/administration/RatelProductsTable'
 import RatelContactTable from './views/ratel/administration/RatelContactTable'
 import RatelAddVoicemail from './views/ratel/administration/RatelAddVoicemail'
+import RatelEditVoicemail from './views/ratel/administration/RatelEditVoicemail'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -503,9 +504,14 @@ const routes = [
     component: RatelMailboxes,
   },
   {
-    path: '/ratel/administration/mailboxes/add',
+    path: '/ratel/administration/voicemailAdmin/add',
     name: 'Add RATEL Voicemail Box',
     component: RatelAddVoicemail,
+  },
+  {
+    path: '/ratel/administration/voicemailAdmin/edit',
+    name: 'Edit RATEL Voicemail Box',
+    component: RatelEditVoicemail,
   },
   {
     path: '/ratel/administration/pagingGroups',
