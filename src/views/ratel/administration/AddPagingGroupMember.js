@@ -34,7 +34,7 @@ const AddPagingGroupMember = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-
+console.log('testing build/changes')
   const handleSubmit = async (values) => {
     // const shippedValues = {
     //   TenantFilter: tenantDomain,
