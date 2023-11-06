@@ -19,19 +19,19 @@ import { useSelector } from 'react-redux'
 
 const AddPagingGroup = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const [hideFromPB, setHideFromPB] = useState(0)
+  // const [hideFromPB, setHideFromPB] = useState(0)
 
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-  const initialFormValues = {
-    DialExtension: '', // Set the default value for DialExtension
-    PageGroupName: '', // Set the default value for PageGroupName
-    HideFromPB: hideFromPB, // Set the default value for HideFromPB
-  }
+  // const initialFormValues = {
+  //   DialExtension: '', // Set the default value for DialExtension
+  //   PageGroupName: '', // Set the default value for PageGroupName
+  //   HideFromPB: hideFromPB, // Set the default value for HideFromPB
+  // }
 
-  const onToggleHide = (e) => {
-    console.log('e', e)
-    setHideFromPB(!hideFromPB)
-  }
+  // const onToggleHide = (e) => {
+  //   console.log('e', e)
+  //   setHideFromPB(!hideFromPB)
+  // }
 
   const handleSubmit = async (values) => {
     alert(JSON.stringify(values, null, 2))
@@ -48,7 +48,7 @@ const AddPagingGroup = () => {
   return (
     <CippWizard
       onSubmit={handleSubmit}
-      initialValues={{ initialFormValues }}
+      // initialValues={{ initialFormValues }}
       wizardTitle="Add Ratel Paging Group Wizard"
     >
       <CippWizard.Page
@@ -85,7 +85,7 @@ const AddPagingGroup = () => {
               <RFFCFormSwitch
                 name="HideFromPB"
                 label="Hide From Phonebook"
-                onChange={onToggleHide}
+                // onChange={onToggleHide}
               />
             </CCol>
           </CRow>
