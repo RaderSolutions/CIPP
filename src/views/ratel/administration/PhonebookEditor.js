@@ -154,10 +154,10 @@ const columns = [
     sortable: true,
     exportSelector: 'Notes',
   },
-  {
-    name: 'Actions',
-    cell: Offcanvas,
-  },
+  // {
+  //   name: 'Actions',
+  //   cell: Offcanvas,
+  // },
 ]
 
 const PhonebookEntryList = () => {
