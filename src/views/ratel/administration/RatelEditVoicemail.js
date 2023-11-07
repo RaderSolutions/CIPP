@@ -21,13 +21,12 @@ export const EditVoicemail = () => {
   const onSubmit = (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      Mailbox: values.mailbox,
-      Password: values.password,
-      Name: values.name,
-      EmailAddress: values.emailAddress,
-      Options: values.options,
+      mailbox: values.mailbox,
+      password: values.password,
+      name: values.name,
+      email_address: values.emailAddress,
+      options: values.options,
     }
-
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Action=Update&RatelScript=true&ScriptId=7379`,
       values: shippedValues,
@@ -80,6 +79,14 @@ export const EditVoicemail = () => {
                           label="Options"
                           //disabled={formDIsabled}
                         />
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <CButton type="submit" color="primary" disabled={submitting}>
+                          Edit Voicemail
+                          {postResults.isFetching && (
+                            <FontAwesomeIcon icon={faCircleNotch} spin className="ms-2" size="1x" />
+                          )}
+                        </CButton>
                       </CCol>
                     </CRow>
                   </CForm>
