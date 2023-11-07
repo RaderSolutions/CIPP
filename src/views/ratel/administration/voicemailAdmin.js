@@ -42,21 +42,21 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             link: editLink,
             color: 'info',
           },
-          {
-            label: 'Reset mailbox',
-            color: 'info',
-            modal: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value=${row.Family},Parameters=Key=astKey|Value=${row.Key},Parameters=Key=astValue|value=${row.Value},&RatelScript=true&ScriptId=7356`,
-            modalMessage:
-              'This deletes voicemails & greetings. Are you sure you want to reset this mailbox?',
-          },
-          {
-            label: 'Delete mailbox',
-            color: 'info',
-            modal: true,
-            modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value=${row.Family},Parameters=Key=astKey|Value=${row.Key},Parameters=Key=astValue|value=${row.Value},&RatelScript=true&ScriptId=7356`,
-            modalMessage: 'Are you sure you want to delete this mailbox?',
-          },
+          // {
+          //   label: 'Reset mailbox',
+          //   color: 'info',
+          //   modal: true,
+          //   modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value=${row.Family},Parameters=Key=astKey|Value=${row.Key},Parameters=Key=astValue|value=${row.Value},&RatelScript=true&ScriptId=7356`,
+          //   modalMessage:
+          //     'This deletes voicemails & greetings. Are you sure you want to reset this mailbox?',
+          // },
+          // {
+          //   label: 'Delete mailbox',
+          //   color: 'info',
+          //   modal: true,
+          //   modalUrl: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=astFamily|Value=${row.Family},Parameters=Key=astKey|Value=${row.Key},Parameters=Key=astValue|value=${row.Value},&RatelScript=true&ScriptId=7356`,
+          //   modalMessage: 'Are you sure you want to delete this mailbox?',
+          // },
         ]}
         placement="end"
         visible={ocVisible}
