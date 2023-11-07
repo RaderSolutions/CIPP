@@ -29,7 +29,7 @@ export const EditVoicemail = () => {
     }
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Action=Update&RatelScript=true&ScriptId=7379`,
-      parameters: shippedValues,
+      Parameters: shippedValues,
     })
   }
 
