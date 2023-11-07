@@ -16,26 +16,20 @@ export const EditVoicemail = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const query = useQuery()
   const ID = query.get('ID')
+  // mailbox=%mailbox%|password=%password%|name=%name%|email_address=%email_address%|options=%options%
 
   const onSubmit = (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      Dial: values.dial,
-      Salutation: values.salutation,
-      FirstName: values.firstName,
-      MiddleName: values.middleName,
-      LastName: values.lastName,
-      Suffix: values.suffix,
-      Email: values.email,
-      Organization: values.organization,
-      JobTitle: values.jobTitle,
-      Location: values.location,
-      Notes: values.notes,
-      ID: ID,
+      Mailbox: values.mailbox,
+      Password: values.password,
+      Name: values.name,
+      EmailAddress: values.emailAddress,
+      Options: values.options,
     }
 
     genericPostRequest({
-      path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Action=Update&RatelScript=true&ScriptId=7379`,
       values: shippedValues,
     })
   }
@@ -56,115 +50,34 @@ export const EditVoicemail = () => {
                 return (
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
-                      <CCol>
-                        <RFFCFormInput type="text" name="customerID" label="ID" />
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" />
                       </CCol>
-                      <CCol>
-                        <RFFCFormInput type="text" name="dial" label="Dial" />
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormInput type="text" name="password" label="Password" />
                       </CCol>
-                      <CCol>
-                        <RFFCFormSelect
-                          name="salutation"
-                          label="Salutation"
-                          values={[
-                            { value: '', label: 'None' },
-                            { value: 'Mr.', label: 'Mr.' },
-                            { value: 'Ms.', label: 'Ms.' },
-                            { value: 'Mrs.', label: 'Mrs.' },
-                            { value: 'Dr.', label: 'Dr.' },
-                          ]}
-                        />
-                      </CCol>
+
                       <CCol lg={6} xs={12}>
                         <RFFCFormInput
                           type="text"
-                          name="firstName"
-                          label="First Name"
+                          name="name"
+                          label="Name"
                           //disabled={formDIsabled}
                         />
                       </CCol>
                       <CCol lg={6} xs={12}>
                         <RFFCFormInput
                           type="text"
-                          name="middleName"
-                          label="Middle Name"
+                          name="emailAddress"
+                          label="Email Address"
                           //disabled={formDIsabled}
                         />
                       </CCol>
                       <CCol lg={6} xs={12}>
                         <RFFCFormInput
                           type="text"
-                          name="lastName"
-                          label="Last Name"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol>
-                        <RFFCFormSelect
-                          name="suffix"
-                          label="Suffix"
-                          placeholder={'Select Suffix'}
-                          values={[
-                            { value: '', label: 'None' },
-                            { value: 'II', label: 'II' },
-                            { value: 'III', label: 'III' },
-                            { value: 'IV', label: 'IV' },
-                            { value: 'JR', label: 'JR' },
-                            { value: 'SR', label: 'SR' },
-                          ]}
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormInput
-                          type="text"
-                          name="email"
-                          label="Email"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormInput
-                          type="text"
-                          name="organization"
-                          label="Organization"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormInput
-                          type="text"
-                          name="jobTitle"
-                          label="Job Title"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormInput
-                          type="text"
-                          name="location"
-                          label="Location"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormInput
-                          type="text"
-                          name="notes"
-                          label="Notes"
-                          //disabled={formDIsabled}
-                        />
-                      </CCol>
-                      <CCol lg={6} xs={12}>
-                        <RFFCFormSelect
-                          name="isFromFOP"
-                          label="Is From FOP"
-                          placeholder={'Select Option'}
-                          values={[
-                            { value: null, label: 'None' },
-                            { value: true, label: 'true' },
-                            { value: false, label: 'false' },
-                          ]}
+                          name="options"
+                          label="Options"
                           //disabled={formDIsabled}
                         />
                       </CCol>
