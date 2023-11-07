@@ -12,41 +12,41 @@ import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
 
 export const EditVoicemail = () => {
-//   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-//   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
-//   const query = useQuery()
-//   const ID = query.get('ID')
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
+  const query = useQuery()
+  const ID = query.get('ID')
 
-//   const onSubmit = (values) => {
-//     const shippedValues = {
-//       TenantFilter: tenantDomain,
-//       Dial: values.dial,
-//       Salutation: values.salutation,
-//       FirstName: values.firstName,
-//       MiddleName: values.middleName,
-//       LastName: values.lastName,
-//       Suffix: values.suffix,
-//       Email: values.email,
-//       Organization: values.organization,
-//       JobTitle: values.jobTitle,
-//       Location: values.location,
-//       Notes: values.notes,
-//       ID: ID,
-//     }
+  const onSubmit = (values) => {
+    const shippedValues = {
+      TenantFilter: tenantDomain,
+      Dial: values.dial,
+      Salutation: values.salutation,
+      FirstName: values.firstName,
+      MiddleName: values.middleName,
+      LastName: values.lastName,
+      Suffix: values.suffix,
+      Email: values.email,
+      Organization: values.organization,
+      JobTitle: values.jobTitle,
+      Location: values.location,
+      Notes: values.notes,
+      ID: ID,
+    }
 
-//     genericPostRequest({ path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`, values: shippedValues })
-//   }
+    genericPostRequest({
+      path: `/api/LtRatelPhonebookEntry?TenantFilter=${tenantDomain}&Action=Update`,
+      values: shippedValues,
+    })
+  }
 
-  // useEffect(() => {
-  //   console.log('postResults', postResults)
-  // },[postResults])
+  useEffect(() => {
+    console.log('postResults', postResults)
+  }, [postResults])
 
   return (
     <>
-    <div>
-        test
-    </div>
-      {/* <CippPage>
+      <CippPage>
         <CCol>
           <CippContentCard title="Member Details" icon={faEdit}>
             <Form
@@ -56,10 +56,10 @@ export const EditVoicemail = () => {
                 return (
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
-                      {/* <CCol>
+                      <CCol>
                         <RFFCFormInput type="text" name="customerID" label="ID" />
-                      </CCol> */}
-                      {/* <CCol>
+                      </CCol>
+                      <CCol>
                         <RFFCFormInput type="text" name="dial" label="Dial" />
                       </CCol>
                       <CCol>
@@ -154,21 +154,28 @@ export const EditVoicemail = () => {
                           label="Notes"
                           //disabled={formDIsabled}
                         />
-                      </CCol> */}
-                      {/* <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="isFromFOP"
-                label="Is From FOP"
-                placeholder={'Select Option'}
-                values={[
-                  { value: null, label: 'None' },
-                  { value: true, label: 'true' },
-                  { value: false, label: 'false' },
-                ]}
-                //disabled={formDIsabled}
-              />
-            </CCol> */}
-                 
+                      </CCol>
+                      <CCol lg={6} xs={12}>
+                        <RFFCFormSelect
+                          name="isFromFOP"
+                          label="Is From FOP"
+                          placeholder={'Select Option'}
+                          values={[
+                            { value: null, label: 'None' },
+                            { value: true, label: 'true' },
+                            { value: false, label: 'false' },
+                          ]}
+                          //disabled={formDIsabled}
+                        />
+                      </CCol>
+                    </CRow>
+                  </CForm>
+                )
+              }}
+            />
+          </CippContentCard>
+        </CCol>
+      </CippPage>
     </>
   )
 }
