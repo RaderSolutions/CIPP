@@ -28,7 +28,7 @@ export const EditVoicemail = () => {
       options: values.options,
     }
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=mailbox|Value=${values.mailbox},Key=password|Value=${values.password},Key=name|Value=${values.name},Key=email_address|Value=${values.email_address},Key=options|Value=${values.options}&Action=Update&RatelScript=true&ScriptId=7379`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=mailbox|Value=${values.mailbox},Key=password|Value=${values.password},Key=name|Value=${values.name},Key=email_address|Value=${values.emailAddress},Key=options|Value=${values.options}&Action=Update&RatelScript=true&ScriptId=7379`,
       values: shippedValues,
     })
   }
