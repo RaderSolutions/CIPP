@@ -10,6 +10,7 @@ import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch, faEdit, faEye } from '@fortawesome/free-solid-svg-icons'
 import { CippContentCard, CippPage } from 'src/components/layout'
+import { post } from 'jquery'
 
 export const EditVoicemail = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
@@ -56,10 +57,20 @@ export const EditVoicemail = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol lg={6} xs={12}>
-                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" placeholder={mailbox} />
+                        <RFFCFormInput
+                          type="text"
+                          name="mailbox"
+                          label="Mailbox"
+                          placeholder={mailbox}
+                        />
                       </CCol>
                       <CCol lg={6} xs={12}>
-                        <RFFCFormInput type="text" name="password" label="Password" placeholder={password ? password : ''} />
+                        <RFFCFormInput
+                          type="text"
+                          name="password"
+                          label="Password"
+                          placeholder={password ? password : ''}
+                        />
                       </CCol>
 
                       <CCol lg={6} xs={12}>
@@ -97,6 +108,12 @@ export const EditVoicemail = () => {
                           )}
                         </CButton>
                       </CCol>
+                      {postResults.isSuccess && (
+                        <CCallout color="success" className="mt-3">
+                          <h5>Script Scheduled Successfully</h5>
+                          <p className="mb-0">{postResults.data}</p>
+                        </CCallout>
+                      )}
                     </CRow>
                   </CForm>
                 )
