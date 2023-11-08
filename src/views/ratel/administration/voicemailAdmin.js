@@ -86,24 +86,24 @@ const columns = [
     sortable: true,
     exportSelector: 'Name',
   },
-  // {
-  //   name: 'Email Address',
-  //   selector: (row) => row['EmailAddress'],
-  //   sortable: true,
-  //   exportSelector: 'EmailAddress',
-  // },
-  // {
-  //   name: 'Extra Options',
-  //   selector: (row) => row['ExtraOptions'],
-  //   sortable: true,
-  //   exportSelector: 'ExtraOptions',
-  // },
-  // {
-  //   name: 'Voicemails',
-  //   selector: (row) => row['Voicemails'],
-  //   sortable: true,
-  //   exportSelector: 'Voicemails',
-  // },
+  {
+    name: 'Email Address',
+    selector: (row) => row['EmailAddress'],
+    sortable: true,
+    exportSelector: 'EmailAddress',
+  },
+  {
+    name: 'Extra Options',
+    selector: (row) => row['ExtraOptions'],
+    sortable: true,
+    exportSelector: 'ExtraOptions',
+  },
+  {
+    name: 'Voicemails',
+    selector: (row) => row['Voicemails'],
+    sortable: true,
+    exportSelector: 'Voicemails',
+  },
   {
     name: 'Actions',
     cell: Offcanvas,
