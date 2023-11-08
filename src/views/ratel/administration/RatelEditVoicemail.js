@@ -16,6 +16,12 @@ export const EditVoicemail = () => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const query = useQuery()
   const ID = query.get('ID')
+  const mailbox = query.get('Mailbox')
+  const password = query.get('Password')
+  const name = query.get('Name')
+  const emailAddress = query.get('EmailAddress')
+  const extraOptions = query.get('ExtraOptions')
+  const voicemails = query.get('Voicemails')
   // mailbox=%mailbox%|password=%password%|name=%name%|email_address=%email_address%|options=%options%
 
   const onSubmit = (values) => {
@@ -50,10 +56,10 @@ export const EditVoicemail = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol lg={6} xs={12}>
-                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" />
+                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" placeholder={mailbox ? mailbox : ''} />
                       </CCol>
                       <CCol lg={6} xs={12}>
-                        <RFFCFormInput type="text" name="password" label="Password" />
+                        <RFFCFormInput type="text" name="password" label="Password" placeholder={password ? password : ''} />
                       </CCol>
 
                       <CCol lg={6} xs={12}>
@@ -61,6 +67,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="name"
                           label="Name"
+                          placeholder={name ? name : ''}
                           //disabled={formDIsabled}
                         />
                       </CCol>
@@ -69,6 +76,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="emailAddress"
                           label="Email Address"
+                          placeholder={emailAddress ? emailAddress : ''}
                           //disabled={formDIsabled}
                         />
                       </CCol>
@@ -77,6 +85,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="options"
                           label="Options"
+                          placeholder={extraOptions ? extraOptions : ''}
                           //disabled={formDIsabled}
                         />
                       </CCol>
