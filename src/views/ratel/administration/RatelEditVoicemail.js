@@ -56,7 +56,7 @@ export const EditVoicemail = () => {
                   <CForm onSubmit={handleSubmit}>
                     <CRow>
                       <CCol lg={6} xs={12}>
-                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" placeholder={mailbox ? mailbox : ''} />
+                        <RFFCFormInput type="text" name="mailbox" label="Mailbox" placeholder={mailbox} />
                       </CCol>
                       <CCol lg={6} xs={12}>
                         <RFFCFormInput type="text" name="password" label="Password" placeholder={password ? password : ''} />
