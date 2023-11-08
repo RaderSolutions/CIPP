@@ -111,7 +111,7 @@ export const EditVoicemail = () => {
                       {postResults.isSuccess && (
                         <CCallout color="success" className="mt-3">
                           <h5>Script Scheduled Successfully</h5>
-                          <p className="mb-0">{postResults.data}</p>
+                          {/* <p className="mb-0">{postResults.data}</p> */}
                         </CCallout>
                       )}
                     </CRow>
