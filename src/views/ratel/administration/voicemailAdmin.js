@@ -13,7 +13,7 @@ import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const editLink = `/ratel/administration/mailboxes/edit?tenantDomain=${tenant.customerId}`
+  const editLink = `/ratel/administration/mailboxes/edit?tenantDomain=${tenant.customerId}@Mailbox=${row.Mailbox}&Password=${row.Password}&Name=${row.Name}&EmailAddress=${row.EmailAddress}&ExtraOptions=${row.ExtraOptions}&Voicemails=${row.Voicemails}`
   //console.log(row)
   return (
     <>
