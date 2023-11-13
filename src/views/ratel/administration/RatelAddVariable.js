@@ -95,8 +95,8 @@ export const AddRatelVariable = ({ children }) => {
         </CRow>
         </CippWizard.Page>
         <CippWizard.Page title="Confirm New Variable Values">
-        <FormSpy subscription={{ values: true, labels: true }}>
-            {/* {
+        {/* <FormSpy subscription={{ values: true, labels: true }}>
+            {
                 
                 (props) => {
                     const { values } = props
@@ -131,16 +131,17 @@ export const AddRatelVariable = ({ children }) => {
                         </CListGroup>
                     )
                 }
-            } */}
-        </FormSpy>
-        </CippWizard.Page>
-
-            {postResults.isSuccess && (
+            }
+        </FormSpy> */}
+        {postResults.isSuccess && (
               <CCallout color="success">
                 {/* <FontAwesomeIcon icon={faExclamationTriangle} color="success" /> */}
                 Variable Successfully Added
               </CCallout>
             )}
+        </CippWizard.Page>
+
+            
     </CippWizard>
   )
 }
