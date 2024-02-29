@@ -60,10 +60,10 @@ const AddRatelDid = ({ children }) => {
         DidType: values.DidType,
       }
       let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
-      console.log('DID RESULT', result.Data)
+      console.log('DID RESULT', result)
       if (result) {
         let syncRes = genericPostRequest({
-          path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},RatelScript=true&ScriptId=7353`,
+          path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did}&RatelScript=true&ScriptId=7353`,
         }).unwrap()
         console.log('DID/SCRIPT SCHEDULE', syncRes)
       }
