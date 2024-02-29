@@ -47,7 +47,7 @@ export const AddRatelVariable = ({ children }) => {
     let result = await genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355`,
     }).unwrap()
-    if (result.Data.Results.includes('Message=Success')) {
+    if (result) {
       let syncRes = await genericPostRequest({
         path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7368`,
       }).unwrap()
