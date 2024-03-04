@@ -48,7 +48,7 @@ const AddRatelDid = ({ children }) => {
   } = useListDevicesQuery({ tenantDomain })
 
   const {
-    data: sampleDialplans = [],
+    data: sampleDialplans = {},
     isFetching: sampleDialplansAreFetching,
     error: sampleDialplansError,
   } = useListSampleDialplansQuery()
