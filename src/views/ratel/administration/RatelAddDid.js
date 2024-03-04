@@ -15,7 +15,7 @@ import {
 } from 'src/components/forms'
 import { TenantSelector } from 'src/components/utilities'
 import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
-import { useListDidsQuery } from 'src/store/api/ratelDids'
+import { useListDidsQuery, useListSampleDialplansQuery } from 'src/store/api/ratelDids'
 import { useListDevicesQuery } from 'src/store/api/ratelDevices'
 import { useSelector } from 'react-redux'
 
@@ -46,6 +46,15 @@ const AddRatelDid = ({ children }) => {
     isFetching: devicesAreFetching,
     error: devicesError,
   } = useListDevicesQuery({ tenantDomain })
+
+  const {
+    data: sampleDialplans = [],
+    isFetching: sampleDialplansAreFetching,
+    error: sampleDialplansError,
+  } = useListSampleDialplansQuery()
+  useEffect(() => {
+    console.log('SAMPLE DIALPLANS', sampleDialplans)
+  }, [sampleDialplans])
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = async (values) => {
