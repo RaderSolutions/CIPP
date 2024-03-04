@@ -92,11 +92,13 @@ const AddRatelDid = ({ children }) => {
         Extension: values.Extension,
         DidType: values.DidType,
       }
-      genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues })
-      genericPostRequest({
-        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.D}&RatelScript=true&ScriptId=7353`,
-      })
-      console.log('didtype conference bridge')
+      let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
+      if (result) {
+        genericPostRequest({
+          path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7336`,
+        })
+        console.log('didtype conference bridge')
+      }
     }
   }
 
