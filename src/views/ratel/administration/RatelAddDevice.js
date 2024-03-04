@@ -106,10 +106,15 @@ const AddRatelDevice = ({ children }) => {
       CallerIDType: values.CallerIDType,
     }
    // alert(JSON.stringify(values, null, 2))
-    genericPostRequest({
+   let result = genericPostRequest({
       path: '/api/LtAddRatelDevice',
       values: shippedValues,
-    })
+    }).unwrap()
+    if (result) {
+      let syncRes = genericPostRequest({
+        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=device_id|Value=0,Key=force_resync_all|Value=0&RatelScript=true&ScriptId=6886`,
+      }).unwrap()
+    }
   }
 
   const formValues = [
