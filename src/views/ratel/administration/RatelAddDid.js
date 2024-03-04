@@ -58,11 +58,14 @@ const AddRatelDid = ({ children }) => {
 
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onSubmit = async (values) => {
+    let DidType;
     console.log('values in add DID', values)
     if (values.DidType === 'Device') {
+      DidType = 'Device'
       console.log('didtype device')
       const shippedValues = {
         TenantFilter: tenantDomain,
+        DidType: DidType,
         DidNumber: values.Did,
         DeviceId: values.DeviceId,
         IsDeviceCallerId: values.IsDeviceCallerId,
@@ -81,17 +84,23 @@ const AddRatelDid = ({ children }) => {
 
       // genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Device|Value=${values.DeviceId},Key=SetCallerId|Value=${values.SetCallerId},RatelScript=true&ScriptId=7351` })
     } else if (values.DidType === 'IncomingDialplan') {
+      DidType = 'IncomingDialplan'
       console.log('didtype incoming dialplan')
       // alert(JSON.stringify(values, null, 2))
+      let result = genericPostRequest({
+        path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidNumber=${values.Did}&Extension=${values.Extension}&DialplanName=${values.DialplanName}&Dialplan=${values.Dialplan}`,
+      }).unwrap()
       genericPostRequest({
         path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
       })
     } else if (values.DidType === 'ConferenceBridge') {
+      DidType = 'ConferenceBridge'
       const shippedValues = {
         TenantFilter: tenantDomain,
         DidNumber: values.Did,
         Extension: values.Extension,
         DidType: values.DidType,
+        Dialplan: sampleDialplans.DialplanData,
       }
       let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
       if (result) {
