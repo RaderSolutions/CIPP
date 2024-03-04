@@ -72,6 +72,7 @@ const AddRatelDid = ({ children }) => {
       let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
       console.log('DID RESULT', result)
       if (result) {
+        console.log("RESULT/ADDING DID", result)
         let syncRes = genericPostRequest({
           path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7353`,
         }).unwrap()
