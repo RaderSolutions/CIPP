@@ -114,6 +114,7 @@ const AddRatelDevice = ({ children }) => {
       let syncRes = genericPostRequest({
         path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=device_id|Value=0,Key=force_resync_all|Value=0&RatelScript=true&ScriptId=6886`,
       }).unwrap()
+      console.log('DEVICE/SCRIPT SCHEDULE', syncRes)
     }
   }
 
