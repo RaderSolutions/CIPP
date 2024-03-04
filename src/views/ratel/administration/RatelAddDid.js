@@ -99,16 +99,18 @@ const AddRatelDid = ({ children }) => {
         TenantFilter: tenantDomain,
         DidNumber: values.Did,
         Extension: values.Extension,
+        IsDeviceCallerId: values.IsDeviceCallerId,
         DidType: values.DidType,
         Dialplan: sampleDialplans.DialplanData,
       }
       let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
-      if (result) {
-        genericPostRequest({
-          path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7336`,
-        })
-        console.log('didtype conference bridge')
-      }
+      console.log('DID RESULT/CONFERENCE', result)
+      // if (result) {
+      //   genericPostRequest({
+      //     path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7336`,
+      //   })
+      //   console.log('didtype conference bridge')
+      // }
     }
   }
 
