@@ -67,7 +67,7 @@ const AddRatelDid = ({ children }) => {
         DeviceId: values.DeviceId,
         IsDeviceCallerId: values.IsDeviceCallerId,
         DidType: values.DidType,
-        Dialplan: sampleDialplans ? sampleDialplans.DialplanData : '',
+        Dialplan: sampleDialplans.DialplanData,
       }
       let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
       console.log('DID RESULT', result)
