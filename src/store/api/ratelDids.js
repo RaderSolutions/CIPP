@@ -25,7 +25,7 @@ export const didsApi = baseApi.injectEndpoints({
       }),
     }),
     listSampleDialplans: builder.query({
-      query: () => ({
+      query: ({ Name }) => ({
         path: '/api/LtListRatelSampleDialplans',
         params: {Name: Name},
       })
