@@ -33,7 +33,7 @@ const EditDid = () => {
     data: sampleDialplans = {},
     isFetching: sampleDialplansAreFetching,
     error: sampleDialplansError,
-  } = useListSampleDialplansQuery({ tenantDomain})
+  } = useListSampleDialplansQuery({ Name: "EditDid" })
 
 
 

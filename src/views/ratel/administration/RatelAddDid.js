@@ -51,7 +51,7 @@ const AddRatelDid = ({ children }) => {
     data: sampleDialplans = {},
     isFetching: sampleDialplansAreFetching,
     error: sampleDialplansError,
-  } = useListSampleDialplansQuery()
+  } = useListSampleDialplansQuery({ Name: "AddDid" })
   useEffect(() => {
     console.log('SAMPLE DIALPLANS', sampleDialplans)
   }, [sampleDialplans])
@@ -90,9 +90,9 @@ const AddRatelDid = ({ children }) => {
       let result = genericPostRequest({
         path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidNumber=${values.Did}&Extension=${values.Extension}&DialplanName=${values.DialplanName}&Dialplan=${values.Dialplan}`,
       }).unwrap()
-      genericPostRequest({
-        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
-      })
+      // genericPostRequest({
+      //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
+      // })
     } else if (values.DidType === 'ConferenceBridge') {
       DidType = 'ConferenceBridge'
       const shippedValues = {
