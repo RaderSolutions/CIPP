@@ -27,7 +27,7 @@ export const didsApi = baseApi.injectEndpoints({
     listSampleDialplans: builder.query({
       query: () => ({
         path: '/api/LtListRatelSampleDialplans',
-        // params: {TenantFilter: tenantDomain},
+        params: {Name: Name},
       })
     }),
     addDid: builder.mutation({
