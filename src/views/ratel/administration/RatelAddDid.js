@@ -63,7 +63,7 @@ const AddRatelDid = ({ children }) => {
     if (values.DidType === 'Device') {
       DidType = 'Device'
       console.log('didtype device')
-      const shippedValues = {
+      let shippedValues = {
         TenantFilter: tenantDomain,
         DidType: DidType,
         DidNumber: values.Did,
@@ -85,12 +85,20 @@ const AddRatelDid = ({ children }) => {
       // genericPostRequest({ path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Device|Value=${values.DeviceId},Key=SetCallerId|Value=${values.SetCallerId},RatelScript=true&ScriptId=7351` })
     } else if (values.DidType === 'IncomingDialplan') {
       DidType = 'IncomingDialplan'
+      let shippedValues = {
+        TenantFilter: tenantDomain,
+        DidType: DidType,
+        DidNumber: values.Did,
+        Notes: values.DialplanName,
+        Dialplan: values.Dialplan,
+      }
       console.log('didtype incoming dialplan')
+      let result = genericPostRequest({ path: '/api/LtRatelDIDS', values: shippedValues }).unwrap()
       // alert(JSON.stringify(values, null, 2))
-      let dialplanValueEncoded = encodeURIComponent(values.Dialplan)
-      let result = genericPostRequest({
-        path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidType=${DidType}&DidNumber=${values.Did}&Notes=${values.DialplanName}&Dialplan=${dialplanValueEncoded}`,
-      }).unwrap()
+      // let dialplanValueEncoded = encodeURIComponent(values.Dialplan)
+      // let result = genericPostRequest({
+      //   path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidType=${DidType}&DidNumber=${values.Did}&Notes=${values.DialplanName}&Dialplan=${dialplanValueEncoded}`,
+      // }).unwrap()
       // genericPostRequest({
       //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
       // })
