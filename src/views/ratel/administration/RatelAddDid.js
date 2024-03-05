@@ -87,8 +87,9 @@ const AddRatelDid = ({ children }) => {
       DidType = 'IncomingDialplan'
       console.log('didtype incoming dialplan')
       // alert(JSON.stringify(values, null, 2))
+      let dialplanValueEncoded = encodeURIComponent(values.Dialplan)
       let result = genericPostRequest({
-        path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidType=${DidType}&DidNumber=${values.Did}&Notes=${values.DialplanName}&Dialplan=${values.Dialplan}`,
+        path: `/api/LtRatelDIDS?TenantFilter=${tenantDomain}&DidType=${DidType}&DidNumber=${values.Did}&Notes=${values.DialplanName}&Dialplan=${dialplanValueEncoded}`,
       }).unwrap()
       // genericPostRequest({
       //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=DID|Value=${values.Did},Key=Notes|Value=${values.DialplanName},Key=Dialplan|Value=${values.Dialplan}&RatelScript=true&ScriptId=7352`,
