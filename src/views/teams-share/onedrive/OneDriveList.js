@@ -63,9 +63,9 @@ const OneDriveList = () => {
     <CippPageList
       title="OneDrive List"
       datatable={{
-        columns,
-        path: '/api/ListSites?type=OneDriveUsageAccount',
         reportName: `${tenant?.defaultDomainName}-OneDrive-Report`,
+        path: '/api/ListSites?type=OneDriveUsageAccount',
+        columns,
         params: { TenantFilter: tenant?.defaultDomainName },
       }}
     />
