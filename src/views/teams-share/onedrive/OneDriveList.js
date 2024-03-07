@@ -3,9 +3,13 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { CippPageList } from 'src/components/layout'
 import { CellTip } from 'src/components/tables'
+import { TitleButton } from 'src/components/buttons'
 
 const OneDriveList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  const testTitleButton = (
+    <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
+  )
   const columns = [
     {
       name: 'Name',
@@ -62,11 +66,13 @@ const OneDriveList = () => {
   return (
     <CippPageList
       title="OneDrive List"
+      titleButton={testTitleButton}
       datatable={{
+        keyField: 'id',
+        columns,
         reportName: `${tenant?.defaultDomainName}-OneDrive-Report`,
         path: '/api/ListSites?type=OneDriveUsageAccount',
-        columns,
-        params: { TenantFilter: tenant?.defaultDomainName },
+        params: { TenantFilter: tenant?.customerId },
       }}
     />
   )
