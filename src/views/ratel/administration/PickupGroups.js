@@ -86,6 +86,12 @@ const columns = [
     exportSelector: 'Type',
   },
   {
+    name: 'Is Sync Scheduled',
+    // selector: (row) => row['IsSyncScheduled'],
+    sortable: true,
+    exportSelector: 'IsSyncScheduled',
+  },
+  {
     name: 'Actions',
     cell: Offcanvas,
   },
