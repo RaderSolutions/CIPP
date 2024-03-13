@@ -107,6 +107,10 @@ const PickupGroupsList = () => {
     />
   )
   const handleUpdateDevices = async () => {
+    // 7925
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7925`,
+    })
     // script from jeff
   }
   return (
