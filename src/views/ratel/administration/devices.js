@@ -190,6 +190,7 @@ const columns = [
 
 const DevicesList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
+  console.log('TENANT/DEVICES', tenant)
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const addUserDeviceButton = (
     <TitleButton href="/ratel/administration/devices/add" title="Add Device" />
