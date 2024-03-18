@@ -41,9 +41,8 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
   useEffect(() => {
     console.log('tenants', tenants)
     let target
-    if (tenants.filter(t => t.RowKey === '641f2360-2742-4451-afcc-8b70fd778c3f')) {
-      target = tenants.t
-    }
+    target = tenants.filter((t) => t.RowKey === '641f2360-2742-4451-afcc-8b70fd778c3f')
+
     console.log('target', target)
   }, [tenants])
   useEffect(() => {
