@@ -38,7 +38,9 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
     },
     [navigate],
   )
-
+  useEffect(() => {
+    console.log('tenants', tenants)
+  }, [tenants])
   useEffect(() => {
     const Paramcount = Array.from(searchParams).length
     if (Paramcount <= 1) {
@@ -100,28 +102,28 @@ const TenantSelector = ({ action, showAllTenantSelector = true, NavSelector = fa
             <CDropdownMenu 
             className="tenantDropdown"
             > */}
-            <div
+          <div
             style={{
               maxWidth: '1000px',
             }}
-            >
-              <SelectSearch
+          >
+            <SelectSearch
               style={{
                 maxWidth: '1000px',
               }}
-                search
-                onChange={activated}
-                filterOptions={CippfuzzySearch}
-                placeholder={placeholder}
-                disabled={isLoading}
-                value={currentTenant && currentTenant.customerId}
-                options={tenants.map(({ customerId, displayName, defaultDomainName }) => ({
-                  value: customerId,
-                  name: `${displayName} (${defaultDomainName})`,
-                }))}
-              />
-              </div>
-            {/* </CDropdownMenu>
+              search
+              onChange={activated}
+              filterOptions={CippfuzzySearch}
+              placeholder={placeholder}
+              disabled={isLoading}
+              value={currentTenant && currentTenant.customerId}
+              options={tenants.map(({ customerId, displayName, defaultDomainName }) => ({
+                value: customerId,
+                name: `${displayName} (${defaultDomainName})`,
+              }))}
+            />
+          </div>
+          {/* </CDropdownMenu>
           </CDropdown> */}
         </>
       )}
