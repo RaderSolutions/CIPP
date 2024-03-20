@@ -31,24 +31,24 @@ const Configs = () => {
   // If we use API, will have our configList returned from a hook; if not, we can keep it in state as above -Tripp
   // -Tripp
   // Test commit 7/6
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('/api/GrabConfigs')
-        console.log('response b4 JSON: ', response)
-        const data = await response.json()
-        console.log('Config list fetched:', data)
-        data.forEach((dat) => console.log('Heres a piece! ', dat))
-        setConfigList(data)
-      } catch (error) {
-        console.error('Error fetching config list:', error)
-      }
-    }
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch('/api/GrabConfigs')
+  //       console.log('response b4 JSON: ', response)
+  //       const data = await response.json()
+  //       console.log('Config list fetched:', data)
+  //       data.forEach((dat) => console.log('Heres a piece! ', dat))
+  //       setConfigList(data)
+  //     } catch (error) {
+  //       console.error('Error fetching config list:', error)
+  //     }
+  //   }
+  //   fetchData()
+  // }, [])
 
   const {
-    data: configs = {},
+    data: configs = [],
     isFetching: configsAreFetching,
     error: configsFetchingError,
   } = useListConfigsQuery()
@@ -56,32 +56,32 @@ const Configs = () => {
   console.log('CONFIGS FROM QUERY: ', configs)
   console.log('CONFIGS ARE FETCHING: ', configsAreFetching)
   useEffect(() => {
-    console.log('CONFIG LIST: ', configList)
+    console.log('CONFIG LIST: ', configs)
     // const { values: currentValues } = useFormState()
     // console.log('useFormState ', values)
   }, [configList])
 
-  const configListFx = () => {
-    if (configList !== []) {
-      const options = configList.map((config, index) => ({
-        value: config.Number,
-        label: config.Name,
-      }))
-      // "value" is undefined here; looks like Number is not a property on our config objects -Tripp ********************
-      console.log('Config list options:', options)
-      return options
-    }
-    return []
-  }
+  // const configListFx = () => {
+  //   if (configList !== []) {
+  //     const options = configList.map((config, index) => ({
+  //       value: config.Number,
+  //       label: config.Name,
+  //     }))
+  //     // "value" is undefined here; looks like Number is not a property on our config objects -Tripp ********************
+  //     console.log('Config list options:', options)
+  //     return options
+  //   }
+  //   return []
+  // }
   // config prop here will be needed if we use react state mgmt. If we use react-final-form, use useFormState() hook. -Tripp
   const ConfigFields = ({ config }) => {
     const { values: currentValues } = useFormState()
-    console.log('useFormState Values in ConfigFields: ', currentValues)
-    let currentConfig = configList.find((config) => config.Name === currentValues.ConfigFile)
-    console.log('config in ConfigFields: ', currentConfig)
-    if (currentConfig === undefined) {
-      return <></>
-    }
+    // console.log('useFormState Values in ConfigFields: ', currentValues)
+    // let currentConfig = configList.find((config) => config.Name === currentValues.ConfigFile)
+    // console.log('config in ConfigFields: ', currentConfig)
+    // if (currentConfig === undefined) {
+    //   return <></>
+    // }
     return (
       <>
         <CRow>
@@ -124,7 +124,7 @@ const Configs = () => {
                       <>
                         <CRow>
                           <CCol>
-                            <RFFCFormSelect
+                            {/* <RFFCFormSelect
                               name="ConfigFile"
                               label="Config File"
                               placeholder="-- Select a config --"
@@ -135,7 +135,7 @@ const Configs = () => {
                                   configList.find((config) => config.Number === value),
                                 )
                               }}
-                            />
+                            /> */}
                           </CCol>
                         </CRow>
                         <CRow className="mb-3">
@@ -146,11 +146,11 @@ const Configs = () => {
                             </CButton>
                           </CCol>
                           <CCol>
-                            {configList.length > 0 && (
+                            {/* {configList.length > 0 && (
                               <>
                                 <ConfigFields config={selectedConfig} />
                               </>
-                            )}
+                            )} */}
                           </CCol>
                         </CRow>
                       </>

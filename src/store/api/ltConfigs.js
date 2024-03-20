@@ -6,7 +6,7 @@ export const configsApi = baseApi.injectEndpoints({
     listConfigs: builder.query({
       query: () => ({
         // TODO ?
-        path: '/api/GrabConfigs',
+        path: '/api/LtListConfigs',
         // params: { 
         //     config: config
         // }
