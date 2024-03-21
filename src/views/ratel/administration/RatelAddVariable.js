@@ -44,6 +44,7 @@ export const AddRatelVariable = ({ children }) => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const onSubmit = async (values) => {
+    console.log('values', values)
     let result = await genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355`,
     }).unwrap()
