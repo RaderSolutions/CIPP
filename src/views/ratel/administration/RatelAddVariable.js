@@ -42,12 +42,13 @@ Error.propTypes = {
 export const AddRatelVariable = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
-  const encodeASTFamily = encodeURIComponent(values.family);
-  const encodeASTKey = encodeURIComponent(values.key);
-  const encodeASTValue = encodeURIComponent(values.value);
-  const encodeTenantDomain = encodeURIComponent(tenantDomain);
+
   const onSubmit = async (values) => {
     console.log('values', values)
+    const encodeASTFamily = encodeURIComponent(values.family);
+    const encodeASTKey = encodeURIComponent(values.key);
+    const encodeASTValue = encodeURIComponent(values.value);
+    const encodeTenantDomain = encodeURIComponent(tenantDomain);
     let result = await genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${encodeTenantDomain}&Parameters=Key=astFamily|Value=${encodeASTFamily},Key=astKey|Value=${encodeASTKey},Key=astValue|value=${encodeASTValue}&RatelScript=true&ScriptId=7355`,
     }).unwrap()
