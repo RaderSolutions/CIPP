@@ -14,10 +14,16 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
   const [ocVisible, setOCVisible] = useState(false)
   const editLink = `/ratel/administration/phonebookEditor/editEntry?tenantDomain=${tenant.customerId}&ID=${row.ID}`
 
-useEffect(()=>{
-  console.log('data',row)
-},[row])
-  
+  useEffect(() => {
+    console.log('data', row)
+  }, [row])
+
+  const onClickRebuildScript = () => {
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=notify|Value=1&RatelScript=true&ScriptId=7364`,
+    })
+  }
+
   return (
     <>
       <Link to={editLink}>
@@ -67,8 +73,8 @@ useEffect(()=>{
               Action: 'Delete',
               ID: row.ID,
             },
-            modalType:"POST",
-            modalUrl:  `/api/LtRatelPhoneBookEntry?TenantFilter=${tenant.customerId}&Parameters=Key=ID|Value=${row.ID}&Action=Delete`,
+            modalType: 'POST',
+            modalUrl: `/api/LtRatelPhoneBookEntry?TenantFilter=${tenant.customerId}&Parameters=Key=ID|Value=${row.ID}&Action=Delete`,
             modalMessage: 'Are you sure you want to delete this phonebook entry?',
           },
         ]}
@@ -163,20 +169,30 @@ const columns = [
 const PhonebookEntryList = () => {
   const tenant = useSelector((state) => state.app.currentTenant)
   const addPhonebookEntryButton = (
-    <TitleButton href="/ratel/administration/phonebookEditor/addEntry" title="Add Phonebook Entry" />
+    <TitleButton
+      href="/ratel/administration/phonebookEditor/addEntry"
+      title="Add Phonebook Entry"
+    />
   )
   return (
-    <CippPageList
-      title="Phonebook Editor"
-      titleButton={addPhonebookEntryButton}
-      datatable={{
-        keyField: 'ID',
-        columns,
-        reportName: `${tenant.customerId}-RATEL-PhonebookEntries-List`,
-        path: '/api/LtListRatelPhonebookEntries',
-        params: { TenantFilter: tenant?.customerId },
-      }}
-    />
+    <>
+      <CButton size="sm" variant="ghost" color="warning" onClick={onClickRebuildScript}>
+      (Re)Build Phonebook/BLF Entries
+      </CButton>
+      <br />
+      <br />
+      <CippPageList
+        title="Phonebook Editor"
+        titleButton={addPhonebookEntryButton}
+        datatable={{
+          keyField: 'ID',
+          columns,
+          reportName: `${tenant.customerId}-RATEL-PhonebookEntries-List`,
+          path: '/api/LtListRatelPhonebookEntries',
+          params: { TenantFilter: tenant?.customerId },
+        }}
+      />
+    </>
   )
 }
 
