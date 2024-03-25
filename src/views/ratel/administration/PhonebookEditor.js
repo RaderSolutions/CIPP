@@ -18,11 +18,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
     console.log('data', row)
   }, [row])
 
-  const onClickRebuildScript = () => {
-    genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=notify|Value=1&RatelScript=true&ScriptId=7364`,
-    })
-  }
+
 
   return (
     <>
@@ -174,6 +170,11 @@ const PhonebookEntryList = () => {
       title="Add Phonebook Entry"
     />
   )
+  const onClickRebuildScript = () => {
+    genericPostRequest({
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=notify|Value=1&RatelScript=true&ScriptId=7364`,
+    })
+  }
   return (
     <>
       <CButton size="sm" variant="ghost" color="warning" onClick={onClickRebuildScript}>
