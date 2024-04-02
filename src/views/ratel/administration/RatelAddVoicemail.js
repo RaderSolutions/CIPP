@@ -51,7 +51,7 @@ export const AddRatelVoicemail = ({ children }) => {
     if (result.Data.Results.includes('Message=Success')) {
       // TODO - run sync here or manual, no. 7377
       let syncRes = await genericPostRequest({
-        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Manual_Run|Value=1&RatelScript=true&ScriptId=7377`,
+        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=Manual_Run|Value=1,Key=Full_Reload|Value=0&RatelScript=true&ScriptId=7377`,
       }).unwrap()
       // console.log('syncRes', syncRes)
     }
