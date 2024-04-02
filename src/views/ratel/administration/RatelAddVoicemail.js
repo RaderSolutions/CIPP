@@ -42,16 +42,18 @@ Error.propTypes = {
 export const AddRatelVoicemail = ({ children }) => {
   const tenantDomain = useSelector((state) => state.app.currentTenant.customerId)
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
+  // mailbox=%mailbox%|password=%password%|name=%name%|email_address=%email_address%|options=%options%
 
   const onSubmit = async (values) => {
     let result = await genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=astFamily|Value=${values.family},Key=astKey|Value=${values.key},Key=astValue|value=${values.value}&RatelScript=true&ScriptId=7355`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&Parameters=Key=mailbox|Value=${values.mailbox},Key=password|Value=${values.password},Key=name|value=${values.name},Key=email_address|Value=${values.email_address},Key=options|Value=${values.options}&RatelScript=true&ScriptId=7379`,
     }).unwrap()
     if (result.Data.Results.includes('Message=Success')) {
-      let syncRes = await genericPostRequest({
-        path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7368`,
-      }).unwrap()
-      console.log('syncRes', syncRes)
+      // TODO - run sync here or manual, no. 7377
+      // let syncRes = await genericPostRequest({
+      //   path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7368`,
+      // }).unwrap()
+      // console.log('syncRes', syncRes)
     }
   }
   return (
