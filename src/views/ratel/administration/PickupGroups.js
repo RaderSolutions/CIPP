@@ -107,8 +107,9 @@ const PickupGroupsList = () => {
     />
   )
   const handleUpdateDevices = async () => {
+    console.log('Running Sync Script(Pickup)')
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7925`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=7925`,
     })
   }
   return (
@@ -133,12 +134,6 @@ const PickupGroupsList = () => {
             params: { TenantFilter: tenant?.customerId },
           }}
         />
-        {/* {postResults.isFetching && (
-            <CCallout color="info">
-              <CSpinner>Loading</CSpinner>
-            </CCallout>
-          )}
-          {postResults.isSuccess && <CCallout color="success">Sync Script Run Successfully</CCallout>} */}
       </CCol>
     </>
   )

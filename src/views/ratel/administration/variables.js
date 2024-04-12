@@ -96,6 +96,7 @@ const VariablesList = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
   const handleSyncASTDB = async () => {
+    console.log('Running Sync Script')
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=7354`,
     })
