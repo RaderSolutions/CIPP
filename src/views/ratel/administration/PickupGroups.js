@@ -53,7 +53,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
               Type: row.Type,
               Groups: row.Groups,
             },
-            modalType:"POST",
+            modalType: 'POST',
             modalMessage: 'Are you sure you want to remove this member from the pickup group?',
           },
         ]}
@@ -107,43 +107,40 @@ const PickupGroupsList = () => {
     />
   )
   const handleUpdateDevices = async () => {
-    // 7925
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenantDomain}&RatelScript=true&ScriptId=7925`,
     })
-    // script from jeff
   }
   return (
     <>
-    <CCol
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-       }}
-    >
-     <CButton onClick={handleUpdateDevices} style={{ maxWidth: '500px' }} className="mb-3">
+      <CCol
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <CButton onClick={handleUpdateDevices} style={{ maxWidth: '500px' }} className="mb-3">
           Run Sync Script
-          </CButton>
-          <CippPageList
-      title="Pickup Groups"
-      titleButton={addPickupGroupMemberButton}
-      datatable={{
-        keyField: 'Extension',
-        columns,
-        reportName: `${tenant.customerId}-RATEL-PickupGroups-List`,
-        path: '/api/LtListRatelPickupGroups',
-        params: { TenantFilter: tenant?.customerId },
-      }}
-    />
-      {/* {postResults.isFetching && (
+        </CButton>
+        <CippPageList
+          title="Pickup Groups"
+          titleButton={addPickupGroupMemberButton}
+          datatable={{
+            keyField: 'Extension',
+            columns,
+            reportName: `${tenant.customerId}-RATEL-PickupGroups-List`,
+            path: '/api/LtListRatelPickupGroups',
+            params: { TenantFilter: tenant?.customerId },
+          }}
+        />
+        {/* {postResults.isFetching && (
             <CCallout color="info">
               <CSpinner>Loading</CSpinner>
             </CCallout>
           )}
           {postResults.isSuccess && <CCallout color="success">Sync Script Run Successfully</CCallout>} */}
-    </CCol>
+      </CCol>
     </>
-  
   )
 }
 
