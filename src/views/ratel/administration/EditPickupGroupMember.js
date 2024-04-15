@@ -80,7 +80,7 @@ export const EditMember = () => {
                         <CForm onSubmit={handleSubmit}>
                           <CRow>
                             <CCol>
-                              {/* <RFFCFormInput type="text" name="Extension" label="Extension" /> */}
+                              Extension
                               {extension}
                             </CCol>
                             <CCol>
