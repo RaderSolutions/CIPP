@@ -106,12 +106,7 @@ export const EditMember = () => {
                             </CCol>
                           </CRow>
                           {postResults.isSuccess && (
-                            <CCallout color="success">
-                              {/* {postResults.data.Results.map((message, idx) => {
-                                return <li key={idx}>{message}</li>
-                              })} */}
-                              {postResults.Results}
-                            </CCallout>
+                            <CCallout color="success">{postResults.data.Results}</CCallout>
                           )}
                         </CForm>
                       )
