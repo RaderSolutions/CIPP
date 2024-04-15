@@ -79,7 +79,7 @@ export const EditMember = () => {
                       return (
                         <CForm onSubmit={handleSubmit}>
                           <CRow>
-                            <CCol>
+                            <CCol className="mt-3">
                               Extension:
                               {" "}
                               {extension}
