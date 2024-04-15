@@ -52,6 +52,7 @@ export const EditMember = () => {
       Extension: values.Extension,
       Groups: values.Groups,
       Type: values.Type,
+      IsSyncScheduled: 1,
       Action: 'Edit',
       ID: members.ID,
     }
