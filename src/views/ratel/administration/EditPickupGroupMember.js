@@ -49,7 +49,7 @@ export const EditMember = () => {
   const onSubmit = (values) => {
     const shippedValues = {
       TenantFilter: tenantDomain,
-      Extension: values.Extension,
+      Extension: extension,
       Groups: values.Groups,
       Type: values.Type,
       IsSyncScheduled: 1,
@@ -80,7 +80,8 @@ export const EditMember = () => {
                         <CForm onSubmit={handleSubmit}>
                           <CRow>
                             <CCol>
-                              <RFFCFormInput type="text" name="Extension" label="Extension" />
+                              {/* <RFFCFormInput type="text" name="Extension" label="Extension" /> */}
+                              {extension}
                             </CCol>
                             <CCol>
                               <RFFCFormInput type="text" name="Groups" label="Group Name" />
