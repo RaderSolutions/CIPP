@@ -41,6 +41,7 @@ const AddPickupGroupMember = () => {
       Extension: values.Extension,
       Type: values.Type,
       Groups: values.Groups,
+      IsSyncScheduled: 1,
     }
 
     alert(JSON.stringify(values, null, 2))
@@ -96,8 +97,8 @@ const AddPickupGroupMember = () => {
                 label="Type"
                 placeholder={'Select Type'}
                 values={[
-                  { value: 'Pickup', label: 'Pickup' },
-                  { value: 'Call', label: 'Call' },
+                  { value: 'pickup', label: 'Pickup' },
+                  { value: 'call', label: 'Call' },
                 ]}
                 //disabled={formDIsabled}
               />
