@@ -80,14 +80,23 @@ export const EditMember = () => {
                         <CForm onSubmit={handleSubmit}>
                           <CRow>
                             <CCol>
-                              Extension
+                              Extension:
+                              {" "}
                               {extension}
                             </CCol>
                             <CCol>
                               <RFFCFormInput type="text" name="Groups" label="Group Name" />
                             </CCol>
                             <CCol>
-                              <RFFCFormInput type="text" name="Type" label="Type" />
+                              <RFFCFormSelect
+                                name="Type"
+                                label="Type"
+                                placeholder={'Select Type'}
+                                values={[
+                                  { value: 'pickup', label: 'Pickup' },
+                                  { value: 'call', label: 'Call' },
+                                ]}
+                              />
                             </CCol>
                           </CRow>
 
