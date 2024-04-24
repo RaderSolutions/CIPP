@@ -43,8 +43,9 @@ const ReplaceRatelDevice = ({ children }) => {
 
   const onSubmit = async (values) => {
     console.log('replace device values', values)
+    let intDeviceID = parseInt(deviceId)
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant}&Parameters=Key=Skip_Phonebook_Rebuild|Value=0,Key=Broken_Device_Id|Value=${deviceId},Key=New_Product_ID|Value=${values.productId},Key=New_Mac_Address|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenant}&Parameters=Key=Skip_Phonebook_Rebuild|Value=0,Key=Broken_Device_Id|Value=${intDeviceID},Key=New_Product_ID|Value=${values.productId},Key=New_Mac_Address|Value=${values.macAddress}&RatelScript=true&ScriptId=7901`,
     })
   }
 
