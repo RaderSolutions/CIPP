@@ -80,7 +80,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             modalMessage: 'Are you sure you want to delete this device?',
           },
         ]}
-        placement="start"
+        placement="end"
         visible={ocVisible}
         id={row.id}
         hideFunction={() => setOCVisible(false)}
@@ -90,6 +90,10 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
 }
 
 const columns = [
+  {
+    name: 'Actions',
+    cell: Offcanvas,
+  },
   {
     name: 'Device ID',
     selector: (row) => row['DeviceId'],
@@ -181,10 +185,6 @@ const columns = [
     selector: (row) => row['IpAddress'],
     sortable: true,
     exportSelector: 'IpAddress',
-  },
-  {
-    name: 'Actions',
-    cell: Offcanvas,
   },
 ]
 
