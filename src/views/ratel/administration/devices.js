@@ -80,7 +80,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
             modalMessage: 'Are you sure you want to delete this device?',
           },
         ]}
-        placement="end"
+        placement="start"
         visible={ocVisible}
         id={row.id}
         hideFunction={() => setOCVisible(false)}
