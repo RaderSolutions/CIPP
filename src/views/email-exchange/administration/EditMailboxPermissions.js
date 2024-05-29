@@ -174,7 +174,7 @@ const MailboxPermissions = () => {
   const tenantDomain = query.get('tenantDomain')
 
   const [queryError, setQueryError] = useState(false)
-
+  // test push
   //const [EditMailboxPermission, { error: EditMailboxPermissionError, isFetching: EditMailboxPermissionIsFetching }] = useEditMailboxPermissionMutation()
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
 
