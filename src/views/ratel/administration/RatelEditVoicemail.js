@@ -69,7 +69,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="password"
                           label="Password"
-                          placeholder={password ? password : undefined}
+                          placeholder={password ? password : null}
                         />
                       </CCol>
 
@@ -78,7 +78,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="name"
                           label="Name"
-                          placeholder={name ? name : undefined}
+                          placeholder={name ? name : null}
                           //disabled={formDIsabled}
                         />
                       </CCol>
@@ -87,7 +87,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="emailAddress"
                           label="Email Address"
-                          placeholder={emailAddress ? emailAddress : undefined}
+                          placeholder={emailAddress ? emailAddress : null}
                           //disabled={formDIsabled}
                         />
                       </CCol>
@@ -96,7 +96,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="options"
                           label="Options"
-                          placeholder={extraOptions ? extraOptions : undefined}
+                          placeholder={extraOptions ? extraOptions : null}
                           //disabled={formDIsabled}
                         />
                       </CCol>
