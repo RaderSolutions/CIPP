@@ -110,6 +110,8 @@ const PickupGroupsList = () => {
     console.log('Running Sync Script(Pickup)')
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&RatelScript=true&ScriptId=7925`,
+    //  test push
+    
     })
   }
   return (
