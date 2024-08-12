@@ -8,6 +8,7 @@ import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { Link } from 'react-router-dom'
 import { TitleButton } from 'src/components/buttons'
+import { useLazyGenericPostRequestQuery } from 'src/store/api/app'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   const tenant = useSelector((state) => state.app.currentTenant)
@@ -170,6 +171,7 @@ const PhonebookEntryList = () => {
       title="Add Phonebook Entry"
     />
   )
+  const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onClickRebuildScript = () => {
     genericPostRequest({
       path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=notify|Value=1&RatelScript=true&ScriptId=7364`,
