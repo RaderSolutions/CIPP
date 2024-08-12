@@ -174,7 +174,7 @@ const PhonebookEntryList = () => {
   const [genericPostRequest, postResults] = useLazyGenericPostRequestQuery()
   const onClickRebuildScript = () => {
     genericPostRequest({
-      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=notify|Value=1,Key=debugLogging|Value=1&RatelScript=true&ScriptId=7364`,
+      path: `/api/LtScheduleScript?TenantFilter=${tenant.customerId}&Parameters=Key=debugLogging|Value=1&RatelScript=true&ScriptId=7364`,
     })
   }
   return (
