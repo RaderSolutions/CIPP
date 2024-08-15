@@ -96,7 +96,7 @@ export const EditVoicemail = () => {
                           type="text"
                           name="options"
                           label="Options"
-                          placeholder={extraOptions ? extraOptions : null}
+                          placeholder={extraOptions ? extraOptions : ''}
                           //disabled={formDIsabled}
                         />
                       </CCol>
