@@ -88,13 +88,13 @@ const columns = [
   },
   {
     name: 'Email Address',
-    selector: (row) => row['Email_Address'],
+    selector: (row) => row['Email Address'],
     sortable: true,
     exportSelector: 'EmailAddress',
   },
   {
     name: 'Extra Options',
-    selector: (row) => row['ExtraOptions'],
+    selector: (row) => row['Extra Options'],
     sortable: true,
     exportSelector: 'ExtraOptions',
   },
