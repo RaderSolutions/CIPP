@@ -33,11 +33,7 @@ import { useEffect } from 'react'
 
 const AppHeader = () => {
 
-  useEffect(()=>{
-    if (dashboard && dashboard.length >= 1) {
-      console.log('dashboard', dashboard)
-    }
-  },[dashboard])
+
 
   const dispatch = useDispatch()
   const location = useLocation()
@@ -47,6 +43,12 @@ const AppHeader = () => {
   const currentTheme = useSelector((state) => state.app.currentTheme)
   const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'impact' : 'cyberdrain'
   const { data: dashboard } = useLoadAlertsDashQuery()
+
+  useEffect(()=>{
+    if (dashboard && dashboard.length >= 1) {
+      console.log('dashboard', dashboard)
+    }
+  },[dashboard])
  
   const {
     data: userSettings,
