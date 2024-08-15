@@ -88,7 +88,7 @@ const columns = [
   },
   {
     name: 'Email Address',
-    selector: (row) => row['EmailAddress'],
+    selector: (row) => row['Email_Address'],
     sortable: true,
     exportSelector: 'EmailAddress',
   },
