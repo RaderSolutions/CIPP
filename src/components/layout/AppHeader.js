@@ -32,6 +32,13 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 const AppHeader = () => {
+
+  useEffect(()=>{
+    if (dashboard && dashboard.length >= 1) {
+      console.log('dashboard', dashboard)
+    }
+  },[dashboard])
+
   const dispatch = useDispatch()
   const location = useLocation()
   const [performedUserSettings, setUserSettingsComplete] = useState(false)
@@ -40,6 +47,7 @@ const AppHeader = () => {
   const currentTheme = useSelector((state) => state.app.currentTheme)
   const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'impact' : 'cyberdrain'
   const { data: dashboard } = useLoadAlertsDashQuery()
+ 
   const {
     data: userSettings,
     isLoading: isLoadingSettings,
@@ -138,14 +146,16 @@ const AppHeader = () => {
       {dashboard &&
         dashboard.length >= 1 &&
         dashboard.map((item, index) => (
-          <div
-            className="mb-3"
-            style={{ zIndex: 10000, 'padding-left': '20rem', 'padding-right': '3rem' }}
-          >
-            <CAlert key={index} color={item.type} variant dismissible>
-              {item.Alert} <CAlertLink href={item.link}>Link</CAlertLink>
-            </CAlert>
-          </div>
+          <>
+          </>
+          // <div
+          //   className="mb-3"
+          //   style={{ zIndex: 10000, 'padding-left': '20rem', 'padding-right': '3rem' }}
+          // >
+          //   <CAlert key={index} color={item.type} variant dismissible>
+          //     {item.Alert} <CAlertLink href={item.link}>Link</CAlertLink>
+          //   </CAlert>
+          // </div>
         ))}
     </>
   )
