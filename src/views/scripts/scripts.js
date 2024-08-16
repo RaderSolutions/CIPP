@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   // const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const scheduleLink = `/scripts/administration/script/scheduleScript?s`
+  const scheduleLink = `/scripts/schedule`
   return (
     <>
       <Link to={scheduleLink}>
