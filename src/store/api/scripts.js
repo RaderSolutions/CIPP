@@ -17,4 +17,3 @@ export const scriptsApi = baseApi.injectEndpoints({
 export const { 
     useListScriptQuery
 } = scriptsApi
-export default scriptsApi
