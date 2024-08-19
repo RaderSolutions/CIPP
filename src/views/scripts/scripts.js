@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   // const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const scheduleLink = `/scripts/schedule?script=${row.Name}`
+  const scheduleLink = `/scripts/schedule?script=${row.Number}`
   return (
     <>
       <Link to={scheduleLink}>
@@ -58,7 +58,7 @@ const columns = [
     name: 'Number',
     selector: (row) => row['Name'],
     sortable: true,
-    exportSelector: 'Name',
+    exportSelector: 'Number',
   },
   {
     name: 'Actions',
