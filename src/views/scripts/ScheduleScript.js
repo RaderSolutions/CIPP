@@ -38,7 +38,7 @@ const ScheduleLtScript = () => {
   const handleSubmit = async (values) => {
     const shippedValues = {}
 
-    genericPostRequest({ path: 'api/LtScheduleScript', values: shippedValues })
+    // genericPostRequest({ path: 'api/LtScheduleScript', values: shippedValues })
   }
 
   const {
@@ -46,6 +46,10 @@ const ScheduleLtScript = () => {
     isFetching: scriptIsFetching,
     error: scriptFetchError,
   } = useListScriptQuery({ scriptName })
+  
+  useEffect(() => {
+    console.log('script', script)
+  }, [script])
 
   useEffect(() => {
     function labelValue(number) {
@@ -69,7 +73,6 @@ const ScheduleLtScript = () => {
       return label
     }
     if (script && !scriptFetchError) {
-      console.log("SCRIPT/SCHEDULESCRIPT", script)
       // <RFFCFormSelect
       //   name="Did"
       //   label="Choose Caller ID"
@@ -81,8 +84,7 @@ const ScheduleLtScript = () => {
       //   //disabled={formDIsabled}
       // />
     }
-
-  })
+  }, [])
 
   return (
     <CippWizard onSubmit={handleSubmit} wizardTitle="Schedule LT Script">
@@ -93,7 +95,6 @@ const ScheduleLtScript = () => {
         </center>
         <hr className="my-4" />
         select target type
-
         {/* {script.schema.enhancedLTScript.predefinedTargets} */}
         <hr className="my-4" />
       </CippWizard.Page>
@@ -108,7 +109,7 @@ const ScheduleLtScript = () => {
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="" description="">
-        <center>
+        {/* <center>
           <h3 className="text-primary">Step 4</h3>
           <h5 className="mb-4">Confirm and apply</h5>
           <hr className="my-4" />
@@ -118,7 +119,7 @@ const ScheduleLtScript = () => {
             </CCallout>
           )}
           {postResults.isSuccess && <CCallout color="success">{postResults.data.Results}</CCallout>}
-        </center>
+        </center> */}
         <hr className="my-4" />
       </CippWizard.Page>
     </CippWizard>
