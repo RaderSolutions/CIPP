@@ -69,16 +69,17 @@ const ScheduleLtScript = () => {
       return label
     }
     if (script && !scriptFetchError) {
-      <RFFCFormSelect
-        name="Did"
-        label="Choose Caller ID"
-        placeholder={!scriptIsFetching ? 'Select Target Type' : 'Loading...'}
-        values={script.schema.enhancedLTScript.items?.map((item) => ({
-          value: item,
-          label: labelValue(item),
-        }))}
-        //disabled={formDIsabled}
-      />
+      console.log("SCRIPT/SCHEDULESCRIPT", script)
+      // <RFFCFormSelect
+      //   name="Did"
+      //   label="Choose Caller ID"
+      //   placeholder={!scriptIsFetching ? 'Select Target Type' : 'Loading...'}
+      //   values={script.schema.enhancedLTScript.items?.map((item) => ({
+      //     value: item,
+      //     label: labelValue(item),
+      //   }))}
+      //   //disabled={formDIsabled}
+      // />
     }
 
   })
@@ -92,7 +93,7 @@ const ScheduleLtScript = () => {
         </center>
         <hr className="my-4" />
         select target type
-        
+
         {/* {script.schema.enhancedLTScript.predefinedTargets} */}
         <hr className="my-4" />
       </CippWizard.Page>
