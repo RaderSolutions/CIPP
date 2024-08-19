@@ -92,7 +92,8 @@ const ScheduleLtScript = () => {
         </center>
         <hr className="my-4" />
         select target type
-        {script.schema.enhancedLTScript.predefinedTargets}
+        
+        {/* {script.schema.enhancedLTScript.predefinedTargets} */}
         <hr className="my-4" />
       </CippWizard.Page>
       <CippWizard.Page title="" description="">
