@@ -69,6 +69,7 @@ const columns = [
 ]
 
 const ScriptsList = () => {
+  console.log('scriptTable', scriptTable)
   const tenant = useSelector((state) => state.app.currentTenant)
   //const addDidButton = <TitleButton href="ratel/administration/dids/add" title="Add DID Number to Device" />
   return (
