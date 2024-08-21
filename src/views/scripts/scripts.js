@@ -13,7 +13,7 @@ import scriptTable from './scriptTable'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   // const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const scheduleLink = `/scripts/schedule?script=${row.name}`
+  const scheduleLink = `/scripts/schedule/nddiscover`
   return (
     <>
       <Link to={scheduleLink}>

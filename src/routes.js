@@ -542,7 +542,7 @@ const routes = [
   { path: 'scripts/list', name: 'Enhanced Labtech Scripts', component: LtScripts },
   { path: 'scripts/schedule', name: 'Schedule Enhanced Labtech Script', component: ScheduleScript },
   { path: 'scripts/new', name: 'Add Enhanced Labtech Script', component: NewScript },
-  { path: '/scripts/schedule?script=nddiscover', name: 'NetDisco Discover Device', component: NDDiscoverDevice },
+  { path: '/scripts/schedule/nddiscover', name: 'NetDisco Discover Device', component: NDDiscoverDevice },
   // lt configs
   { path: 'configs/list', name: 'Labtech Configs', component: LtConfigs },
 
