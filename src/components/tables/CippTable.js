@@ -139,6 +139,8 @@ export default function CippTable({
     ...rest
   } = {},
 }) {
+  console.log("DATA IN CIPPTABLE", data)
+  console.log("HARDDATA IN CIPPTABLE", hardData)
   const inputRef = useRef('')
   const [loopRunning, setLoopRunning] = React.useState(false)
   const [massResults, setMassResults] = React.useState([])
