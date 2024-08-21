@@ -82,6 +82,7 @@ const ScriptsList = () => {
         reportName: `${tenant.customerId}-Script-List`,
         path: '',
         data: scriptTable,
+        hardData: scriptTable,
         params: { },
       }}
     />
