@@ -13,7 +13,7 @@ import scriptTable from './scriptTable'
 const Offcanvas = (row, rowIndex, formatExtraData) => {
   // const tenant = useSelector((state) => state.app.currentTenant)
   const [ocVisible, setOCVisible] = useState(false)
-  const scheduleLink = `/scripts/schedule?script=${row.Number}`
+  const scheduleLink = `/scripts/schedule?script=${row.name}`
   return (
     <>
       <Link to={scheduleLink}>
@@ -27,7 +27,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
       <CippActionsOffcanvas
         title="Device Information"
         extendedInfo={[
-          { label: 'Number', value: `${row.Number}` },
+          { label: 'Name', value: `${row.name}` },
           
         ]}
         actions={[
@@ -47,7 +47,7 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
         ]}
         placement="end"
         visible={ocVisible}
-        id={row.Number}
+        id={row.name}
         hideFunction={() => setOCVisible(false)}
       />
     </>
@@ -77,7 +77,7 @@ const ScriptsList = () => {
       title="Enhanced Labtech Scripts"
       // TitleButton={addDidButton}
       datatable={{
-        keyField: 'Number',
+        keyField: 'name',
         columns,
         reportName: `${tenant.customerId}-Script-List`,
         path: '',
