@@ -103,6 +103,7 @@ const customSort = (rows, selector, direction) => {
 }
 export default function CippTable({
   data,
+  hardData,
   isFetching = false,
   disablePDFExport = false,
   disableCSVExport = false,
@@ -282,7 +283,7 @@ export default function CippTable({
     }
   }
 
-  const filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
+  const filteredItems = Array.isArray(data) ? filterData(data, filterText) : filterData(hardData, filterText)
 
   const applyFilter = (e) => {
     setFilterText(e.target.value)
