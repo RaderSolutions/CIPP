@@ -27,6 +27,7 @@ import { useLazyGenericGetRequestQuery, useLazyGenericPostRequestQuery } from 's
 import { ConfirmModal } from '../utilities/SharedModal'
 import { debounce } from 'lodash'
 import { useSearchParams } from 'react-router-dom'
+import { filter } from 'core-js/core/array'
 
 const FilterComponent = ({ filterText, onFilter, onClear, filterlist, onFilterPreset }) => (
   <>
@@ -102,6 +103,7 @@ const customSort = (rows, selector, direction) => {
 }
 export default function CippTable({
   data,
+  hardData,
   isFetching = false,
   disablePDFExport = false,
   disableCSVExport = false,
@@ -280,8 +282,12 @@ export default function CippTable({
       )
     }
   }
-
-  const filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
+  const filteredItems = []
+  if (!hardData) {
+    filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
+  } else {
+    filteredItems = filterData(hardData, filterText)
+  }
 
   const applyFilter = (e) => {
     setFilterText(e.target.value)
@@ -658,7 +664,7 @@ export default function CippTable({
   const tablePageSize = useSelector((state) => state.app.tablePageSize)
   return (
     <div className="ms-n3 me-n3 cipp-tablewrapper">
-      {!isFetching && error && <CCallout color="info">Error loading data</CCallout>}
+      {!isFetching && error && !hardData && <CCallout color="info">Error loading data</CCallout>}
       <div>
         {(columns.length === updatedColumns.length || !dynamicColumns) && (
           <>

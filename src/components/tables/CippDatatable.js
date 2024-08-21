@@ -6,7 +6,7 @@ import { CippTable } from 'src/components/tables'
 import { CippTablePropTypes } from 'src/components/tables/CippTable'
 import { CCallout } from '@coreui/react'
 
-export default function CippDatatable({ path, params, ...rest }) {
+export default function CippDatatable({ path, hardData, params, ...rest }) {
   const [refreshGuid, setRefreshGuid] = React.useState('')
   const [graphFilter, setGraphFilter] = React.useState(params?.Parameters?.$filter)
   const {
@@ -26,6 +26,7 @@ export default function CippDatatable({ path, params, ...rest }) {
       <CippTable
         {...rest}
         data={data[0]?.Queued ? [] : data}
+        hardData={hardData}
         isFetching={isFetching}
         error={error}
         defaultFilterText={defaultFilterText}
