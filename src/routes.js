@@ -24,6 +24,7 @@ import RatelProductsTable from './views/ratel/administration/RatelProductsTable'
 import RatelContactTable from './views/ratel/administration/RatelContactTable'
 import RatelAddVoicemail from './views/ratel/administration/RatelAddVoicemail'
 import RatelEditVoicemail from './views/ratel/administration/RatelEditVoicemail'
+import NDDiscoverDevice from './views/scripts/NDDiscoverDevice'
 
 const Home = React.lazy(() => import('src/views/home/Home'))
 const Logs = React.lazy(() => import('src/views/cipp/Logs'))
@@ -541,6 +542,7 @@ const routes = [
   { path: 'scripts/list', name: 'Enhanced Labtech Scripts', component: LtScripts },
   { path: 'scripts/schedule', name: 'Schedule Enhanced Labtech Script', component: ScheduleScript },
   { path: 'scripts/new', name: 'Add Enhanced Labtech Script', component: NewScript },
+  { path: '/scripts/schedule?script=nddiscover', name: 'NetDisco Discover Device', component: NDDiscoverDevice },
   // lt configs
   { path: 'configs/list', name: 'Labtech Configs', component: LtConfigs },
 

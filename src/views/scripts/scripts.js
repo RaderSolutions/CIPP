@@ -7,6 +7,7 @@ import { faEllipsisV, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { CippPageList } from 'src/components/layout'
 import { CippActionsOffcanvas } from 'src/components/utilities'
 import { Link } from 'react-router-dom'
+import scriptTable from './scriptTable'
 // import { TitleButton } from 'src/components/buttons'
 
 const Offcanvas = (row, rowIndex, formatExtraData) => {
@@ -55,10 +56,10 @@ const Offcanvas = (row, rowIndex, formatExtraData) => {
 
 const columns = [
   {
-    name: 'Number',
-    selector: (row) => row['Name'],
+    name: 'name',
+    selector: (row) => row['name'],
     sortable: true,
-    exportSelector: 'Number',
+    exportSelector: 'name',
   },
   {
     name: 'Actions',
@@ -78,7 +79,7 @@ const ScriptsList = () => {
         keyField: 'Number',
         columns,
         reportName: `${tenant.customerId}-Script-List`,
-        path: '/api/LtListScripts',
+        path: scriptTable,
         params: { },
       }}
     />
