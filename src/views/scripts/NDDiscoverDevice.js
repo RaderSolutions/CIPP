@@ -120,37 +120,17 @@ const ScheduleLtScript = () => {
         <center>
           <CRow>
             <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="DeviceType"
-                values={[
-                  { value: 'Generic', label: 'Generic' },
-                  { value: 'User', label: 'User' },
-                ]}
-                placeholder="Select an option"
-                label="Select Device Type:"
+              <RFFCFormInput
+                name="Device IP"
+                label="Enter Device IP:"
+                placeholder="Enter Device IP"   
               />
             </CCol>
             <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="DialplanType"
-                label="Select Dialplan Type:"
-                placeholder="Select an option"
-                values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
-                ]}
-                //disabled={formDIsabled}
-              />
-            </CCol>
-            <CCol lg={6} xs={12}>
-              <RFFCFormSelect
-                name="CallerIDType"
-                label="Select CallerID Type:"
-                placeholder="Select an option"
-                values={[
-                  { value: 'Default', label: 'Default' },
-                  { value: 'Custom', label: 'Custom' },
-                ]}
+              <RFFCFormInput
+                name="DeviceName"
+                label="Device Name:"
+                placeholder="Enter Device Name"
                 //disabled={formDIsabled}
               />
             </CCol>
