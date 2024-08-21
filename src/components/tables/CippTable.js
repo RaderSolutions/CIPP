@@ -27,7 +27,6 @@ import { useLazyGenericGetRequestQuery, useLazyGenericPostRequestQuery } from 's
 import { ConfirmModal } from '../utilities/SharedModal'
 import { debounce } from 'lodash'
 import { useSearchParams } from 'react-router-dom'
-import { filter } from 'core-js/core/array'
 
 const FilterComponent = ({ filterText, onFilter, onClear, filterlist, onFilterPreset }) => (
   <>
