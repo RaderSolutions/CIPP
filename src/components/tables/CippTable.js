@@ -103,7 +103,6 @@ const customSort = (rows, selector, direction) => {
 }
 export default function CippTable({
   data,
-  hardData,
   isFetching = false,
   disablePDFExport = false,
   disableCSVExport = false,
@@ -152,7 +151,6 @@ export default function CippTable({
   const [modalContent, setModalContent] = useState(null)
   //get the search params called "tableFilter" and set the filter to that.
   const [searchParams, setSearchParams] = useSearchParams()
-  console.log("HARD DATA IN CIPPTABLE", hardData)
   if (searchParams.get('tableFilter') && !filterviaURL && !isModal) {
     setFilterText(searchParams.get('tableFilter'))
     setFilterviaURL(true)
@@ -283,12 +281,8 @@ export default function CippTable({
       )
     }
   }
-  const filteredItems = []
-  if (!hardData || hardData === []) {
-    filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
-  } else {
-    filteredItems = filterData(hardData, filterText)
-  }
+
+  const filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
 
   const applyFilter = (e) => {
     setFilterText(e.target.value)
@@ -665,7 +659,7 @@ export default function CippTable({
   const tablePageSize = useSelector((state) => state.app.tablePageSize)
   return (
     <div className="ms-n3 me-n3 cipp-tablewrapper">
-      {!isFetching && error && !hardData && <CCallout color="info">Error loading data</CCallout>}
+      {!isFetching && error && <CCallout color="info">Error loading data</CCallout>}
       <div>
         {(columns.length === updatedColumns.length || !dynamicColumns) && (
           <>
