@@ -79,7 +79,8 @@ const ScriptsList = () => {
         keyField: 'Number',
         columns,
         reportName: `${tenant.customerId}-Script-List`,
-        path: scriptTable,
+        path: '',
+        data: {scriptTable},
         params: { },
       }}
     />
