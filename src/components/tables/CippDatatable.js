@@ -6,14 +6,17 @@ import { CippTable } from 'src/components/tables'
 import { CippTablePropTypes } from 'src/components/tables/CippTable'
 import { CCallout } from '@coreui/react'
 
-export default function CippDatatable({ path, params, ...rest }) {
+export default function CippDatatable({ path, hardData, params, ...rest }) {
   const [refreshGuid, setRefreshGuid] = React.useState('')
   const [graphFilter, setGraphFilter] = React.useState(params?.Parameters?.$filter)
+  
+    useListDatatableQuery({ path, params: { refreshGuid, $filter: graphFilter, ...params } })
+  
   const {
     data = [],
     isFetching,
     error,
-  } = useListDatatableQuery({ path, params: { refreshGuid, $filter: graphFilter, ...params } })
+  } =
  console.log('data in datatable', data)
 //  start here - need to make booleans string
   var defaultFilterText = ''
@@ -25,7 +28,7 @@ export default function CippDatatable({ path, params, ...rest }) {
       {data?.Metadata?.Queued && <CCallout color="info">{data?.Metadata?.QueueMessage}</CCallout>}
       <CippTable
         {...rest}
-        data={Array.isArray(data?.Results) ? data?.Results : data}
+        data={Array.isArray(data?.Results) ? data?.Results : hardData}
         isFetching={isFetching}
         error={error}
         defaultFilterText={defaultFilterText}
