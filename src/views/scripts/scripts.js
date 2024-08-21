@@ -80,7 +80,7 @@ const ScriptsList = () => {
         columns,
         reportName: `${tenant.customerId}-Script-List`,
         path: '',
-        data: {scriptTable},
+        data: scriptTable,
         params: { },
       }}
     />
