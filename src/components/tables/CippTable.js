@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useRef, useMemo, useState, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { ExportCsvButton, ExportPDFButton } from 'src/components/buttons'
@@ -151,6 +152,7 @@ export default function CippTable({
   const [modalContent, setModalContent] = useState(null)
   //get the search params called "tableFilter" and set the filter to that.
   const [searchParams, setSearchParams] = useSearchParams()
+  console.log("HARD DATA IN CIPPTABLE", hardData)
   if (searchParams.get('tableFilter') && !filterviaURL && !isModal) {
     setFilterText(searchParams.get('tableFilter'))
     setFilterviaURL(true)
@@ -282,7 +284,7 @@ export default function CippTable({
     }
   }
   const filteredItems = []
-  if (!hardData) {
+  if (!hardData || hardData === []) {
     filteredItems = Array.isArray(data) ? filterData(data, filterText) : []
   } else {
     filteredItems = filterData(hardData, filterText)
