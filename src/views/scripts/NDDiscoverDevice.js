@@ -18,7 +18,7 @@ import {
     RFFCFormSwitch,
     Condition,
   } from 'src/components/forms'
-  import { useSelector } from 'react-redux'
+  import { TenantSelector } from 'src/components/utilities'
 
 const Error = ({ name }) => (
   <Field
