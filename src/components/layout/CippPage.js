@@ -45,6 +45,7 @@ export function CippPageList({
   secondTitleButton,
   // see CippDatatable for full list
   datatable: { reportName, path, columns, params, ...rest },
+  hardData,
   children,
   capabilities = { allTenants: false },
 }) {
@@ -68,6 +69,7 @@ export function CippPageList({
                 path={path}
                 columns={columns}
                 params={params}
+                hardData={hardData}
                 {...rest}
               />
             </CCardBody>
