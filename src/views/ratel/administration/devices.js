@@ -210,7 +210,7 @@ const DevicesList = () => {
   useEffect(() => {
     console.log('post results', postResults)
   }, [postResults])
-
+// test push
   return (
     <>
       <CButton size="sm" variant="ghost" color="warning" onClick={onClickReconfigAll}>
